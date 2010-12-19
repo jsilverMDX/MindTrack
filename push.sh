@@ -11,5 +11,5 @@ echo '...pushing...'
 git push origin master
 if [ "$1" = "deploy" ]; then
 echo '...pulling remotely...'
-ssh www-data@mindynamics.com /srv/www/www.mindynamics.com/pull.sh
+ssh www-data@mindynamics.com /srv/www/mindynamics.com/pull.sh
 fi
