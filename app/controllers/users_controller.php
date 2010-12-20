@@ -2,7 +2,36 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-
+	
+	// dev admin hack
+	/*
+	function beforeFilter()
+	{
+	  parent::beforeFilter();
+	  $this->Auth->allow('*');
+	}
+  
+  
+  function initDB() {
+    $group =& $this->User->Group;
+    //Allow admins to everything
+    $group->id = 1;
+    $this->Acl->allow($group, 'controllers');
+  }
+  */
+  
+  function login() {
+	  if ($this->Session->read('Auth.User')) {
+		  $this->Session->setFlash('You are logged in!');
+		  $this->redirect('/', null, false);
+	  }
+  }
+  
+  function logout() {
+    $this->Session->setFlash('Good-Bye');
+    $this->redirect($this->Auth->logout());
+  }
+  
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -26,6 +55,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 	function edit($id = null) {
@@ -44,6 +75,8 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 	function delete($id = null) {

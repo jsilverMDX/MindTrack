@@ -3,6 +3,11 @@ class PagesController extends AppController {
 
 	var $name = 'Pages';
 
+  function beforeFilter() {
+      parent::beforeFilter(); 
+      $this->Auth->allowedActions = array('index', 'view');
+  }
+
   function welcome() {
     $welcome_content = $this->Page->field("page", array('name' => 'welcome'));
     $this->set("welcome_content", $welcome_content);

@@ -1,11 +1,54 @@
 <?php
 class User extends AppModel {
 	var $name = 'User';
-	var $displayField = 'login';
+	var $displayField = 'username';
+	var $actsAs = array('Acl' => 'requester');
+	
+	
+	function parentNode() {
+	if (!$this->id && empty($this->data)) { return null; }
+	$data = $this->data;
+	if (empty($this->data)) {$data = $this->read();}
+	if (empty($data['User']['group_id'])) {return null;}
+	else{
+	return array('Group' => array('id' => $data['User']['group_id']));}
+	}
+
+  function afterSave($created) {
+          if (!$created) {
+              $parent = $this->parentNode();
+              $parent = $this->node($parent);
+              $node = $this->node();
+              $aro = $node[0];
+              $aro['Aro']['parent_id'] = $parent[0]['Aro']['id'];
+              $this->Aro->save($aro);
+          }
+  }
+
 	var $validate = array(
-		'login' => array(
+		'username' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'password' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'group_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -16,21 +59,44 @@ class User extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasOne = array(
-		'Client' => array(
-			'className' => 'Client',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Member' => array(
-			'className' => 'Member',
-			'foreignKey' => 'user_id',
+	var $belongsTo = array(
+		'Group' => array(
+			'className' => 'Group',
+			'foreignKey' => 'group_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
+
+	var $hasMany = array(
+		'Client' => array(
+			'className' => 'Client',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Member' => array(
+			'className' => 'Member',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 }
 ?>

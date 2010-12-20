@@ -23,7 +23,7 @@
 		<td><?php echo $member['Member']['karma_points']; ?>&nbsp;</td>
 		<td><?php echo $member['Member']['user_rank']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($member['User']['login'], array('controller' => 'users', 'action' => 'view', $member['User']['id'])); ?>
+			<?php echo $this->Html->link($member['User']['username'], array('controller' => 'users', 'action' => 'view', $member['User']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $member['Member']['id'])); ?>
