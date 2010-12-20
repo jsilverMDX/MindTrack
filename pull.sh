@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /srv/www/tcd.mindynamics.com
+cd /srv/www/mindynamics.com
 git pull origin master
