@@ -20,7 +20,7 @@
 <div id="container">
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
-			<em id='titlez'>Mindynamics</em><br>
+			<img src="/img/logo.png" /><br>
 			<em id='slogan'>awesome programming services</em>
 		<div id="spacer"></div>
 		<div id="header_links">
