@@ -61,6 +61,12 @@ body{
 	padding: 18px 20px 8px 20px;
 	background-image: url('/img/black.png');
 }
+#container #finish #menu li:hover{
+	display: inline;
+	-webkit-border-radius: 5px;
+	padding: 18px 20px 8px 20px;
+	background-image: url('/img/black_blue.png');
+}
 #container #finish #menu li a{
 	color: white;
 	text-decoration: none;
