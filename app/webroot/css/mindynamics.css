@@ -62,6 +62,8 @@ body{
 	font-family: buda;
 	padding-left: 11px;
 }
+
+/* container div */
 #container #finish{
 	margin-top: 10px;
 	width: 950px;
@@ -92,6 +94,28 @@ body{
 	font-size: 30px;
 	font-family: buda;
 }
+
+#container #finish #main_content {
+  background: #ccc;
+  color: black;
+  margin: 0 25px 0 25px; 
+  padding: 25px;
+  border: 1px black solid;
+  min-height: 450px;
+  opacity: 0.7;
+  font-size: 13pt;
+  font-family: sans-serif;
+  
+}
+
+#container #finish #main_content p {
+  padding-bottom: 10px;
+}
+
+#container #finish #main_content h1 {
+  font-size: 32pt;
+}
+/* footer */
 #container #footer{
 	background-image: url('/img/grey_bot.png');
 	margin-top: 10px;

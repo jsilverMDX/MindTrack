@@ -43,8 +43,13 @@
 			</ul>
 		</div>
 		<br>
+		
+		<div id="main_content">
 		<?php echo $content_for_layout; ?>
+		</div>
+		
 	</div>
+	
 	<div id="footer" class='box_shadow'>
 		<div id="footer_accent">
 			<div class="footer_text">

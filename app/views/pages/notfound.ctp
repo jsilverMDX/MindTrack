@@ -1,3 +1,5 @@
+<h1>404 Not Found</h1>
+
 <p>We're sorry, but a dragon ate your page. And then a unicorn stomped on it.</p>
 
 <p>After that was all through it got hit by a mack truck. And then we don't know what happened to it.</p>
