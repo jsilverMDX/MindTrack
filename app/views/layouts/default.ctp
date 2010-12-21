@@ -3,6 +3,7 @@
 <head>
 <title><?php echo $title_for_layout?></title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href='http://fonts.googleapis.com/css?family=Buda:light' rel='stylesheet' type='text/css'>
 <script src='http://code.jquery.com/jquery-1.4.2.min.js' type='text/javascript'>
 </script>
 <link rel="stylesheet" href="/css/mindynamics.css" type="text/css" media="screen" charset="utf-8" />
@@ -15,8 +16,15 @@
 <![endif]-->
 </head>
 <body>
+</div>
 <div id="container">
-	<div id="header">
+	<div id="header" class='box_shadow'>
+		<div id="header_accent">
+			<em id='titlez'>Mindynamics</em><br>
+			<em id='slogan'>Some sick ass Slogan that will knock your pants off!</em>
+		</div>
+	</div>
+	<div id="finish" class='box_shadow'>
 		<div id="menu">
 			<ul>
 				<li><a href="/">Home</a></li>
@@ -26,19 +34,15 @@
 				<li class="last"><a href="#">About</a></li>
 			</ul>
 		</div>
+		<?php echo $content_for_layout; ?>
 	</div>
-
-	<div id="main_content">	
-    <?php echo $content_for_layout ?>
+	<div id="footer" class='box_shadow'>
+		<div id="footer_accent">
+			<div class="footer_text">
+		      <div class="footer_para">Mindynamics &copy; 2010</div>
+		    </div>
+		</div>
 	</div>
-
-
-	<div style="clear: both"></div>
-  <div id="footer">
-    <div class="footer_text">
-      <div class="footer_para">Mindynamics &copy; 2010</div>
-    </div>
-  </div>
 </div>
 </body>
 </html>
