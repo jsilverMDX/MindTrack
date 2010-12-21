@@ -49,6 +49,24 @@ body{
 	height: 600px;
 	background-image: url('/img/glass.png');
 }
+#container #finish #menu ul{
+	text-align: center;
+	padding-top: 15px;
+	padding-left: 1px;
+	margin: auto;
+}
+#container #finish #menu li{
+	display: inline;
+	-webkit-border-radius: 5px;
+	padding: 18px 20px 8px 20px;
+	background-image: url('/img/black.png');
+}
+#container #finish #menu li a{
+	color: white;
+	text-decoration: none;
+	font-size: 30px;
+	font-family: buda;
+}
 #container #footer{
 	background-image: url('/img/grey_bot.png');
 	margin-top: 10px;

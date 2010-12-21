@@ -34,6 +34,7 @@
 				<li class="last"><a href="#">About</a></li>
 			</ul>
 		</div>
+		<br>
 		<?php echo $content_for_layout; ?>
 	</div>
 	<div id="footer" class='box_shadow'>
