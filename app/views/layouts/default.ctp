@@ -20,8 +20,10 @@
 <div id="container">
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
-			<img src="/img/logo.png" /><br>
-			<em id='slogan'>awesome programming services</em>
+		<div id="logo">
+		<img src="/img/logo.png" />
+		<em id='slogan'>awesome programming services</em>
+		</div>
 		<div id="spacer"></div>
 		<div id="header_links">
 	    <ul>
