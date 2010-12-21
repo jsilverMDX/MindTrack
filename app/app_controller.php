@@ -14,7 +14,7 @@ class AppController extends Controller {
   }
   
   /* purposefully disabled code that builds ACO objects */
-  /*
+  
 	function build_acl() {
 		if (!Configure::read('debug')) {
 			return $this->_stop();
@@ -197,7 +197,7 @@ class AppController extends Controller {
 		}
 		return $arr;
 	}
-  */
+  
 
 }
 

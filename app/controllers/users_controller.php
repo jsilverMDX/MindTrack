@@ -24,6 +24,8 @@ class UsersController extends AppController {
 	  if ($this->Session->read('Auth.User')) {
 		  $this->Session->setFlash('You are logged in!');
 		  $this->redirect('/', null, false);
+	  } else {
+	    $this->set('title_for_layout', 'MDX | Login');
 	  }
   }
   
