@@ -13,6 +13,10 @@ class PagesController extends AppController {
     // get "da" page
     $page_name = $this->params['page'];
     $page = $this->Page->findByName($page_name);
+    
+    // set the title
+    $this->set('title_for_layout', "MDX | " . ucwords($page_name));
+    
     // same as unless page.nil
     if(!(empty($page))) {
       // set page content and render
@@ -27,6 +31,7 @@ class PagesController extends AppController {
 
   function welcome() {
     $welcome_content = $this->Page->field("page", array('name' => 'welcome'));
+    $this->set('title_for_layout', "MDX | Welcome");
     $this->set("welcome_content", $welcome_content);
   }
 
