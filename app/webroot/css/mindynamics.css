@@ -30,6 +30,25 @@ body{
 	width: 950px;
 	height: 200px;
 }
+#container #header #spacer{
+  height: 90px;
+}
+#container #header #header_links{
+  text-align: right;
+  padding-right: 10px;
+}
+#container #header #header_links a {
+  color: white;
+  text-decoration: none;
+}
+#container #header #header_links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+#container #header #header_links a:active, #container #header #header_links a:visited  {
+  color: white;
+  text-decoration: underline;
+}
 #container #header #header_accent #titlez{
 	color: white;
 	font-style: normal;

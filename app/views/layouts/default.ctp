@@ -22,8 +22,16 @@
 		<div id="header_accent">
 			<em id='titlez'>Mindynamics</em><br>
 			<em id='slogan'>awesome programming services</em>
+		<div id="spacer"></div>
+		<div id="header_links">
+	    <ul>
+	      <li><a href="/login">Login</a></li>
+	    </ul>
 		</div>
+		</div>
+
 	</div>
+	
 	<div id="finish" class='box_shadow'>
 		<div id="menu">
 			<ul>
