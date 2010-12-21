@@ -28,10 +28,10 @@
 		<div id="menu">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="#">Info</a></li>
-				<li><a href="#">Clients</a></li>
-				<li><a href="#">Jobs</a></li>
-				<li class="last"><a href="#">About</a></li>
+				<li><a href="/_info">Info</a></li>
+				<li><a href="/_clients">Clients</a></li>
+				<li><a href="/_jobs">Jobs</a></li>
+				<li class="last"><a href="/_about">About</a></li>
 			</ul>
 		</div>
 		<br>

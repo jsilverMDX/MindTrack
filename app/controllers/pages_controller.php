@@ -5,7 +5,24 @@ class PagesController extends AppController {
 
   function beforeFilter() {
       parent::beforeFilter(); 
-      $this->Auth->allowedActions = array('welcome');
+      $this->Auth->allowedActions = array('welcome', 'display');
+  }
+  
+  // show us a page
+  function display() {
+    // get "da" page
+    $page_name = $this->params['page'];
+    $page = $this->Page->findByName($page_name);
+    // same as unless page.nil
+    if(!(empty($page))) {
+      // set page content and render
+      $this->set('page', $page['Page']['page']);
+      
+    } else {
+     // 404
+     $this->cakeError('error404');
+    }
+    
   }
 
   function welcome() {
