@@ -5,7 +5,7 @@ class PagesController extends AppController {
 
   function beforeFilter() {
       parent::beforeFilter(); 
-      $this->Auth->allowedActions = array('welcome', 'display');
+      $this->Auth->allowedActions = array('welcome', 'display', 'notfound');
   }
   
   // show us a page
@@ -27,6 +27,11 @@ class PagesController extends AppController {
      $this->cakeError('error404');
     }
     
+  }
+  
+  // custom 404
+  function notfound() {
+    $this->set('title_for_layout', "MDX | 404 Not Found");
   }
 
   function welcome() {
