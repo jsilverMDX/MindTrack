@@ -113,6 +113,12 @@ body{
   padding-bottom: 10px;
 }
 
+#container #finish #main_content img {
+padding: 5px;
+border: 2px solid blue;
+margin: 10px;
+}
+
 #container #finish #main_content h1 {
   font-size: 32pt;
   padding-bottom: 15px;

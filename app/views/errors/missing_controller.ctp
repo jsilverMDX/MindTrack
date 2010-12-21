@@ -1,9 +1,9 @@
-<h1>Missing Controller</h1>
+<h1>404 Not Found</h1>
 
-<p>You've cut off my head. Now I don't know what the L is going on.</p>
+<p>We're sorry, but a dragon ate your page. And then a unicorn stomped on it.</p>
 
-<p>Thanks a lot. You've crashed the server and destroyed everything.</p>
+<p>After that was all through it got hit by a mack truck. And then we don't know what happened to it.</p>
 
-<p>Hope your happy. The administrators have been notified.</p>
+<p>Terribly sorry.</p>
 
-<p>They have your IP address and are sending it to the FBI.</p>
+<p>You may want to try pressing your back button or something. Or perhaps click on a different program.</p>

@@ -1,13 +1,9 @@
-<h1>Missing Action</h1>
+<h1>404 Not Found</h1>
 
-<p>I was going to do something, but I don't know what it was.</p>
+<p>We're sorry, but a dragon ate your page. And then a unicorn stomped on it.</p>
 
-<p>That's not very suprising because I like to bang my head a lot.</p>
+<p>After that was all through it got hit by a mack truck. And then we don't know what happened to it.</p>
 
-<p>Also I am very lazy.</p>
+<p>Terribly sorry.</p>
 
-<p>Sometimes I wake up at 4 pm.</p>
-
-<p>I still don't know what to do.</p>
-
-<p>Hopefully this has been useful to you.</p>
+<p>You may want to try pressing your back button or something. Or perhaps click on a different program.</p>
