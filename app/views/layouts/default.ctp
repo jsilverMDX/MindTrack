@@ -21,7 +21,7 @@
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
 			<em id='titlez'>Mindynamics</em><br>
-			<em id='slogan'>Some sick ass Slogan that will knock your pants off!</em>
+			<em id='slogan'>awesome programming services</em>
 		</div>
 	</div>
 	<div id="finish" class='box_shadow'>
