@@ -37,10 +37,10 @@ class UsersController extends AppController {
 		  if($group == 1) {
 		  // admin landing
 		  $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'index');
-		  } else if($group == 2) {
+		  } elseif($group == 2) {
 		  // member landing
 		  $this->Auth->logoutRedirect = array('controller' => 'members', 'action' => 'member_landing');
-		  } else if($group == 3) {
+		  } elseif($group == 3) {
 		  // client landing
       $this->Auth->logoutRedirect = array('controller' => 'clients', 'action' => 'client_landing');
 		  }
