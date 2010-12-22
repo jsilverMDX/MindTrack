@@ -28,11 +28,22 @@ class UsersController extends AppController {
   function login() {
     $user = $this->Session->read('Auth.User');
 	  if ($user) {
+	  
 		  //$this->Session->setFlash('You are logged in!');
-		  // get user type so we can figure out where to land them
-		  //debug($user);
 		  
-		  $this->redirect('/', null, false);
+		  // get user type so we can figure out where to land them
+		  $group = $user['group_id'];
+		  if($group == 1) {
+		  // admin landing
+		  $this->redirect('/admin', null, false);
+		  } else if($group == 2) {
+		  // member landing
+		  $this->redirect('/members/member_landing', null, false);
+		  } else if($group == 3) {
+		  // client landing
+		  $this->redirect('/clients/client_landing', null, false);
+		  }
+		  
 	  } else {
 	    $this->set('title_for_layout', 'MDX | Login');
 	  }
