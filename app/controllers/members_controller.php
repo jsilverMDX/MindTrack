@@ -12,10 +12,11 @@ class MembersController extends AppController {
 	  // get user info from session
 	  $session_user = $this->Session->read('Auth.User');
 	  // my user and his objects
-		$this->User->recursive = 2;
+	  // use containable instead.. recursive is slow (!!!)
+		$this->User->recursive = 3;
 	  // my member
 	  $user = $this->User->findById($session_user['id']);
-	  debug($user);
+	  debug($user['Member']['Project']);
 	  $this->set("user", $user);
 	
 	}
