@@ -36,13 +36,13 @@ class UsersController extends AppController {
 		  $group = $user['group_id'];
 		  if($group == 1) {
 		  // admin landing
-		  $this->redirect('/users', null, false);
+		  $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'index');
 		  } else if($group == 2) {
 		  // member landing
-		  $this->redirect('/members/member_landing', null, false);
+		  $this->Auth->logoutRedirect = array('controller' => 'members', 'action' => 'member_landing');
 		  } else if($group == 3) {
 		  // client landing
-		  $this->redirect('/clients/client_landing', null, false);
+      $this->Auth->logoutRedirect = array('controller' => 'clients', 'action' => 'client_landing');
 		  }
 		  
 	  } else {

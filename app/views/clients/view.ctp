@@ -38,7 +38,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($client['User']['login'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
+			<?php echo $this->Html->link($client['User']['username'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

@@ -29,7 +29,7 @@
 		<td><?php echo $client['Client']['link']; ?>&nbsp;</td>
 		<td><?php echo $client['Client']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($client['User']['login'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
+			<?php echo $this->Html->link($client['User']['username'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $client['Client']['id'])); ?>
