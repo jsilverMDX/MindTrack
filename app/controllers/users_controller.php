@@ -20,6 +20,7 @@ class UsersController extends AppController {
   }
   */
   
+  // allows anyone to login/logout no permissions
   function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('login','logout');
@@ -30,12 +31,12 @@ class UsersController extends AppController {
 	  if ($user) {
 	  
 		  //$this->Session->setFlash('You are logged in!');
-		  
+		  //debug($user);
 		  // get user type so we can figure out where to land them
 		  $group = $user['group_id'];
 		  if($group == 1) {
 		  // admin landing
-		  $this->redirect('/admin', null, false);
+		  $this->redirect('/users', null, false);
 		  } else if($group == 2) {
 		  // member landing
 		  $this->redirect('/members/member_landing', null, false);

@@ -1,5 +1,11 @@
+<div class="member">
+<p>Hello, <?php echo($user['Member']['name']); ?>!</p>
+</div>
+
 <div class="work">
-<h3>My Projects</h3>
+<h1>My Work</h1>
+
+<h3>Assigned Projects</h3>
 <p>
 
 </p>

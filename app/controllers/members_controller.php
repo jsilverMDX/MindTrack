@@ -2,11 +2,21 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
+	var $uses = array('Member', 'User');
 	
-	// i think i will put member's landing here
-	// show them their account info and whatever is going on
-	// we're coming here after login
+	// member landing point
+	// get my member
+	// show all my info
+	// anything with member_id
 	function member_landing() {
+	  // get user info from session
+	  $session_user = $this->Session->read('Auth.User');
+	  // my user and his objects
+		$this->User->recursive = 2;
+	  // my member
+	  $user = $this->User->findById($session_user['id']);
+	  //debug($user);
+	  $this->set("user", $user);
 	
 	}
 
