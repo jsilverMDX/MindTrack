@@ -2,6 +2,7 @@
 class StatusMessage extends AppModel {
 	var $name = 'StatusMessage';
 	var $displayField = 'message';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'message' => array(
 			'notempty' => array(

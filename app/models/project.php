@@ -2,6 +2,7 @@
 class Project extends AppModel {
 	var $name = 'Project';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(

@@ -2,6 +2,7 @@
 class TicketComment extends AppModel {
 	var $name = 'TicketComment';
 	var $displayField = 'comment';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'comment' => array(
 			'notempty' => array(

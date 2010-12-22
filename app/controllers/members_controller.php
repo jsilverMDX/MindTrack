@@ -2,6 +2,7 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
+	// has to $uses everything that will be contained
 	var $uses = array('Member', 'User');
 	
 	// member landing point
@@ -13,10 +14,11 @@ class MembersController extends AppController {
 	  $session_user = $this->Session->read('Auth.User');
 	  // my user and his objects
 	  // use containable instead.. recursive is slow (!!!)
-		$this->User->recursive = 3;
+    $this->User->recursive = 3;
 	  // my member
-	  $user = $this->User->findById($session_user['id']);
-	  debug($user['Member']['Project']);
+    $user = $this->User->findById($session_user['id']);
+	  //$user = $this->User->find('first', array('conditions' => array('User.id =' => $session_user['id']), 'contain' => array('User', 'Member', 'Project', 'Ticket')));
+	  //debug($user);
 	  $this->set("user", $user);
 	
 	}

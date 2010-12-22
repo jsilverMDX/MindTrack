@@ -2,6 +2,7 @@
 class Ticket extends AppModel {
 	var $name = 'Ticket';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(

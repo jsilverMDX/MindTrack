@@ -2,6 +2,7 @@
 class Member extends AppModel {
 	var $name = 'Member';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(

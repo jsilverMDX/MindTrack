@@ -2,6 +2,7 @@
 class Client extends AppModel {
 	var $name = 'Client';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(

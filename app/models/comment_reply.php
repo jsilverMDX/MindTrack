@@ -2,6 +2,7 @@
 class CommentReply extends AppModel {
 	var $name = 'CommentReply';
 	var $displayField = 'reply';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'reply' => array(
 			'notempty' => array(

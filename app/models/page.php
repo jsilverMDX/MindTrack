@@ -2,6 +2,7 @@
 class Page extends AppModel {
 	var $name = 'Page';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(
