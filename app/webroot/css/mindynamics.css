@@ -36,13 +36,13 @@ height: 100px;
 margin-left: 45px;
 padding-top: 30px;
 }
-#container #header #spacer{
-  height: 55px;
-}
+
 #container #header #header_links{
   font-family: sans-serif;
   text-align: right;
-  padding-right: 10px;
+  position: absolute;
+  left: 900px;
+  top: 185px;
 }
 #container #header #header_links a {
   color: white;

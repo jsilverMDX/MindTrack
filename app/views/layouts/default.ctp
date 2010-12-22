@@ -24,7 +24,6 @@
 		<img src="/img/logo.png" />
 		<em id='slogan'>awesome programming services</em>
 		</div>
-		<div id="spacer"></div>
 		<div id="header_links">
 	    <ul>
 	      <?php $logged_in = $session->read('Auth.User') ?>
