@@ -15,7 +15,7 @@ class MembersController extends AppController {
 		$this->User->recursive = 2;
 	  // my member
 	  $user = $this->User->findById($session_user['id']);
-	  //debug($user);
+	  debug($user);
 	  $this->set("user", $user);
 	
 	}

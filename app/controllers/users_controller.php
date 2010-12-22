@@ -34,14 +34,11 @@ class UsersController extends AppController {
 		  //debug($user);
 		  // get user type so we can figure out where to land them
 		  $group = $user['group_id'];
-		  if($group == 1) {
-		  // admin landing
+		  if($group == 1) { // admin
 		  $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'index');
-		  } elseif($group == 2) {
-		  // member landing
+		  } elseif($group == 2) { // member
 		  $this->Auth->logoutRedirect = array('controller' => 'members', 'action' => 'member_landing');
-		  } elseif($group == 3) {
-		  // client landing
+		  } elseif($group == 3) { // client
       $this->Auth->logoutRedirect = array('controller' => 'clients', 'action' => 'client_landing');
 		  }
 		  
