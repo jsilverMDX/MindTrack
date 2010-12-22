@@ -20,9 +20,18 @@ class UsersController extends AppController {
   }
   */
   
+  function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow('login','logout');
+  }
+  
   function login() {
-	  if ($this->Session->read('Auth.User')) {
-		  $this->Session->setFlash('You are logged in!');
+    $user = $this->Session->read('Auth.User');
+	  if ($user) {
+		  //$this->Session->setFlash('You are logged in!');
+		  // get user type so we can figure out where to land them
+		  //debug($user);
+		  
 		  $this->redirect('/', null, false);
 	  } else {
 	    $this->set('title_for_layout', 'MDX | Login');
@@ -30,7 +39,7 @@ class UsersController extends AppController {
   }
   
   function logout() {
-    $this->Session->setFlash('Good-Bye');
+    //$this->Session->setFlash('You are logged out!');
     $this->redirect($this->Auth->logout());
   }
   

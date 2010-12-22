@@ -27,7 +27,7 @@
 		<div id="header_links">
 	    <ul>
 	      <?php $logged_in = $session->read('Auth.User') ?>
-	      <?php is_array($logged_in) ? $uaction = 'logout' : $uaction = 'login' ?>
+	      <?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
 	      <li><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
 	    </ul>
 		</div>

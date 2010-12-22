@@ -2,6 +2,13 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
+	
+	// i think i will put member's landing here
+	// show them their account info and whatever is going on
+	// we're coming here after login
+	function member_landing() {
+	
+	}
 
 	function index() {
 		$this->Member->recursive = 0;
