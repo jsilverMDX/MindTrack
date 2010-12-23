@@ -19,7 +19,7 @@
       foreach($tickets as $ticket):
     ?>
     <li class="ticket">
-    <h4 class="ticket-header">Ticket</h4>
+    <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?></h4>
     <div class="ticket-name">Name: <? echo($ticket['name']); ?></div>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
     <div class="ticket-status">Status: <? echo($ticket['status']); ?></div>

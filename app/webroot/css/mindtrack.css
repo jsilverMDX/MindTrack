@@ -36,6 +36,10 @@ font-size: 48pt;
 padding-left: 50px;
 }
 
+#header {
+  padding-top: 20px;
+}
+
 #header_links {
   text-align: right;
   position: relative;

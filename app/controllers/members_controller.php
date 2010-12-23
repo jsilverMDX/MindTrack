@@ -12,6 +12,7 @@ class MembersController extends AppController {
 	  $options['contain'] = array('Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
     $member = $this->Member->find('first', $options);
     //debug($member);
+    $this->set("title_for_layout", "MDX MindTracker");
 	  $this->set("member", $member);
 	}
 
