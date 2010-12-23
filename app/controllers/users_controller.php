@@ -29,17 +29,14 @@ class UsersController extends AppController {
   function login() {
     $user = $this->Session->read('Auth.User');
 	  if ($user) {
-	  
-		  //$this->Session->setFlash('You are logged in!');
-		  //debug($user);
 		  // get user type so we can figure out where to land them
 		  $group = $user['group_id'];
 		  if($group == 1) { // admin
-		  $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'index');
+		    $this->redirect(array('controller' => 'users', 'action' => 'index'));
 		  } elseif($group == 2) { // member
-		  $this->Auth->logoutRedirect = array('controller' => 'members', 'action' => 'member_landing');
+		    $this->redirect(array('controller' => 'members', 'action' => 'member_landing'));
 		  } elseif($group == 3) { // client
-      $this->Auth->logoutRedirect = array('controller' => 'clients', 'action' => 'client_landing');
+        $this->redirect(array('controller' => 'clients', 'action' => 'client_landing'));
 		  }
 		  
 	  } else {
