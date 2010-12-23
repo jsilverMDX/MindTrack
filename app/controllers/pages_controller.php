@@ -6,7 +6,7 @@ class PagesController extends AppController {
   function beforeFilter() {
     parent::beforeFilter(); 
     $this->Auth->allowedActions = array('welcome', 'display', 'notfound');
-    $this->set('nav_items', $this->Page->find("all", array('conditions' => 'page is not null and public = 1'))); # and is public | populate the nav bar
+    $this->set('nav_items', $this->Page->find("all", array('conditions' => 'page is not null and public = 1')));
   }
   
   // show us a page
