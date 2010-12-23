@@ -21,6 +21,11 @@
 			<?php echo $this->Html->link($page['Member']['name'], array('controller' => 'members', 'action' => 'view', $page['Member']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Public'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $page['Page']['public'] == 1 ? 'Yes' : 'No'; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
