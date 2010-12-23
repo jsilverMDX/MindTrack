@@ -90,7 +90,7 @@ CREATE TABLE `aros_acos` (
   `_delete` varchar(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `comment_replies` (
   KEY `fk_comment_replies_2` (`ticket_comment_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -161,6 +161,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `comment_replies` WRITE;
 /*!40000 ALTER TABLE `comment_replies` DISABLE KEYS */;
+INSERT INTO `comment_replies` VALUES (1,'Well have you tried learning how to fucking code then?',1,1);
 /*!40000 ALTER TABLE `comment_replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +266,7 @@ CREATE TABLE `members_tickets` (
   KEY `fk_members_tickets_tickets1` (`ticket_id`),
   CONSTRAINT `fk_members_tickets_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_tickets_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -274,6 +275,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `members_tickets` WRITE;
 /*!40000 ALTER TABLE `members_tickets` DISABLE KEYS */;
+INSERT INTO `members_tickets` VALUES (1,1,1);
 /*!40000 ALTER TABLE `members_tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,7 +355,7 @@ CREATE TABLE `status_messages` (
   KEY `fk_status_messages_2` (`member_id`),
   CONSTRAINT `fk_status_messages_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -362,6 +364,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `status_messages` WRITE;
 /*!40000 ALTER TABLE `status_messages` DISABLE KEYS */;
+INSERT INTO `status_messages` VALUES (1,'SoS. SoS. This project is fubar.',1,1);
 /*!40000 ALTER TABLE `status_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +386,7 @@ CREATE TABLE `ticket_comments` (
   KEY `fk_ticket_comments_2` (`ticket_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -392,6 +395,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `ticket_comments` WRITE;
 /*!40000 ALTER TABLE `ticket_comments` DISABLE KEYS */;
+INSERT INTO `ticket_comments` VALUES (1,'I am very displeased with the work that has been done on this ticket. Sike.',1,1,'poor');
 /*!40000 ALTER TABLE `ticket_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +415,7 @@ CREATE TABLE `tickets` (
   PRIMARY KEY  (`id`),
   KEY `fk_tickets_1` (`project_id`),
   CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -420,6 +424,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (1,'Test Ticket #1','Test Description.',1,'incomplete');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -461,4 +466,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-22 23:14:08
+-- Dump completed on 2010-12-23  9:52:10
