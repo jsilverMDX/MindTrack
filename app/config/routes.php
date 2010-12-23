@@ -14,8 +14,8 @@
 	
 	Router::connect('/mdx_admin', array('controller' => 'users', 'action' => 'admin_landing'));
 	
-	Router::connect('/mdx_member', array('controller' => 'members', 'action' => 'member_landing'));
+	Router::connect('/mdx_members', array('controller' => 'members', 'action' => 'member_landing'));
 	
-	Router::connect('/mdx_client', array('controller' => 'clients', 'action' => 'client_landing'));
+	Router::connect('/mdx_clients', array('controller' => 'clients', 'action' => 'client_landing'));
 	
 	

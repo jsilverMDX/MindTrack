@@ -47,9 +47,9 @@ class UsersController extends AppController {
     if($group_name == 'admin') {
       $this->redirect('/mdx_admin');
     } elseif($group_name == 'member') {
-      $this->redirect('/mdx_member');
+      $this->redirect('/mdx_members');
     } elseif($group_name == 'client') {
-      $this->redirect('/mdx_client');
+      $this->redirect('/mdx_clients');
     }
   }
   
