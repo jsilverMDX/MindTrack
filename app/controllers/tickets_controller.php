@@ -4,11 +4,13 @@ class TicketsController extends AppController {
 	var $name = 'Tickets';
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Ticket->recursive = 0;
 		$this->set('tickets', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid ticket', true));
 			$this->redirect(array('action' => 'index'));
@@ -17,6 +19,7 @@ class TicketsController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Ticket->create();
 			if ($this->Ticket->save($this->data)) {
@@ -32,6 +35,7 @@ class TicketsController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid ticket', true));
 			$this->redirect(array('action' => 'index'));

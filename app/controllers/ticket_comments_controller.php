@@ -4,11 +4,13 @@ class TicketCommentsController extends AppController {
 	var $name = 'TicketComments';
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->TicketComment->recursive = 0;
 		$this->set('ticketComments', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid ticket comment', true));
 			$this->redirect(array('action' => 'index'));
@@ -17,6 +19,7 @@ class TicketCommentsController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->TicketComment->create();
 			if ($this->TicketComment->save($this->data)) {
@@ -32,6 +35,7 @@ class TicketCommentsController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid ticket comment', true));
 			$this->redirect(array('action' => 'index'));

@@ -42,11 +42,13 @@ class MembersController extends AppController {
 	}
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Member->recursive = 0;
 		$this->set('members', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid member', true));
 			$this->redirect(array('action' => 'index'));
@@ -55,6 +57,7 @@ class MembersController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Member->create();
 			if ($this->Member->save($this->data)) {
@@ -71,6 +74,7 @@ class MembersController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid member', true));
 			$this->redirect(array('action' => 'index'));

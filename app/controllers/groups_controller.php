@@ -13,11 +13,13 @@ class GroupsController extends AppController {
 	*/
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Group->recursive = 0;
 		$this->set('groups', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid group', true));
 			$this->redirect(array('action' => 'index'));
@@ -26,6 +28,7 @@ class GroupsController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Group->create();
 			if ($this->Group->save($this->data)) {
@@ -38,6 +41,7 @@ class GroupsController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid group', true));
 			$this->redirect(array('action' => 'index'));

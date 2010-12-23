@@ -3,6 +3,7 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $uses = array('User', 'Group');
+	var $helpers = array('Form', 'Html');
 	
 	// dev admin hack
 	/*
@@ -44,7 +45,7 @@ class UsersController extends AppController {
     $user = $this->User->findById($user_session['id']);
     $group_name = $user['Group']['name'];
     if($group_name == 'admin') {
-      $this->redirect('/pages');
+      $this->redirect('/users/admin_landing');
     } elseif($group_name == 'member') {
       $this->redirect('/members/member_landing');
     } elseif($group_name == 'client') {
@@ -52,12 +53,20 @@ class UsersController extends AppController {
     }
   }
   
+  // admin landing ... just show me everything admin can do
+  function admin_landing() {
+    $this->layout = 'admin';
+    $this->set('title_for_layout', 'MDX Admin');
+  }
+  
 	function index() {
+	  $this->layout = 'admin';
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
 	function view($id = null) {
+  	$this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));
@@ -66,6 +75,7 @@ class UsersController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
@@ -80,6 +90,7 @@ class UsersController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));

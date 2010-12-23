@@ -4,11 +4,13 @@ class StatusMessagesController extends AppController {
 	var $name = 'StatusMessages';
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->StatusMessage->recursive = 0;
 		$this->set('statusMessages', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid status message', true));
 			$this->redirect(array('action' => 'index'));
@@ -17,6 +19,7 @@ class StatusMessagesController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->StatusMessage->create();
 			if ($this->StatusMessage->save($this->data)) {
@@ -32,6 +35,7 @@ class StatusMessagesController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid status message', true));
 			$this->redirect(array('action' => 'index'));

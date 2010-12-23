@@ -49,11 +49,13 @@ class ClientsController extends AppController {
 
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Client->recursive = 0;
 		$this->set('clients', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid client', true));
 			$this->redirect(array('action' => 'index'));
@@ -62,6 +64,7 @@ class ClientsController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Client->create();
 			if ($this->Client->save($this->data)) {
@@ -76,6 +79,7 @@ class ClientsController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid client', true));
 			$this->redirect(array('action' => 'index'));

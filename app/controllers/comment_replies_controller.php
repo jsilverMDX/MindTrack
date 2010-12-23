@@ -4,11 +4,13 @@ class CommentRepliesController extends AppController {
 	var $name = 'CommentReplies';
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->CommentReply->recursive = 0;
 		$this->set('commentReplies', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid comment reply', true));
 			$this->redirect(array('action' => 'index'));
@@ -17,6 +19,7 @@ class CommentRepliesController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->CommentReply->create();
 			if ($this->CommentReply->save($this->data)) {
@@ -32,6 +35,7 @@ class CommentRepliesController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid comment reply', true));
 			$this->redirect(array('action' => 'index'));

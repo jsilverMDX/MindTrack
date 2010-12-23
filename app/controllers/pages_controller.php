@@ -42,11 +42,13 @@ class PagesController extends AppController {
   }
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Page->recursive = 0;
 		$this->set('pages', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid page', true));
 			$this->redirect(array('action' => 'index'));
@@ -55,6 +57,7 @@ class PagesController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Page->create();
 			if ($this->Page->save($this->data)) {
@@ -69,6 +72,7 @@ class PagesController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid page', true));
 			$this->redirect(array('action' => 'index'));

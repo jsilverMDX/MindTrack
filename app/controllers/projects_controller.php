@@ -4,11 +4,13 @@ class ProjectsController extends AppController {
 	var $name = 'Projects';
 
 	function index() {
+	  $this->layout = 'admin';
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
 
 	function view($id = null) {
+	  $this->layout = 'admin';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
@@ -17,6 +19,7 @@ class ProjectsController extends AppController {
 	}
 
 	function add() {
+	  $this->layout = 'admin';
 		if (!empty($this->data)) {
 			$this->Project->create();
 			if ($this->Project->save($this->data)) {
@@ -32,6 +35,7 @@ class ProjectsController extends AppController {
 	}
 
 	function edit($id = null) {
+	  $this->layout = 'admin';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
