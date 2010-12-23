@@ -2,6 +2,7 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
+	var $uses = array('User', 'Group');
 	
 	// dev admin hack
 	/*
@@ -23,30 +24,31 @@ class UsersController extends AppController {
   // allows anyone to login/logout no permissions
   function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow('login','logout');
+    $this->Auth->allow('login', 'logout', 'login_redirect');
   }
   
   function login() {
     $user = $this->Session->read('Auth.User');
-	  if ($user) {
-		  // get user type so we can figure out where to land them
-		  $group = $user['group_id'];
-		  if($group == 1) { // admin
-		    $this->redirect(array('controller' => 'users', 'action' => 'index'));
-		  } elseif($group == 2) { // member
-		    $this->redirect(array('controller' => 'members', 'action' => 'member_landing'));
-		  } elseif($group == 3) { // client
-        $this->redirect(array('controller' => 'clients', 'action' => 'client_landing'));
-		  }
-		  
-	  } else {
+	  if(!$user){
 	    $this->set('title_for_layout', 'MDX | Login');
 	  }
   }
   
   function logout() {
-    //$this->Session->setFlash('You are logged out!');
     $this->redirect($this->Auth->logout());
+  }
+  
+  function login_redirect() {
+    $user_session = $this->Session->read('Auth.User');
+    $user = $this->User->findById($user_session['id']);
+    $group_name = $user['Group']['name'];
+    if($group_name == 'admin') {
+      $this->redirect('/admin');
+    } elseif($group_name == 'member') {
+      $this->redirect('/members/member_landing');
+    } elseif($group_name == 'client') {
+      $this->redirect('/client/client_landing');
+    }
   }
   
 	function index() {
