@@ -1,0 +1,60 @@
+/* mindtrack client */ 
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}:focus {outline: 0;}ins {text-decoration: none;}del {text-decoration: line-through;}table {border-collapse: collapse;border-spacing: 0;}
+
+body {
+  font-family: sans-serif;
+  font-size: 14pt;
+}
+
+#container {
+  width: 1090px;
+  margin: 0px auto;
+}
+
+#main_content {
+  padding: 25px;
+}
+
+#logo img {
+  display: inline;
+}
+
+#logo h3 {
+  display: inline;
+  font-size: 48pt;
+}
+
+.client-welcome {
+  padding-bottom: 25px;
+}
+
+.my-projects {
+  font-size: 26pt;
+  padding-bottom: 25px;
+}
+
+.project, .ticket, .comment, .reply {
+  padding-left: 25px;
+}
+
+.comment-text {
+  padding-bottom: 3px;
+  border-bottom: 4px solid blue;
+}
+
+.reply-text {
+  padding-bottom: 3px;
+  border-bottom: 4px solid #00FF00;
+}
+
+.ticket-header {
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+.project-name {
+  font-size: 26pt;
+  text-decoration: underline;
+  font-family: serif;
+}

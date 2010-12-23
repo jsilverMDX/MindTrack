@@ -31,7 +31,7 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -40,7 +40,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `acos` WRITE;
 /*!40000 ALTER TABLE `acos` DISABLE KEYS */;
-INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,154),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,39),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',40,53),(18,17,NULL,NULL,'index',41,42),(19,17,NULL,NULL,'view',43,44),(20,17,NULL,NULL,'add',45,46),(21,17,NULL,NULL,'edit',47,48),(22,17,NULL,NULL,'delete',49,50),(23,17,NULL,NULL,'build_acl',51,52),(24,1,NULL,NULL,'Members',54,69),(25,24,NULL,NULL,'index',55,56),(26,24,NULL,NULL,'view',57,58),(27,24,NULL,NULL,'add',59,60),(28,24,NULL,NULL,'edit',61,62),(29,24,NULL,NULL,'delete',63,64),(30,24,NULL,NULL,'build_acl',65,66),(31,1,NULL,NULL,'Clients',70,83),(32,31,NULL,NULL,'index',71,72),(33,31,NULL,NULL,'view',73,74),(34,31,NULL,NULL,'add',75,76),(35,31,NULL,NULL,'edit',77,78),(36,31,NULL,NULL,'delete',79,80),(37,31,NULL,NULL,'build_acl',81,82),(38,1,NULL,NULL,'StatusMessages',84,97),(39,38,NULL,NULL,'index',85,86),(40,38,NULL,NULL,'view',87,88),(41,38,NULL,NULL,'add',89,90),(42,38,NULL,NULL,'edit',91,92),(43,38,NULL,NULL,'delete',93,94),(44,38,NULL,NULL,'build_acl',95,96),(45,1,NULL,NULL,'Projects',98,111),(46,45,NULL,NULL,'index',99,100),(47,45,NULL,NULL,'view',101,102),(48,45,NULL,NULL,'add',103,104),(49,45,NULL,NULL,'edit',105,106),(50,45,NULL,NULL,'delete',107,108),(51,45,NULL,NULL,'build_acl',109,110),(52,1,NULL,NULL,'TicketComments',112,125),(53,52,NULL,NULL,'index',113,114),(54,52,NULL,NULL,'view',115,116),(55,52,NULL,NULL,'add',117,118),(56,52,NULL,NULL,'edit',119,120),(57,52,NULL,NULL,'delete',121,122),(58,52,NULL,NULL,'build_acl',123,124),(59,1,NULL,NULL,'CommentReplies',126,139),(60,59,NULL,NULL,'index',127,128),(61,59,NULL,NULL,'view',129,130),(62,59,NULL,NULL,'add',131,132),(63,59,NULL,NULL,'edit',133,134),(64,59,NULL,NULL,'delete',135,136),(65,59,NULL,NULL,'build_acl',137,138),(66,1,NULL,NULL,'Tickets',140,153),(67,66,NULL,NULL,'index',141,142),(68,66,NULL,NULL,'view',143,144),(69,66,NULL,NULL,'add',145,146),(70,66,NULL,NULL,'edit',147,148),(71,66,NULL,NULL,'delete',149,150),(72,66,NULL,NULL,'build_acl',151,152),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',67,68);
+INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,158),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,41),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',42,55),(18,17,NULL,NULL,'index',43,44),(19,17,NULL,NULL,'view',45,46),(20,17,NULL,NULL,'add',47,48),(21,17,NULL,NULL,'edit',49,50),(22,17,NULL,NULL,'delete',51,52),(23,17,NULL,NULL,'build_acl',53,54),(24,1,NULL,NULL,'Members',56,71),(25,24,NULL,NULL,'index',57,58),(26,24,NULL,NULL,'view',59,60),(27,24,NULL,NULL,'add',61,62),(28,24,NULL,NULL,'edit',63,64),(29,24,NULL,NULL,'delete',65,66),(30,24,NULL,NULL,'build_acl',67,68),(31,1,NULL,NULL,'Clients',72,87),(32,31,NULL,NULL,'index',73,74),(33,31,NULL,NULL,'view',75,76),(34,31,NULL,NULL,'add',77,78),(35,31,NULL,NULL,'edit',79,80),(36,31,NULL,NULL,'delete',81,82),(37,31,NULL,NULL,'build_acl',83,84),(38,1,NULL,NULL,'StatusMessages',88,101),(39,38,NULL,NULL,'index',89,90),(40,38,NULL,NULL,'view',91,92),(41,38,NULL,NULL,'add',93,94),(42,38,NULL,NULL,'edit',95,96),(43,38,NULL,NULL,'delete',97,98),(44,38,NULL,NULL,'build_acl',99,100),(45,1,NULL,NULL,'Projects',102,115),(46,45,NULL,NULL,'index',103,104),(47,45,NULL,NULL,'view',105,106),(48,45,NULL,NULL,'add',107,108),(49,45,NULL,NULL,'edit',109,110),(50,45,NULL,NULL,'delete',111,112),(51,45,NULL,NULL,'build_acl',113,114),(52,1,NULL,NULL,'TicketComments',116,129),(53,52,NULL,NULL,'index',117,118),(54,52,NULL,NULL,'view',119,120),(55,52,NULL,NULL,'add',121,122),(56,52,NULL,NULL,'edit',123,124),(57,52,NULL,NULL,'delete',125,126),(58,52,NULL,NULL,'build_acl',127,128),(59,1,NULL,NULL,'CommentReplies',130,143),(60,59,NULL,NULL,'index',131,132),(61,59,NULL,NULL,'view',133,134),(62,59,NULL,NULL,'add',135,136),(63,59,NULL,NULL,'edit',137,138),(64,59,NULL,NULL,'delete',139,140),(65,59,NULL,NULL,'build_acl',141,142),(66,1,NULL,NULL,'Tickets',144,157),(67,66,NULL,NULL,'index',145,146),(68,66,NULL,NULL,'view',147,148),(69,66,NULL,NULL,'add',149,150),(70,66,NULL,NULL,'edit',151,152),(71,66,NULL,NULL,'delete',153,154),(72,66,NULL,NULL,'build_acl',155,156),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',69,70),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',85,86);
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `aros` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -69,7 +69,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `aros` WRITE;
 /*!40000 ALTER TABLE `aros` DISABLE KEYS */;
-INSERT INTO `aros` VALUES (1,NULL,'Group',1,NULL,1,4),(2,NULL,'Group',2,NULL,5,8),(3,NULL,'Group',3,NULL,9,10),(4,1,'User',1,NULL,2,3),(5,2,'User',2,NULL,6,7);
+INSERT INTO `aros` VALUES (1,NULL,'Group',1,NULL,1,4),(2,NULL,'Group',2,NULL,5,8),(3,NULL,'Group',3,NULL,9,12),(4,1,'User',1,NULL,2,3),(5,2,'User',2,NULL,6,7),(6,3,'User',3,NULL,10,11);
 /*!40000 ALTER TABLE `aros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `aros_acos` (
   `_delete` varchar(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -99,7 +99,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `aros_acos` WRITE;
 /*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
-INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1');
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES ('Jonathan Silverman','jsilver@mindynamics.com','408-647-6463','jsilverman2','Mindynamics','http://mindynamics.com',1,2);
+INSERT INTO `clients` VALUES ('Keyvan Fatehi','keyvan@mindynamics.com','408-647-6463','keyvan.fatehi','Mindynamics','http://mindynamics.com',1,3);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -444,7 +444,7 @@ CREATE TABLE `users` (
   `modified` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `login_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -453,7 +453,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','9f7beb373d6f3104f36dd47f6d82ff3a0380067a',1,'2010-12-20 05:32:37','2010-12-21 15:39:15'),(2,'jsilver','4304df8c06d116640852508849d4e86090025411',2,'2010-12-22 13:20:06','2010-12-22 13:20:06');
+INSERT INTO `users` VALUES (1,'admin','9f7beb373d6f3104f36dd47f6d82ff3a0380067a',1,'2010-12-20 05:32:37','2010-12-21 15:39:15'),(2,'jsilver','4304df8c06d116640852508849d4e86090025411',2,'2010-12-22 13:20:06','2010-12-22 13:20:06'),(3,'keyvan','d8a5e7128cd899a0b7070638d76603ec4c9a3d55',3,'2010-12-23 02:32:05','2010-12-23 02:32:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -466,4 +466,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-23  9:52:10
+-- Dump completed on 2010-12-23 11:03:37

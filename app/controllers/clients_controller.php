@@ -3,6 +3,20 @@ class ClientsController extends AppController {
 
 	var $name = 'Clients';
 
+
+  // client landing point
+  function client_landing() {
+	  $this->layout = 'mindtrack_client';
+	  $session_user = $this->Session->read('Auth.User');
+	  $options['conditions'] = array('Client.user_id =' => $session_user['id']);
+	  $options['contain'] = array('Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
+    $client = $this->Client->find('first', $options);
+    //debug($client);
+    $this->set("title_for_layout", "MDX MindTracker");
+	  $this->set("client", $client);
+  }
+
+
 	function index() {
 		$this->Client->recursive = 0;
 		$this->set('clients', $this->paginate());

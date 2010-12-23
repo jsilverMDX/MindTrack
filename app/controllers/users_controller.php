@@ -48,7 +48,7 @@ class UsersController extends AppController {
     } elseif($group_name == 'member') {
       $this->redirect('/members/member_landing');
     } elseif($group_name == 'client') {
-      $this->redirect('/client/client_landing');
+      $this->redirect('/clients/client_landing');
     }
   }
   
