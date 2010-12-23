@@ -10,7 +10,12 @@
     foreach($projects as $project):
   ?>
   <li class="project">
+  <div class="project-info">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
+  <div class="project-link">Link: <? echo($this->Html->link($project['link'], $project['link'])); ?></div>
+  <div class="project-description">Description: <? echo($project['description']); ?></div>
+  <div class="edit-my-project"><a href="/clients/edit_my_project/<? echo($project['id']); ?>">Edit Project</a></div>
+  </div>
   <ul class="statuses">
   <h4 class="status-messages">Status Messages</h4>
   <?

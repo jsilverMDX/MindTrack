@@ -48,6 +48,26 @@ class ClientsController extends AppController {
 	}
 
 
+	function edit_my_project($id = null) {
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(__('Invalid project', true));
+			$this->redirect(array('action' => 'client_landing'));
+		}
+		if (!empty($this->data)) {
+			if ($this->Project->save($this->data)) {
+				$this->Session->setFlash(__('The project has been saved', true));
+				$this->redirect(array('action' => 'client_landing'));
+			} else {
+				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
+			}
+		}
+		if (empty($this->data)) {
+			$this->data = $this->Project->read(null, $id);
+		}
+	}
+	
+	
+
 	function index() {
 	  $this->layout = 'admin';
 		$this->Client->recursive = 0;
