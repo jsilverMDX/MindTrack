@@ -45,11 +45,11 @@ class UsersController extends AppController {
     $user = $this->User->findById($user_session['id']);
     $group_name = $user['Group']['name'];
     if($group_name == 'admin') {
-      $this->redirect('/admin');
+      $this->redirect('/mdx_admin');
     } elseif($group_name == 'member') {
-      $this->redirect('/mdx_members');
+      $this->redirect('/mdx_member');
     } elseif($group_name == 'client') {
-      $this->redirect('/mdx_clients');
+      $this->redirect('/mdx_client');
     }
   }
   

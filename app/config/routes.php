@@ -12,10 +12,10 @@
 	
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	
-	Router::connect('/admin', array('controller' => 'users', 'action' => 'admin_landing'));
+	Router::connect('/mdx_admin', array('controller' => 'users', 'action' => 'admin_landing'));
 	
 	Router::connect('/mdx_member', array('controller' => 'members', 'action' => 'member_landing'));
 	
-	Router::connect('/mdx_client', array('controller' => 'clients', 'action' => 'clients_landing'));
+	Router::connect('/mdx_client', array('controller' => 'clients', 'action' => 'client_landing'));
 	
 	
