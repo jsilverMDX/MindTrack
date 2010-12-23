@@ -2,25 +2,17 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	// has to $uses everything that will be contained
-	var $uses = array('Member', 'User');
+	var $uses = array('Member', 'Project', 'Ticket', 'TicketComment', 'CommentReply');
 	
 	// member landing point
-	// get my member
-	// show all my info
-	// anything with member_id
 	function member_landing() {
-	  // get user info from session
+	  $this->layout = 'mindtrack';
 	  $session_user = $this->Session->read('Auth.User');
-	  // my user and his objects
-	  // use containable instead.. recursive is slow (!!!)
-    $this->User->recursive = 3;
-	  // my member
-    $user = $this->User->findById($session_user['id']);
-	  //$user = $this->User->find('first', array('conditions' => array('User.id =' => $session_user['id']), 'contain' => array('User', 'Member', 'Project', 'Ticket')));
-	  //debug($user);
-	  $this->set("user", $user);
-	
+	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
+	  $options['contain'] = array('Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
+    $member = $this->Member->find('first', $options);
+    //debug($member);
+	  $this->set("member", $member);
 	}
 
 	function index() {

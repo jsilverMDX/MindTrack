@@ -1,0 +1,105 @@
+/* mindtrack */ 
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}:focus {outline: 0;}ins {text-decoration: none;}del {text-decoration: line-through;}table {border-collapse: collapse;border-spacing: 0;}
+
+body {
+  background: #666;
+  color: #00FF00;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+#container {
+  width: 1040px;
+  margin: 0px auto;
+  text-align: left;
+}
+
+
+#logo img {
+display: inline;
+}
+
+#logo h3 {
+display: inline;
+font-size: 48pt;
+padding-left: 50px;
+}
+
+#header_links {
+  text-align: right;
+  position: relative;
+  top: -30px;
+  left: -30px;
+}
+
+#main_content {
+  border: 4px solid #83F52C;
+  background: black;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.member {
+  background: white;
+  border: red dashed 3px;
+  color: black;
+  padding: 15px;
+  margin: 10px;
+}
+
+.member p {
+  padding-bottom: 5px;
+}
+
+h3.my-projects {
+  font-size: 36pt;
+  color: white;
+}
+
+h4.my-tickets {
+  font-size: 28pt;
+  color: white;
+}
+
+ul.projects, ul.tickets, ul.comments, ul.replies {
+  border-radius: 10px;
+  margin: 10px;
+  
+}
+
+li.project, li.ticket, li.comment, li.reply {
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+
+div.project-name {
+  font-size: 16pt;
+  color: red;
+}
+
+h4.ticket-header {
+  font-size: 24pt;
+  color: #00FF00;
+}
+
+div.ticket-name, div.ticket-status, div.ticket-description {
+  font-size: 14pt;
+  color: red;
+}
+
+  
+

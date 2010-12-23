@@ -11,7 +11,6 @@ class AppController extends Controller {
   $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
   $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'welcome');
   $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'login_redirect');
-  
   }
   
   /* purposefully disabled code that builds ACO objects */

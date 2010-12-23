@@ -38,6 +38,7 @@ class UsersController extends AppController {
     $this->redirect($this->Auth->logout());
   }
   
+  // this function redirects any logging in user
   function login_redirect() {
     $user_session = $this->Session->read('Auth.User');
     $user = $this->User->findById($user_session['id']);
