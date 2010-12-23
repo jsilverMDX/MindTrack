@@ -11,6 +11,20 @@
   ?>
   <li class="project">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
+  <ul class="statuses">
+  <h4 class="status-messages">Status Messages</h4>
+  <?
+    $statuses = $project['StatusMessage'];
+    foreach($statuses as $status):
+  ?>
+  <li class="status">
+  <div class="status-message"><? echo($status['message']); ?></div>
+  <div class="status-author">posted by <? echo($status['Member']['name']); ?></div>
+  </li>
+  <?
+    endforeach;
+  ?>
+  </ul>
   <ul class="tickets">
   <h4 class="my-tickets">Tickets</h4>
   <div class="new-ticket"><a href="/clients/new_ticket/<? echo($project['id']); ?>">New Ticket</a></div>

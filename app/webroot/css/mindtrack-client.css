@@ -81,8 +81,13 @@ a:hover {
   padding-left: 50px;
 }
 
-
-
+.status {
+  padding: 25px;
+  border: 1px solid black;
+  border-radius: 30px;
+  margin: 10px;
+  text-align: center;
+}
 
 
 

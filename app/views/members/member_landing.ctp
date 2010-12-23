@@ -13,6 +13,20 @@
   <li class="project">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
   <div class="project-client">Client: <? echo($project['Client']['name']); ?></div>
+  <ul class="statuses">
+  <h4 class="status-messages">Status Messages</h4>
+  <?
+    $statuses = $project['StatusMessage'];
+    foreach($statuses as $status):
+  ?>
+  <li class="status">
+  <div class="status-message"><? echo($status['message']); ?></div>
+  <div class="status-author">posted by <? echo($status['Member']['name']); ?></div>
+  </li>
+  <?
+    endforeach;
+  ?>
+  </ul>
   <ul class="tickets">
   <h4 class="my-tickets"><? echo($project['name']); ?> Tickets</h4>
     <?
@@ -48,7 +62,7 @@
       <div class="comment-reply-form">
       <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
 	      <?php
-		      echo $this->Form->input('reply');
+		      echo $this->Form->textarea('reply', array('label' => ""));
 		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
 		      echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
 	      ?>
@@ -64,6 +78,16 @@
     <?
       endforeach;
     ?>
+    <div class="status-message-form">
+    <h4 class="status-header">Post a Status Message</h4>
+    <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
+      <?php
+        echo $this->Form->textarea('message', array('label' => ""));
+        echo $this->Form->hidden('project_id', array('value' => $project['id']));
+        echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+      ?>
+    <?php echo $this->Form->end('Submit');?>
+    </div>
   </ul>
   </li>
   <?

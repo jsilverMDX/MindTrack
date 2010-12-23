@@ -2,14 +2,14 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	var $uses = array('Member', 'Project', 'Ticket', 'TicketComment', 'CommentReply');
+	var $uses = array('Member', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	
 	// member landing point
 	function member_landing() {
 	  $this->layout = 'mindtrack';
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('Client', 'Ticket' => array('TicketComment' => array('Client', 'CommentReply' => array('Member')))));
+	  $options['contain'] = array('Project' => array('StatusMessage' => array('Member'), 'Client', 'Ticket' => array('TicketComment' => array('Client', 'CommentReply' => array('Member')))));
     $member = $this->Member->find('first', $options);
     //debug($member);
     $this->set("title_for_layout", "MDX MindTracker");
@@ -24,6 +24,18 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The comment reply has been saved', true));
 			} else {
 				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'member_landing'));
+	}
+	
+	function post_status_message() {
+		if (!empty($this->data)) {
+			$this->StatusMessage->create();
+			if ($this->StatusMessage->save($this->data)) {
+				$this->Session->setFlash(__('The status message has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
 			}
 		}
 		$this->redirect(array('action' => 'member_landing'));
