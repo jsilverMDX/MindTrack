@@ -44,7 +44,7 @@ class UsersController extends AppController {
     $user = $this->User->findById($user_session['id']);
     $group_name = $user['Group']['name'];
     if($group_name == 'admin') {
-      $this->redirect('/admin');
+      $this->redirect('/pages');
     } elseif($group_name == 'member') {
       $this->redirect('/members/member_landing');
     } elseif($group_name == 'client') {
