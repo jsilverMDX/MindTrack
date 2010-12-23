@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('public')?>?</th>
 			<th><?php echo $this->Paginator->sort('page');?></th>
 			<th><?php echo $this->Paginator->sort('member_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -19,6 +20,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $page['Page']['id']; ?>&nbsp;</td>
 		<td><?php echo $page['Page']['name']; ?>&nbsp;</td>
+		<td><?php echo $page['Page']['public'] == 1 ? 'Yes' : 'No'; ?>&nbsp;</td>
 		<td><?php echo $page['Page']['page']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($page['Member']['name'], array('controller' => 'members', 'action' => 'view', $page['Member']['id'])); ?>

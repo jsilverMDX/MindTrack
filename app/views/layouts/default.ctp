@@ -38,11 +38,13 @@
 	<div id="finish" class='box_shadow'>
 		<div id="menu">
 			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/_info">Info</a></li>
-				<li><a href="/_clients">Clients</a></li>
-				<li><a href="/_jobs">Jobs</a></li>
-				<li class="last"><a href="/_about">About</a></li>
+				<?php
+				if(isset($nav_items)) {
+				  foreach ($nav_items as $page):
+            echo "<li><a href=\"/_" . $page['Page']['name'] . "\">" . $page['Page']['name'] . "</a></li>";
+        	endforeach;
+				}
+      	?>
 			</ul>
 		</div>
 		<br>

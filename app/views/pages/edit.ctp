@@ -7,6 +7,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('page');
 		echo $this->Form->input('member_id');
+		echo 'Public?' . $this->Form->checkbox('public');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
