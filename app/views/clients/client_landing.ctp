@@ -13,6 +13,7 @@
   <div class="project-name">Project: <? echo($project['name']); ?></div>
   <ul class="tickets">
   <h4 class="my-tickets">Tickets</h4>
+  <div class="new-ticket"><a href="/clients/new_ticket/<? echo($project['id']); ?>">New Ticket</a></div>
     <?
       $tickets = $project['Ticket'];
       foreach($tickets as $ticket):

@@ -19,7 +19,6 @@
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
 		<div id="logo">
-		  <img src="/img/logo.png" />
       <h3 class="mindtrack">MindTrack</h3>
 		</div>
 		<div id="header_links">

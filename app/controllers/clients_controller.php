@@ -2,20 +2,38 @@
 class ClientsController extends AppController {
 
 	var $name = 'Clients';
-
+  var $layout = 'mindtrack_client';
+  var $helpers = array('Form', 'Html');
+  var $uses = array('Client', 'Project', 'Ticket', 'TicketComment');
 
   // client landing point
   function client_landing() {
-	  $this->layout = 'mindtrack_client';
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('Client.user_id =' => $session_user['id']);
 	  $options['contain'] = array('Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
     $client = $this->Client->find('first', $options);
     //debug($client);
-    $this->set("title_for_layout", "MDX MindTracker");
+    $this->set("title_for_layout", "MindTrack");
 	  $this->set("client", $client);
   }
 
+
+  function new_ticket($id) {
+    $this->set("project_id", $id);
+    $this->set("title_for_layout", "MindTrack | New Ticket");
+  }
+
+	function add_ticket() {
+		if (!empty($this->data)) {
+			$this->Ticket->create();
+			if ($this->Ticket->save($this->data)) {
+				$this->Session->setFlash(__('The ticket has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The ticket could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'client_landing'));
+	}
 
 	function index() {
 		$this->Client->recursive = 0;
