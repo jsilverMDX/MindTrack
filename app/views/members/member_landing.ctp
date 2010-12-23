@@ -12,6 +12,7 @@
   ?>
   <li class="project">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
+  <div class="project-client">Client: <? echo($project['Client']['name']); ?></div>
   <ul class="tickets">
   <h4 class="my-tickets"><? echo($project['name']); ?> Tickets</h4>
     <?
@@ -31,6 +32,7 @@
     <li class="comment">
     <div class="comment-text">Comment: <? echo($comment['comment']); ?></div>
     <div class="comment-status">Status: <? echo($comment['status']); ?></div>
+    <div class="comment-author">- <? echo($comment['Client']['name']); ?></div>
     <ul class="replies">
       <?
         $comment_replies = $comment['CommentReply'];
@@ -38,10 +40,20 @@
       ?>
       <li class="reply">
       <div class="reply-text"><? echo($reply['reply']); ?></div>
+      <div class="reply-author">- <? echo($reply['Member']['name']); ?></div>
       </li>
       <?
         endforeach;
       ?>
+      <div class="comment-reply-form">
+      <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
+	      <?php
+		      echo $this->Form->input('reply');
+		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
+		      echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+	      ?>
+      <?php echo $this->Form->end('Submit');?>
+      </div>
     </ul>
     </li>
     <?

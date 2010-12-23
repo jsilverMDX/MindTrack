@@ -27,13 +27,26 @@ class ClientsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Ticket->create();
 			if ($this->Ticket->save($this->data)) {
-				$this->Session->setFlash(__('The ticket has been saved', true));
+				$this->Session->setFlash('The ticket has been saved');
 			} else {
-				$this->Session->setFlash(__('The ticket could not be saved. Please, try again.', true));
+				$this->Session->setFlash('The ticket could not be saved. Please, try again.');
 			}
 		}
 		$this->redirect(array('action' => 'client_landing'));
 	}
+
+	function add_comment() {
+		if (!empty($this->data)) {
+			$this->TicketComment->create();
+			if ($this->TicketComment->save($this->data)) {
+				$this->Session->setFlash('The comment was created.');
+			} else {
+				$this->Session->setFlash('The comment could not be created.');
+			}
+		}
+		$this->redirect(array('action' => 'client_landing'));
+	}
+
 
 	function index() {
 		$this->Client->recursive = 0;

@@ -9,11 +9,24 @@ class MembersController extends AppController {
 	  $this->layout = 'mindtrack';
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
+	  $options['contain'] = array('Project' => array('Client', 'Ticket' => array('TicketComment' => array('Client', 'CommentReply' => array('Member')))));
     $member = $this->Member->find('first', $options);
     //debug($member);
     $this->set("title_for_layout", "MDX MindTracker");
 	  $this->set("member", $member);
+	}
+	
+	// posts a CommentReply
+	function reply_to_comment() {
+		if (!empty($this->data)) {
+			$this->CommentReply->create();
+			if ($this->CommentReply->save($this->data)) {
+				$this->Session->setFlash(__('The comment reply has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'member_landing'));
 	}
 
 	function index() {

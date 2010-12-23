@@ -31,7 +31,7 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -40,7 +40,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `acos` WRITE;
 /*!40000 ALTER TABLE `acos` DISABLE KEYS */;
-INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,162),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,41),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',42,55),(18,17,NULL,NULL,'index',43,44),(19,17,NULL,NULL,'view',45,46),(20,17,NULL,NULL,'add',47,48),(21,17,NULL,NULL,'edit',49,50),(22,17,NULL,NULL,'delete',51,52),(23,17,NULL,NULL,'build_acl',53,54),(24,1,NULL,NULL,'Members',56,71),(25,24,NULL,NULL,'index',57,58),(26,24,NULL,NULL,'view',59,60),(27,24,NULL,NULL,'add',61,62),(28,24,NULL,NULL,'edit',63,64),(29,24,NULL,NULL,'delete',65,66),(30,24,NULL,NULL,'build_acl',67,68),(31,1,NULL,NULL,'Clients',72,91),(32,31,NULL,NULL,'index',73,74),(33,31,NULL,NULL,'view',75,76),(34,31,NULL,NULL,'add',77,78),(35,31,NULL,NULL,'edit',79,80),(36,31,NULL,NULL,'delete',81,82),(37,31,NULL,NULL,'build_acl',83,84),(38,1,NULL,NULL,'StatusMessages',92,105),(39,38,NULL,NULL,'index',93,94),(40,38,NULL,NULL,'view',95,96),(41,38,NULL,NULL,'add',97,98),(42,38,NULL,NULL,'edit',99,100),(43,38,NULL,NULL,'delete',101,102),(44,38,NULL,NULL,'build_acl',103,104),(45,1,NULL,NULL,'Projects',106,119),(46,45,NULL,NULL,'index',107,108),(47,45,NULL,NULL,'view',109,110),(48,45,NULL,NULL,'add',111,112),(49,45,NULL,NULL,'edit',113,114),(50,45,NULL,NULL,'delete',115,116),(51,45,NULL,NULL,'build_acl',117,118),(52,1,NULL,NULL,'TicketComments',120,133),(53,52,NULL,NULL,'index',121,122),(54,52,NULL,NULL,'view',123,124),(55,52,NULL,NULL,'add',125,126),(56,52,NULL,NULL,'edit',127,128),(57,52,NULL,NULL,'delete',129,130),(58,52,NULL,NULL,'build_acl',131,132),(59,1,NULL,NULL,'CommentReplies',134,147),(60,59,NULL,NULL,'index',135,136),(61,59,NULL,NULL,'view',137,138),(62,59,NULL,NULL,'add',139,140),(63,59,NULL,NULL,'edit',141,142),(64,59,NULL,NULL,'delete',143,144),(65,59,NULL,NULL,'build_acl',145,146),(66,1,NULL,NULL,'Tickets',148,161),(67,66,NULL,NULL,'index',149,150),(68,66,NULL,NULL,'view',151,152),(69,66,NULL,NULL,'add',153,154),(70,66,NULL,NULL,'edit',155,156),(71,66,NULL,NULL,'delete',157,158),(72,66,NULL,NULL,'build_acl',159,160),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',69,70),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',85,86),(80,31,NULL,NULL,'new_ticket',87,88),(81,31,NULL,NULL,'add_ticket',89,90);
+INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,166),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,41),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',42,55),(18,17,NULL,NULL,'index',43,44),(19,17,NULL,NULL,'view',45,46),(20,17,NULL,NULL,'add',47,48),(21,17,NULL,NULL,'edit',49,50),(22,17,NULL,NULL,'delete',51,52),(23,17,NULL,NULL,'build_acl',53,54),(24,1,NULL,NULL,'Members',56,73),(25,24,NULL,NULL,'index',57,58),(26,24,NULL,NULL,'view',59,60),(27,24,NULL,NULL,'add',61,62),(28,24,NULL,NULL,'edit',63,64),(29,24,NULL,NULL,'delete',65,66),(30,24,NULL,NULL,'build_acl',67,68),(31,1,NULL,NULL,'Clients',74,95),(32,31,NULL,NULL,'index',75,76),(33,31,NULL,NULL,'view',77,78),(34,31,NULL,NULL,'add',79,80),(35,31,NULL,NULL,'edit',81,82),(36,31,NULL,NULL,'delete',83,84),(37,31,NULL,NULL,'build_acl',85,86),(38,1,NULL,NULL,'StatusMessages',96,109),(39,38,NULL,NULL,'index',97,98),(40,38,NULL,NULL,'view',99,100),(41,38,NULL,NULL,'add',101,102),(42,38,NULL,NULL,'edit',103,104),(43,38,NULL,NULL,'delete',105,106),(44,38,NULL,NULL,'build_acl',107,108),(45,1,NULL,NULL,'Projects',110,123),(46,45,NULL,NULL,'index',111,112),(47,45,NULL,NULL,'view',113,114),(48,45,NULL,NULL,'add',115,116),(49,45,NULL,NULL,'edit',117,118),(50,45,NULL,NULL,'delete',119,120),(51,45,NULL,NULL,'build_acl',121,122),(52,1,NULL,NULL,'TicketComments',124,137),(53,52,NULL,NULL,'index',125,126),(54,52,NULL,NULL,'view',127,128),(55,52,NULL,NULL,'add',129,130),(56,52,NULL,NULL,'edit',131,132),(57,52,NULL,NULL,'delete',133,134),(58,52,NULL,NULL,'build_acl',135,136),(59,1,NULL,NULL,'CommentReplies',138,151),(60,59,NULL,NULL,'index',139,140),(61,59,NULL,NULL,'view',141,142),(62,59,NULL,NULL,'add',143,144),(63,59,NULL,NULL,'edit',145,146),(64,59,NULL,NULL,'delete',147,148),(65,59,NULL,NULL,'build_acl',149,150),(66,1,NULL,NULL,'Tickets',152,165),(67,66,NULL,NULL,'index',153,154),(68,66,NULL,NULL,'view',155,156),(69,66,NULL,NULL,'add',157,158),(70,66,NULL,NULL,'edit',159,160),(71,66,NULL,NULL,'delete',161,162),(72,66,NULL,NULL,'build_acl',163,164),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',69,70),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',87,88),(80,31,NULL,NULL,'new_ticket',89,90),(81,31,NULL,NULL,'add_ticket',91,92),(82,24,NULL,NULL,'reply_to_comment',71,72),(83,31,NULL,NULL,'add_comment',93,94);
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `aros_acos` (
   `_delete` varchar(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -99,7 +99,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `aros_acos` WRITE;
 /*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
-INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,2,82,'1','1','1','1'),(12,3,83,'1','1','1','1');
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +152,7 @@ CREATE TABLE `comment_replies` (
   KEY `fk_comment_replies_2` (`ticket_comment_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -161,7 +161,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `comment_replies` WRITE;
 /*!40000 ALTER TABLE `comment_replies` DISABLE KEYS */;
-INSERT INTO `comment_replies` VALUES (1,'Well have you tried learning how to fucking code then?',1,1);
+INSERT INTO `comment_replies` VALUES (1,'Well have you tried learning how to fucking code then?',1,1),(2,'Test',1,1);
 /*!40000 ALTER TABLE `comment_replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +386,7 @@ CREATE TABLE `ticket_comments` (
   KEY `fk_ticket_comments_2` (`ticket_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -395,7 +395,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `ticket_comments` WRITE;
 /*!40000 ALTER TABLE `ticket_comments` DISABLE KEYS */;
-INSERT INTO `ticket_comments` VALUES (1,'I am very displeased with the work that has been done on this ticket. Sike.',1,1,'poor');
+INSERT INTO `ticket_comments` VALUES (1,'I am very displeased with the work that has been done on this ticket. Sike.',1,1,'poor'),(2,'NOW I WORK ARGHHH',1,1,'boys can code');
 /*!40000 ALTER TABLE `ticket_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -466,4 +466,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-23 11:50:28
+-- Dump completed on 2010-12-23 20:54:46
