@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
+-- MySQL dump 10.11
 --
 -- Host: localhost    Database: mindynamics
 -- ------------------------------------------------------
--- Server version	5.1.37-1ubuntu5.4
+-- Server version	5.0.75-0ubuntu10.5
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,19 +20,19 @@
 --
 
 DROP TABLE IF EXISTS `acos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `acos`
@@ -49,19 +49,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `aros` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `aros`
@@ -78,20 +78,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros_acos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `aros_acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL auto_increment,
   `aro_id` int(10) NOT NULL,
   `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL DEFAULT '0',
-  `_read` varchar(2) NOT NULL DEFAULT '0',
-  `_update` varchar(2) NOT NULL DEFAULT '0',
-  `_delete` varchar(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  `_create` varchar(2) NOT NULL default '0',
+  `_read` varchar(2) NOT NULL default '0',
+  `_update` varchar(2) NOT NULL default '0',
+  `_delete` varchar(2) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `aros_acos`
@@ -108,22 +108,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `clients`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `clients` (
-  `name` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `phone` varchar(45) DEFAULT NULL,
-  `skype` varchar(45) DEFAULT NULL,
-  `company` varchar(45) DEFAULT NULL,
-  `link` varchar(45) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone` varchar(45) NOT NULL,
+  `skype` varchar(45) default NULL,
+  `company` varchar(45) NOT NULL,
+  `link` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_clients_users1` (`user_id`),
   CONSTRAINT `fk_clients_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `clients`
@@ -140,20 +140,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `comment_replies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `comment_replies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reply` text,
+  `id` int(11) NOT NULL auto_increment,
+  `reply` text NOT NULL,
   `ticket_comment_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_comment_replies_1` (`member_id`),
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
   KEY `fk_comment_replies_2` (`ticket_comment_id`),
-  CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  KEY `fk_comment_replies_1` (`user_id`),
+  CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `comment_replies`
@@ -161,7 +161,7 @@ CREATE TABLE `comment_replies` (
 
 LOCK TABLES `comment_replies` WRITE;
 /*!40000 ALTER TABLE `comment_replies` DISABLE KEYS */;
-INSERT INTO `comment_replies` VALUES (2,'Okay I changed it',2,1),(3,'Changed it again lulz',2,1),(4,'no problem',3,1),(5,'yes just type good and doont be a pussy',4,1),(6,'I\"MMMMMMMMMMMMM SOOOOOOOOOOOOOOOOOOOOOOO HIGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH',5,2),(7,'Don\'t hold your breath.',2,2),(8,'words of wisdom',4,2);
+INSERT INTO `comment_replies` VALUES (9,'well you complain too much and i dont want your money anymore peace out',7,2);
 /*!40000 ALTER TABLE `comment_replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,16 +170,16 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `groups`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `groups`
@@ -196,20 +196,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `karma_points` varchar(45) DEFAULT NULL,
-  `user_rank` varchar(45) DEFAULT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(45) NOT NULL,
+  `karma_points` varchar(45) NOT NULL,
+  `user_rank` varchar(45) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_members_users1` (`user_id`),
   CONSTRAINT `fk_members_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members`
@@ -226,19 +226,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_projects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members_projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `member_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`member_id`,`project_id`),
+  PRIMARY KEY  (`id`,`member_id`,`project_id`),
   KEY `fk_members_projects_members1` (`member_id`),
   KEY `fk_members_projects_projects1` (`project_id`),
   CONSTRAINT `fk_members_projects_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_projects_projects1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members_projects`
@@ -246,7 +246,7 @@ CREATE TABLE `members_projects` (
 
 LOCK TABLES `members_projects` WRITE;
 /*!40000 ALTER TABLE `members_projects` DISABLE KEYS */;
-INSERT INTO `members_projects` VALUES (2,1,2),(3,2,2);
+INSERT INTO `members_projects` VALUES (4,1,2),(5,2,2);
 /*!40000 ALTER TABLE `members_projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,19 +255,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members_tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `member_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`member_id`,`ticket_id`),
+  PRIMARY KEY  (`id`,`member_id`,`ticket_id`),
   KEY `fk_members_tickets_members1` (`member_id`),
   KEY `fk_members_tickets_tickets1` (`ticket_id`),
   CONSTRAINT `fk_members_tickets_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_tickets_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members_tickets`
@@ -275,7 +275,6 @@ CREATE TABLE `members_tickets` (
 
 LOCK TABLES `members_tickets` WRITE;
 /*!40000 ALTER TABLE `members_tickets` DISABLE KEYS */;
-INSERT INTO `members_tickets` VALUES (2,2,3);
 /*!40000 ALTER TABLE `members_tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,20 +283,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `pages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(45) NOT NULL,
   `page` text NOT NULL,
-  `member_id` int(11) NOT NULL,
-  `public` binary(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  `user_id` int(11) NOT NULL,
+  `public` binary(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
-  KEY `fk_pages_1` (`member_id`),
-  CONSTRAINT `fk_pages_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  KEY `fk_pages_1` (`user_id`),
+  CONSTRAINT `fk_pages_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `pages`
@@ -314,20 +313,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `projects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `git_remote` varchar(45) DEFAULT NULL,
-  `link` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(140) NOT NULL,
+  `git_remote` varchar(45) NOT NULL,
+  `link` varchar(140) NOT NULL,
   `description` text NOT NULL,
-  `client_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_projects_1` (`client_id`),
-  CONSTRAINT `fk_projects_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_projects_1` (`user_id`),
+  CONSTRAINT `fk_projects_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `projects`
@@ -335,7 +334,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (2,'Mindynamics.com','git@mindynamics.com:mindynamics.git','http://mindynamics.com','Mindynamics.com is a super mega project that actually contains a spaceship, a spaceship bunker, a secret government installation and a police department. When properly activate, Mindynamics.com will transform into a pony and gallop into the virtual dust wind.',2);
+INSERT INTO `projects` VALUES (2,'Mindynamics.com','git@mindynamics.com:mindynamics.git','http://mindynamics.com','Mindynamics.com is a super mega project that actually contains a spaceship, a spaceship bunker, a secret government installation and a police department. When properly activate, Mindynamics.com will transform into a pony and gallop into the virtual dust wind. And then it will give you a cold coin.',4);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,20 +343,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `status_messages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `status_messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `message` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `message` varchar(255) NOT NULL,
   `project_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
   KEY `fk_status_messages_1` (`project_id`),
-  KEY `fk_status_messages_2` (`member_id`),
+  KEY `fk_status_messages_2` (`user_id`),
   CONSTRAINT `fk_status_messages_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `status_messages`
@@ -365,7 +364,7 @@ CREATE TABLE `status_messages` (
 
 LOCK TABLES `status_messages` WRITE;
 /*!40000 ALTER TABLE `status_messages` DISABLE KEYS */;
-INSERT INTO `status_messages` VALUES (5,'this works...',2,1),(6,'Saturn has indicated that this project has left teethmarks on the barrel of his gun. ',2,2);
+INSERT INTO `status_messages` VALUES (5,'this works...',2,1),(6,'Saturn has indicated that this project has left teethmarks on the barrel of his gun. ',2,1);
 /*!40000 ALTER TABLE `status_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -374,21 +373,21 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ticket_comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `ticket_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comment` text,
-  `client_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `comment` text NOT NULL,
+  `user_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  `status` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_ticket_comments_1` (`client_id`),
+  `status` varchar(100) default NULL,
+  PRIMARY KEY  (`id`),
   KEY `fk_ticket_comments_2` (`ticket_id`),
-  CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  KEY `fk_ticket_comments_1` (`user_id`),
+  CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `ticket_comments`
@@ -396,7 +395,7 @@ CREATE TABLE `ticket_comments` (
 
 LOCK TABLES `ticket_comments` WRITE;
 /*!40000 ALTER TABLE `ticket_comments` DISABLE KEYS */;
-INSERT INTO `ticket_comments` VALUES (2,'Please change the reactor core from uranium to iridium.',2,3,'unresolved'),(3,'Thanks :D',2,3,'resolved'),(4,'Testing comment again',2,3,'status always required?'),(5,'what state?',2,3,'YES - RESOLVED'),(6,'Get it together, things need a\'fixin and a\'touchin up. Think, boy, think! Touch! Feel! Experience!',2,3,'thinking');
+INSERT INTO `ticket_comments` VALUES (7,'status ',4,4,'poorly'),(8,'status',4,4,'great thanks i enjoy looking at all of these code'),(9,'status VERBOTEN',4,4,'');
 /*!40000 ALTER TABLE `ticket_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,19 +404,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `description` text,
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(140) NOT NULL,
+  `description` text NOT NULL,
   `project_id` int(11) NOT NULL,
-  `status` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `status` varchar(45) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
   KEY `fk_tickets_1` (`project_id`),
-  CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `fk_tickets_2` (`user_id`),
+  CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tickets_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `tickets`
@@ -425,7 +427,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (3,'Create the Reactor Core','Write MindTrack.',2,'not done');
+INSERT INTO `tickets` VALUES (4,'Assemble the radioactive container part system','Make sure to wear iridium gloves and don\'t smoke any cigarettes while doing this or the entire lab could explode.',2,'not good',4),(5,'BAD','the nuclear core blew up and sprayed grey goo everywhere. it\'s going to cost a total of 6 million dollars and the corporate suits refuse to pay. they insist that it will cut into their extended vacation benefits.',2,'very very bad',4);
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,19 +436,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `username` varchar(255) NOT NULL,
   `password` varchar(40) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `login_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `users`
@@ -467,4 +469,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-24 10:29:36
+-- Dump completed on 2010-12-24 22:10:53
