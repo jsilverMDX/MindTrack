@@ -4,17 +4,18 @@ class ClientsController extends AppController {
 	var $name = 'Clients';
   var $layout = 'mindtrack_client';
   var $helpers = array('Form', 'Html');
-  var $uses = array('Client', 'Project', 'Ticket', 'TicketComment', 'StatusMessage');
+  var $uses = array('User', 'Client');
 
   // client landing point
   function client_landing() {
 	  $session_user = $this->Session->read('Auth.User');
-	  $options['conditions'] = array('Client.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('StatusMessage' => array('Member'), 'Ticket' => array('TicketComment' => array('CommentReply'))));
-    $client = $this->Client->find('first', $options);
-    //debug($client);
+	  $options['conditions'] = array('User.id =' => $session_user['id']);
+	  $options['contain'] = array('Client', 'Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
+    $user = $this->User->find('first', $options);
+    //debug($user);
     $this->set("title_for_layout", "MindTrack");
-	  $this->set("client", $client);
+    $this->set("client", $user['Client']);
+	  $this->set("user", $user);
   }
 
 

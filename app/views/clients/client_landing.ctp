@@ -1,12 +1,12 @@
 <div class="client-welcome">
-<p>Welcome, <?php echo($client['Client']['name']); ?>!</p>
+<p>Welcome, <?php echo($client['name']); ?>!</p>
 </div>
 
 <div id="work">
 <ul class="projects">
   <h3 class="my-projects">My Projects</h3>
   <?
-    $projects = $client['Project'];
+    $projects = $user['Project'];
     foreach($projects as $project):
   ?>
   <li class="project">
@@ -24,7 +24,7 @@
   ?>
   <li class="status">
   <div class="status-message"><? echo($status['message']); ?></div>
-  <div class="status-author">posted by <? echo($status['Member']['name']); ?></div>
+  <div class="status-author">posted by <? echo($status['User']['username']); ?></div>
   </li>
   <?
     endforeach;
