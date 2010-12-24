@@ -71,7 +71,7 @@
     <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
 	    <?php
 		    echo $this->Form->input('comment');
-		    echo $this->Form->hidden('client_id', array('value' => $client['Client']['id']));
+		    echo $this->Form->hidden('user_id', array('value' => $user_id));
 		    echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
 		    echo $this->Form->input('status');
 	    ?>

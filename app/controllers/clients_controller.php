@@ -10,16 +10,19 @@ class ClientsController extends AppController {
   function client_landing() {
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('User.id =' => $session_user['id']);
-	  $options['contain'] = array('Client', 'Project' => array('Ticket' => array('TicketComment' => array('CommentReply'))));
+	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('TicketComment' => array('CommentReply'))));
     $user = $this->User->find('first', $options);
     //debug($user);
     $this->set("title_for_layout", "MindTrack");
+    $this->set("user_id", $session_user['id']);
     $this->set("client", $user['Client']);
 	  $this->set("user", $user);
   }
 
 
   function new_ticket($id) {
+    $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
     $this->set("project_id", $id);
     $this->set("title_for_layout", "MindTrack | New Ticket");
   }

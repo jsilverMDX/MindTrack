@@ -6,6 +6,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->hidden('project_id', array('value' => $project_id));
+		echo $this->Form->hidden('user_id', array('value' => $user_id));
 		echo $this->Form->input('status');
 	?>
 	</fieldset>
