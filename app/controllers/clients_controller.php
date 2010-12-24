@@ -4,7 +4,7 @@ class ClientsController extends AppController {
 	var $name = 'Clients';
   var $layout = 'mindtrack_client';
   var $helpers = array('Form', 'Html');
-  var $uses = array('User', 'Client');
+  var $uses = array('User', 'Client', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 
   // client landing point
   function client_landing() {
