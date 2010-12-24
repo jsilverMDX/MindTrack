@@ -49,7 +49,7 @@
       foreach($ticket_comments as $comment):
     ?>
     <li class="comment">
-    <div class="comment-text">Comment: <? echo($comment['comment']); ?> <br/ > Status: <? echo($comment['status']); ?></div>
+    <div class="comment-text">Comment: <? echo($comment['comment']); ?> <br/ > Status: <? echo($comment['status']); ?> <br/ > Posted by: <? echo($comment['User']['username']); ?></div>
     
     <ul class="replies">
       <?
@@ -57,11 +57,20 @@
         foreach($comment_replies as $reply):
       ?>
       <li class="reply">
-      <div class="reply-text"><? echo($reply['reply']); ?></div>
+      <div class="reply-text"><? echo($reply['reply']); ?> - <? echo($reply['User']['username']); ?> </div>
       </li>
       <?
         endforeach;
       ?>
+      <div class="comment-reply-form">
+      <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
+	      <?php
+		      echo $this->Form->textarea('reply', array('label' => ""));
+		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
+		      echo $this->Form->hidden('user_id', array('value' => $user_id));
+	      ?>
+      <?php echo $this->Form->end('Submit');?>
+      </div>
     </ul>
     </li>
     <?

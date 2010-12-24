@@ -10,7 +10,7 @@ class ClientsController extends AppController {
   function client_landing() {
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('User.id =' => $session_user['id']);
-	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('TicketComment' => array('CommentReply'))));
+	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('TicketComment' => array('User', 'CommentReply' => array('User')))));
     $user = $this->User->find('first', $options);
     //debug($user);
     $this->set("title_for_layout", "MindTrack");
@@ -49,6 +49,19 @@ class ClientsController extends AppController {
 			}
 		}
 		$this->redirect(array('action' => 'client_landing'));
+	}
+	
+	// posts a CommentReply
+	function reply_to_comment() {
+		if (!empty($this->data)) {
+			$this->CommentReply->create();
+			if ($this->CommentReply->save($this->data)) {
+				$this->Session->setFlash(__('The comment reply has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'member_landing'));
 	}
 
 
