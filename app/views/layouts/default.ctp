@@ -42,7 +42,8 @@
 					<?php
 					if(isset($nav_items)) {
 					  foreach ($nav_items as $page):
-	            echo "<li><a href=\"/_" . $page['Page']['name'] . "\">" . $page['Page']['name'] . "</a></li>";
+					    $li_class = ($page['Page']['name'] == $page_name) ? 'selected' : $page['Page']['name'];
+	            echo '<li class="' . $li_class . '"><a href="_' . $page['Page']['name'] . '">' . $page['Page']['name'] . '</a></li>';
 	        	endforeach;
 					}
 	      	?>
