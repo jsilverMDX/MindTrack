@@ -37,15 +37,17 @@
 	
 	<div id="finish" class='box_shadow'>
 		<div id="menu">
+			<div id="wrapper_menu">
 			<ul>
-				<?php
-				if(isset($nav_items)) {
-				  foreach ($nav_items as $page):
-            echo "<li><a href=\"/_" . $page['Page']['name'] . "\">" . $page['Page']['name'] . "</a></li>";
-        	endforeach;
-				}
-      	?>
-			</ul>
+					<?php
+					if(isset($nav_items)) {
+					  foreach ($nav_items as $page):
+	            echo "<li><a href=\"/_" . $page['Page']['name'] . "\">" . $page['Page']['name'] . "</a></li>";
+	        	endforeach;
+					}
+	      	?>
+				</ul>
+			</div>
 		</div>
 		<br>
 		

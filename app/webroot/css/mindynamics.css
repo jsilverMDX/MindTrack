@@ -78,31 +78,50 @@ padding-top: 30px;
 	height: 600px;
 	background-image: url('/img/glass.png');
 }
-#container #finish #menu ul{
+#container #finish #menu{
 	text-align: center;
-	padding-top: 15px;
-	padding-left: 1px;
+	width: 900px;
 	margin: auto;
+	height: 50px;
+	-webkit-border-bottom-left-radius: 9px;
+	-webkit-border-bottom-right-radius: 9px;
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
+	-moz-border-radius-bottomleft: 9px;
+	-moz-border-radius-bottomright: 9px;
+	background-image: url('/img/purple_super_nova.png');
+	background-repeat: no-repeat;
+	-moz-box-shadow: 0px 0px 40px #000;
+	-webkit-box-shadow: 0px 0px 40px #000;
+	box-shadow: 0px 0px 40px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=0, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=0, Color='#000000');
+}
+#container #finish #menu #wrapper_menu ul{
+	padding-top: 15px;
+	color: white;
 }
 #container #finish #menu li{
 	display: inline;
+	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	padding: 18px 20px 8px 20px;
-	background-image: url('/img/black.png');
 }
 #container #finish #menu li:hover{
 	display: inline;
-	-webkit-border-radius: 5px;
-	padding: 18px 20px 8px 20px;
-	background-image: url('/img/black_blue.png');
+	padding: 18px 19px 8px 19px;
+	border-left: 1px solid #1589ff;
+	border-right: 1px solid #1589ff;
+	background-image: url('/img/white.png');
 }
 #container #finish #menu li a{
-	color: white;
-	text-decoration: none;
+	color: #fff;
 	font-size: 30px;
 	font-family: buda;
 }
-
 #container #finish #main_content {
   background: #ccc;
   color: black;
