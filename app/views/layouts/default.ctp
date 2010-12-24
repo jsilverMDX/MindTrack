@@ -58,7 +58,9 @@
 	<div id="footer" class='box_shadow'>
 		<div id="footer_accent">
 			<div class="footer_text">
-		      <div class="footer_para">Mindynamics &copy; 2010</div>
+		      <div class="footer_para">All content on this site and ideas and intellectual property
+		      contained herein are property of Mindynamics and may not be used elsewhere without
+		      express written permission of the authors. &copy; Mindynamics 2011</div>
 		    </div>
 		</div>
 	</div>
