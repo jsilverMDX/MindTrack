@@ -2,14 +2,15 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	var $uses = array('Member', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+	var $uses = array('Member', 'User', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	
 	// member landing point
 	function member_landing() {
 	  $this->layout = 'mindtrack';
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('StatusMessage' => array('Member'), 'Client', 'Ticket' => array('TicketComment' => array('Client', 'CommentReply' => array('Member')))));
+	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('TicketComment' => array('User', 'CommentReply' => array('User')))));
+    //$options['contain'] = array('Member' => array('Project'));
     $member = $this->Member->find('first', $options);
     //debug($member);
     $this->set("title_for_layout", "MDX MindTracker");

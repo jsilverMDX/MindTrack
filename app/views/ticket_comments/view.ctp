@@ -11,9 +11,9 @@
 			<?php echo $ticketComment['TicketComment']['comment']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Client'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($ticketComment['Client']['name'], array('controller' => 'clients', 'action' => 'view', $ticketComment['Client']['id'])); ?>
+			<?php echo $this->Html->link($ticketComment['User']['username'], array('controller' => 'users', 'action' => 'view', $ticketComment['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ticket'); ?></dt>
@@ -35,8 +35,8 @@
 		<li><?php echo $this->Html->link(__('Delete Ticket Comment', true), array('action' => 'delete', $ticketComment['TicketComment']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ticketComment['TicketComment']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Ticket Comments', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Clients', true), array('controller' => 'clients', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comment Replies', true), array('controller' => 'comment_replies', 'action' => 'index')); ?> </li>
@@ -51,7 +51,7 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Reply'); ?></th>
 		<th><?php __('Ticket Comment Id'); ?></th>
-		<th><?php __('Member Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -66,7 +66,7 @@
 			<td><?php echo $commentReply['id'];?></td>
 			<td><?php echo $commentReply['reply'];?></td>
 			<td><?php echo $commentReply['ticket_comment_id'];?></td>
-			<td><?php echo $commentReply['member_id'];?></td>
+			<td><?php echo $commentReply['user_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'comment_replies', 'action' => 'view', $commentReply['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comment_replies', 'action' => 'edit', $commentReply['id'])); ?>

@@ -12,7 +12,7 @@
   ?>
   <li class="project">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
-  <div class="project-client">Client: <? echo($project['Client']['name']); ?></div>
+  <div class="project-client">Client: <? echo($project['User']['Client']['name']); ?></div>
   <ul class="statuses">
   <h4 class="status-messages">Status Messages</h4>
   <?
@@ -21,7 +21,7 @@
   ?>
   <li class="status">
   <div class="status-message"><? echo($status['message']); ?></div>
-  <div class="status-author">posted by <? echo($status['Member']['name']); ?></div>
+  <div class="status-author">posted by <? echo($status['User']['username']); ?></div>
   </li>
   <?
     endforeach;

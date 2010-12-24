@@ -16,9 +16,9 @@
 			<?php echo $this->Html->link($commentReply['TicketComment']['comment'], array('controller' => 'ticket_comments', 'action' => 'view', $commentReply['TicketComment']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Member'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($commentReply['Member']['name'], array('controller' => 'members', 'action' => 'view', $commentReply['Member']['id'])); ?>
+			<?php echo $this->Html->link($commentReply['User']['username'], array('controller' => 'users', 'action' => 'view', $commentReply['User']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -32,7 +32,7 @@
 		<li><?php echo $this->Html->link(__('New Comment Reply', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Ticket Comments', true), array('controller' => 'ticket_comments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('controller' => 'ticket_comments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

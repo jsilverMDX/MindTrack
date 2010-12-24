@@ -5,7 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('message');?></th>
 			<th><?php echo $this->Paginator->sort('project_id');?></th>
-			<th><?php echo $this->Paginator->sort('member_id');?></th>
+			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -23,7 +23,7 @@
 			<?php echo $this->Html->link($statusMessage['Project']['name'], array('controller' => 'projects', 'action' => 'view', $statusMessage['Project']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($statusMessage['Member']['name'], array('controller' => 'members', 'action' => 'view', $statusMessage['Member']['id'])); ?>
+			<?php echo $this->Html->link($statusMessage['User']['username'], array('controller' => 'users', 'action' => 'view', $statusMessage['User']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $statusMessage['StatusMessage']['id'])); ?>
@@ -53,7 +53,7 @@
 		<li><?php echo $this->Html->link(__('New Status Message', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

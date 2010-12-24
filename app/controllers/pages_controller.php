@@ -67,8 +67,8 @@ class PagesController extends AppController {
 				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true));
 			}
 		}
-		$members = $this->Page->Member->find('list');
-		$this->set(compact('members'));
+		$users = $this->Page->User->find('list');
+		$this->set(compact('users'));
 	}
 
 	function edit($id = null) {
@@ -88,8 +88,8 @@ class PagesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Page->read(null, $id);
 		}
-		$members = $this->Page->Member->find('list');
-		$this->set(compact('members'));
+		$users = $this->Page->User->find('list');
+		$this->set(compact('users'));
 	}
 
 	function delete($id = null) {

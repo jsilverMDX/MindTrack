@@ -24,7 +24,7 @@ class StatusMessage extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'member_id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -45,9 +45,9 @@ class StatusMessage extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Member' => array(
-			'className' => 'Member',
-			'foreignKey' => 'member_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

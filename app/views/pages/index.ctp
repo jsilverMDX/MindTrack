@@ -4,9 +4,9 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('public')?>?</th>
 			<th><?php echo $this->Paginator->sort('page');?></th>
-			<th><?php echo $this->Paginator->sort('member_id');?></th>
+			<th><?php echo $this->Paginator->sort('user_id');?></th>
+			<th><?php echo $this->Paginator->sort('public');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -20,11 +20,11 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $page['Page']['id']; ?>&nbsp;</td>
 		<td><?php echo $page['Page']['name']; ?>&nbsp;</td>
-		<td><?php echo $page['Page']['public'] == 1 ? 'Yes' : 'No'; ?>&nbsp;</td>
 		<td><?php echo $page['Page']['page']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($page['Member']['name'], array('controller' => 'members', 'action' => 'view', $page['Member']['id'])); ?>
+			<?php echo $this->Html->link($page['User']['username'], array('controller' => 'users', 'action' => 'view', $page['User']['id'])); ?>
 		</td>
+		<td><?php echo $page['Page']['public']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $page['Page']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $page['Page']['id'])); ?>
@@ -51,7 +51,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Page', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

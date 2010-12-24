@@ -7,7 +7,7 @@
 		echo $this->Form->input('git_remote');
 		echo $this->Form->input('link');
 		echo $this->Form->input('description');
-		echo $this->Form->input('client_id');
+		echo $this->Form->input('user_id');
 		echo $this->Form->input('Member');
 	?>
 	</fieldset>
@@ -18,8 +18,8 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Projects', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Clients', true), array('controller' => 'clients', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Status Message', true), array('controller' => 'status_messages', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>

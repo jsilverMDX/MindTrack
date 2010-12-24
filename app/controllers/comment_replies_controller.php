@@ -30,8 +30,8 @@ class CommentRepliesController extends AppController {
 			}
 		}
 		$ticketComments = $this->CommentReply->TicketComment->find('list');
-		$members = $this->CommentReply->Member->find('list');
-		$this->set(compact('ticketComments', 'members'));
+		$users = $this->CommentReply->User->find('list');
+		$this->set(compact('ticketComments', 'users'));
 	}
 
 	function edit($id = null) {
@@ -52,8 +52,8 @@ class CommentRepliesController extends AppController {
 			$this->data = $this->CommentReply->read(null, $id);
 		}
 		$ticketComments = $this->CommentReply->TicketComment->find('list');
-		$members = $this->CommentReply->Member->find('list');
-		$this->set(compact('ticketComments', 'members'));
+		$users = $this->CommentReply->User->find('list');
+		$this->set(compact('ticketComments', 'users'));
 	}
 
 	function delete($id = null) {

@@ -77,34 +77,5 @@ class Client extends AppModel {
 		)
 	);
 
-	var $hasMany = array(
-		'Project' => array(
-			'className' => 'Project',
-			'foreignKey' => 'client_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'TicketComment' => array(
-			'className' => 'TicketComment',
-			'foreignKey' => 'client_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
 }
 ?>

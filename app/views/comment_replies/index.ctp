@@ -5,7 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('reply');?></th>
 			<th><?php echo $this->Paginator->sort('ticket_comment_id');?></th>
-			<th><?php echo $this->Paginator->sort('member_id');?></th>
+			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -23,7 +23,7 @@
 			<?php echo $this->Html->link($commentReply['TicketComment']['comment'], array('controller' => 'ticket_comments', 'action' => 'view', $commentReply['TicketComment']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($commentReply['Member']['name'], array('controller' => 'members', 'action' => 'view', $commentReply['Member']['id'])); ?>
+			<?php echo $this->Html->link($commentReply['User']['username'], array('controller' => 'users', 'action' => 'view', $commentReply['User']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $commentReply['CommentReply']['id'])); ?>
@@ -53,7 +53,7 @@
 		<li><?php echo $this->Html->link(__('New Comment Reply', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Ticket Comments', true), array('controller' => 'ticket_comments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('controller' => 'ticket_comments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

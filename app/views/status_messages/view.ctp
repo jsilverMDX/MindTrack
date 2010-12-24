@@ -16,9 +16,9 @@
 			<?php echo $this->Html->link($statusMessage['Project']['name'], array('controller' => 'projects', 'action' => 'view', $statusMessage['Project']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Member'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($statusMessage['Member']['name'], array('controller' => 'members', 'action' => 'view', $statusMessage['Member']['id'])); ?>
+			<?php echo $this->Html->link($statusMessage['User']['username'], array('controller' => 'users', 'action' => 'view', $statusMessage['User']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -32,7 +32,7 @@
 		<li><?php echo $this->Html->link(__('New Status Message', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

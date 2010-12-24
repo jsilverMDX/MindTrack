@@ -16,14 +16,14 @@
 			<?php echo $page['Page']['page']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Member'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($page['Member']['name'], array('controller' => 'members', 'action' => 'view', $page['Member']['id'])); ?>
+			<?php echo $this->Html->link($page['User']['username'], array('controller' => 'users', 'action' => 'view', $page['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Public'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $page['Page']['public'] == 1 ? 'Yes' : 'No'; ?>
+			<?php echo $page['Page']['public']; ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -35,7 +35,7 @@
 		<li><?php echo $this->Html->link(__('Delete Page', true), array('action' => 'delete', $page['Page']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $page['Page']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Pages', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Page', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
