@@ -18,6 +18,19 @@ class MembersController extends AppController {
 	  $this->set("member", $member);
 	}
 	
+	// post a Comment
+	function post_comment() {
+		if (!empty($this->data)) {
+			$this->TicketComment->create();
+			if ($this->TicketComment->save($this->data)) {
+				$this->Session->setFlash(__('The comment reply has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'member_landing'));
+	}
+	
 	// posts a CommentReply
 	function reply_to_comment() {
 		if (!empty($this->data)) {

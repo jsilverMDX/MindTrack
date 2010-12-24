@@ -90,7 +90,7 @@ CREATE TABLE `aros_acos` (
   `_delete` varchar(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -99,7 +99,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `aros_acos` WRITE;
 /*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
-INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1'),(15,2,83,'1','1','1','1');
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +152,7 @@ CREATE TABLE `comment_replies` (
   KEY `fk_comment_replies_1` (`user_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -161,7 +161,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `comment_replies` WRITE;
 /*!40000 ALTER TABLE `comment_replies` DISABLE KEYS */;
-INSERT INTO `comment_replies` VALUES (9,'well you complain too much and i dont want your money anymore peace out',7,2);
+INSERT INTO `comment_replies` VALUES (9,'well you complain too much and i dont want your money anymore peace out',7,2),(10,'i reply to own comment wow',10,2);
 /*!40000 ALTER TABLE `comment_replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +386,7 @@ CREATE TABLE `ticket_comments` (
   KEY `fk_ticket_comments_1` (`user_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -395,7 +395,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `ticket_comments` WRITE;
 /*!40000 ALTER TABLE `ticket_comments` DISABLE KEYS */;
-INSERT INTO `ticket_comments` VALUES (7,'status ',4,4,'poorly'),(8,'status',4,4,'great thanks i enjoy looking at all of these code'),(9,'status VERBOTEN',4,4,'');
+INSERT INTO `ticket_comments` VALUES (7,'status ',4,4,'poorly'),(8,'status',4,4,'great thanks i enjoy looking at all of these code'),(9,'status VERBOTEN',4,4,''),(10,'basically',2,4,'wow');
 /*!40000 ALTER TABLE `ticket_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,4 +469,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-24 22:10:53
+-- Dump completed on 2010-12-24 23:09:17

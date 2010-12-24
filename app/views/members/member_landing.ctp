@@ -73,6 +73,16 @@
     <?
       endforeach;
     ?>
+    <div class="create-comment-form">
+    <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
+	    <?php
+		    echo $this->Form->input('comment');
+		    echo $this->Form->hidden('user_id', array('value' => $user_id));
+		    echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
+		    echo $this->Form->input('status');
+	    ?>
+    <?php echo $this->Form->end(__('Submit', true));?>
+    </div>
     </ul>
     </li>
     <?
