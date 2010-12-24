@@ -63,7 +63,7 @@
         endforeach;
       ?>
       <div class="comment-reply-form">
-      <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
+      <?php echo $this->Form->create('CommentReply', array('url' => '/clients/reply_to_comment'));?>
 	      <?php
 		      echo $this->Form->textarea('reply', array('label' => ""));
 		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));

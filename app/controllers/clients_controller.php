@@ -36,7 +36,7 @@ class ClientsController extends AppController {
 				$this->Session->setFlash('The ticket could not be saved. Please, try again.');
 			}
 		}
-		$this->redirect(array('action' => 'client_landing'));
+		$this->redirect('/mdx_clients');
 	}
 
 	function post_status_message() {
@@ -48,7 +48,7 @@ class ClientsController extends AppController {
 				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect(array('action' => 'member_landing'));
+		$this->redirect('/mdx_clients');
 	}
 
 	function add_comment() {
@@ -60,7 +60,7 @@ class ClientsController extends AppController {
 				$this->Session->setFlash('The comment could not be created.');
 			}
 		}
-		$this->redirect(array('action' => 'client_landing'));
+		$this->redirect('/mdx_clients');
 	}
 	
 	// posts a CommentReply
@@ -73,19 +73,19 @@ class ClientsController extends AppController {
 				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect(array('action' => 'member_landing'));
+		$this->redirect('/mdx_clients');
 	}
 
 
 	function edit_my_project($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
-			$this->redirect(array('action' => 'client_landing'));
+			$this->redirect('/mdx_clients');
 		}
 		if (!empty($this->data)) {
 			if ($this->Project->save($this->data)) {
 				$this->Session->setFlash(__('The project has been saved', true));
-				$this->redirect(array('action' => 'client_landing'));
+				$this->redirect('/mdx_clients');
 			} else {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
