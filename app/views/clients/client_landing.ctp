@@ -91,6 +91,16 @@
     <?
       endforeach;
     ?>
+    <div class="status-message-form">
+    <h4 class="status-header">Post a Status Message</h4>
+    <?php echo $this->Form->create('StatusMessage', array('url' => '/clients/post_status_message'));?>
+      <?php
+        echo $this->Form->textarea('message', array('label' => ""));
+        echo $this->Form->hidden('project_id', array('value' => $project['id']));
+        echo $this->Form->hidden('user_id', array('value' => $user_id));
+      ?>
+    <?php echo $this->Form->end('Submit');?>
+    </div>
   </ul>
   </li>
   <?

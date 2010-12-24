@@ -39,6 +39,18 @@ class ClientsController extends AppController {
 		$this->redirect(array('action' => 'client_landing'));
 	}
 
+	function post_status_message() {
+		if (!empty($this->data)) {
+			$this->StatusMessage->create();
+			if ($this->StatusMessage->save($this->data)) {
+				$this->Session->setFlash(__('The status message has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect(array('action' => 'member_landing'));
+	}
+
 	function add_comment() {
 		if (!empty($this->data)) {
 			$this->TicketComment->create();
