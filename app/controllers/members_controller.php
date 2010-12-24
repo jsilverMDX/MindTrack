@@ -8,6 +8,7 @@ class MembersController extends AppController {
 	function member_landing() {
 	  $this->layout = 'mindtrack';
 	  $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
 	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('TicketComment' => array('User', 'CommentReply' => array('User')))));
     //$options['contain'] = array('Member' => array('Project'));

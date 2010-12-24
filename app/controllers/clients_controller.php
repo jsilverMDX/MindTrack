@@ -68,6 +68,9 @@ class ClientsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
+		// set $user_id
+    $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
 	}
 	
 	

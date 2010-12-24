@@ -46,7 +46,7 @@
     <li class="comment">
     <div class="comment-text">Comment: <? echo($comment['comment']); ?></div>
     <div class="comment-status">Status: <? echo($comment['status']); ?></div>
-    <div class="comment-author">- <? echo($comment['Client']['name']); ?></div>
+    <div class="comment-author">- <? echo($comment['User']['username']); ?></div>
     <ul class="replies">
       <?
         $comment_replies = $comment['CommentReply'];
@@ -54,7 +54,7 @@
       ?>
       <li class="reply">
       <div class="reply-text"><? echo($reply['reply']); ?></div>
-      <div class="reply-author">- <? echo($reply['Member']['name']); ?></div>
+      <div class="reply-author">- <? echo($reply['User']['username']); ?></div>
       </li>
       <?
         endforeach;
@@ -64,7 +64,7 @@
 	      <?php
 		      echo $this->Form->textarea('reply', array('label' => ""));
 		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
-		      echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+		      echo $this->Form->hidden('user_id', array('value' => $user_id));
 	      ?>
       <?php echo $this->Form->end('Submit');?>
       </div>
@@ -84,7 +84,7 @@
       <?php
         echo $this->Form->textarea('message', array('label' => ""));
         echo $this->Form->hidden('project_id', array('value' => $project['id']));
-        echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+        echo $this->Form->hidden('user_id', array('value' => $user_id));
       ?>
     <?php echo $this->Form->end('Submit');?>
     </div>
