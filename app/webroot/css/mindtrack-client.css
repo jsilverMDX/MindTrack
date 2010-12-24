@@ -20,7 +20,7 @@ a:hover {
 }
 
 #container {
-  width: 1090px;
+  width: 900px;
   margin: 0px auto;
 }
 
@@ -35,6 +35,10 @@ a:hover {
 #logo h3 {
   display: inline;
   font-size: 48pt;
+}
+
+#header_links {
+  text-align: right;
 }
 
 .client-welcome {
