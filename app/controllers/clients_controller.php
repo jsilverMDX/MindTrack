@@ -14,7 +14,7 @@ class ClientsController extends AppController {
 	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     $user = $this->User->find('first', $options);
     //debug($user);
-    $this->set("title_for_layout", "MindTrack");
+    $this->set("title_for_layout", "MDX MindTrack");
     $this->set("user_id", $session_user['id']);
     $this->set("client", $user['Client']);
 	  $this->set("user", $user);
