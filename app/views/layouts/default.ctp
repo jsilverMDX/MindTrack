@@ -21,7 +21,7 @@
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
 		<div id="logo">
-		<img src="/img/logo.png" />
+		<a href="/"><img src="/img/logo.png" /></a>
 		<em id='slogan'>awesome programming services</em>
 		</div>
 		<div id="header_links">
