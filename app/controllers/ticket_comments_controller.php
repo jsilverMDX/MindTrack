@@ -29,9 +29,9 @@ class TicketCommentsController extends AppController {
 				$this->Session->setFlash(__('The ticket comment could not be saved. Please, try again.', true));
 			}
 		}
-		$clients = $this->TicketComment->Client->find('list');
+		$users = $this->TicketComment->User->find('list');
 		$tickets = $this->TicketComment->Ticket->find('list');
-		$this->set(compact('clients', 'tickets'));
+		$this->set(compact('users', 'tickets'));
 	}
 
 	function edit($id = null) {
@@ -51,9 +51,9 @@ class TicketCommentsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->TicketComment->read(null, $id);
 		}
-		$clients = $this->TicketComment->Client->find('list');
+		$users = $this->TicketComment->User->find('list');
 		$tickets = $this->TicketComment->Ticket->find('list');
-		$this->set(compact('clients', 'tickets'));
+		$this->set(compact('users', 'tickets'));
 	}
 
 	function delete($id = null) {

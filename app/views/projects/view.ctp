@@ -26,9 +26,9 @@
 			<?php echo $project['Project']['description']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Client'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($project['Client']['name'], array('controller' => 'clients', 'action' => 'view', $project['Client']['id'])); ?>
+			<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -40,8 +40,8 @@
 		<li><?php echo $this->Html->link(__('Delete Project', true), array('action' => 'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Clients', true), array('controller' => 'clients', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Status Message', true), array('controller' => 'status_messages', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
@@ -58,7 +58,7 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Message'); ?></th>
 		<th><?php __('Project Id'); ?></th>
-		<th><?php __('Member Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -73,7 +73,7 @@
 			<td><?php echo $statusMessage['id'];?></td>
 			<td><?php echo $statusMessage['message'];?></td>
 			<td><?php echo $statusMessage['project_id'];?></td>
-			<td><?php echo $statusMessage['member_id'];?></td>
+			<td><?php echo $statusMessage['user_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'status_messages', 'action' => 'view', $statusMessage['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'status_messages', 'action' => 'edit', $statusMessage['id'])); ?>
@@ -100,6 +100,7 @@
 		<th><?php __('Description'); ?></th>
 		<th><?php __('Project Id'); ?></th>
 		<th><?php __('Status'); ?></th>
+		<th><?php __('User Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -116,6 +117,7 @@
 			<td><?php echo $ticket['description'];?></td>
 			<td><?php echo $ticket['project_id'];?></td>
 			<td><?php echo $ticket['status'];?></td>
+			<td><?php echo $ticket['user_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'view', $ticket['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>

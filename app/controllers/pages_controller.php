@@ -17,6 +17,8 @@ class PagesController extends AppController {
     
     // set the title
     $this->set('title_for_layout', "MDX | " . ucwords($page_name));
+    // set page_name
+    $this->set('page_name', $page_name);
     
     // same as unless page.nil
     if(!(empty($page))) {
@@ -38,6 +40,7 @@ class PagesController extends AppController {
   function welcome() {
     $welcome_content = $this->Page->field("page", array('name' => 'welcome'));
     $this->set('title_for_layout', "MDX | Welcome");
+    $this->set('page_name', 'welcome');
     $this->set("welcome_content", $welcome_content);
   }
 
@@ -67,8 +70,8 @@ class PagesController extends AppController {
 				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true));
 			}
 		}
-		$members = $this->Page->Member->find('list');
-		$this->set(compact('members'));
+		$users = $this->Page->User->find('list');
+		$this->set(compact('users'));
 	}
 
 	function edit($id = null) {
@@ -88,8 +91,8 @@ class PagesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Page->read(null, $id);
 		}
-		$members = $this->Page->Member->find('list');
-		$this->set(compact('members'));
+		$users = $this->Page->User->find('list');
+		$this->set(compact('users'));
 	}
 
 	function delete($id = null) {

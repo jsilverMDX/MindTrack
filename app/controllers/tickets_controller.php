@@ -30,8 +30,8 @@ class TicketsController extends AppController {
 			}
 		}
 		$projects = $this->Ticket->Project->find('list');
-		$members = $this->Ticket->Member->find('list');
-		$this->set(compact('projects', 'members'));
+		$users = $this->Ticket->User->find('list');
+		$this->set(compact('projects', 'users'));
 	}
 
 	function edit($id = null) {
@@ -52,8 +52,8 @@ class TicketsController extends AppController {
 			$this->data = $this->Ticket->read(null, $id);
 		}
 		$projects = $this->Ticket->Project->find('list');
-		$members = $this->Ticket->Member->find('list');
-		$this->set(compact('projects', 'members'));
+		$users = $this->Ticket->User->find('list');
+		$this->set(compact('projects', 'users'));
 	}
 
 	function delete($id = null) {

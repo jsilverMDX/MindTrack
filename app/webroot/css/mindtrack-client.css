@@ -20,7 +20,7 @@ a:hover {
 }
 
 #container {
-  width: 1090px;
+  width: 900px;
   margin: 0px auto;
 }
 
@@ -35,6 +35,10 @@ a:hover {
 #logo h3 {
   display: inline;
   font-size: 48pt;
+}
+
+#header_links {
+  text-align: right;
 }
 
 .client-welcome {
@@ -89,7 +93,14 @@ a:hover {
   text-align: center;
 }
 
+.comment, .ticket {
+  border: 3px solid black;
+  padding: 10px;
+  margin-top: 10px;
+}
 
-
-
-
+.create-comment-form {
+  border: 2px dashed black;
+  padding: 10px;
+  margin-top: 10px;
+}

@@ -7,7 +7,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('link');
 		echo $this->Form->textarea('description');
-		echo $this->Form->hidden('client_id', array('value' => $this->data['Client']['id']));
+		echo $this->Form->hidden('user_id', array('value' => $user_id));
 	?>
 	</fieldset>
 <?php echo $this->Form->end('Save');?>

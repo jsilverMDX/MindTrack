@@ -46,6 +46,7 @@
 		  <li><a href="/comment_replies">Comment Replies</a></li>
 		  <li><a href="/status_messages">Status Messages</a></li>
 		  <li><a href="/pages">Pages</a></li>
+		  <li><a href="/images">Images</a></li>
 	  </ul>
     </div>
 	

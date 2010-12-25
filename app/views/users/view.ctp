@@ -46,44 +46,130 @@
 		<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Status Message', true), array('controller' => 'status_messages', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Ticket Comments', true), array('controller' => 'ticket_comments', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('controller' => 'ticket_comments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Comment Replies', true), array('controller' => 'comment_replies', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Comment Reply', true), array('controller' => 'comment_replies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Pages', true), array('controller' => 'pages', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Page', true), array('controller' => 'pages', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Images', true), array('controller' => 'images', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
-	<h3><?php __('Related Clients');?></h3>
+	<div class="related">
+		<h3><?php __('Related Clients');?></h3>
 	<?php if (!empty($user['Client'])):?>
+		<dl>	<?php $i = 0; $class = ' class="altrow"';?>
+			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['name'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['email'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Phone');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['phone'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Skype');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['skype'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Company');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['company'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Link');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['link'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['id'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User Id');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['user_id'];?>
+&nbsp;</dd>
+		</dl>
+	<?php endif; ?>
+		<div class="actions">
+			<ul>
+				<li><?php echo $this->Html->link(__('Edit Client', true), array('controller' => 'clients', 'action' => 'edit', $user['Client']['id'])); ?></li>
+			</ul>
+		</div>
+	</div>
+		<div class="related">
+		<h3><?php __('Related Members');?></h3>
+	<?php if (!empty($user['Member'])):?>
+		<dl>	<?php $i = 0; $class = ' class="altrow"';?>
+			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['id'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['name'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Karma Points');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['karma_points'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User Rank');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['user_rank'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User Id');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['user_id'];?>
+&nbsp;</dd>
+		</dl>
+	<?php endif; ?>
+		<div class="actions">
+			<ul>
+				<li><?php echo $this->Html->link(__('Edit Member', true), array('controller' => 'members', 'action' => 'edit', $user['Member']['id'])); ?></li>
+			</ul>
+		</div>
+	</div>
+	<div class="related">
+	<h3><?php __('Related Projects');?></h3>
+	<?php if (!empty($user['Project'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Name'); ?></th>
-		<th><?php __('Email'); ?></th>
-		<th><?php __('Phone'); ?></th>
-		<th><?php __('Skype'); ?></th>
-		<th><?php __('Company'); ?></th>
-		<th><?php __('Link'); ?></th>
 		<th><?php __('Id'); ?></th>
+		<th><?php __('Name'); ?></th>
+		<th><?php __('Git Remote'); ?></th>
+		<th><?php __('Link'); ?></th>
+		<th><?php __('Description'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($user['Client'] as $client):
+		foreach ($user['Project'] as $project):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $client['name'];?></td>
-			<td><?php echo $client['email'];?></td>
-			<td><?php echo $client['phone'];?></td>
-			<td><?php echo $client['skype'];?></td>
-			<td><?php echo $client['company'];?></td>
-			<td><?php echo $client['link'];?></td>
-			<td><?php echo $client['id'];?></td>
-			<td><?php echo $client['user_id'];?></td>
+			<td><?php echo $project['id'];?></td>
+			<td><?php echo $project['name'];?></td>
+			<td><?php echo $project['git_remote'];?></td>
+			<td><?php echo $project['link'];?></td>
+			<td><?php echo $project['description'];?></td>
+			<td><?php echo $project['user_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'clients', 'action' => 'view', $client['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'clients', 'action' => 'edit', $client['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'clients', 'action' => 'delete', $client['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $client['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'projects', 'action' => 'view', $project['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'projects', 'action' => 'edit', $project['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'projects', 'action' => 'delete', $project['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -92,40 +178,42 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>
 <div class="related">
-	<h3><?php __('Related Members');?></h3>
-	<?php if (!empty($user['Member'])):?>
+	<h3><?php __('Related Tickets');?></h3>
+	<?php if (!empty($user['Ticket'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Name'); ?></th>
-		<th><?php __('Karma Points'); ?></th>
-		<th><?php __('User Rank'); ?></th>
+		<th><?php __('Description'); ?></th>
+		<th><?php __('Project Id'); ?></th>
+		<th><?php __('Status'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($user['Member'] as $member):
+		foreach ($user['Ticket'] as $ticket):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $member['id'];?></td>
-			<td><?php echo $member['name'];?></td>
-			<td><?php echo $member['karma_points'];?></td>
-			<td><?php echo $member['user_rank'];?></td>
-			<td><?php echo $member['user_id'];?></td>
+			<td><?php echo $ticket['id'];?></td>
+			<td><?php echo $ticket['name'];?></td>
+			<td><?php echo $ticket['description'];?></td>
+			<td><?php echo $ticket['project_id'];?></td>
+			<td><?php echo $ticket['status'];?></td>
+			<td><?php echo $ticket['user_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'members', 'action' => 'view', $member['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'members', 'action' => 'edit', $member['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'members', 'action' => 'delete', $member['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $member['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'view', $ticket['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tickets', 'action' => 'delete', $ticket['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ticket['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -134,7 +222,211 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Status Messages');?></h3>
+	<?php if (!empty($user['StatusMessage'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Message'); ?></th>
+		<th><?php __('Project Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['StatusMessage'] as $statusMessage):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $statusMessage['id'];?></td>
+			<td><?php echo $statusMessage['message'];?></td>
+			<td><?php echo $statusMessage['project_id'];?></td>
+			<td><?php echo $statusMessage['user_id'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'status_messages', 'action' => 'view', $statusMessage['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'status_messages', 'action' => 'edit', $statusMessage['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'status_messages', 'action' => 'delete', $statusMessage['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $statusMessage['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Status Message', true), array('controller' => 'status_messages', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Ticket Comments');?></h3>
+	<?php if (!empty($user['TicketComment'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Comment'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('Ticket Id'); ?></th>
+		<th><?php __('Status'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['TicketComment'] as $ticketComment):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $ticketComment['id'];?></td>
+			<td><?php echo $ticketComment['comment'];?></td>
+			<td><?php echo $ticketComment['user_id'];?></td>
+			<td><?php echo $ticketComment['ticket_id'];?></td>
+			<td><?php echo $ticketComment['status'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'ticket_comments', 'action' => 'view', $ticketComment['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'ticket_comments', 'action' => 'edit', $ticketComment['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'ticket_comments', 'action' => 'delete', $ticketComment['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ticketComment['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('controller' => 'ticket_comments', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Comment Replies');?></h3>
+	<?php if (!empty($user['CommentReply'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Reply'); ?></th>
+		<th><?php __('Ticket Comment Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['CommentReply'] as $commentReply):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $commentReply['id'];?></td>
+			<td><?php echo $commentReply['reply'];?></td>
+			<td><?php echo $commentReply['ticket_comment_id'];?></td>
+			<td><?php echo $commentReply['user_id'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'comment_replies', 'action' => 'view', $commentReply['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comment_replies', 'action' => 'edit', $commentReply['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'comment_replies', 'action' => 'delete', $commentReply['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $commentReply['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Comment Reply', true), array('controller' => 'comment_replies', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Pages');?></h3>
+	<?php if (!empty($user['Page'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Name'); ?></th>
+		<th><?php __('Page'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('Public'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Page'] as $page):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $page['id'];?></td>
+			<td><?php echo $page['name'];?></td>
+			<td><?php echo $page['page'];?></td>
+			<td><?php echo $page['user_id'];?></td>
+			<td><?php echo $page['public'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'pages', 'action' => 'view', $page['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'pages', 'action' => 'edit', $page['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'pages', 'action' => 'delete', $page['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $page['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Page', true), array('controller' => 'pages', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Images');?></h3>
+	<?php if (!empty($user['Image'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('S3 Url'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('Name'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Image'] as $image):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $image['id'];?></td>
+			<td><?php echo $image['s3_url'];?></td>
+			<td><?php echo $image['user_id'];?></td>
+			<td><?php echo $image['name'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'images', 'action' => 'view', $image['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'images', 'action' => 'edit', $image['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'images', 'action' => 'delete', $image['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $image['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

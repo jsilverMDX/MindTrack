@@ -21,7 +21,7 @@
 	<div id="header" class='box_shadow'>
 		<div id="header_accent">
 		<div id="logo">
-		<img src="/img/logo.png" />
+		<a href="/"><img src="/img/logo.png" /></a>
 		<em id='slogan'>awesome programming services</em>
 		</div>
 		<div id="header_links">
@@ -52,7 +52,8 @@
 					<?php
 					if(isset($nav_items)) {
 					  foreach ($nav_items as $page):
-	            echo "<li><a href=\"/_" . $page['Page']['name'] . "\">" . $page['Page']['name'] . "</a></li>";
+					    $li_class = ($page['Page']['name'] == $page_name) ? 'selected' : $page['Page']['name'];
+	            echo '<li class="' . $li_class . '"><a href="_' . $page['Page']['name'] . '">' . $page['Page']['name'] . '</a></li>';
 	        	endforeach;
 					}
 	      	?>

@@ -12,7 +12,7 @@
   ?>
   <li class="project">
   <div class="project-name">Project: <? echo($project['name']); ?></div>
-  <div class="project-client">Client: <? echo($project['Client']['name']); ?></div>
+  <div class="project-client">Client: <? echo($project['User']['Client']['name']); ?></div>
   <ul class="statuses">
   <h4 class="status-messages">Status Messages</h4>
   <?
@@ -21,7 +21,7 @@
   ?>
   <li class="status">
   <div class="status-message"><? echo($status['message']); ?></div>
-  <div class="status-author">posted by <? echo($status['Member']['name']); ?></div>
+  <div class="status-author">posted by <? echo($status['User']['username']); ?></div>
   </li>
   <?
     endforeach;
@@ -38,6 +38,16 @@
     <div class="ticket-name">Name: <? echo($ticket['name']); ?></div>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
     <div class="ticket-status">Status: <? echo($ticket['status']); ?></div>
+    <ul class="images">
+    <?
+      $images = $ticket['Image'];
+      foreach($images as $image):
+    ?>
+    <li><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?></li>
+    <?
+      endforeach;
+    ?>
+    </ul>
     <ul class="comments">
     <?
       $ticket_comments = $ticket['TicketComment'];
@@ -46,7 +56,7 @@
     <li class="comment">
     <div class="comment-text">Comment: <? echo($comment['comment']); ?></div>
     <div class="comment-status">Status: <? echo($comment['status']); ?></div>
-    <div class="comment-author">- <? echo($comment['Client']['name']); ?></div>
+    <div class="comment-author">- <? echo($comment['User']['username']); ?></div>
     <ul class="replies">
       <?
         $comment_replies = $comment['CommentReply'];
@@ -54,7 +64,7 @@
       ?>
       <li class="reply">
       <div class="reply-text"><? echo($reply['reply']); ?></div>
-      <div class="reply-author">- <? echo($reply['Member']['name']); ?></div>
+      <div class="reply-author">- <? echo($reply['User']['username']); ?></div>
       </li>
       <?
         endforeach;
@@ -64,7 +74,7 @@
 	      <?php
 		      echo $this->Form->textarea('reply', array('label' => ""));
 		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
-		      echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+		      echo $this->Form->hidden('user_id', array('value' => $user_id));
 	      ?>
       <?php echo $this->Form->end('Submit');?>
       </div>
@@ -73,6 +83,27 @@
     <?
       endforeach;
     ?>
+    <div class="create-comment-form">
+    <?php echo $this->Form->create('TicketComment', array('url' => '/members/add_comment'));?>
+	    <?php
+		    echo $this->Form->input('comment');
+		    echo $this->Form->hidden('user_id', array('value' => $user_id));
+		    echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
+		    echo $this->Form->input('status');
+	    ?>
+    <?php echo $this->Form->end(__('Submit', true));?>
+    </div>
+    <div class="add-file-form">
+    <?php echo $this->Form->create('Image', array('url' => '/members/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
+	    <?php
+	      echo $this->Form->hidden('s3_url');
+	      echo $this->Form->hidden('Ticket.ticket_id', array('value' => $ticket['id']));
+		    echo $this->Form->hidden('user_id', array('value' => $user_id));
+		    echo $this->Form->file('name');
+	    ?>
+	    </fieldset>
+    <?php echo $this->Form->end(__('Submit', true));?>
+    </div>
     </ul>
     </li>
     <?
@@ -84,7 +115,7 @@
       <?php
         echo $this->Form->textarea('message', array('label' => ""));
         echo $this->Form->hidden('project_id', array('value' => $project['id']));
-        echo $this->Form->hidden('member_id', array('value' => $member['Member']['id']));
+        echo $this->Form->hidden('user_id', array('value' => $user_id));
       ?>
     <?php echo $this->Form->end('Submit');?>
     </div>

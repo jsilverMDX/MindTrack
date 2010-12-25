@@ -128,6 +128,13 @@ padding-top: 30px;
 	border-right: 1px solid #1589ff;
 	background-image: url('/img/white.png');
 }
+#container #finish #menu li.selected{
+	display: inline;
+	padding: 18px 19px 8px 19px;
+	border-left: 1px solid #1589ff;
+	border-right: 1px solid #1589ff;
+	background-image: url('/img/white.png');
+}
 #container #finish #menu li a{
 	color: #fff;
 	font-size: 30px;

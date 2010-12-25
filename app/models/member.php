@@ -47,49 +47,6 @@ class Member extends AppModel {
 		)
 	);
 
-	var $hasMany = array(
-		'CommentReply' => array(
-			'className' => 'CommentReply',
-			'foreignKey' => 'member_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Page' => array(
-			'className' => 'Page',
-			'foreignKey' => 'member_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'StatusMessage' => array(
-			'className' => 'StatusMessage',
-			'foreignKey' => 'member_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
-
 	var $hasAndBelongsToMany = array(
 		'Project' => array(
 			'className' => 'Project',

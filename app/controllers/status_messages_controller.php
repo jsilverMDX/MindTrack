@@ -30,8 +30,8 @@ class StatusMessagesController extends AppController {
 			}
 		}
 		$projects = $this->StatusMessage->Project->find('list');
-		$members = $this->StatusMessage->Member->find('list');
-		$this->set(compact('projects', 'members'));
+		$users = $this->StatusMessage->User->find('list');
+		$this->set(compact('projects', 'users'));
 	}
 
 	function edit($id = null) {
@@ -52,8 +52,8 @@ class StatusMessagesController extends AppController {
 			$this->data = $this->StatusMessage->read(null, $id);
 		}
 		$projects = $this->StatusMessage->Project->find('list');
-		$members = $this->StatusMessage->Member->find('list');
-		$this->set(compact('projects', 'members'));
+		$users = $this->StatusMessage->User->find('list');
+		$this->set(compact('projects', 'users'));
 	}
 
 	function delete($id = null) {

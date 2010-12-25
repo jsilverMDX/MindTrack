@@ -26,6 +26,11 @@
 			<?php echo $ticket['Ticket']['status']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($ticket['User']['username'], array('controller' => 'users', 'action' => 'view', $ticket['User']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -37,6 +42,8 @@
 		<li><?php echo $this->Html->link(__('New Ticket', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Ticket Comments', true), array('controller' => 'ticket_comments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket Comment', true), array('controller' => 'ticket_comments', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
@@ -50,7 +57,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Comment'); ?></th>
-		<th><?php __('Client Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
 		<th><?php __('Ticket Id'); ?></th>
 		<th><?php __('Status'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
@@ -66,7 +73,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $ticketComment['id'];?></td>
 			<td><?php echo $ticketComment['comment'];?></td>
-			<td><?php echo $ticketComment['client_id'];?></td>
+			<td><?php echo $ticketComment['user_id'];?></td>
 			<td><?php echo $ticketComment['ticket_id'];?></td>
 			<td><?php echo $ticketComment['status'];?></td>
 			<td class="actions">

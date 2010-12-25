@@ -29,9 +29,9 @@ class ProjectsController extends AppController {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
 		}
-		$clients = $this->Project->Client->find('list');
+		$users = $this->Project->User->find('list');
 		$members = $this->Project->Member->find('list');
-		$this->set(compact('clients', 'members'));
+		$this->set(compact('users', 'members'));
 	}
 
 	function edit($id = null) {
@@ -51,9 +51,9 @@ class ProjectsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
-		$clients = $this->Project->Client->find('list');
+		$users = $this->Project->User->find('list');
 		$members = $this->Project->Member->find('list');
-		$this->set(compact('clients', 'members'));
+		$this->set(compact('users', 'members'));
 	}
 
 	function delete($id = null) {

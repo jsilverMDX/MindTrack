@@ -5,8 +5,8 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('page');
-		echo $this->Form->input('member_id');
-		echo 'Public?' . $this->Form->checkbox('public');
+		echo $this->Form->input('user_id');
+		echo $this->Form->input('public');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -16,7 +16,7 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Pages', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Members', true), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

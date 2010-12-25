@@ -2,6 +2,7 @@
 class GroupsController extends AppController {
 
 	var $name = 'Groups';
+	var $actsAs = array('containable');
 
 	// temp dev admin hack
 	/*

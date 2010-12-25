@@ -4,21 +4,43 @@ class ClientsController extends AppController {
 	var $name = 'Clients';
   var $layout = 'mindtrack_client';
   var $helpers = array('Form', 'Html');
-  var $uses = array('Client', 'Project', 'Ticket', 'TicketComment', 'StatusMessage');
-
+  var $uses = array('Client', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+  var $components = array('Upload.Upload');
+  
   // client landing point
   function client_landing() {
 	  $session_user = $this->Session->read('Auth.User');
-	  $options['conditions'] = array('Client.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('StatusMessage' => array('Member'), 'Ticket' => array('TicketComment' => array('CommentReply'))));
-    $client = $this->Client->find('first', $options);
-    //debug($client);
-    $this->set("title_for_layout", "MindTrack");
-	  $this->set("client", $client);
+	  $options['conditions'] = array('User.id =' => $session_user['id']);
+	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
+    $user = $this->User->find('first', $options);
+    //debug($user);
+    $this->set("title_for_layout", "MDX MindTrack");
+    $this->set("user_id", $session_user['id']);
+    $this->set("client", $user['Client']);
+	  $this->set("user", $user);
   }
 
 
+	function add_file_to_ticket() {
+		if (!empty($this->data)) {
+		  // hello hacky
+		  $url = $this->Upload->put($this->data['Image']['name'], 'mindynamics.com');
+		  $this->data['Image']['s3_url'] = $url;
+		  $file_name = $this->data['Image']['name']['name'];
+		  $this->data['Image']['name'] = $file_name; // remove PHP upload array object
+			$this->Image->create();
+			if ($this->Image->save($this->data)) {
+				$this->Session->setFlash(__('The image has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The image could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect('/mdx_clients');
+	}
+
   function new_ticket($id) {
+    $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
     $this->set("project_id", $id);
     $this->set("title_for_layout", "MindTrack | New Ticket");
   }
@@ -32,7 +54,19 @@ class ClientsController extends AppController {
 				$this->Session->setFlash('The ticket could not be saved. Please, try again.');
 			}
 		}
-		$this->redirect(array('action' => 'client_landing'));
+		$this->redirect('/mdx_clients');
+	}
+
+	function post_status_message() {
+		if (!empty($this->data)) {
+			$this->StatusMessage->create();
+			if ($this->StatusMessage->save($this->data)) {
+				$this->Session->setFlash(__('The status message has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect('/mdx_clients');
 	}
 
 	function add_comment() {
@@ -44,19 +78,32 @@ class ClientsController extends AppController {
 				$this->Session->setFlash('The comment could not be created.');
 			}
 		}
-		$this->redirect(array('action' => 'client_landing'));
+		$this->redirect('/mdx_clients');
+	}
+	
+	// posts a CommentReply
+	function reply_to_comment() {
+		if (!empty($this->data)) {
+			$this->CommentReply->create();
+			if ($this->CommentReply->save($this->data)) {
+				$this->Session->setFlash(__('The comment reply has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect('/mdx_clients');
 	}
 
 
 	function edit_my_project($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
-			$this->redirect(array('action' => 'client_landing'));
+			$this->redirect('/mdx_clients');
 		}
 		if (!empty($this->data)) {
 			if ($this->Project->save($this->data)) {
 				$this->Session->setFlash(__('The project has been saved', true));
-				$this->redirect(array('action' => 'client_landing'));
+				$this->redirect('/mdx_clients');
 			} else {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
@@ -64,6 +111,9 @@ class ClientsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
+		// set $user_id
+    $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
 	}
 	
 	
