@@ -53,3 +53,9 @@ padding-left: 50px;
   padding: 50px;
   border-radius: 30px;
 }
+
+.crud-actions ul li {
+  display: inline;
+  font-size: 16pt;
+  font-weight: bold;
+}
