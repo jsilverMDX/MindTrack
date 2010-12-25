@@ -1,6 +1,0 @@
-<?php
-
-$config['S3']['AccessKey'] = '';
-$config['S3']['SecretKey'] = '';
-
-?>
