@@ -2,7 +2,8 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	var $uses = array('Member', 'User', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+	var $uses = array('Member', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+	var $components = array('Upload.Upload');
 	
 	// member landing point
 	function member_landing() {
@@ -10,12 +11,29 @@ class MembersController extends AppController {
 	  $session_user = $this->Session->read('Auth.User');
     $this->set("user_id", $session_user['id']);
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('TicketComment' => array('User', 'CommentReply' => array('User')))));
+	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     //$options['contain'] = array('Member' => array('Project'));
     $member = $this->Member->find('first', $options);
     //debug($member);
     $this->set("title_for_layout", "MDX MindTracker");
 	  $this->set("member", $member);
+	}
+	
+	function add_file_to_ticket() {
+		if (!empty($this->data)) {
+		  // hello hacky
+		  $url = $this->Upload->put($this->data['Image']['name'], 'mindynamics.com');
+		  $this->data['Image']['s3_url'] = $url;
+		  $file_name = $this->data['Image']['name']['name'];
+		  $this->data['Image']['name'] = $file_name; // remove PHP upload array object
+			$this->Image->create();
+			if ($this->Image->save($this->data)) {
+				$this->Session->setFlash(__('The image has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The image could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect('/mdx_clients');
 	}
 	
 	// post a Comment

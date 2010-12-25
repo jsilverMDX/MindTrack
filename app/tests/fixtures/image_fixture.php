@@ -1,5 +1,5 @@
 <?php
-/* Image Fixture generated on: 2010-12-24 21:12:56 : 1293254696 */
+/* Image Fixture generated on: 2010-12-24 22:12:59 : 1293260219 */
 class ImageFixture extends CakeTestFixture {
 	var $name = 'Image';
 

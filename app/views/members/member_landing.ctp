@@ -38,6 +38,16 @@
     <div class="ticket-name">Name: <? echo($ticket['name']); ?></div>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
     <div class="ticket-status">Status: <? echo($ticket['status']); ?></div>
+    <ul class="images">
+    <?
+      $images = $ticket['Image'];
+      foreach($images as $image):
+    ?>
+    <li><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?></li>
+    <?
+      endforeach;
+    ?>
+    </ul>
     <ul class="comments">
     <?
       $ticket_comments = $ticket['TicketComment'];
@@ -74,13 +84,24 @@
       endforeach;
     ?>
     <div class="create-comment-form">
-    <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
+    <?php echo $this->Form->create('TicketComment', array('url' => '/members/add_comment'));?>
 	    <?php
 		    echo $this->Form->input('comment');
 		    echo $this->Form->hidden('user_id', array('value' => $user_id));
 		    echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
 		    echo $this->Form->input('status');
 	    ?>
+    <?php echo $this->Form->end(__('Submit', true));?>
+    </div>
+    <div class="add-file-form">
+    <?php echo $this->Form->create('Image', array('url' => '/members/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
+	    <?php
+	      echo $this->Form->hidden('s3_url');
+	      echo $this->Form->hidden('Ticket.ticket_id', array('value' => $ticket['id']));
+		    echo $this->Form->hidden('user_id', array('value' => $user_id));
+		    echo $this->Form->file('name');
+	    ?>
+	    </fieldset>
     <?php echo $this->Form->end(__('Submit', true));?>
     </div>
     </ul>

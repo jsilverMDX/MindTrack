@@ -106,7 +106,22 @@ class Ticket extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
+		'Image' => array(
+			'className' => 'Image',
+			'joinTable' => 'images_tickets',
+			'foreignKey' => 'ticket_id',
+			'associationForeignKey' => 'image_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
 	);
 
 }

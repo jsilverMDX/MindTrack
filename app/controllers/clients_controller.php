@@ -4,13 +4,14 @@ class ClientsController extends AppController {
 	var $name = 'Clients';
   var $layout = 'mindtrack_client';
   var $helpers = array('Form', 'Html');
-  var $uses = array('User', 'Client', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
-
+  var $uses = array('Client', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+  var $components = array('Upload.Upload');
+  
   // client landing point
   function client_landing() {
 	  $session_user = $this->Session->read('Auth.User');
 	  $options['conditions'] = array('User.id =' => $session_user['id']);
-	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('TicketComment' => array('User', 'CommentReply' => array('User')))));
+	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     $user = $this->User->find('first', $options);
     //debug($user);
     $this->set("title_for_layout", "MindTrack");
@@ -19,6 +20,23 @@ class ClientsController extends AppController {
 	  $this->set("user", $user);
   }
 
+
+	function add_file_to_ticket() {
+		if (!empty($this->data)) {
+		  // hello hacky
+		  $url = $this->Upload->put($this->data['Image']['name'], 'mindynamics.com');
+		  $this->data['Image']['s3_url'] = $url;
+		  $file_name = $this->data['Image']['name']['name'];
+		  $this->data['Image']['name'] = $file_name; // remove PHP upload array object
+			$this->Image->create();
+			if ($this->Image->save($this->data)) {
+				$this->Session->setFlash(__('The image has been saved', true));
+			} else {
+				$this->Session->setFlash(__('The image could not be saved. Please, try again.', true));
+			}
+		}
+		$this->redirect('/mdx_clients');
+	}
 
   function new_ticket($id) {
     $session_user = $this->Session->read('Auth.User');

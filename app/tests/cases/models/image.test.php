@@ -1,5 +1,5 @@
 <?php
-/* Image Test cases generated on: 2010-12-24 21:12:57 : 1293254697*/
+/* Image Test cases generated on: 2010-12-24 22:12:00 : 1293260220*/
 App::import('Model', 'Image');
 
 class ImageTestCase extends CakeTestCase {

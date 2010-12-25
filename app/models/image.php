@@ -2,6 +2,7 @@
 class Image extends AppModel {
 	var $name = 'Image';
 	var $displayField = 'name';
+	var $actsAs = array('Containable');
 	var $validate = array(
 		's3_url' => array(
 			'notempty' => array(
@@ -45,5 +46,24 @@ class Image extends AppModel {
 			'order' => ''
 		)
 	);
+
+	var $hasAndBelongsToMany = array(
+		'Ticket' => array(
+			'className' => 'Ticket',
+			'joinTable' => 'images_tickets',
+			'foreignKey' => 'image_id',
+			'associationForeignKey' => 'ticket_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		)
+	);
+
 }
 ?>
