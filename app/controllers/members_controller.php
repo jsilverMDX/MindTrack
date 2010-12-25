@@ -37,7 +37,7 @@ class MembersController extends AppController {
 	}
 	
 	// post a Comment
-	function post_comment() {
+	function add_comment() {
 		if (!empty($this->data)) {
 			$this->TicketComment->create();
 			if ($this->TicketComment->save($this->data)) {
@@ -46,7 +46,7 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect(array('action' => 'member_landing'));
+		$this->redirect('/mdx_clients');
 	}
 	
 	// posts a CommentReply
