@@ -25,15 +25,25 @@
 		<em id='slogan'>awesome programming services</em>
 		</div>
 		<div id="header_links">
-	    <ul>
-	      <?php $logged_in = $session->read('Auth.User') ?>
-	      <?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
-	      <li><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
-	    </ul>
+	    	<ul>
+	      		<?php $logged_in = $session->read('Auth.User') ?>
+	      		<?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
+	      		<li id="login"><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
+	    	</ul>
 		</div>
 		</div>
-
 	</div>
+	
+	<script>
+	$(document).ready(function (){
+		$('#login').mouseover(function (){
+			$('#login').css('background-image', "url('/img/login_button_flip.png')");
+		});
+		$('#login').mouseout(function (){
+			$('#login').css('background-image', "url('/img/login_button.png')");
+		});
+	});
+	</script>
 	
 	<div id="finish" class='box_shadow'>
 		<div id="menu">
