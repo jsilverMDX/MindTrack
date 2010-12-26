@@ -37,7 +37,7 @@
   <ul>
   <li><a href="/mdx_members">Dashboard</a></li>
   <li><a href="/members/done_tickets">Done Tickets</a></li>
-  <li><a href="/members/ticket_master">Ticket Master</a></li>
+  <li><a href="/members/ticket_master">Assign Tickets</a></li>
   </ul>
   </div>
 	

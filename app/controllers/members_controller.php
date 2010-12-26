@@ -17,6 +17,15 @@ class MembersController extends AppController {
 	  $this->set("member", $member);
 	}
 	
+	
+	
+	// action that assigns tickets
+	// show all unassigned & assigned tickets
+	function ticket_master() {
+    $this->set("title_for_layout", "MDX MindTrack | Ticket Master");
+
+	}
+	
 	// i just need to know which pipe to smoke the crack out of
 	function done_tickets() {
     $this->set("title_for_layout", "MDX MindTrack | Done Tickets");
