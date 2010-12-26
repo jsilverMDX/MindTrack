@@ -67,7 +67,7 @@ padding-left: 50px;
 }
 
 h3.my-projects {
-  font-size: 36pt;
+  font-size: 16pt;
   color: white;
 }
 
@@ -89,20 +89,16 @@ li.project, li.ticket, li.comment, li.reply {
   margin: 10px;
 }
 
-
-div.project-name {
-  font-size: 16pt;
-  color: red;
-}
-
 h4.ticket-header {
   font-size: 24pt;
   color: #00FF00;
+  margin-bottom: 10px;
 }
 
-div.ticket-name, div.ticket-status, div.ticket-description {
+div.ticket-name, div.ticket-status {
   font-size: 14pt;
   color: red;
+  margin-bottom: 15px;
 }
 
 .status {
@@ -114,3 +110,62 @@ div.ticket-name, div.ticket-status, div.ticket-description {
   text-align: center;
 }
 
+.ticket-description {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
+  color: white;
+}
+
+.the-description {
+  font-size: 14pt;
+  color: white;
+  font-family: sans-serif;
+  
+  
+}
+
+.project-name {
+  font-size: 36pt;
+  color: blue;
+}
+
+.dashboard {
+  color: white;
+  font-size: 18pt;
+}
+
+.add-file-form, .create-comment-form, .comment-reply-form, .images {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  margin: 20px 0 5px 0;
+}
+
+.attach, .post-comment, .post-reply {
+  font-size: 10pt;
+  color: white;
+}
+
+.image-file {
+  color: green;
+  font-size: 16pt;
+}
+
+.ticket-done-status {
+  color: green;
+}
+
+.member-nav ul li {
+  display: inline;
+  font-size: 18pt;
+  padding: 5px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  margin-left: 30px;
+  border-radius: 3px;
+  background: black;
+  color: white;
+}

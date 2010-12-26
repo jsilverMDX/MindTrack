@@ -33,7 +33,15 @@
 
 	</div>
 	
-	<div id="main_content">
+	<div class="member-nav">
+  <ul>
+  <li><a href="/mdx_members">Dashboard</a></li>
+  <li><a href="/members/done_tickets">Done Tickets</a></li>
+  <li><a href="/members/ticket_master">Ticket Master</a></li>
+  </ul>
+  </div>
+	
+	<div id="main_content">	
 	<?php echo $content_for_layout; ?>
 	</div>
 		

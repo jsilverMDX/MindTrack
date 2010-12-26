@@ -1,3 +1,5 @@
+<h1 class="dashboard">Dashboard</h1>
+
 <div class="member">
 <p>Hello, <?php echo($member['Member']['name']); ?>!</p>
 <p>You are a <?php echo($member['Member']['user_rank']); ?> and have <?php echo($member['Member']['karma_points']); ?> points!</p>
@@ -11,8 +13,7 @@
     foreach($projects as $project):
   ?>
   <li class="project">
-  <div class="project-name">Project: <? echo($project['name']); ?></div>
-  <div class="project-client">Client: <? echo($project['User']['Client']['name']); ?></div>
+  <div class="project-name"><? echo($project['name']); ?></div>
   <ul class="statuses">
   <h4 class="status-messages">Status Messages</h4>
   <?
@@ -33,21 +34,27 @@
       $tickets = $project['Ticket'];
       foreach($tickets as $ticket):
     ?>
+    <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
+    <? if($tstatus != "done") { ?>
     <li class="ticket">
-    <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?></h4>
-    <div class="ticket-name">Name: <? echo($ticket['name']); ?></div>
-    <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
-    <div class="ticket-status">Status: <? echo($ticket['status']); ?></div>
+    <h4 class="ticket-header">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h4>
+    <div class="ticket-status">
+    Status: <? echo($ticket['status']); ?> (<? echo($tstatus); ?>)
+    <a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
+    </div>
+    <div class="ticket-description"><div class="the-description"><? echo($ticket['description']); ?></div>
     <ul class="images">
+    <div class="file-list">Attached Files:</div>
     <?
       $images = $ticket['Image'];
       foreach($images as $image):
     ?>
-    <li><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?></li>
+    <li class="image-file"><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?></li>
     <?
       endforeach;
     ?>
     </ul>
+    </div>
     <ul class="comments">
     <?
       $ticket_comments = $ticket['TicketComment'];
@@ -70,6 +77,7 @@
         endforeach;
       ?>
       <div class="comment-reply-form">
+      <div class="post-reply">Post a reply</div>
       <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
 	      <?php
 		      echo $this->Form->textarea('reply', array('label' => ""));
@@ -84,6 +92,7 @@
       endforeach;
     ?>
     <div class="create-comment-form">
+    <div class="post-comment">Post a comment</div>
     <?php echo $this->Form->create('TicketComment', array('url' => '/members/add_comment'));?>
 	    <?php
 		    echo $this->Form->input('comment');
@@ -94,6 +103,7 @@
     <?php echo $this->Form->end(__('Submit', true));?>
     </div>
     <div class="add-file-form">
+    <div class="attach">Attach a file</div>
     <?php echo $this->Form->create('Image', array('url' => '/members/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
 	    <?php
 	      echo $this->Form->hidden('s3_url');
@@ -107,6 +117,7 @@
     </ul>
     </li>
     <?
+      }
       endforeach;
     ?>
     <div class="status-message-form">

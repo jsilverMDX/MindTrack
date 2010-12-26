@@ -4,19 +4,42 @@ class MembersController extends AppController {
 	var $name = 'Members';
 	var $uses = array('Member', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $components = array('Upload.Upload');
+	var $layout = 'mindtrack';
 	
 	// member landing point
 	function member_landing() {
-	  $this->layout = 'mindtrack';
+    $this->set("title_for_layout", "MDX MindTrack | Dashboard");
 	  $session_user = $this->Session->read('Auth.User');
     $this->set("user_id", $session_user['id']);
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
 	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
-    //$options['contain'] = array('Member' => array('Project'));
     $member = $this->Member->find('first', $options);
-    //debug($member);
-    $this->set("title_for_layout", "MDX MindTrack");
 	  $this->set("member", $member);
+	}
+	
+	// i just need to know which pipe to smoke the crack out of
+	function done_tickets() {
+    $this->set("title_for_layout", "MDX MindTrack | Done Tickets");
+	  $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
+	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
+	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('conditions' => array('status =' => 'done'), 'Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
+    $member = $this->Member->find('first', $options);
+	  $this->set("member", $member);
+	}
+	
+	function mark_as_done($id = null) {
+    $this->Ticket->read(null, $id);
+    $this->Ticket->set('status', 'done');
+    $this->Ticket->save();
+    $this->redirect('/mdx_members');
+	}
+	
+	function mark_as_not_done($id = null) {
+    $this->Ticket->read(null, $id);
+    $this->Ticket->set('status', 'not done');
+    $this->Ticket->save();
+    $this->redirect('/mdx_members');
 	}
 	
 	function add_file_to_ticket() {
@@ -33,7 +56,7 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The image could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect('/mdx_clients');
+		$this->redirect('/mdx_members');
 	}
 	
 	// post a Comment
@@ -46,7 +69,7 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect('/mdx_clients');
+		$this->redirect('/mdx_members');
 	}
 	
 	// posts a CommentReply
@@ -59,7 +82,7 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect(array('action' => 'member_landing'));
+		$this->redirect('/mdx_members');
 	}
 	
 	function post_status_message() {
@@ -71,7 +94,7 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
 			}
 		}
-		$this->redirect(array('action' => 'member_landing'));
+		$this->redirect('/mdx_members');
 	}
 
 	function index() {
