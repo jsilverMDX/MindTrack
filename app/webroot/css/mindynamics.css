@@ -97,12 +97,12 @@ padding-top: 30px;
 	width: 900px;
 	margin: auto;
 	height: 50px;
-	-webkit-border-bottom-left-radius: 9px;
-	-webkit-border-bottom-right-radius: 9px;
-	border-bottom-left-radius: 9px;
-	border-bottom-right-radius: 9px;
-	-moz-border-radius-bottomleft: 9px;
-	-moz-border-radius-bottomright: 9px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
 	background-image: url('/img/purple_super_nova.png');
 	background-repeat: no-repeat;
 	-moz-box-shadow: 0px 0px 40px #000;
@@ -155,13 +155,12 @@ padding-top: 30px;
 	font-family: buda;
 }
 #container #finish #main_content {
-  background: #ccc;
+  background: #fff;
   color: black;
   margin: 0 25px 0 25px; 
   padding: 25px;
-  border: 1px black solid;
   min-height: 450px;
-  opacity: 0.7;
+  opacity: 0.5;
   font-size: 13pt;
   font-family: sans-serif;
   
