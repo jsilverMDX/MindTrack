@@ -17,15 +17,15 @@ body{
 }
 a {
   text-decoration: none;
-  color: white;
+  color: #0000FF;
 }
 a:visited, a:active {
   text-decoration: none;
-  color: white;
+  color: #0000FF;
 }
 a:hover {
   text-decoration: underline;
-  color: white;
+  color: #0000FF;
 }
 
 
