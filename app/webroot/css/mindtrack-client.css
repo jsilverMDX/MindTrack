@@ -77,7 +77,6 @@ a:hover {
 
 .project-name {
   font-size: 26pt;
-  text-decoration: underline;
   font-family: serif;
 }
 
@@ -86,11 +85,15 @@ a:hover {
 }
 
 .status {
-  padding: 25px;
-  border: 1px solid black;
-  border-radius: 30px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px 0 5px 0;
   text-align: center;
+}
+
+.status-messages {
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
 }
 
 .comment, .ticket {
@@ -103,4 +106,8 @@ a:hover {
   border: 2px dashed black;
   padding: 10px;
   margin-top: 10px;
+}
+
+.completed-tickets {
+  font-size: 36pt;
 }

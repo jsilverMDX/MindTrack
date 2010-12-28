@@ -23,8 +23,7 @@
     foreach($statuses as $status):
   ?>
   <li class="status">
-  <div class="status-message"><? echo($status['message']); ?></div>
-  <div class="status-author">posted by <? echo($status['User']['username']); ?></div>
+  <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?></div>
   </li>
   <?
     endforeach;
@@ -41,7 +40,7 @@
     <div class="ticket-info">
     <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></h4>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
-    <div class="ticket-status">Status: <? echo($ticket['status']); ?></div>
+    <div class="ticket-status">Status: <? echo($ticket['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a></div>
     </div>
     <ul class="images">
     <?

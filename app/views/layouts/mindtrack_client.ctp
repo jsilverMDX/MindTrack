@@ -33,6 +33,12 @@
 	</div>
 	
 	<div id="main_content">
+	<ul id="client-links">
+	<li><a href="/mdx_clients">Main Dashboard</a></li>
+	<li><a href="/clients/done_tickets">Completed Tickets</a></li>
+	
+	</ul>
+	
 	<?php echo $content_for_layout; ?>
 	</div>
 		

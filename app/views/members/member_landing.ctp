@@ -1,13 +1,13 @@
-<h1 class="dashboard">Dashboard</h1>
+<h1 class="dashboard">Main Dashboard</h1>
 
 <div class="member">
-<p>Hello, <?php echo($member['Member']['name']); ?>!</p>
+<p>Welcome, MDX | <?php echo($member['Member']['name']); ?>!</p>
 <p>You are a <?php echo($member['Member']['user_rank']); ?> and have <?php echo($member['Member']['karma_points']); ?> points!</p>
 </div>
 
 <div id="work">
 <ul class="projects">
-  <h3 class="my-projects">Projects</h3>
+  <h3 class="my-projects">Show All Tickets for My Projects</h3>
   <?
     $projects = $member['Project'];
     foreach($projects as $project):
@@ -21,8 +21,7 @@
     foreach($statuses as $status):
   ?>
   <li class="status">
-  <div class="status-message"><? echo($status['message']); ?></div>
-  <div class="status-author">posted by <? echo($status['User']['username']); ?></div>
+  <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?></div>
   </li>
   <?
     endforeach;

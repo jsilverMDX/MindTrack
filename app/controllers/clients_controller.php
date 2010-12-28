@@ -19,7 +19,35 @@ class ClientsController extends AppController {
     $this->set("client", $user['Client']);
 	  $this->set("user", $user);
   }
-
+  
+  
+  // a completed tickets view.. so client can mark undone
+  function done_tickets() {
+	  $session_user = $this->Session->read('Auth.User');
+	  $options['conditions'] = array('User.id =' => $session_user['id']);
+	  $options['contain'] = array('Client', 'Project' => array('StatusMessage' => array('User'), 'Ticket' => array('conditions' => array('Ticket.status =' => 'done'), 'Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
+    $user = $this->User->find('first', $options);
+    //debug($user);
+    $this->set("title_for_layout", "MDX MindTrack | Done Tickets");
+    $this->set("user_id", $session_user['id']);
+    $this->set("client", $user['Client']);
+	  $this->set("user", $user);
+  }
+	
+	function mark_as_done($id = null) {
+    $this->Ticket->read(null, $id);
+    $this->Ticket->set('status', 'done');
+    $this->Ticket->save();
+    $this->redirect('/mdx_clients');
+	}
+	
+	function mark_as_not_done($id = null) {
+    $this->Ticket->read(null, $id);
+    $this->Ticket->set('status', 'not done');
+    $this->Ticket->save();
+    $this->redirect('/mdx_clients');
+	}
+	
 
 	function add_file_to_ticket() {
 		if (!empty($this->data)) {
