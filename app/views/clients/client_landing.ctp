@@ -36,6 +36,8 @@
       $tickets = $project['Ticket'];
       foreach($tickets as $ticket):
     ?>
+    <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
+    <? if($tstatus != "done") { ?>
     <li class="ticket">
     <div class="ticket-info">
     <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></h4>
@@ -109,6 +111,7 @@
     </ul>
     </li>
     <?
+      }
       endforeach;
     ?>
     <div class="status-message-form">
