@@ -7,6 +7,7 @@ class MembersController extends AppController {
 	var $layout = 'mindtrack';
 	
 	// member landing point
+	// shows all incomplete tickets for my projects
 	function member_landing() {
     $this->set("title_for_layout", "MDX MindTrack | Dashboard");
 	  $session_user = $this->Session->read('Auth.User');
@@ -18,12 +19,33 @@ class MembersController extends AppController {
 	}
 	
 	
+	// shows only my tickets
+	function my_tickets() {
+    $this->set("title_for_layout", "MDX MindTrack | Dashboard");
+	  $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
+	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
+	  $options['contain'] = array('Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User'))));
+    $member = $this->Member->find('first', $options);
+    //debug($member);
+	  $this->set("member", $member);
+	}
 	
+	// works lovely
+	function assign_ticket($id = null) {
+  $this->Ticket->save($this->data);
+	$this->redirect('/members/ticket_master');
+	}
+
 	// action that assigns tickets
 	// show all unassigned & assigned tickets
 	function ticket_master() {
     $this->set("title_for_layout", "MDX MindTrack | Ticket Master");
-
+    $options['contain'] = array('Members');
+    $tickets = $this->Ticket->find('all');
+    $members = $this->Member->find('list');
+    $this->set('members', $members);
+    $this->set('tickets', $tickets);
 	}
 	
 	// i just need to know which pipe to smoke the crack out of
