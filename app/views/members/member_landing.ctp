@@ -15,7 +15,7 @@
   <li class="project">
   <div class="project-name"><? echo($project['name']); ?></div>
   <ul class="statuses">
-  <h4 class="status-messages">Status Messages</h4>
+  <h4 class="status-messages">Project Messages</h4>
   <?
     $statuses = $project['StatusMessage'];
     foreach($statuses as $status):
@@ -120,7 +120,7 @@
       endforeach;
     ?>
     <div class="status-message-form">
-    <h4 class="status-header">Post a Status Message</h4>
+    <h4 class="status-header">Post a Project Message</h4>
     <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
       <?php
         echo $this->Form->textarea('message', array('label' => ""));

@@ -17,7 +17,7 @@
   <div class="edit-my-project"><a href="/clients/edit_my_project/<? echo($project['id']); ?>">Edit Project</a></div>
   </div>
   <ul class="statuses">
-  <h4 class="status-messages">Status Messages</h4>
+  <h4 class="status-messages">Project Messages</h4>
   <?
     $statuses = $project['StatusMessage'];
     foreach($statuses as $status):
@@ -115,7 +115,7 @@
       endforeach;
     ?>
     <div class="status-message-form">
-    <h4 class="status-header">Post a Status Message</h4>
+    <h4 class="status-header">Post a Project Message</h4>
     <?php echo $this->Form->create('StatusMessage', array('url' => '/clients/post_status_message'));?>
       <?php
         echo $this->Form->textarea('message', array('label' => ""));
