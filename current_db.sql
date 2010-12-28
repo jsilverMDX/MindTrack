@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
+-- MySQL dump 10.11
 --
 -- Host: localhost    Database: mindynamics
 -- ------------------------------------------------------
--- Server version	5.1.37-1ubuntu5.4
+-- Server version	5.0.75-0ubuntu10.5
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,19 +20,19 @@
 --
 
 DROP TABLE IF EXISTS `acos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `acos`
@@ -40,7 +40,7 @@ CREATE TABLE `acos` (
 
 LOCK TABLES `acos` WRITE;
 /*!40000 ALTER TABLE `acos` DISABLE KEYS */;
-INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,204),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,43),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',44,57),(18,17,NULL,NULL,'index',45,46),(19,17,NULL,NULL,'view',47,48),(20,17,NULL,NULL,'add',49,50),(21,17,NULL,NULL,'edit',51,52),(22,17,NULL,NULL,'delete',53,54),(23,17,NULL,NULL,'build_acl',55,56),(24,1,NULL,NULL,'Members',58,89),(25,24,NULL,NULL,'index',59,60),(26,24,NULL,NULL,'view',61,62),(27,24,NULL,NULL,'add',63,64),(28,24,NULL,NULL,'edit',65,66),(29,24,NULL,NULL,'delete',67,68),(30,24,NULL,NULL,'build_acl',69,70),(31,1,NULL,NULL,'Clients',90,119),(32,31,NULL,NULL,'index',91,92),(33,31,NULL,NULL,'view',93,94),(34,31,NULL,NULL,'add',95,96),(35,31,NULL,NULL,'edit',97,98),(36,31,NULL,NULL,'delete',99,100),(37,31,NULL,NULL,'build_acl',101,102),(38,1,NULL,NULL,'StatusMessages',120,133),(39,38,NULL,NULL,'index',121,122),(40,38,NULL,NULL,'view',123,124),(41,38,NULL,NULL,'add',125,126),(42,38,NULL,NULL,'edit',127,128),(43,38,NULL,NULL,'delete',129,130),(44,38,NULL,NULL,'build_acl',131,132),(45,1,NULL,NULL,'Projects',134,147),(46,45,NULL,NULL,'index',135,136),(47,45,NULL,NULL,'view',137,138),(48,45,NULL,NULL,'add',139,140),(49,45,NULL,NULL,'edit',141,142),(50,45,NULL,NULL,'delete',143,144),(51,45,NULL,NULL,'build_acl',145,146),(52,1,NULL,NULL,'TicketComments',148,161),(53,52,NULL,NULL,'index',149,150),(54,52,NULL,NULL,'view',151,152),(55,52,NULL,NULL,'add',153,154),(56,52,NULL,NULL,'edit',155,156),(57,52,NULL,NULL,'delete',157,158),(58,52,NULL,NULL,'build_acl',159,160),(59,1,NULL,NULL,'CommentReplies',162,175),(60,59,NULL,NULL,'index',163,164),(61,59,NULL,NULL,'view',165,166),(62,59,NULL,NULL,'add',167,168),(63,59,NULL,NULL,'edit',169,170),(64,59,NULL,NULL,'delete',171,172),(65,59,NULL,NULL,'build_acl',173,174),(66,1,NULL,NULL,'Tickets',176,189),(67,66,NULL,NULL,'index',177,178),(68,66,NULL,NULL,'view',179,180),(69,66,NULL,NULL,'add',181,182),(70,66,NULL,NULL,'edit',183,184),(71,66,NULL,NULL,'delete',185,186),(72,66,NULL,NULL,'build_acl',187,188),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',71,72),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',103,104),(80,31,NULL,NULL,'new_ticket',105,106),(81,31,NULL,NULL,'add_ticket',107,108),(82,24,NULL,NULL,'reply_to_comment',73,74),(83,31,NULL,NULL,'add_comment',109,110),(84,24,NULL,NULL,'post_status_message',75,76),(85,10,NULL,NULL,'admin_landing',41,42),(86,31,NULL,NULL,'edit_my_project',111,112),(87,24,NULL,NULL,'post_comment',77,78),(88,31,NULL,NULL,'post_status_message',113,114),(89,31,NULL,NULL,'reply_to_comment',115,116),(90,1,NULL,NULL,'Images',190,203),(91,90,NULL,NULL,'index',191,192),(92,90,NULL,NULL,'view',193,194),(93,90,NULL,NULL,'add',195,196),(94,90,NULL,NULL,'edit',197,198),(95,90,NULL,NULL,'delete',199,200),(96,90,NULL,NULL,'build_acl',201,202),(97,31,NULL,NULL,'add_file_to_ticket',117,118),(98,24,NULL,NULL,'add_file_to_ticket',79,80),(99,24,NULL,NULL,'add_comment',81,82),(100,24,NULL,NULL,'mark_as_done',83,84),(101,24,NULL,NULL,'done_tickets',85,86),(102,24,NULL,NULL,'mark_as_not_done',87,88);
+INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,218),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,43),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',44,57),(18,17,NULL,NULL,'index',45,46),(19,17,NULL,NULL,'view',47,48),(20,17,NULL,NULL,'add',49,50),(21,17,NULL,NULL,'edit',51,52),(22,17,NULL,NULL,'delete',53,54),(23,17,NULL,NULL,'build_acl',55,56),(24,1,NULL,NULL,'Members',58,97),(25,24,NULL,NULL,'index',59,60),(26,24,NULL,NULL,'view',61,62),(27,24,NULL,NULL,'add',63,64),(28,24,NULL,NULL,'edit',65,66),(29,24,NULL,NULL,'delete',67,68),(30,24,NULL,NULL,'build_acl',69,70),(31,1,NULL,NULL,'Clients',98,133),(32,31,NULL,NULL,'index',99,100),(33,31,NULL,NULL,'view',101,102),(34,31,NULL,NULL,'add',103,104),(35,31,NULL,NULL,'edit',105,106),(36,31,NULL,NULL,'delete',107,108),(37,31,NULL,NULL,'build_acl',109,110),(38,1,NULL,NULL,'StatusMessages',134,147),(39,38,NULL,NULL,'index',135,136),(40,38,NULL,NULL,'view',137,138),(41,38,NULL,NULL,'add',139,140),(42,38,NULL,NULL,'edit',141,142),(43,38,NULL,NULL,'delete',143,144),(44,38,NULL,NULL,'build_acl',145,146),(45,1,NULL,NULL,'Projects',148,161),(46,45,NULL,NULL,'index',149,150),(47,45,NULL,NULL,'view',151,152),(48,45,NULL,NULL,'add',153,154),(49,45,NULL,NULL,'edit',155,156),(50,45,NULL,NULL,'delete',157,158),(51,45,NULL,NULL,'build_acl',159,160),(52,1,NULL,NULL,'TicketComments',162,175),(53,52,NULL,NULL,'index',163,164),(54,52,NULL,NULL,'view',165,166),(55,52,NULL,NULL,'add',167,168),(56,52,NULL,NULL,'edit',169,170),(57,52,NULL,NULL,'delete',171,172),(58,52,NULL,NULL,'build_acl',173,174),(59,1,NULL,NULL,'CommentReplies',176,189),(60,59,NULL,NULL,'index',177,178),(61,59,NULL,NULL,'view',179,180),(62,59,NULL,NULL,'add',181,182),(63,59,NULL,NULL,'edit',183,184),(64,59,NULL,NULL,'delete',185,186),(65,59,NULL,NULL,'build_acl',187,188),(66,1,NULL,NULL,'Tickets',190,203),(67,66,NULL,NULL,'index',191,192),(68,66,NULL,NULL,'view',193,194),(69,66,NULL,NULL,'add',195,196),(70,66,NULL,NULL,'edit',197,198),(71,66,NULL,NULL,'delete',199,200),(72,66,NULL,NULL,'build_acl',201,202),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',71,72),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',111,112),(80,31,NULL,NULL,'new_ticket',113,114),(81,31,NULL,NULL,'add_ticket',115,116),(82,24,NULL,NULL,'reply_to_comment',73,74),(83,31,NULL,NULL,'add_comment',117,118),(84,24,NULL,NULL,'post_status_message',75,76),(85,10,NULL,NULL,'admin_landing',41,42),(86,31,NULL,NULL,'edit_my_project',119,120),(87,24,NULL,NULL,'post_comment',77,78),(88,31,NULL,NULL,'post_status_message',121,122),(89,31,NULL,NULL,'reply_to_comment',123,124),(90,1,NULL,NULL,'Images',204,217),(91,90,NULL,NULL,'index',205,206),(92,90,NULL,NULL,'view',207,208),(93,90,NULL,NULL,'add',209,210),(94,90,NULL,NULL,'edit',211,212),(95,90,NULL,NULL,'delete',213,214),(96,90,NULL,NULL,'build_acl',215,216),(97,31,NULL,NULL,'add_file_to_ticket',125,126),(98,24,NULL,NULL,'add_file_to_ticket',79,80),(99,24,NULL,NULL,'add_comment',81,82),(100,24,NULL,NULL,'mark_as_done',83,84),(101,24,NULL,NULL,'done_tickets',85,86),(102,24,NULL,NULL,'mark_as_not_done',87,88),(103,24,NULL,NULL,'my_tickets',89,90),(104,24,NULL,NULL,'assign_ticket',91,92),(105,24,NULL,NULL,'unassign_ticket',93,94),(106,24,NULL,NULL,'ticket_master',95,96),(107,31,NULL,NULL,'done_tickets',127,128),(108,31,NULL,NULL,'mark_as_done',129,130),(109,31,NULL,NULL,'mark_as_not_done',131,132);
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,19 +49,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `aros` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `aros`
@@ -78,20 +78,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros_acos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `aros_acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL auto_increment,
   `aro_id` int(10) NOT NULL,
   `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL DEFAULT '0',
-  `_read` varchar(2) NOT NULL DEFAULT '0',
-  `_update` varchar(2) NOT NULL DEFAULT '0',
-  `_delete` varchar(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  `_create` varchar(2) NOT NULL default '0',
+  `_read` varchar(2) NOT NULL default '0',
+  `_update` varchar(2) NOT NULL default '0',
+  `_delete` varchar(2) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `aros_acos`
@@ -99,7 +99,7 @@ CREATE TABLE `aros_acos` (
 
 LOCK TABLES `aros_acos` WRITE;
 /*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
-INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1'),(15,2,83,'1','1','1','1'),(20,3,87,'1','1','1','1'),(19,3,88,'1','1','1','1'),(21,3,89,'1','1','1','1'),(22,3,97,'1','1','1','1'),(23,2,98,'1','1','1','1'),(24,2,99,'1','1','1','1'),(25,2,100,'1','1','1','1'),(26,2,101,'1','1','1','1'),(27,2,102,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1'),(15,2,83,'1','1','1','1'),(20,3,87,'1','1','1','1'),(19,3,88,'1','1','1','1'),(21,3,89,'1','1','1','1'),(22,3,97,'1','1','1','1'),(23,2,98,'1','1','1','1'),(24,2,99,'1','1','1','1'),(25,2,100,'1','1','1','1'),(26,2,101,'1','1','1','1'),(27,2,102,'1','1','1','1'),(28,2,106,'1','1','1','1'),(29,2,104,'1','1','1','1'),(30,2,105,'1','1','1','1'),(31,2,103,'1','1','1','1'),(33,3,107,'1','1','1','1'),(34,3,108,'1','1','1','1'),(35,3,109,'1','1','1','1');
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,22 +108,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `clients`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `clients` (
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `phone` varchar(45) NOT NULL,
-  `skype` varchar(45) DEFAULT NULL,
+  `skype` varchar(45) default NULL,
   `company` varchar(45) NOT NULL,
   `link` varchar(45) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_clients_users1` (`user_id`),
   CONSTRAINT `fk_clients_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `clients`
@@ -140,20 +140,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `comment_replies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `comment_replies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `reply` text NOT NULL,
   `ticket_comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_comment_replies_2` (`ticket_comment_id`),
   KEY `fk_comment_replies_1` (`user_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `comment_replies`
@@ -170,16 +170,16 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `groups`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `groups`
@@ -196,19 +196,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `s3_url` varchar(120) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `u_id` (`user_id`),
   KEY `fk_Image_1` (`user_id`),
   CONSTRAINT `fk_Image_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `images`
@@ -225,13 +225,13 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `images_tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `images_tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `ticket_id` int(11) NOT NULL,
   `image_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`image_id`,`ticket_id`),
+  PRIMARY KEY  (`id`,`image_id`,`ticket_id`),
   KEY `ticket_id` (`ticket_id`),
   KEY `image_id` (`image_id`),
   KEY `fk_tickets_images_1` (`ticket_id`),
@@ -239,7 +239,7 @@ CREATE TABLE `images_tickets` (
   CONSTRAINT `fk_tickets_images_1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tickets_images_2` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `images_tickets`
@@ -256,20 +256,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(45) NOT NULL,
   `karma_points` varchar(45) NOT NULL,
   `user_rank` varchar(45) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_members_users1` (`user_id`),
   CONSTRAINT `fk_members_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members`
@@ -286,19 +286,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_projects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members_projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `member_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`member_id`,`project_id`),
+  PRIMARY KEY  (`id`,`member_id`,`project_id`),
   KEY `fk_members_projects_members1` (`member_id`),
   KEY `fk_members_projects_projects1` (`project_id`),
   CONSTRAINT `fk_members_projects_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_projects_projects1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members_projects`
@@ -315,19 +315,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `members_tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `member_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`member_id`,`ticket_id`),
+  PRIMARY KEY  (`id`,`member_id`,`ticket_id`),
   KEY `fk_members_tickets_members1` (`member_id`),
   KEY `fk_members_tickets_tickets1` (`ticket_id`),
   CONSTRAINT `fk_members_tickets_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_tickets_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `members_tickets`
@@ -335,6 +335,7 @@ CREATE TABLE `members_tickets` (
 
 LOCK TABLES `members_tickets` WRITE;
 /*!40000 ALTER TABLE `members_tickets` DISABLE KEYS */;
+INSERT INTO `members_tickets` VALUES (8,3,7);
 /*!40000 ALTER TABLE `members_tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,20 +344,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `pages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(45) NOT NULL,
   `page` text NOT NULL,
   `user_id` int(11) NOT NULL,
-  `public` binary(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  `public` binary(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_pages_1` (`user_id`),
   CONSTRAINT `fk_pages_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `pages`
@@ -373,20 +374,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `projects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(140) NOT NULL,
   `git_remote` varchar(45) NOT NULL,
   `link` varchar(140) NOT NULL,
   `description` text NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_projects_1` (`user_id`),
   CONSTRAINT `fk_projects_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `projects`
@@ -403,20 +404,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `status_messages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `status_messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `message` varchar(255) NOT NULL,
   `project_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_status_messages_1` (`project_id`),
   KEY `fk_status_messages_2` (`user_id`),
   CONSTRAINT `fk_status_messages_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `status_messages`
@@ -433,21 +434,21 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ticket_comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `ticket_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `comment` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  `status` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `status` varchar(100) default NULL,
+  PRIMARY KEY  (`id`),
   KEY `fk_ticket_comments_2` (`ticket_id`),
   KEY `fk_ticket_comments_1` (`user_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `ticket_comments`
@@ -464,22 +465,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(140) NOT NULL,
   `description` text NOT NULL,
   `project_id` int(11) NOT NULL,
   `status` varchar(45) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `fk_tickets_1` (`project_id`),
   KEY `fk_tickets_2` (`user_id`),
   CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_tickets_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `tickets`
@@ -487,7 +488,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (7,'Add Ability to Upload Files','Okay, seriously guys.',3,'done',9);
+INSERT INTO `tickets` VALUES (7,'Add Ability to Upload Files','Okay, seriously guys.',3,'not done',9);
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,19 +497,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `username` varchar(255) NOT NULL,
   `password` varchar(40) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `login_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Dumping data for table `users`
@@ -529,4 +530,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-27 15:55:15
+-- Dump completed on 2010-12-28  7:35:31
