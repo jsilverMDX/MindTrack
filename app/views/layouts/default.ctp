@@ -33,7 +33,7 @@
 	      		<? } ?>
 	      		<? if($logged_in && $logged_in['group_id'] == 1) { ?>
 	      		<li class="login"><a href="/admin">Dashboard</a></li>
-	      		<? elseif($logged_in && $logged_in['group_id'] == 2) { ?>
+	      		<? } elseif($logged_in && $logged_in['group_id'] == 2) { ?>
 	      		<li class="login"><a href="/mdx_members">Dashboard</a></li>
 	      		<? } elseif($logged_in && $logged_in['group_id'] == 3) { ?>
 	      		<li class="login"><a href="/mdx_clients">Dashboard</a></li>
