@@ -28,7 +28,15 @@
 	    	<ul>
 	      		<?php $logged_in = $session->read('Auth.User') ?>
 	      		<?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
-	      		<li id="login"><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
+	      		<? if($logged_in) { ?>
+	      		Welcome back, <?= $logged_in['username'] ?>
+	      		<? } ?>
+	      		<? if($logged_in && $logged_in['group_id'] == 2) { ?>
+	      		<li class="login"><a href="/mdx_members">Dashboard</a></li>
+	      		<? } elseif($logged_in && $logged_in['group_id'] == 3) { ?>
+	      		<li class="login"><a href="/mdx_clients">Dashboard</a></li>
+	      		<? } ?>
+	      		<li class="login"><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
 	    	</ul>
 		</div>
 		</div>
