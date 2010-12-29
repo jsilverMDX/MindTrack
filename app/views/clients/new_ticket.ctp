@@ -7,7 +7,7 @@
 		echo $this->Form->input('description');
 		echo $this->Form->hidden('project_id', array('value' => $project_id));
 		echo $this->Form->hidden('user_id', array('value' => $user_id));
-		echo $this->Form->input('status');
+		echo $this->Form->input('status', array('value' => 'not done'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end('Submit');?>
