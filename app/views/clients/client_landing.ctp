@@ -40,7 +40,7 @@
     <? if($tstatus != "done") { ?>
     <li class="ticket">
     <div class="ticket-info">
-    <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></h4>
+    <h4 class="ticket-header"><a href="/clients/show_ticket/<?= $ticket['id'] ?>">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></a></h4>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
     <div class="ticket-status">Status: <? echo($ticket['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a></div>
     </div>

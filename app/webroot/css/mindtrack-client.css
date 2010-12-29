@@ -75,6 +75,15 @@ a:hover {
   font-size: 20pt;
 }
 
+.ticket-description {
+  margin-top: 20px;
+}
+
+.ticket-status {
+  margin-top: 20px;
+
+}
+
 .project-name {
   font-size: 26pt;
   font-family: serif;
