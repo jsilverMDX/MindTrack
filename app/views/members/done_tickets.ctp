@@ -44,9 +44,8 @@
       foreach($ticket_comments as $comment):
     ?>
     <li class="comment">
-    <div class="comment-text">Comment: <? echo($comment['comment']); ?></div>
-    <div class="comment-status">Status: <? echo($comment['status']); ?></div>
-    <div class="comment-author">- <? echo($comment['User']['username']); ?></div>
+    <div class="comment-text"><? echo($comment['comment']); ?></div>
+    <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div>
     <div class="comment-timestamps"><div class="comment-created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div><div class="comment-updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div></div> 
     <ul class="replies">
       <?
