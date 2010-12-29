@@ -53,10 +53,8 @@ padding-top: 30px;
 
 #container #header #header_links{
   font-family: sans-serif;
-  text-align: right;
-  position: absolute;
-  left: 855px;
-  top: 20px;
+  position: relative;
+  left: 780px;
 }
 #container #header #header_links a {
   color: white;
