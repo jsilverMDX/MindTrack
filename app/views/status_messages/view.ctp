@@ -21,6 +21,16 @@
 			<?php echo $this->Html->link($statusMessage['User']['username'], array('controller' => 'users', 'action' => 'view', $statusMessage['User']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $statusMessage['StatusMessage']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $statusMessage['StatusMessage']['updated']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

@@ -6,6 +6,8 @@
 			<th><?php echo $this->Paginator->sort('reply');?></th>
 			<th><?php echo $this->Paginator->sort('ticket_comment_id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -25,6 +27,8 @@
 		<td>
 			<?php echo $this->Html->link($commentReply['User']['username'], array('controller' => 'users', 'action' => 'view', $commentReply['User']['id'])); ?>
 		</td>
+		<td><?php echo $commentReply['CommentReply']['created']; ?>&nbsp;</td>
+		<td><?php echo $commentReply['CommentReply']['updated']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $commentReply['CommentReply']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $commentReply['CommentReply']['id'])); ?>

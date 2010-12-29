@@ -26,6 +26,16 @@
 			<?php echo $this->Html->link($member['User']['username'], array('controller' => 'users', 'action' => 'view', $member['User']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $member['Member']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $member['Member']['updated']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -54,6 +64,8 @@
 		<th><?php __('Link'); ?></th>
 		<th><?php __('Description'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -71,6 +83,8 @@
 			<td><?php echo $project['link'];?></td>
 			<td><?php echo $project['description'];?></td>
 			<td><?php echo $project['user_id'];?></td>
+			<td><?php echo $project['created'];?></td>
+			<td><?php echo $project['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'projects', 'action' => 'view', $project['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'projects', 'action' => 'edit', $project['id'])); ?>
@@ -98,6 +112,8 @@
 		<th><?php __('Project Id'); ?></th>
 		<th><?php __('Status'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -115,6 +131,8 @@
 			<td><?php echo $ticket['project_id'];?></td>
 			<td><?php echo $ticket['status'];?></td>
 			<td><?php echo $ticket['user_id'];?></td>
+			<td><?php echo $ticket['created'];?></td>
+			<td><?php echo $ticket['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'view', $ticket['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>

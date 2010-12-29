@@ -6,6 +6,8 @@
 			<th><?php echo $this->Paginator->sort('s3_url');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -18,12 +20,13 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $image['Image']['id']; ?>&nbsp;</td>
-		<? $link = "http://s3.amazonaws.com".$image['Image']['s3_url']; ?>
-		<td><?php echo($this->Html->link($link, $link)); ?>&nbsp;</td>
+		<td><?php echo $image['Image']['s3_url']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($image['User']['username'], array('controller' => 'users', 'action' => 'view', $image['User']['id'])); ?>
 		</td>
 		<td><?php echo $image['Image']['name']; ?>&nbsp;</td>
+		<td><?php echo $image['Image']['created']; ?>&nbsp;</td>
+		<td><?php echo $image['Image']['updated']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $image['Image']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $image['Image']['id'])); ?>
@@ -52,5 +55,7 @@
 		<li><?php echo $this->Html->link(__('New Image', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

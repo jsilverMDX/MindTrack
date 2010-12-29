@@ -21,6 +21,16 @@
 			<?php echo $this->Html->link($commentReply['User']['username'], array('controller' => 'users', 'action' => 'view', $commentReply['User']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $commentReply['CommentReply']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $commentReply['CommentReply']['updated']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

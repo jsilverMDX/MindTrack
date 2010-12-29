@@ -7,6 +7,8 @@
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('ticket_id');?></th>
 			<th><?php echo $this->Paginator->sort('status');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -27,6 +29,8 @@
 			<?php echo $this->Html->link($ticketComment['Ticket']['name'], array('controller' => 'tickets', 'action' => 'view', $ticketComment['Ticket']['id'])); ?>
 		</td>
 		<td><?php echo $ticketComment['TicketComment']['status']; ?>&nbsp;</td>
+		<td><?php echo $ticketComment['TicketComment']['created']; ?>&nbsp;</td>
+		<td><?php echo $ticketComment['TicketComment']['updated']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $ticketComment['TicketComment']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $ticketComment['TicketComment']['id'])); ?>

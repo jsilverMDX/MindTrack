@@ -90,7 +90,7 @@ li.project, li.ticket, li.comment, li.reply {
   border: 2px solid white;
   padding: 10px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 15px 10px 15px 10px;
 }
 
 h4.ticket-header {
@@ -123,6 +123,7 @@ div.ticket-name, div.ticket-status {
   border-radius: 5px;
   padding: 20px;
   color: white;
+  margin-top: 15px;
 }
 
 .the-description {
@@ -176,4 +177,12 @@ div.ticket-name, div.ticket-status {
   border-radius: 3px;
   background: black;
   color: white;
+}
+
+.ticket-timestamps, .comment-timestamps, .reply-timestamps, .project-timestamps {
+  margin-top: 15px;
+}
+
+.ticket-created, .ticket-updated {
+
 }

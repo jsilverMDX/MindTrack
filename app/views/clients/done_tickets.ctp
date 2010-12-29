@@ -16,12 +16,14 @@
       $tickets = $project['Ticket'];
       foreach($tickets as $ticket):
     ?>
+    <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
     <li class="ticket">
     <div class="ticket-info">
     <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></h4>
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
-    <div class="ticket-status">Status: <? echo($ticket['status']); ?>
+    <div class="ticket-status">Status: <? echo($ticket['status']); ?> (<?= $tstatus ?>)
     <a href="/clients/mark_as_not_done/<? echo($ticket['id']); ?>">Mark as Not Done</a>
+    <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
     </div>
     </div>
     <ul class="images">
@@ -40,15 +42,16 @@
       foreach($ticket_comments as $comment):
     ?>
     <li class="comment">
-    <div class="comment-text">Comment: <? echo($comment['comment']); ?> <br/ > Status: <? echo($comment['status']); ?> <br/ > Posted by: <? echo($comment['User']['username']); ?></div>
-    
+    <div class="comment-text"><? echo($comment['comment']); ?> <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div></div>
+    <div class="comment-timestamps"><div class="comment-created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div><div class="comment-updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div></div>     
     <ul class="replies">
       <?
         $comment_replies = $comment['CommentReply'];
         foreach($comment_replies as $reply):
       ?>
       <li class="reply">
-      <div class="reply-text"><? echo($reply['reply']); ?> - <? echo($reply['User']['username']); ?> </div>
+      <div class="reply-text"><? echo($reply['reply']); ?> <div class="reply-author">- <? echo($reply['User']['username']); ?></div></div>
+      <div class="reply-timestamps"><div class="reply-created">posted at: <?= $this->Time->timeAgoInWords($reply['created']); ?> (<?= $this->Time->niceShort($reply['created']); ?>)</div><div class="reply-updated">modified at: <?= $this->Time->timeAgoInWords($reply['updated']); ?> (<?= $this->Time->niceShort($reply['updated']); ?>)</div></div> 
       </li>
       <?
         endforeach;

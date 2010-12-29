@@ -3,7 +3,7 @@ class ClientsController extends AppController {
 
 	var $name = 'Clients';
   var $layout = 'mindtrack_client';
-  var $helpers = array('Form', 'Html');
+  var $helpers = array('Form', 'Html', 'Time');
   var $uses = array('Client', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
   var $components = array('Upload.Upload');
   

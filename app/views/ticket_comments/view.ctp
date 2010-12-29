@@ -26,6 +26,16 @@
 			<?php echo $ticketComment['TicketComment']['status']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $ticketComment['TicketComment']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $ticketComment['TicketComment']['updated']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -52,6 +62,8 @@
 		<th><?php __('Reply'); ?></th>
 		<th><?php __('Ticket Comment Id'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -67,6 +79,8 @@
 			<td><?php echo $commentReply['reply'];?></td>
 			<td><?php echo $commentReply['ticket_comment_id'];?></td>
 			<td><?php echo $commentReply['user_id'];?></td>
+			<td><?php echo $commentReply['created'];?></td>
+			<td><?php echo $commentReply['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'comment_replies', 'action' => 'view', $commentReply['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comment_replies', 'action' => 'edit', $commentReply['id'])); ?>

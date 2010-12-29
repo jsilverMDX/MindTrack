@@ -6,6 +6,8 @@
 			<th><?php echo $this->Paginator->sort('message');?></th>
 			<th><?php echo $this->Paginator->sort('project_id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -25,6 +27,8 @@
 		<td>
 			<?php echo $this->Html->link($statusMessage['User']['username'], array('controller' => 'users', 'action' => 'view', $statusMessage['User']['id'])); ?>
 		</td>
+		<td><?php echo $statusMessage['StatusMessage']['created']; ?>&nbsp;</td>
+		<td><?php echo $statusMessage['StatusMessage']['updated']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $statusMessage['StatusMessage']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $statusMessage['StatusMessage']['id'])); ?>

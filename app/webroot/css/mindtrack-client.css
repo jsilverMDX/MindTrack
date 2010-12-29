@@ -55,13 +55,13 @@ a:hover {
 }
 
 .comment-text {
-  padding-bottom: 3px;
-  border-bottom: 4px solid blue;
+  padding-bottom: 10px;
+  border-bottom: 2px solid blue;
 }
 
 .reply-text {
   padding-bottom: 3px;
-  border-bottom: 4px solid #00FF00;
+  border-bottom: 2px solid black;
 }
 
 .ticket-info {
@@ -111,12 +111,24 @@ a:hover {
   margin-top: 10px;
 }
 
-.create-comment-form {
+.create-comment-form, .comment-reply-form {
   border: 2px dashed black;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .completed-tickets {
   font-size: 36pt;
+}
+
+.ticket-timestamps, .comment-timestamps, .reply-timestamps, .project-timestamps {
+  margin-top: 15px;
+}
+
+.reply {
+  margin-top: 15px;
+}
+
+.ticket-created, .ticket-updated {
+
 }
