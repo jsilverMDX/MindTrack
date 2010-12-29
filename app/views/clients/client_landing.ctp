@@ -44,6 +44,7 @@
     <div class="ticket-description">Description: <? echo($ticket['description']); ?></div>
     <div class="ticket-status">Status: <? echo($ticket['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a></div>
     </div>
+    <div class="edit-ticket"><a href="/clients/edit_ticket/<? echo($ticket['id']); ?>">Edit Ticket</a></div>
     <ul class="images">
     <?
       $images = $ticket['Image'];

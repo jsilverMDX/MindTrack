@@ -20,6 +20,22 @@ class ClientsController extends AppController {
 	  $this->set("user", $user);
   }
   
+  function edit_ticket($id = null) {
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(__('Invalid ticket', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		if (!empty($this->data)) {
+			  $this->Ticket->save($this->data);
+				$this->redirect('/mdx_clients');
+		}
+		if (empty($this->data)) {
+			$this->data = $this->Ticket->read(null, $id);
+		}
+		$projects = $this->Ticket->Project->find('list');
+		$users = $this->Ticket->User->find('list');
+		$this->set(compact('projects', 'users'));
+  }
   
   // a completed tickets view.. so client can mark undone
   function done_tickets() {
@@ -66,7 +82,7 @@ class ClientsController extends AppController {
 		$this->redirect('/mdx_clients');
 	}
 
-  function new_ticket($id) {
+  function new_ticket($id = null) {
     $session_user = $this->Session->read('Auth.User');
     $this->set("user_id", $session_user['id']);
     $this->set("project_id", $id);
