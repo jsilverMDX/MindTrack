@@ -5,7 +5,7 @@ class ClientsController extends AppController {
   var $layout = 'mindtrack_client';
   var $helpers = array('Form', 'Html', 'Time', 'Textile');
   var $uses = array('Client', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
-  var $components = array('Upload.Upload');
+
   
   // client landing point
   function client_landing() {

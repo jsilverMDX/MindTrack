@@ -31,6 +31,11 @@
 			<?php echo $user['User']['modified']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['email']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -98,6 +103,14 @@
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 	<?php echo $user['Client']['user_id'];?>
 &nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['created'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Client']['updated'];?>
+&nbsp;</dd>
 		</dl>
 	<?php endif; ?>
 		<div class="actions">
@@ -130,6 +143,14 @@
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 	<?php echo $user['Member']['user_id'];?>
 &nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['created'];?>
+&nbsp;</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<?php echo $user['Member']['updated'];?>
+&nbsp;</dd>
 		</dl>
 	<?php endif; ?>
 		<div class="actions">
@@ -149,6 +170,8 @@
 		<th><?php __('Link'); ?></th>
 		<th><?php __('Description'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -166,6 +189,8 @@
 			<td><?php echo $project['link'];?></td>
 			<td><?php echo $project['description'];?></td>
 			<td><?php echo $project['user_id'];?></td>
+			<td><?php echo $project['created'];?></td>
+			<td><?php echo $project['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'projects', 'action' => 'view', $project['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'projects', 'action' => 'edit', $project['id'])); ?>
@@ -193,6 +218,8 @@
 		<th><?php __('Project Id'); ?></th>
 		<th><?php __('Status'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -210,6 +237,8 @@
 			<td><?php echo $ticket['project_id'];?></td>
 			<td><?php echo $ticket['status'];?></td>
 			<td><?php echo $ticket['user_id'];?></td>
+			<td><?php echo $ticket['created'];?></td>
+			<td><?php echo $ticket['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'view', $ticket['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>
@@ -235,6 +264,8 @@
 		<th><?php __('Message'); ?></th>
 		<th><?php __('Project Id'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -250,6 +281,8 @@
 			<td><?php echo $statusMessage['message'];?></td>
 			<td><?php echo $statusMessage['project_id'];?></td>
 			<td><?php echo $statusMessage['user_id'];?></td>
+			<td><?php echo $statusMessage['created'];?></td>
+			<td><?php echo $statusMessage['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'status_messages', 'action' => 'view', $statusMessage['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'status_messages', 'action' => 'edit', $statusMessage['id'])); ?>
@@ -276,6 +309,8 @@
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Ticket Id'); ?></th>
 		<th><?php __('Status'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -292,6 +327,8 @@
 			<td><?php echo $ticketComment['user_id'];?></td>
 			<td><?php echo $ticketComment['ticket_id'];?></td>
 			<td><?php echo $ticketComment['status'];?></td>
+			<td><?php echo $ticketComment['created'];?></td>
+			<td><?php echo $ticketComment['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'ticket_comments', 'action' => 'view', $ticketComment['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'ticket_comments', 'action' => 'edit', $ticketComment['id'])); ?>
@@ -317,6 +354,8 @@
 		<th><?php __('Reply'); ?></th>
 		<th><?php __('Ticket Comment Id'); ?></th>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -332,6 +371,8 @@
 			<td><?php echo $commentReply['reply'];?></td>
 			<td><?php echo $commentReply['ticket_comment_id'];?></td>
 			<td><?php echo $commentReply['user_id'];?></td>
+			<td><?php echo $commentReply['created'];?></td>
+			<td><?php echo $commentReply['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'comment_replies', 'action' => 'view', $commentReply['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comment_replies', 'action' => 'edit', $commentReply['id'])); ?>
@@ -358,6 +399,8 @@
 		<th><?php __('Page'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Public'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -374,6 +417,8 @@
 			<td><?php echo $page['page'];?></td>
 			<td><?php echo $page['user_id'];?></td>
 			<td><?php echo $page['public'];?></td>
+			<td><?php echo $page['created'];?></td>
+			<td><?php echo $page['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'pages', 'action' => 'view', $page['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'pages', 'action' => 'edit', $page['id'])); ?>
@@ -399,6 +444,8 @@
 		<th><?php __('S3 Url'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Name'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -414,6 +461,8 @@
 			<td><?php echo $image['s3_url'];?></td>
 			<td><?php echo $image['user_id'];?></td>
 			<td><?php echo $image['name'];?></td>
+			<td><?php echo $image['created'];?></td>
+			<td><?php echo $image['updated'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'images', 'action' => 'view', $image['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'images', 'action' => 'edit', $image['id'])); ?>

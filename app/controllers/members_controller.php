@@ -3,7 +3,6 @@ class MembersController extends AppController {
 
 	var $name = 'Members';
 	var $uses = array('Member', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
-	var $components = array('Upload.Upload');
 	var $layout = 'mindtrack';
 	var $helpers = array('Html', 'Form', 'Time', 'Textile');
 	
@@ -93,15 +92,9 @@ class MembersController extends AppController {
 	
 	// post a Comment
 	function add_comment() {
-		if (!empty($this->data)) {
-			$this->TicketComment->create();
-			if ($this->TicketComment->save($this->data)) {
-				$this->Session->setFlash(__('The comment reply has been saved', true));
-			} else {
-				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
-			}
-		}
-		$this->redirect('/mdx_members');
+		$this->TicketComment->create();
+		$this->TicketComment->save($this->data);
+    $this->redirect('/mdx_members');
 	}
 	
 	// posts a CommentReply
@@ -128,6 +121,8 @@ class MembersController extends AppController {
 		}
 		$this->redirect('/mdx_members');
 	}
+
+  /* ADMIN */
 
 	function index() {
 	  $this->layout = 'admin';

@@ -2,7 +2,7 @@
 
 class AppController extends Controller { 
 
-  var $components = array('Acl', 'Session', 'Auth');
+  var $components = array('Acl', 'Session', 'Auth', 'SwiftMailer', 'Upload.Upload');
 
   function beforeFilter() {
   //Configure AuthComponent
@@ -11,7 +11,7 @@ class AppController extends Controller {
   $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
   $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'welcome');
   $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'login_redirect');
-  }  
+  }
 
 }
 
