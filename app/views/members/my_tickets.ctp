@@ -22,8 +22,7 @@
   <a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
   </div>
   <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
-  <div class="ticket-description"><div class="the-description"><? echo($ticket['description']); ?></div>
-  <ul class="images">
+<div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>  <ul class="images">
   <div class="file-list">Attached Files:</div>
   <?
     $images = $ticket['Image'];
