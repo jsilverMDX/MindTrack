@@ -41,7 +41,7 @@
       foreach($ticket_comments as $comment):
     ?>
     <li class="comment">
-    <div class="comment-text"><? echo($comment['comment']); ?> <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div></div>
+    <div class="comment-text"><?= $textile->process($comment['comment']); ?> <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div></div>
     <div class="comment-timestamps"><div class="comment-created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div><div class="comment-updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div></div>     
     <ul class="replies">
       <?
@@ -49,7 +49,7 @@
         foreach($comment_replies as $reply):
       ?>
       <li class="reply">
-      <div class="reply-text"><? echo($reply['reply']); ?> <div class="reply-author">- <? echo($reply['User']['username']); ?></div></div>
+      <div class="reply-text"><?= $textile->process($reply['reply']); ?> <div class="reply-author">- <? echo($reply['User']['username']); ?></div></div>
       <div class="reply-timestamps"><div class="reply-created">posted at: <?= $this->Time->timeAgoInWords($reply['created']); ?> (<?= $this->Time->niceShort($reply['created']); ?>)</div><div class="reply-updated">modified at: <?= $this->Time->timeAgoInWords($reply['updated']); ?> (<?= $this->Time->niceShort($reply['updated']); ?>)</div></div> 
       </li>
       <?

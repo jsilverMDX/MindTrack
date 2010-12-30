@@ -22,7 +22,7 @@
   <a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
   </div>
   <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
-<div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>  <ul class="images">
+  <div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>  <ul class="images">
   <div class="file-list">Attached Files:</div>
   <?
     $images = $ticket['Image'];
@@ -40,9 +40,8 @@
     foreach($ticket_comments as $comment):
   ?>
   <li class="comment">
-  <div class="comment-text">Comment: <? echo($comment['comment']); ?></div>
-  <div class="comment-status">Status: <? echo($comment['status']); ?></div>
-  <div class="comment-author">- <? echo($comment['User']['username']); ?></div>
+  <div class="comment-text"><?= $textile->process($comment['comment']); ?></div>
+  <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div>
   <div class="comment-timestamps"><div class="comment-created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div><div class="comment-updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div></div> 
   <ul class="replies">
     <?
