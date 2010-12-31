@@ -112,7 +112,22 @@ class Project extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
+		'Image' => array(
+			'className' => 'Image',
+			'joinTable' => 'images_projects',
+			'foreignKey' => 'project_id',
+			'associationForeignKey' => 'image_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
 	);
 
 }

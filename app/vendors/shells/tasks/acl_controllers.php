@@ -6,13 +6,18 @@ class AclControllersTask extends Shell {
    var $filter = array(); 
     
    function startup() { 
+      
       App::import('Core','Controller'); 
       App::import('Component','Acl'); 
-       
+      
       $this->Acl =& new AclComponent(); 
+      
       $controller = null; 
+      
       $this->Acl->startup($controller); 
+      
       $this->Aco =& $this->Acl->Aco; 
+      
    } 
     
    function execute() { 

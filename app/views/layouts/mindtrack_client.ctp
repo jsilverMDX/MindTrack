@@ -36,6 +36,7 @@
 	<ul id="client-links">
 	<li><a href="/mdx_clients">Main Dashboard</a></li>
 	<li><a href="/clients/done_tickets">Completed Tickets</a></li>
+  <li><a href="/clients/doc_store">Document Store</a></li>
 	
 	</ul>
 	

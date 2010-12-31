@@ -20,6 +20,51 @@ class ClientsController extends AppController {
 	  $this->set("user", $user);
   }
   
+  // per-project files
+  // images_projects join table
+  // ability to post a file to a project here
+  function doc_store() {
+  $session_user = $this->Session->read('Auth.User');
+  $options['conditions'] = array('User.id =' => $session_user['id']);
+  $this->set("user_id", $session_user['id']);
+  $options['contain'] = array('Project' => 'Image');
+  $user = $this->User->find('first', $options);
+  $this->set('projects', $user['Project']);
+  }
+  
+  function add_file_to_project() {
+		if (!empty($this->data)) {
+		  // hello hacky
+		  $url = $this->Upload->put($this->data['Image']['name'], 'mindynamics.com');
+		  $this->data['Image']['s3_url'] = $url;
+		  $file_name = $this->data['Image']['name']['name'];
+		  $this->data['Image']['name'] = $file_name; // remove PHP upload array object
+			$this->Image->create();
+			$this->Image->save($this->data);
+			$image = $this->Image->read();
+			$this->_add_proj_file_email($image);
+		}
+		$this->redirect('/clients/doc_store');
+  }
+
+	function _add_proj_file_email($image) {
+	  // set variables
+    $session_user = $this->Session->read('Auth.User');
+    $uploader = $session_user['username'];
+    $this->set('uploader', $uploader);
+	  $project_name =  $image['Project'][0]['name'];
+	  $this->set('project_name', $project_name);
+	  $s3_url = "http://s3.amazonaws.com".$image['Image']['s3_url'];
+	  $this->set('s3_url', $s3_url);
+	 
+		$options['contain'] = array('Member' => 'User');
+		$options['conditions'] = array('Project.id =' => $image['Project'][0]['id']);
+		$project = $this->Project->find('first', $options);	
+	  
+	  $this->_mailUsers($project['Member'], $uploader . " uploaded a file to " . $project_name, 'uploaded_file_proj');
+	}	
+
+  
   function show_ticket($id = null) {
     $session_user = $this->Session->read('Auth.User');
     $options['conditions'] = array('Ticket.id' => $id);
