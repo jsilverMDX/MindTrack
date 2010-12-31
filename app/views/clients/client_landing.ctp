@@ -46,6 +46,8 @@
     <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
     <div class="edit-ticket"><a href="/clients/edit_ticket/<? echo($ticket['id']); ?>">Edit Ticket</a></div>
     </div>
+    </div>
+    
     <ul class="images">
     <h3 class="image-files">Files</h3>
     <?

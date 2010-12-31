@@ -59,19 +59,53 @@ class MembersController extends AppController {
 	  $this->set("member", $member);
 	}
 	
+	
+	// +1 associated members
 	function mark_as_done($id = null) {
-    $this->Ticket->read(null, $id);
+    $ticket = $this->Ticket->read(null, $id);
     $this->Ticket->set('status', 'done');
     $this->Ticket->save();
+    // get completer
+    $session_user = $this->Session->read('Auth.User');
+    $this->set('completer', $session_user['username']);
+    $this->_ticket_done_email($ticket);
     $this->redirect('/mdx_members');
 	}
 	
+	function _ticket_done_email($ticket) {
+	  // set variables
+	  $ticket_name =  $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
+	  $this->set('ticket_name', $ticket_name);
+	 
+		$options['contain'] = array('User');
+		$options['conditions'] = array('Ticket.id =' => $ticket['Ticket']['id']);
+		$ticket = $this->Ticket->find('first', $options);	
+	  
+	  $this->_mailUser($ticket, $ticket_name . ": Marked as done", 'ticket_done');
+	}	
+	
+	// -1 associated members
 	function mark_as_not_done($id = null) {
-    $this->Ticket->read(null, $id);
+    $ticket = $this->Ticket->read(null, $id);
     $this->Ticket->set('status', 'not done');
     $this->Ticket->save();
+    $session_user = $this->Session->read('Auth.User');
+    $this->set('reopener', $session_user['username']);
+    $this->_ticket_undone_email($ticket);
     $this->redirect('/mdx_members');
 	}
+	
+	function _ticket_undone_email($ticket) {
+	  // set variables
+	  $ticket_name =  $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
+	  $this->set('ticket_name', $ticket_name);
+	 
+		$options['contain'] = array('User');
+		$options['conditions'] = array('Ticket.id =' => $ticket['Ticket']['id']);
+		$ticket = $this->Ticket->find('first', $options);	
+	  
+	  $this->_mailUser($ticket, $ticket_name . ": Marked as not done", 'ticket_undone');
+	}	
 	
 	function add_file_to_ticket() {
 		if (!empty($this->data)) {
@@ -81,47 +115,106 @@ class MembersController extends AppController {
 		  $file_name = $this->data['Image']['name']['name'];
 		  $this->data['Image']['name'] = $file_name; // remove PHP upload array object
 			$this->Image->create();
-			if ($this->Image->save($this->data)) {
-				$this->Session->setFlash(__('The image has been saved', true));
-			} else {
-				$this->Session->setFlash(__('The image could not be saved. Please, try again.', true));
-			}
+			$this->Image->save($this->data);
+			$image = $this->Image->read();
+			$this->_add_file_email($image);
 		}
 		$this->redirect('/mdx_members');
 	}
+
+	function _add_file_email($image) {
+	  // set variables
+    $session_user = $this->Session->read('Auth.User');
+    $uploader = $session_user['username'];
+    $this->set('uploader', $uploader);
+	  $ticket_name =  $image['Ticket'][0]['id'] . ': ' . $image['Ticket'][0]['name'];
+	  $this->set('ticket_name', $ticket_name);
+	  $s3_url = "http://s3.amazonaws.com".$image['Image']['s3_url'];
+	  $this->set('s3_url', $s3_url);
+	 
+		$options['contain'] = array('User');
+		$options['conditions'] = array('Ticket.id =' => $image['Ticket'][0]['id']);
+		$ticket = $this->Ticket->find('first', $options);	
+	  
+	  $this->_mailUser($ticket, $uploader . " uploaded a file to " . $ticket_name, 'uploaded_file');
+	}	
+
+
 	
 	// post a Comment
 	function add_comment() {
 		$this->TicketComment->create();
 		$this->TicketComment->save($this->data);
+		$ticket_comment = $this->TicketComment->read();
+    $this->_add_comment_email($ticket_comment);
     $this->redirect('/mdx_members');
 	}
-	
+
+	//works
+	function _add_comment_email($ticket_comment) {
+	  // set variables
+	  $this->set('author', $ticket_comment['User']['username']);
+	  $this->set('comment', $ticket_comment['TicketComment']['comment']);
+	  $ticket_name =  $ticket_comment['Ticket']['id'] . ': ' . $ticket_comment['Ticket']['name'];
+	  $this->set('ticket_name', $ticket_name);
+	  $this->set('timestamps', $ticket_comment['TicketComment']['created']);
+	 
+		$options['contain'] = array('User');
+		$options['conditions'] = array('Ticket.id =' => $ticket_comment['TicketComment']['ticket_id']);
+		$ticket = $this->Ticket->find('first', $options);	
+	  
+	  $this->_mailUser($ticket, $ticket_name . ": Comment Posted", 'comment_posted');
+	}
+
 	// posts a CommentReply
 	function reply_to_comment() {
-		if (!empty($this->data)) {
-			$this->CommentReply->create();
-			if ($this->CommentReply->save($this->data)) {
-				$this->Session->setFlash(__('The comment reply has been saved', true));
-			} else {
-				$this->Session->setFlash(__('The comment reply could not be saved. Please, try again.', true));
-			}
-		}
-		$this->redirect('/mdx_members');
-	}
-	
-	function post_status_message() {
-		if (!empty($this->data)) {
-			$this->StatusMessage->create();
-			if ($this->StatusMessage->save($this->data)) {
-				$this->Session->setFlash(__('The status message has been saved', true));
-			} else {
-				$this->Session->setFlash(__('The status message could not be saved. Please, try again.', true));
-			}
-		}
+		$this->CommentReply->create();
+		$this->CommentReply->save($this->data);
+		$comment_reply = $this->CommentReply->read();
+		$this->_reply_comment_email($comment_reply);
 		$this->redirect('/mdx_members');
 	}
 
+	//works
+	function _reply_comment_email($comment_reply) {
+	  // set variables
+	  //debug($comment_reply);
+	  $this->set('author', $comment_reply['User']['username']);
+	  $this->set('reply', $comment_reply['CommentReply']['reply']);
+	  $this->set('timestamps', $comment_reply['CommentReply']['created']);
+	 
+		$options['contain'] = array('User');
+		$options['conditions'] = array('Ticket.id =' => $comment_reply['TicketComment']['ticket_id']);
+		$ticket = $this->Ticket->find('first', $options);	
+		$ticket_name = $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
+	  $this->set('ticket_name', $ticket_name);
+	  
+	  $this->_mailUser($ticket, $ticket_name . ": Reply Posted", 'comment_reply');
+	}
+
+	function post_status_message() {
+		$this->StatusMessage->create();
+		$this->StatusMessage->save($this->data);
+		$status_message = $this->StatusMessage->read();
+		$this->_status_message_email($status_message);
+		$this->redirect('/mdx_members');
+	}
+
+	function _status_message_email($status_message) {
+	  // set variables
+	  $this->set('author', $status_message['User']['username']);
+	  $this->set('message', $status_message['StatusMessage']['message']);
+	  $this->set('timestamps', $status_message['StatusMessage']['created']);
+	 
+		$options['contain'] = array('Member' => 'User');
+		$options['conditions'] = array('Project.id =' => $status_message['StatusMessage']['project_id']);
+		$project = $this->Project->find('first', $options);
+		$project_name = $status_message['Project']['name'];
+	  $this->set('project_name', $project_name);
+
+	  $this->_mailUser($project, $project_name . ": New Status Message", 'status_message');
+	}	
+	
   /* ADMIN */
 
 	function index() {
