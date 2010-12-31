@@ -64,16 +64,15 @@ class ClientsController extends AppController {
     $ticket = $this->Ticket->read(null, $id);
     $this->Ticket->set('status', 'done');
     $this->Ticket->save();
-    // get completer
-    $session_user = $this->Session->read('Auth.User');
+    $this->_ticket_done_email($ticket);
     $this->redirect('/mdx_clients');
 	}
 
 	function _ticket_done_email($ticket) {
 	
 	  // set variables
+	  $session_user = $this->Session->read('Auth.User');
     $this->set('completer', $session_user['username']);
-    $this->_ticket_done_email($ticket);
 	  $ticket_name =  $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
 	  $this->set('ticket_name', $ticket_name);
 	 
