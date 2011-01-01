@@ -4,8 +4,6 @@
 <title><?php echo $title_for_layout?></title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link href='http://fonts.googleapis.com/css?family=Buda:light' rel='stylesheet' type='text/css'>
-<script src='http://code.jquery.com/jquery-1.4.2.min.js' type='text/javascript'>
-</script>
 <link rel="stylesheet" href="/css/mindynamics.css" type="text/css" media="screen" charset="utf-8" />
 <?php echo $scripts_for_layout ?>
 <!--[if IE 7]>
