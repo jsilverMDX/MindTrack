@@ -27,7 +27,7 @@ class MembersController extends AppController {
 	  $session_user = $this->Session->read('Auth.User');
     $this->set("user_id", $session_user['id']);
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
-	  $options['contain'] = array('Project' => 'TimeEntry');
+	  $options['contain'] = array('Project' => array('TimeEntry' => array('conditions' => array('billed =' => '0'))));
     $member = $this->Member->find('first', $options);
 	  $this->set("member", $member);
 	  $projects = $this->Member->Project->find('list');

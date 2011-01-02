@@ -14,13 +14,16 @@
 
 
 <? foreach($member['Project'] as $project): ?>
-
+<? $hours_worked = 0; ?>
 <h2 class="project-name"><?= $project['name'] ?></h2>
 
 <? foreach($project['TimeEntry'] as $entry): ?>
 <div class="time-entry">
 <?= $entry['hours'] ?> hours
+<? $hours_worked += $entry['hours']; ?>
 </div>
 <? endforeach; ?>
+
+<div class="total-hours">Total: <?= $hours_worked ?></div>
 
 <? endforeach; ?>
