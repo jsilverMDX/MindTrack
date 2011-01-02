@@ -193,6 +193,7 @@ div.ticket-name, div.ticket-status {
   padding:5px 30px;
   margin:5px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .status-message-form #StatusMessageMessage { /* this item has changed names to 'project message', previous css rules and html must be changed */

@@ -18,16 +18,6 @@
   <div class="item_head">Project Messages</div>
   <ul class="statuses item_body">
     <h4 class="status-messages">Project Messages</h4>
-    <?
-      $statuses = $project['StatusMessage'];
-      foreach($statuses as $status):
-    ?>
-    <li class="status">
-      <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?> - <?= $this->Time->timeAgoInWords($status['created']); ?></div>
-    </li>
-    <?
-      endforeach;
-    ?>
     <h4 class="status-header item_head">New Project Message</h4>
     <div class="status-message-form item_body"> 
       <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
@@ -38,6 +28,16 @@
         ?>
       <?php echo $this->Form->end('Submit');?>
     </div>
+    <?
+      $statuses = $project['StatusMessage'];
+      foreach($statuses as $status):
+    ?>
+    <li class="status">
+      <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?> - <?= $this->Time->timeAgoInWords($status['created']); ?></div>
+    </li>
+    <?
+      endforeach;
+    ?>
   </ul>
   <div class="item_head">My <? echo($project['name']); ?> Tickets</div>
   <ul class="tickets item_body">
