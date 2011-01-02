@@ -2,7 +2,7 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	var $uses = array('Member', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+	var $uses = array('Member', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
 	var $helpers = array('Html', 'Form', 'Time', 'Textile');
 	
@@ -16,6 +16,28 @@ class MembersController extends AppController {
 	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     $member = $this->Member->find('first', $options);
 	  $this->set("member", $member);
+	}
+	
+	// show a javascript timeclock that posts time entries
+	// probably just gonna time % 60 (mod) to get the mult
+	// and store it with a "billed" boolean... we can 
+	// enter rate else where of course.
+	function track_time() {
+    $this->set("title_for_layout", "MDX MindTrack | Track Time");
+	  $session_user = $this->Session->read('Auth.User');
+    $this->set("user_id", $session_user['id']);
+	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);
+	  $options['contain'] = array('Project' => 'TimeEntry');
+    $member = $this->Member->find('first', $options);
+	  $this->set("member", $member);
+	  $projects = $this->Member->Project->find('list');
+	  $this->set('projects', $projects);
+	}
+	
+	function punch_timeclock() {
+		$this->TimeEntry->create();
+		$this->TimeEntry->save($this->data);
+		$this->redirect('/members/track_time');
 	}
 	
   // per-project files

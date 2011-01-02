@@ -40,6 +40,7 @@
   <li><a href="/members/ticket_master">Assign Tickets</a></li>
   <li><a href="/members/my_tickets">My Tickets</a></li>
   <li><a href="/members/doc_store">Doc Store</a></li>
+  <li><a href="/members/track_time">Track Time</a></li>
   </ul>
   </div>
 	

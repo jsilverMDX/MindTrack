@@ -81,6 +81,19 @@ class Project extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'TimeEntry' => array(
+			'className' => 'TimeEntry',
+			'foreignKey' => 'project_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Ticket' => array(
 			'className' => 'Ticket',
 			'foreignKey' => 'project_id',
