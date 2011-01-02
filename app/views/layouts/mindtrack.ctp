@@ -5,6 +5,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link href='http://fonts.googleapis.com/css?family=Buda:light' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/mindtrack.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript" src="/js/jquery.min.js"></script> 
 <?php echo $scripts_for_layout ?>
 <!--[if IE 7]>
 <style type="text/css" media="screen">

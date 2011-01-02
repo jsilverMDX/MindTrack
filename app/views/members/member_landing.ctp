@@ -12,32 +12,43 @@
     $projects = $member['Project'];
     foreach($projects as $project):
   ?>
-  <li class="project">
-  <div class="project-name"><? echo($project['name']); ?></div>
+  <div class="project-name item_head"><? echo($project['name']); ?></div>
+  <li class="project item_body">
   <div class="project-timestamps"><div class="project-created">created on: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div><div class="project-updated">updated at: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div></div>
-  <ul class="statuses">
-  <h4 class="status-messages">Project Messages</h4>
-  <?
-    $statuses = $project['StatusMessage'];
-    foreach($statuses as $status):
-  ?>
-  <li class="status">
-  <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?> - <?= $this->Time->timeAgoInWords($status['created']); ?></div>
-  </li>
-  <?
-    endforeach;
-  ?>
+  <div class="item_head">Project Messages</div>
+  <ul class="statuses item_body">
+    <h4 class="status-messages">Project Messages</h4>
+    <?
+      $statuses = $project['StatusMessage'];
+      foreach($statuses as $status):
+    ?>
+    <li class="status">
+      <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?> - <?= $this->Time->timeAgoInWords($status['created']); ?></div>
+    </li>
+    <?
+      endforeach;
+    ?>
+    <h4 class="status-header item_head">New Project Message</h4>
+    <div class="status-message-form item_body"> 
+      <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
+        <?php
+          echo $this->Form->hidden('project_id', array('value' => $project['id']));
+          echo $this->Form->hidden('user_id', array('value' => $user_id));
+          echo $this->Form->text('message', array('label' => ""));
+        ?>
+      <?php echo $this->Form->end('Submit');?>
+    </div>
   </ul>
-  <ul class="tickets">
-  <h4 class="my-tickets"><? echo($project['name']); ?> Tickets</h4>
+  <div class="item_head">My <? echo($project['name']); ?> Tickets</div>
+  <ul class="tickets item_body">
     <?
       $tickets = $project['Ticket'];
       foreach($tickets as $ticket):
     ?>
     <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
     <? if($tstatus != "done") { ?>
-    <li class="ticket">
-    <h4 class="ticket-header">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h4>
+    <h4 class="ticket-header item_head">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h4>
+    <li class="ticket item_body">
     <div class="ticket-status">
     Status: <? echo($ticket['status']); ?> (<? echo($tstatus); ?>)
     <a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
@@ -122,16 +133,6 @@
       }
       endforeach;
     ?>
-    <div class="status-message-form">
-    <h4 class="status-header">Post a Project Message</h4>
-    <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
-      <?php
-        echo $this->Form->textarea('message', array('label' => ""));
-        echo $this->Form->hidden('project_id', array('value' => $project['id']));
-        echo $this->Form->hidden('user_id', array('value' => $user_id));
-      ?>
-    <?php echo $this->Form->end('Submit');?>
-    </div>
   </ul>
   </li>
   <?
@@ -141,4 +142,20 @@
 
 </div>
 
+<script type="text/javascript">
+$(document).ready(function()
+{
+  //hide the all of the element with class item_body
+  $(".item_body").hide();
+  //toggle the componenet with class item_body
+  $(".item_head").click(function()
+  {
+    if ($(this).css('background-image').match(/redplus.png/))
+      $(this).css('background-image', 'url("/img/greenminus.png")');
+    else
+      $(this).css('background-image', 'url("/img/redplus.png")');
+    $(this).next(".item_body").slideToggle(100);
+  });
+});
+</script>
 

@@ -137,6 +137,7 @@ div.ticket-name, div.ticket-status {
 .project-name {
   font-size: 36pt;
   color: blue;
+  text-shadow: -1px 2px 7px white;
 }
 
 .dashboard {
@@ -168,7 +169,7 @@ div.ticket-name, div.ticket-status {
 
 .member-nav ul li {
   display: inline;
-  font-size: 18pt;
+  font-size: 16pt;
   padding: 5px;
   border-top: 1px solid white;
   border-left: 1px solid white;
@@ -185,4 +186,18 @@ div.ticket-name, div.ticket-status {
 
 .ticket-created, .ticket-updated {
 
+}
+
+.item_head {
+  background:url('/img/redplus.png') no-repeat left center;
+  padding:5px 30px;
+  margin:5px;
+  font-weight:bold;
+}
+
+.status-message-form #StatusMessageMessage { /* this item has changed names to 'project message', previous css rules and html must be changed */
+  width:70%;
+}
+.status-message-form .submit { /* this item has changed names to 'project message', previous css rules and html must be changed */
+  display:inline;
 }
