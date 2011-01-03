@@ -61,7 +61,7 @@ class InvoicesController extends AppController {
 	  
 	  $this->Invoice->save(array('id' => $invoice_id, 'total' => $total, 'subtotal' => $subtotal, 'amt_due' => $total, 'balance' => $total));
 	  
-	  $this->redirect('/invoice/show_invoice/' . $invoice_id);
+	  $this->redirect('/invoices/show_invoice/' . $invoice_id);
 	}
 	
 	
