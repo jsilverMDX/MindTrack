@@ -86,7 +86,7 @@ class MembersController extends AppController {
 	
 	// shows only my tickets
 	function my_tickets() {
-    $this->set("title_for_layout", "MDX MindTrack | Dashboard");
+    $this->set("title_for_layout", "MDX MindTrack | My Tickets");
 	  $session_user = $this->Session->read('Auth.User');
     $this->set("user_id", $session_user['id']);
 	  $options['conditions'] = array('Member.user_id =' => $session_user['id']);

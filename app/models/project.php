@@ -94,6 +94,45 @@ class Project extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Rate' => array(
+			'className' => 'Rate',
+			'foreignKey' => 'project_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Invoice' => array(
+			'className' => 'Invoice',
+			'foreignKey' => 'project_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'TimeEntry' => array(
+			'className' => 'TimeEntry',
+			'foreignKey' => 'project_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Ticket' => array(
 			'className' => 'Ticket',
 			'foreignKey' => 'project_id',

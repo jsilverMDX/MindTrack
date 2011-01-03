@@ -5,6 +5,7 @@
 	<fieldset>
  		<legend><?php __('Add Time Entry'); ?></legend>
 	<?php
+	  echo $this->Form->hidden('user_id', array('value' => $user_id));
 		echo $this->Form->input('hours');
 		echo $this->Form->input('project_id');
 	?>
@@ -24,6 +25,6 @@
 </div>
 <? endforeach; ?>
 
-<div class="total-hours">Total: <?= $hours_worked ?></div>
+<div class="total-hours">Current Unbilled Hour Total: <?= $hours_worked ?></div>
 
 <? endforeach; ?>

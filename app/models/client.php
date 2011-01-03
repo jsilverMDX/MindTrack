@@ -76,6 +76,22 @@ class Client extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	var $hasMany = array(
+	  'Invoice' => array(
+		  'className' => 'Invoice',
+		  'foreignKey' => 'client_id',
+		  'dependent' => false,
+		  'conditions' => '',
+		  'fields' => '',
+		  'order' => '',
+		  'limit' => '',
+		  'offset' => '',
+		  'exclusive' => '',
+		  'finderQuery' => '',
+		  'counterQuery' => ''
+	  )
+	);
 
 }
 ?>

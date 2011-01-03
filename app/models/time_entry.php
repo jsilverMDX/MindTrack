@@ -3,8 +3,8 @@ class TimeEntry extends AppModel {
 	var $name = 'TimeEntry';
 	var $validate = array(
 		'hours' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

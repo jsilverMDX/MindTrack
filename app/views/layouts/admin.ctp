@@ -33,6 +33,13 @@
 	</div>
 	
 	<div id="main_content">
+	  <div class="admin-tools">
+	  <h3>Admin Tools</h3>
+	  <ul>
+		  <li><a href="/invoices/new_invoice">Generate Invoice</a></li>
+	  </ul>
+    </div>
+	
 	  <div class="crud-actions">
 	  <h3>Hotlinks Crud Tools</h3>
 	  <ul>
@@ -48,7 +55,9 @@
 		  <li><a href="/pages">Pages</a></li>
 		  <li><a href="/images">Images</a></li>
 		  <li><a href="/time_entries">Time Entries</a></li>
-		  
+		  <li><a href="/rates">Rates</a></li>
+		  <li><a href="/invoices">Invoices</a></li>
+		  <li><a href="/line_items">Line Items</a></li>
 	  </ul>
     </div>
 	
