@@ -30,7 +30,7 @@
 	      		Welcome back, <?= $logged_in['username'] ?>
 	      		<? } ?>
 	      		<? if($logged_in && $logged_in['group_id'] == 1) { ?>
-	      		<li class="login"><a href="/admin">Dashboard</a></li>
+	      		<li class="login"><a href="/mdx_admin">Dashboard</a></li>
 	      		<? } elseif($logged_in && $logged_in['group_id'] == 2) { ?>
 	      		<li class="login"><a href="/mdx_members">Dashboard</a></li>
 	      		<? } elseif($logged_in && $logged_in['group_id'] == 3) { ?>
