@@ -68,6 +68,7 @@ class InvoicesController extends AppController {
 	function show_invoice($id = null) {
 	  $this->layout = 'invoice';
 	  $options['contain'] = array('Client', 'LineItem', 'User');
+	  $options['conditions'] = array('Invoice.id =' => $id);
 	  $invoice = $this->Invoice->find('first', $options);
 	  $this->set('invoice', $invoice);
 	  //debug($invoice);
