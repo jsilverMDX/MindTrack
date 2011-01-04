@@ -311,7 +311,19 @@ class ClientsController extends AppController {
     $this->set("user_id", $session_user['id']);
 	}
 	
+	// show me my invoices so i can pay them
+	function my_invoices() {
+    $session_user = $this->Session->read('Auth.User');
+    $user_id = $session_user['id'];
+    
+    $this->set("user_id", $user_id);	
 	
+	}
+	
+	
+	
+	
+	/* ADMIN */
 
 	function index() {
 	  $this->layout = 'admin';

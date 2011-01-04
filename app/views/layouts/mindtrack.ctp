@@ -42,7 +42,6 @@
   <li><a href="/members/my_tickets">My Tickets</a></li>
   <li><a href="/members/doc_store">Doc Store</a></li>
   <li><a href="/members/track_time">Track Time</a></li>
-  <li><a href="/members/create_invoice">Create Invoice</a></li>
   </ul>
   </div>
 	
