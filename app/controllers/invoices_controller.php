@@ -107,7 +107,7 @@ class InvoicesController extends AppController {
       $options['conditions'] = array('Invoice.id =' => $id);
       $options['contain'] = array('Client' => 'User');
       $invoice = $this->Invoice->find('first', $options);
-//      debug($invoice);
+
       $this->_send_invoice_email($invoice_path, $invoice['Client'], $invoice['Invoice']['id']);
 
 

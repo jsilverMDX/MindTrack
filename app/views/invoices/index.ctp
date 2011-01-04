@@ -40,6 +40,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'show_invoice', $invoice['Invoice']['id'])); ?>
 			<?php echo $this->Html->link(__('Download', true), array('action' => 'download', $invoice['Invoice']['id'])); ?>
+			<?php echo $this->Html->link(__('Email Invoice to Client', true), array('action' => 'email_client_invoice', $invoice['Invoice']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $invoice['Invoice']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $invoice['Invoice']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $invoice['Invoice']['id'])); ?>
 		</td>
