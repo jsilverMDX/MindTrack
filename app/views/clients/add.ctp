@@ -10,11 +10,6 @@
 		echo $this->Form->input('company');
 		echo $this->Form->input('link');
 		echo $this->Form->input('user_id');
-		echo $this->Form->input('address_line1');
-		echo $this->Form->input('address_line2');
-		echo $this->Form->input('city');
-		echo $this->Form->input('state');
-		echo $this->Form->input('zip');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

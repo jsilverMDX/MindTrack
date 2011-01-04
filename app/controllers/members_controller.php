@@ -2,7 +2,7 @@
 class MembersController extends AppController {
 
 	var $name = 'Members';
-	var $uses = array('Member', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
+	var $uses = array('Member', 'Rate', 'Client', 'Invoice', 'LineItem', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
 	var $helpers = array('Html', 'Form', 'Time', 'Textile');
 	
@@ -279,6 +279,99 @@ class MembersController extends AppController {
 
 	  $this->_mailUser($project, $project_name . ": New Status Message", 'status_message');
 	}	
+	
+	function create_invoice() {
+    $this->set("title_for_layout", "MDX MindTrack | Create Invoice");
+	  $session_user = $this->Session->read('Auth.User');
+	  $clients = $this->Client->find('list');
+	  $projects = $this->Project->find('list');
+	  $options['conditions'] = array('Invoice.user_id =' => $session_user['id']);
+	  $invoices = $this->Invoice->find('all', $options);
+	  //debug($invoices);
+	  $this->set('invoices', $invoices);
+    $this->set("user_id", $session_user['id']);
+    $this->set('clients', $clients);
+    $this->set('projects', $projects);
+	}
+	
+	function generate_invoice() {
+	  $this->Invoice->create();
+	  $this->Invoice->save($this->data);
+	  $invoice = $this->Invoice->read();
+	  $invoice_id = $invoice['Invoice']['id'];
+	  $project_id = $invoice['Invoice']['project_id'];
+	  $options['contain'] = array('Member' => array('User' => array('TimeEntry' => array('conditions' => array('TimeEntry.billed =' => 0)))));
+	  $project = $this->Project->find('first', $options);
+
+	  $subtotal = 0.0;
+	  foreach($project['Member'] as $member):
+    if($member['User']['id'] == $invoice['User']['id']){ // only my hours 
+	    $time_entries = $member['User']['TimeEntry'];
+	    $line_total = 0.0;
+	    $rate = 0.0;
+	    $hours_total = 0.0;
+	    foreach($time_entries as $time_entry):
+	      $rate_object = $this->Rate->find('first', array('conditions' => array('Rate.user_id =' => $time_entry['user_id'], 'Rate.project_id =' => $time_entry['project_id'])));
+        $curr_rate = $rate_object['Rate']['amt_per_hour'];
+        $rate = $curr_rate;
+        $hours_worked = $time_entry['hours'];
+        $hours_total += $hours_worked;
+        $line_total += $hours_worked * $curr_rate;
+        $this->TimeEntry->save(array('id' => $time_entry['id'], 'billed' => 1));
+	    endforeach;
+	    $subtotal += $line_total;
+	    $this->LineItem->create();
+	    $this->LineItem->save(array('invoice_id' => $invoice_id, 'line_total' => $line_total, 'rate' => $rate, 'hours' => $hours_total));
+    }
+	  endforeach;
+	  
+	  $total = $subtotal;
+	  
+	  $this->Invoice->save(array('id' => $invoice_id, 'total' => $total, 'subtotal' => $subtotal, 'amt_due' => $total, 'balance' => $total));
+	  
+	  $this->redirect('/members/create_invoice');
+	}
+		// yay this works 
+	// a plastic green dragon was slain here
+	// RIP
+  function download($id = null) { 
+      // generate and serve from HTML
+      App::import('Component', 'Pdf'); 
+      $Pdf = new PdfComponent(); 
+      $Pdf->filename = 'mindynamics_invoice_'.$id;
+      $Pdf->output = 'download'; 
+      $Pdf->init(); 
+      $Pdf->process(Router::url('/', true) . 'invoices/show_invoice/'. $id); 
+      $this->render(false); 
+  } 
+  
+  function email_client_invoice($id = null) {
+      // generate, save and email from HTML
+      App::import('Component', 'Pdf'); 
+      $Pdf = new PdfComponent(); 
+      $Pdf->filename = 'mindynamics_invoice_'.$id;
+      $Pdf->output = 'file'; 
+      $Pdf->init(); 
+      $Pdf->process(Router::url('/', true) . 'invoices/show_invoice/'. $id); 
+      // after here its generated
+      $invoice_path = HTML2PS_DIR . 'out/' . $Pdf->filename . '.pdf';
+      $options['conditions'] = array('Invoice.id =' => $id);
+      $options['contain'] = array('Client' => 'User');
+      $invoice = $this->Invoice->find('first', $options);
+
+      $this->_send_invoice_email($invoice_path, $invoice['Client'], $invoice['Invoice']['id']);
+
+      $this->redirect('/invoices');
+  }
+    
+ 	function _send_invoice_email($invoice_path, $invoice_client, $invoice_id) {
+	  // set variables
+	  $this->set('client_name', $invoice_client['name']);
+	  $this->set('invoice_link', Router::url('/', true) . 'invoices/show_invoice/' . $invoice_id);
+	  $this->Email->attachments = array($invoice_path);
+	  $this->_mailUser($invoice_client, "Mindynamics Invoice #" . $invoice_id, 'invoice_client');
+	}
+	
 	
   /* ADMIN */
 

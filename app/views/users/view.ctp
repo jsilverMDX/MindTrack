@@ -36,6 +36,36 @@
 			<?php echo $user['User']['email']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Address Line1'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['address_line1']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Address Line2'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['address_line2']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('City'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['city']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('State'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['state']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Zip'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['zip']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Full Name'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['full_name']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -53,6 +83,8 @@
 		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Invoices', true), array('controller' => 'invoices', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Invoice', true), array('controller' => 'invoices', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
@@ -65,6 +97,10 @@
 		<li><?php echo $this->Html->link(__('New Page', true), array('controller' => 'pages', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Images', true), array('controller' => 'images', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Time Entries', true), array('controller' => 'time_entries', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Time Entry', true), array('controller' => 'time_entries', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Rates', true), array('controller' => 'rates', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Rate', true), array('controller' => 'rates', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 	<div class="related">
@@ -204,6 +240,64 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Invoices');?></h3>
+	<?php if (!empty($user['Invoice'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Client Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('Paid'); ?></th>
+		<th><?php __('Amt Due'); ?></th>
+		<th><?php __('Amt Paid'); ?></th>
+		<th><?php __('Notes'); ?></th>
+		<th><?php __('Subtotal'); ?></th>
+		<th><?php __('Total'); ?></th>
+		<th><?php __('Balance'); ?></th>
+		<th><?php __('Project Id'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Invoice'] as $invoice):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $invoice['id'];?></td>
+			<td><?php echo $invoice['client_id'];?></td>
+			<td><?php echo $invoice['user_id'];?></td>
+			<td><?php echo $invoice['paid'];?></td>
+			<td><?php echo $invoice['amt_due'];?></td>
+			<td><?php echo $invoice['amt_paid'];?></td>
+			<td><?php echo $invoice['notes'];?></td>
+			<td><?php echo $invoice['subtotal'];?></td>
+			<td><?php echo $invoice['total'];?></td>
+			<td><?php echo $invoice['balance'];?></td>
+			<td><?php echo $invoice['project_id'];?></td>
+			<td><?php echo $invoice['created'];?></td>
+			<td><?php echo $invoice['updated'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'invoices', 'action' => 'view', $invoice['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'invoices', 'action' => 'edit', $invoice['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'invoices', 'action' => 'delete', $invoice['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $invoice['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Invoice', true), array('controller' => 'invoices', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>
@@ -476,6 +570,92 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Time Entries');?></h3>
+	<?php if (!empty($user['TimeEntry'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Hours'); ?></th>
+		<th><?php __('Billed'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
+		<th><?php __('Project Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['TimeEntry'] as $timeEntry):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $timeEntry['id'];?></td>
+			<td><?php echo $timeEntry['hours'];?></td>
+			<td><?php echo $timeEntry['billed'];?></td>
+			<td><?php echo $timeEntry['created'];?></td>
+			<td><?php echo $timeEntry['updated'];?></td>
+			<td><?php echo $timeEntry['project_id'];?></td>
+			<td><?php echo $timeEntry['user_id'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'time_entries', 'action' => 'view', $timeEntry['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'time_entries', 'action' => 'edit', $timeEntry['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'time_entries', 'action' => 'delete', $timeEntry['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $timeEntry['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Time Entry', true), array('controller' => 'time_entries', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php __('Related Rates');?></h3>
+	<?php if (!empty($user['Rate'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('Amt Per Hour'); ?></th>
+		<th><?php __('Project Id'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Rate'] as $rate):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $rate['id'];?></td>
+			<td><?php echo $rate['user_id'];?></td>
+			<td><?php echo $rate['amt_per_hour'];?></td>
+			<td><?php echo $rate['project_id'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'rates', 'action' => 'view', $rate['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'rates', 'action' => 'edit', $rate['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'rates', 'action' => 'delete', $rate['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $rate['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Rate', true), array('controller' => 'rates', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

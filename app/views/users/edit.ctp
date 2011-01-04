@@ -8,6 +8,12 @@
 		echo $this->Form->input('password');
 		echo $this->Form->input('group_id');
 		echo $this->Form->input('email');
+		echo $this->Form->input('address_line1');
+		echo $this->Form->input('address_line2');
+		echo $this->Form->input('city');
+		echo $this->Form->input('state');
+		echo $this->Form->input('zip');
+		echo $this->Form->input('full_name');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -26,6 +32,8 @@
 		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Invoices', true), array('controller' => 'invoices', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Invoice', true), array('controller' => 'invoices', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
@@ -38,5 +46,9 @@
 		<li><?php echo $this->Html->link(__('New Page', true), array('controller' => 'pages', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Images', true), array('controller' => 'images', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Time Entries', true), array('controller' => 'time_entries', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Time Entry', true), array('controller' => 'time_entries', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Rates', true), array('controller' => 'rates', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Rate', true), array('controller' => 'rates', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

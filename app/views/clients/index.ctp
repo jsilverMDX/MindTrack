@@ -12,11 +12,6 @@
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
-			<th><?php echo $this->Paginator->sort('address_line1');?></th>
-			<th><?php echo $this->Paginator->sort('address_line2');?></th>
-			<th><?php echo $this->Paginator->sort('city');?></th>
-			<th><?php echo $this->Paginator->sort('state');?></th>
-			<th><?php echo $this->Paginator->sort('zip');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -40,11 +35,6 @@
 		</td>
 		<td><?php echo $client['Client']['created']; ?>&nbsp;</td>
 		<td><?php echo $client['Client']['updated']; ?>&nbsp;</td>
-		<td><?php echo $client['Client']['address_line1']; ?>&nbsp;</td>
-		<td><?php echo $client['Client']['address_line2']; ?>&nbsp;</td>
-		<td><?php echo $client['Client']['city']; ?>&nbsp;</td>
-		<td><?php echo $client['Client']['state']; ?>&nbsp;</td>
-		<td><?php echo $client['Client']['zip']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $client['Client']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $client['Client']['id'])); ?>

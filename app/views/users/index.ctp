@@ -9,6 +9,12 @@
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
+			<th><?php echo $this->Paginator->sort('address_line1');?></th>
+			<th><?php echo $this->Paginator->sort('address_line2');?></th>
+			<th><?php echo $this->Paginator->sort('city');?></th>
+			<th><?php echo $this->Paginator->sort('state');?></th>
+			<th><?php echo $this->Paginator->sort('zip');?></th>
+			<th><?php echo $this->Paginator->sort('full_name');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -29,6 +35,12 @@
 		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['modified']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['address_line1']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['address_line2']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['city']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['state']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['zip']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['full_name']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
@@ -63,6 +75,8 @@
 		<li><?php echo $this->Html->link(__('New Member', true), array('controller' => 'members', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('controller' => 'projects', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Invoices', true), array('controller' => 'invoices', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Invoice', true), array('controller' => 'invoices', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tickets', true), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Ticket', true), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Status Messages', true), array('controller' => 'status_messages', 'action' => 'index')); ?> </li>
@@ -75,5 +89,9 @@
 		<li><?php echo $this->Html->link(__('New Page', true), array('controller' => 'pages', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Images', true), array('controller' => 'images', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Image', true), array('controller' => 'images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Time Entries', true), array('controller' => 'time_entries', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Time Entry', true), array('controller' => 'time_entries', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Rates', true), array('controller' => 'rates', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Rate', true), array('controller' => 'rates', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

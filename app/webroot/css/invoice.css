@@ -36,34 +36,257 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
   text-align: right;
 }
 
-table
+table#line-items
 {
 border-collapse:collapse;
 }
-table,th, td
+table#line-items,table#line-items th,table#line-items td
 {
 border: 1px solid black;
 }
-table 
+table#line-items
 {
 width:100%;
 }
-th
+table#line-items th
 {
 height:50px;
 }
-td
+table#line-items td
 {
 text-align:right;
 padding: 5px;
 }
-table, td, th
+table#line-items, table#line-items td, table#line-items th
 {
 border:1px solid black;
 }
-th
+table#line-items th
 {
 background-color:#ccc;
 color:black;
+}
+
+
+/* styles liberated from FreshBooks	
+   <3
+   oh i stoled your box sorry
+   that wasnt very kind of me
+*/
+
+#inv {
+	font-family: Arial, "Arial Unicode", "Arial Unicode MS", Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	width: 630px;
+	margin: 0 auto;
+	padding-top: 20px;
+	position: relative;
+}
+
+ .inv_title {
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 26px;
+	color: #eee;
+	position: absolute;
+	z-index: 0;
+	text-transform: uppercase;
+	text-align: center;
+	width: 630px;
+}
+
+ #inv_top {
+/*	height: 290px; */
+	margin-bottom: 20px;
+}
+ #inv_address {
+	font-size: 13px;
+	float: left;
+	width: 50%;
+}
+ #inv_logo {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+ .inv_from {
+	height: 125px;
+}
+ #inv_address > .inv_from,  #inv_logo > .inv_from {
+	height: auto;
+	min-height: 125px;
+}
+ #inv_to {
+}
+
+ .inv_abn {
+	font-weight: bold;
+	padding: 5px 0;
+	text-align: right;
+}
+ .inv_topspace {
+	clear: both;
+	height: 15px;
+}
+ .inv_linkspace {
+	height: 41px;
+}
+
+
+ #inv_box {
+	border: 1px solid #000;
+	border-bottom: 0;
+	text-align: left;
+	width: 280px;
+}
+ #inv_box th	{
+	background-color: #ccc;
+	border-right: 1px solid #000;
+	text-align: left;
+	width: 50%;
+}
+ #inv_box td {
+	width: 50%;
+	text-align: right;
+}
+ #inv_box th,  #inv_box td {
+	border-bottom: 1px solid #000;
+}
+ #inv_link {
+	border: 1px solid #000;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+ #inv_link td {
+	padding: 1px 10px;
+}
+
+ .inv_items_container {
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	height: 180px;
+	position: relative;
+	padding-bottom: 20px;
+}
+#inv > .inv_items_container {
+	height: auto;
+	min-height: 180px;
+}
+.inv_paidimg {
+	position: absolute;
+	top: 50px;
+	left: 225px;
+}
+
+ #inv_items,  #inv_time {
+	margin-bottom: 20px;
+}
+ #inv_items th,  #inv_time th {
+	background-color: #ccc;
+	text-align: center;
+	border: 1px solid #000;
+	border-left: 0;
+	height: 25px
+}
+ #inv_items th.end,  #inv_time th.end {
+	border-right: 0;
+}
+ .inv_col_item {
+	width: 82px;
+	padding-left: 8px;
+	vertical-align: top;
+}
+ .inv_col_cost {
+	text-align: right;
+	width: 70px;
+	padding-right: 10px;
+	vertical-align: top;
+}
+ .inv_col_qty {
+	text-align: center;
+	width: 50px;
+	vertical-align: top;
+}
+ .inv_col_price {
+	text-align: right;
+	width: 73px;
+	padding-right: 8px;
+	vertical-align: top;
+}
+ .inv_col_time {
+	padding-left: 8px;
+	vertical-align: top;
+}
+ #inv_notes {
+	border: 1px solid #000;
+	border-top: 0;
+	padding: 4px 8px;
+}
+ #inv_totals {
+	border: 1px solid #000;
+}
+ #inv_totals table {
+	width: 50%;
+	float: right;
+	border-left: 1px solid #000;
+}
+ #inv_totals table th {
+	text-align: right;
+	font-weight: normal;
+}
+ #inv_totals table .total {
+	border-top: 1px solid #000;
+	font-weight: bold;
+}
+ #inv_totals table .balance {
+	background-color: #ccc;
+	border-top: 3px double #000;
+	font-weight: bold;
+	height: 30px;
+}
+ #inv_totals table td {
+	text-align: right;
+	padding-right: 8px;
+}
+ #inv_terms {
+	clear: both;
+	font-weight: bold;
+	text-align: center;
+	border-top: 1px solid #000;
+	padding: 10px;
+}
+ .inv_dotted {
+	border-top: 1px dotted #000;
+	height: 25px;
+}
+ .paid_stamp {
+	background-image: url("../../../images/invoice/stamp-paid-green-300.gif");
+	background-image-resolution: 300dpi;
+	background-repeat: no-repeat;
+	width: 180px;
+	height: 100px;
+	position: absolute;
+	left: 230px;
+	top: 50px;
+}
+
+#inv .tearoff {
+	display: none;
+	float: bottom;	
+}
+
+
+.invoice-brand {
+	float: right;
+	font-size: 11px;
+	margin-top: 22px;
+	color: #777777;
+}
+.invoice-brand a:active {
+	outline: none;	
+}
+.invoice-brand a:hover {
+	background-color: transparent;
 }
 

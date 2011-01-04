@@ -3,7 +3,7 @@ class InvoicesController extends AppController {
 
 	var $name = 'Invoices';
   var $uses = array('Invoice', 'Rate', 'LineItem', 'Client', 'Member', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
-	var $helpers = array('Html', 'Form', 'Time');
+	var $helpers = array('Html', 'Form', 'Time', 'Number');
 	var $layout = 'admin';
 
   function beforeFilter() {
@@ -72,7 +72,7 @@ class InvoicesController extends AppController {
 	
 	function show_invoice($id = null) {
 	  $this->layout = 'invoice';
-	  $options['contain'] = array('Client', 'LineItem', 'User');
+	  $options['contain'] = array('Client' => 'User', 'LineItem', 'User');
 	  $options['conditions'] = array('Invoice.id =' => $id);
 	  $invoice = $this->Invoice->find('first', $options);
 	  $this->set('invoice', $invoice);
