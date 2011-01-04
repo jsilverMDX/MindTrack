@@ -301,4 +301,3 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
-	ini_set("memory_limit", "40971520");
