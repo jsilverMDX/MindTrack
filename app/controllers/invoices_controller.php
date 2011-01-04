@@ -79,22 +79,50 @@ class InvoicesController extends AppController {
 	  //debug($invoice);
 	}
 	
+	
+	// yay this works 
+	// a plastic green dragon was slain here
+	// RIP
   function download($id = null) { 
-      // Include Component 
+      // generate and serve from HTML
       App::import('Component', 'Pdf'); 
-      // Make instance 
       $Pdf = new PdfComponent(); 
-      // Invoice name (output name) 
-      $Pdf->filename = 'mindynamics_invoice'; // Without .pdf 
-      // You can use download or browser here 
+      $Pdf->filename = 'mindynamics_invoice_'.$id;
       $Pdf->output = 'download'; 
       $Pdf->init(); 
-      // Render the view 
       $Pdf->process(Router::url('/', true) . 'invoices/show_invoice/'. $id); 
       $this->render(false); 
   } 
+  
+  function email_client_invoice($id = null) {
+      // generate, save and email from HTML
+      App::import('Component', 'Pdf'); 
+      $Pdf = new PdfComponent(); 
+      $Pdf->filename = 'mindynamics_invoice_'.$id;
+      $Pdf->output = 'file'; 
+      $Pdf->init(); 
+      $Pdf->process(Router::url('/', true) . 'invoices/show_invoice/'. $id); 
+      // after here its generated
+      $invoice_path = HTML2PS_DIR . 'out/' . $Pdf->filename . '.pdf';
+      $options['conditions'] = array('Invoice.id =' => $id);
+      $options['contain'] = array('Client' => 'User');
+      $invoice = $this->Invoice->find('first', $options);
+//      debug($invoice);
+      $this->_send_invoice_email($invoice_path, $invoice['Client'], $invoice['Invoice']['id']);
+
+
+      $this->redirect('/invoices');
+  }
     
-    
+ 	function _send_invoice_email($invoice_path, $invoice_client, $invoice_id) {
+	  // set variables
+	  $this->set('client_name', $invoice_client['name']);
+	  
+	  $this->Email->attachments = array($invoice_path);
+	  $this->_mailUser($invoice_client, "Mindynamics Invoice #" . $invoice_id, 'invoice_client');
+	}	
+	
+	   
 	function index() {
 		$this->Invoice->recursive = 0;
 		$this->set('invoices', $this->paginate());
