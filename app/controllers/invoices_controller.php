@@ -5,7 +5,12 @@ class InvoicesController extends AppController {
   var $uses = array('Invoice', 'Rate', 'LineItem', 'Client', 'Member', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $helpers = array('Html', 'Form', 'Time');
 	var $layout = 'admin';
-	
+
+  function beforeFilter() {
+    parent::beforeFilter(); 
+    $this->Auth->allowedActions = array('show_invoice');
+  }
+
 	// generate invoice
 	// for now, this is an admin only method since
 	// we are billing together and this causes
@@ -74,7 +79,22 @@ class InvoicesController extends AppController {
 	  //debug($invoice);
 	}
 	
-
+  function download($id = null) { 
+      // Include Component 
+      App::import('Component', 'Pdf'); 
+      // Make instance 
+      $Pdf = new PdfComponent(); 
+      // Invoice name (output name) 
+      $Pdf->filename = 'mindynamics_invoice'; // Without .pdf 
+      // You can use download or browser here 
+      $Pdf->output = 'download'; 
+      $Pdf->init(); 
+      // Render the view 
+      $Pdf->process(Router::url('/', true) . 'invoices/show_invoice/'. $id); 
+      $this->render(false); 
+  } 
+    
+    
 	function index() {
 		$this->Invoice->recursive = 0;
 		$this->set('invoices', $this->paginate());
