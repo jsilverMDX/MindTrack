@@ -67,22 +67,6 @@ class MembersController extends AppController {
 		$this->redirect('/members/doc_store');
   }
 
-	function _add_proj_file_email($image) {
-	  // set variables
-    $session_user = $this->Session->read('Auth.User');
-    $uploader = $session_user['username'];
-    $this->set('uploader', $uploader);
-	  $project_name =  $image['Project'][0]['name'];
-	  $this->set('project_name', $project_name);
-	  $s3_url = "http://s3.amazonaws.com".$image['Image']['s3_url'];
-	  $this->set('s3_url', $s3_url);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Project.id =' => $image['Project'][0]['id']);
-		$project = $this->Project->find('first', $options);	
-	  
-	  $this->_mailUser($project, $uploader . " uploaded a file to " . $project_name, 'uploaded_file_proj');
-	}	
 	
 	// shows only my tickets
 	function my_tickets() {
@@ -137,17 +121,6 @@ class MembersController extends AppController {
     $this->redirect('/mdx_members');
 	}
 	
-	function _ticket_done_email($ticket) {
-	  // set variables
-	  $ticket_name =  $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
-	  $this->set('ticket_name', $ticket_name);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Ticket.id =' => $ticket['Ticket']['id']);
-		$ticket = $this->Ticket->find('first', $options);	
-	  
-	  $this->_mailUser($ticket, $ticket_name . ": Marked as done", 'ticket_done');
-	}	
 	
 	// -1 associated members
 	function mark_as_not_done($id = null) {
@@ -159,18 +132,6 @@ class MembersController extends AppController {
     $this->_ticket_undone_email($ticket);
     $this->redirect('/mdx_members');
 	}
-	
-	function _ticket_undone_email($ticket) {
-	  // set variables
-	  $ticket_name =  $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
-	  $this->set('ticket_name', $ticket_name);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Ticket.id =' => $ticket['Ticket']['id']);
-		$ticket = $this->Ticket->find('first', $options);	
-	  
-	  $this->_mailUser($ticket, $ticket_name . ": Marked as not done", 'ticket_undone');
-	}	
 	
 	function add_file_to_ticket() {
 		if (!empty($this->data)) {
@@ -186,25 +147,6 @@ class MembersController extends AppController {
 		}
 		$this->redirect('/mdx_members');
 	}
-
-	function _add_file_email($image) {
-	  // set variables
-    $session_user = $this->Session->read('Auth.User');
-    $uploader = $session_user['username'];
-    $this->set('uploader', $uploader);
-	  $ticket_name =  $image['Ticket'][0]['id'] . ': ' . $image['Ticket'][0]['name'];
-	  $this->set('ticket_name', $ticket_name);
-	  $s3_url = "http://s3.amazonaws.com".$image['Image']['s3_url'];
-	  $this->set('s3_url', $s3_url);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Ticket.id =' => $image['Ticket'][0]['id']);
-		$ticket = $this->Ticket->find('first', $options);	
-	  
-	  $this->_mailUser($ticket, $uploader . " uploaded a file to " . $ticket_name, 'uploaded_file');
-	}	
-
-
 	
 	// post a Comment
 	function add_comment() {
@@ -213,22 +155,6 @@ class MembersController extends AppController {
 		$ticket_comment = $this->TicketComment->read();
     $this->_add_comment_email($ticket_comment);
     $this->redirect('/mdx_members');
-	}
-
-	//works
-	function _add_comment_email($ticket_comment) {
-	  // set variables
-	  $this->set('author', $ticket_comment['User']['username']);
-	  $this->set('comment', $ticket_comment['TicketComment']['comment']);
-	  $ticket_name =  $ticket_comment['Ticket']['id'] . ': ' . $ticket_comment['Ticket']['name'];
-	  $this->set('ticket_name', $ticket_name);
-	  $this->set('timestamps', $ticket_comment['TicketComment']['created']);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Ticket.id =' => $ticket_comment['TicketComment']['ticket_id']);
-		$ticket = $this->Ticket->find('first', $options);	
-	  
-	  $this->_mailUser($ticket, $ticket_name . ": Comment Posted", 'comment_posted');
 	}
 
 	// posts a CommentReply
@@ -240,23 +166,6 @@ class MembersController extends AppController {
 		$this->redirect('/mdx_members');
 	}
 
-	//works
-	function _reply_comment_email($comment_reply) {
-	  // set variables
-	  //debug($comment_reply);
-	  $this->set('author', $comment_reply['User']['username']);
-	  $this->set('reply', $comment_reply['CommentReply']['reply']);
-	  $this->set('timestamps', $comment_reply['CommentReply']['created']);
-	 
-		$options['contain'] = array('User');
-		$options['conditions'] = array('Ticket.id =' => $comment_reply['TicketComment']['ticket_id']);
-		$ticket = $this->Ticket->find('first', $options);	
-		$ticket_name = $ticket['Ticket']['id'] . ': ' . $ticket['Ticket']['name'];
-	  $this->set('ticket_name', $ticket_name);
-	  
-	  $this->_mailUser($ticket, $ticket_name . ": Reply Posted", 'comment_reply');
-	}
-
 	function post_status_message() {
 		$this->StatusMessage->create();
 		$this->StatusMessage->save($this->data);
@@ -265,21 +174,6 @@ class MembersController extends AppController {
 		$this->redirect('/mdx_members');
 	}
 
-	function _status_message_email($status_message) {
-	  // set variables
-	  $this->set('author', $status_message['User']['username']);
-	  $this->set('message', $status_message['StatusMessage']['message']);
-	  $this->set('timestamps', $status_message['StatusMessage']['created']);
-	 
-		$options['contain'] = array('Member' => 'User');
-		$options['conditions'] = array('Project.id =' => $status_message['StatusMessage']['project_id']);
-		$project = $this->Project->find('first', $options);
-		$project_name = $status_message['Project']['name'];
-	  $this->set('project_name', $project_name);
-
-	  $this->_mailUser($project, $project_name . ": New Status Message", 'status_message');
-	}	
-	
   /* ADMIN */
 
 	function index() {

@@ -5,9 +5,7 @@
 	<h2><?php __('Invoices');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th>Invoice Id</th>
-			<th>Client</th>
-			<th>Paid</th>
+			<th>Invoice #</th>
 			<th>Balance</th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -20,12 +18,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $invoice['Invoice']['id']; ?>&nbsp;</td>
-		<td><?php echo $invoice['Invoice']['paid']; ?>&nbsp;</td>
+		<td><?php echo str_pad($invoice['Invoice']['id'], 7, '0', STR_PAD_LEFT); ?>&nbsp;</td>
 		<td><?php echo $invoice['Invoice']['balance']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'show_invoice', $invoice['Invoice']['id'])); ?>
-			<?php echo $this->Html->link(__('Download', true), array('action' => 'download', $invoice['Invoice']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('controller' => 'invoices', 'action' => 'show_invoice', $invoice['Invoice']['id'])); ?>
+			<?php echo $this->Html->link(__('Download', true), array('controller' => 'invoices', 'action' => 'download', $invoice['Invoice']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
