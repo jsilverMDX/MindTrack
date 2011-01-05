@@ -1,6 +1,6 @@
 <li class="ticket">
 <div class="ticket-info">
-<h4 class="ticket-header"><a href="/clients/show_ticket/<?= $ticket['Ticket']['id'] ?>">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></a></h4>
+<h4 class="ticket-header"><a href="/t<?= $ticket['Ticket']['id'] ?>">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></a></h4>
 <div class="ticket-description">Description: <? echo($ticket['Ticket']['description']); ?></div>
 <div class="ticket-status">Status: <? echo($ticket['Ticket']['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['Ticket']['id']); ?>">Mark as Done</a></div>
 </div>
@@ -34,6 +34,7 @@
   <?
     endforeach;
   ?>
+  <? if($ticket['Ticket']['status'] != "done"){ ?>
   <div class="comment-reply-form">
   <?php echo $this->Form->create('CommentReply', array('url' => '/clients/reply_to_comment'));?>
     <?php
@@ -43,11 +44,13 @@
     ?>
   <?php echo $this->Form->end('Submit');?>
   </div>
+  <? } ?>
 </ul>
 </li>
 <?
   endforeach;
 ?>
+<? if($ticket['Ticket']['status'] != "done"){ ?>
 <div class="create-comment-form">
 <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
   <?php
@@ -58,6 +61,8 @@
   ?>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
+<? } ?>
+<? if($ticket['Ticket']['status'] != "done"){ ?>
 <div class="add-file-form">
 <?php echo $this->Form->create('Image', array('url' => '/clients/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
   <?php
@@ -69,5 +74,6 @@
   </fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
+<? } ?>
 </ul>
 </li>

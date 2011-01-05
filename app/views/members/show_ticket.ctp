@@ -1,6 +1,6 @@
 <li class="ticket">
 <div class="ticket-info">
-<h4 class="ticket-header"><a href="/clients/show_ticket/<?= $ticket['Ticket']['id'] ?>">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></a></h4>
+<h4 class="ticket-header"><a href="/t<?= $ticket['Ticket']['id'] ?>">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></a></h4>
 <div class="ticket-description">Description: <? echo($ticket['Ticket']['description']); ?></div>
 <div class="ticket-status">Status: <? echo($ticket['Ticket']['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['Ticket']['id']); ?>">Mark as Done</a></div>
 </div>

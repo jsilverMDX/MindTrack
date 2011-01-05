@@ -19,7 +19,7 @@
     <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
     <? if($tstatus == "done") { ?>
     <li class="ticket">
-    <h4 class="ticket-header">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h4>
+    <h4 class="ticket-header"><a href="/t<?= $ticket['id'] ?>">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></a></h4>
     <div class="ticket-status ticket-done-status">
     Status: <? echo($ticket['status']); ?> (<? echo($tstatus); ?>)
     <a href="/members/mark_as_not_done/<? echo($ticket['id']); ?>">Mark as Not Done</a>

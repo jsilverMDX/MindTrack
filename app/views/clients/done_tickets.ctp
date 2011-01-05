@@ -19,7 +19,7 @@
     <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
     <li class="ticket">
     <div class="ticket-info">
-    <h4 class="ticket-header">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></h4>
+    <h4 class="ticket-header"><a href="/t<?= $ticket['id'] ?>">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></a></h4>
     <div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>    <div class="ticket-status">Status: <? echo($ticket['status']); ?> (<?= $tstatus ?>)
     <a href="/clients/mark_as_not_done/<? echo($ticket['id']); ?>">Mark as Not Done</a>
     <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>

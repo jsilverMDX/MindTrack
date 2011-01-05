@@ -128,6 +128,7 @@ class AppController extends Controller {
 	  $this->set('ticket_name', $ticket_name);
 	  $this->set('description', $ticket['Ticket']['description']);
 	  $this->set('timestamps', $ticket['Ticket']['created']);
+	  $this->set('t_id', $ticket['Ticket']['id']);
 	 
 		$options['contain'] = array('Member' => 'User');
 		$options['conditions'] = array('Project.id =' => $ticket['Ticket']['project_id']);

@@ -13,6 +13,10 @@ a, a:active, a:visited {
   font-weight: bold;
 }
 
+li {
+  list-style-type: none;
+}
+
 a:hover { 
   text-decoration: underline;
   color: blue;
