@@ -112,14 +112,6 @@ class InvoicesController extends AppController {
 
       $this->redirect('/invoices');
   }
-    
- 	function _send_invoice_email($invoice_path, $invoice_client, $invoice_id) {
-	  // set variables
-	  $this->set('client_name', $invoice_client['name']);
-	  $this->set('invoice_link', Router::url('/', true) . 'invoices/show_invoice/' . $invoice_id);
-	  $this->Email->attachments = array($invoice_path);
-	  $this->_mailUser($invoice_client, "Mindynamics Invoice #" . $invoice_id, 'invoice_client');
-	}	
 	
 	   
 	function index() {
