@@ -174,6 +174,18 @@ class MembersController extends AppController {
 		$this->redirect('/mdx_members');
 	}
 
+
+  function show_ticket($id = null) {
+    $session_user = $this->Session->read('Auth.User');
+    $options['conditions'] = array('Ticket.id' => $id);
+    $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));
+    $ticket = $this->Ticket->find('first', $options);
+    $this->set('ticket', $ticket);
+    $this->set("user_id", $session_user['id']);
+    //debug($ticket);
+  }
+  
+  
   /* ADMIN */
 
 	function index() {

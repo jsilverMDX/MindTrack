@@ -2,6 +2,23 @@
 class TicketsController extends AppController {
 
 	var $name = 'Tickets';
+	var $uses = array('Ticket', 'User');
+	
+	function ticket_redirect() {
+	  $id = $this->params['id'];
+    $user_session = $this->Session->read('Auth.User');
+    $user = $this->User->findById($user_session['id']);
+    $group_name = $user['Group']['name'];
+    //debug($group_name);
+    if($group_name == 'admin') {
+      $this->redirect('/tickets/view/'.$id);
+    } elseif($group_name == 'member') {
+      $this->redirect('/members/show_ticket/'.$id);
+    } elseif($group_name == 'client') {
+      $this->redirect('/clients/show_ticket/'.$id);
+    }
+	}
+	
 
 	function index() {
 	  $this->layout = 'admin';

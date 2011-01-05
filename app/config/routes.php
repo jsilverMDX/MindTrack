@@ -4,6 +4,10 @@
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'welcome'));
 	
+	
+	// janky ticket route redirect
+	Router::connect('/t:id', array('controller' => 'tickets', 'action' => 'ticket_redirect'));
+	
 	Router::connect('/_:page', array('controller' => 'pages', 'action' => 'display'));
 	
 	Router::connect('/404', array('controller'=>'pages', 'action'=>'notfound'));

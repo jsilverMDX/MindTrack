@@ -46,18 +46,22 @@ class AppController extends Controller {
   
   // pass me an array of objects that contain a User class and ill email them all
   function _mailUsers($users, $subject, $template) {
+    if(isset($users)){
     foreach($users as $user):
       $this->set('to_name', $user['User']['username']);
       $this->_sendMail($user['User']['email'], $user['User']['username'], $subject, $template);
       $this->Email->reset();
     endforeach;
+    }
   }
   
   // same as above but singular
   function _mailUser($user, $subject, $template) {
+    if(isset($user['User'])){
       $this->set('to_name', $user['User']['username']);
       $this->_sendMail($user['User']['email'], $user['User']['username'], $subject, $template);
       $this->Email->reset();
+    }
   } 
   
 	//works
