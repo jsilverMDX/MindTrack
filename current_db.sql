@@ -31,7 +31,7 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=152 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -40,7 +40,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `acos` WRITE;
 /*!40000 ALTER TABLE `acos` DISABLE KEYS */;
-INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,302),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,43),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',44,57),(18,17,NULL,NULL,'index',45,46),(19,17,NULL,NULL,'view',47,48),(20,17,NULL,NULL,'add',49,50),(21,17,NULL,NULL,'edit',51,52),(22,17,NULL,NULL,'delete',53,54),(23,17,NULL,NULL,'build_acl',55,56),(24,1,NULL,NULL,'Members',58,113),(25,24,NULL,NULL,'index',59,60),(26,24,NULL,NULL,'view',61,62),(27,24,NULL,NULL,'add',63,64),(28,24,NULL,NULL,'edit',65,66),(29,24,NULL,NULL,'delete',67,68),(30,24,NULL,NULL,'build_acl',69,70),(31,1,NULL,NULL,'Clients',114,157),(32,31,NULL,NULL,'index',115,116),(33,31,NULL,NULL,'view',117,118),(34,31,NULL,NULL,'add',119,120),(35,31,NULL,NULL,'edit',121,122),(36,31,NULL,NULL,'delete',123,124),(37,31,NULL,NULL,'build_acl',125,126),(38,1,NULL,NULL,'StatusMessages',158,171),(39,38,NULL,NULL,'index',159,160),(40,38,NULL,NULL,'view',161,162),(41,38,NULL,NULL,'add',163,164),(42,38,NULL,NULL,'edit',165,166),(43,38,NULL,NULL,'delete',167,168),(44,38,NULL,NULL,'build_acl',169,170),(45,1,NULL,NULL,'Projects',172,185),(46,45,NULL,NULL,'index',173,174),(47,45,NULL,NULL,'view',175,176),(48,45,NULL,NULL,'add',177,178),(49,45,NULL,NULL,'edit',179,180),(50,45,NULL,NULL,'delete',181,182),(51,45,NULL,NULL,'build_acl',183,184),(52,1,NULL,NULL,'TicketComments',186,199),(53,52,NULL,NULL,'index',187,188),(54,52,NULL,NULL,'view',189,190),(55,52,NULL,NULL,'add',191,192),(56,52,NULL,NULL,'edit',193,194),(57,52,NULL,NULL,'delete',195,196),(58,52,NULL,NULL,'build_acl',197,198),(59,1,NULL,NULL,'CommentReplies',200,213),(60,59,NULL,NULL,'index',201,202),(61,59,NULL,NULL,'view',203,204),(62,59,NULL,NULL,'add',205,206),(63,59,NULL,NULL,'edit',207,208),(64,59,NULL,NULL,'delete',209,210),(65,59,NULL,NULL,'build_acl',211,212),(66,1,NULL,NULL,'Tickets',214,227),(67,66,NULL,NULL,'index',215,216),(68,66,NULL,NULL,'view',217,218),(69,66,NULL,NULL,'add',219,220),(70,66,NULL,NULL,'edit',221,222),(71,66,NULL,NULL,'delete',223,224),(72,66,NULL,NULL,'build_acl',225,226),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',71,72),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',127,128),(80,31,NULL,NULL,'new_ticket',129,130),(81,31,NULL,NULL,'add_ticket',131,132),(82,24,NULL,NULL,'reply_to_comment',73,74),(83,31,NULL,NULL,'add_comment',133,134),(84,24,NULL,NULL,'post_status_message',75,76),(85,10,NULL,NULL,'admin_landing',41,42),(86,31,NULL,NULL,'edit_my_project',135,136),(87,24,NULL,NULL,'post_comment',77,78),(88,31,NULL,NULL,'post_status_message',137,138),(89,31,NULL,NULL,'reply_to_comment',139,140),(90,1,NULL,NULL,'Images',228,241),(91,90,NULL,NULL,'index',229,230),(92,90,NULL,NULL,'view',231,232),(93,90,NULL,NULL,'add',233,234),(94,90,NULL,NULL,'edit',235,236),(95,90,NULL,NULL,'delete',237,238),(96,90,NULL,NULL,'build_acl',239,240),(97,31,NULL,NULL,'add_file_to_ticket',141,142),(98,24,NULL,NULL,'add_file_to_ticket',79,80),(99,24,NULL,NULL,'add_comment',81,82),(100,24,NULL,NULL,'mark_as_done',83,84),(101,24,NULL,NULL,'done_tickets',85,86),(102,24,NULL,NULL,'mark_as_not_done',87,88),(103,24,NULL,NULL,'my_tickets',89,90),(104,24,NULL,NULL,'assign_ticket',91,92),(105,24,NULL,NULL,'unassign_ticket',93,94),(106,24,NULL,NULL,'ticket_master',95,96),(107,31,NULL,NULL,'done_tickets',143,144),(108,31,NULL,NULL,'mark_as_done',145,146),(109,31,NULL,NULL,'mark_as_not_done',147,148),(110,31,NULL,NULL,'edit_ticket',149,150),(111,31,NULL,NULL,'show_ticket',151,152),(112,31,NULL,NULL,'doc_store',153,154),(113,31,NULL,NULL,'add_file_to_project',155,156),(114,24,NULL,NULL,'doc_store',97,98),(115,24,NULL,NULL,'add_file_to_project',99,100),(116,24,NULL,NULL,'track_time',101,102),(117,24,NULL,NULL,'punch_timeclock',103,104),(118,1,NULL,NULL,'TimeEntries',242,253),(119,118,NULL,NULL,'index',243,244),(120,118,NULL,NULL,'view',245,246),(121,118,NULL,NULL,'add',247,248),(122,118,NULL,NULL,'edit',249,250),(123,118,NULL,NULL,'delete',251,252),(124,1,NULL,NULL,'Rates',254,265),(125,124,NULL,NULL,'index',255,256),(126,124,NULL,NULL,'view',257,258),(127,124,NULL,NULL,'add',259,260),(128,124,NULL,NULL,'edit',261,262),(129,124,NULL,NULL,'delete',263,264),(130,1,NULL,NULL,'Invoices',266,287),(131,130,NULL,NULL,'index',267,268),(132,130,NULL,NULL,'view',269,270),(133,130,NULL,NULL,'add',271,272),(134,130,NULL,NULL,'edit',273,274),(135,130,NULL,NULL,'delete',275,276),(136,1,NULL,NULL,'LineItems',288,299),(137,136,NULL,NULL,'index',289,290),(138,136,NULL,NULL,'view',291,292),(139,136,NULL,NULL,'add',293,294),(140,136,NULL,NULL,'edit',295,296),(141,136,NULL,NULL,'delete',297,298),(142,130,NULL,NULL,'new_invoice',277,278),(143,130,NULL,NULL,'generate_invoice',279,280),(144,130,NULL,NULL,'show_invoice',281,282),(145,130,NULL,NULL,'download',283,284),(146,1,NULL,NULL,'FileImages',300,301),(147,130,NULL,NULL,'email_client_invoice',285,286),(148,24,NULL,NULL,'create_invoice',105,106),(149,24,NULL,NULL,'generate_invoice',107,108),(150,24,NULL,NULL,'download',109,110),(151,24,NULL,NULL,'email_client_invoice',111,112);
+INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'controllers',1,304),(2,1,NULL,NULL,'Pages',2,21),(3,2,NULL,NULL,'welcome',3,4),(4,2,NULL,NULL,'index',5,6),(5,2,NULL,NULL,'view',7,8),(6,2,NULL,NULL,'add',9,10),(7,2,NULL,NULL,'edit',11,12),(8,2,NULL,NULL,'delete',13,14),(9,2,NULL,NULL,'build_acl',15,16),(10,1,NULL,NULL,'Users',22,43),(11,10,NULL,NULL,'index',23,24),(12,10,NULL,NULL,'view',25,26),(13,10,NULL,NULL,'add',27,28),(14,10,NULL,NULL,'edit',29,30),(15,10,NULL,NULL,'delete',31,32),(16,10,NULL,NULL,'build_acl',33,34),(17,1,NULL,NULL,'Groups',44,57),(18,17,NULL,NULL,'index',45,46),(19,17,NULL,NULL,'view',47,48),(20,17,NULL,NULL,'add',49,50),(21,17,NULL,NULL,'edit',51,52),(22,17,NULL,NULL,'delete',53,54),(23,17,NULL,NULL,'build_acl',55,56),(24,1,NULL,NULL,'Members',58,113),(25,24,NULL,NULL,'index',59,60),(26,24,NULL,NULL,'view',61,62),(27,24,NULL,NULL,'add',63,64),(28,24,NULL,NULL,'edit',65,66),(29,24,NULL,NULL,'delete',67,68),(30,24,NULL,NULL,'build_acl',69,70),(31,1,NULL,NULL,'Clients',114,159),(32,31,NULL,NULL,'index',115,116),(33,31,NULL,NULL,'view',117,118),(34,31,NULL,NULL,'add',119,120),(35,31,NULL,NULL,'edit',121,122),(36,31,NULL,NULL,'delete',123,124),(37,31,NULL,NULL,'build_acl',125,126),(38,1,NULL,NULL,'StatusMessages',160,173),(39,38,NULL,NULL,'index',161,162),(40,38,NULL,NULL,'view',163,164),(41,38,NULL,NULL,'add',165,166),(42,38,NULL,NULL,'edit',167,168),(43,38,NULL,NULL,'delete',169,170),(44,38,NULL,NULL,'build_acl',171,172),(45,1,NULL,NULL,'Projects',174,187),(46,45,NULL,NULL,'index',175,176),(47,45,NULL,NULL,'view',177,178),(48,45,NULL,NULL,'add',179,180),(49,45,NULL,NULL,'edit',181,182),(50,45,NULL,NULL,'delete',183,184),(51,45,NULL,NULL,'build_acl',185,186),(52,1,NULL,NULL,'TicketComments',188,201),(53,52,NULL,NULL,'index',189,190),(54,52,NULL,NULL,'view',191,192),(55,52,NULL,NULL,'add',193,194),(56,52,NULL,NULL,'edit',195,196),(57,52,NULL,NULL,'delete',197,198),(58,52,NULL,NULL,'build_acl',199,200),(59,1,NULL,NULL,'CommentReplies',202,215),(60,59,NULL,NULL,'index',203,204),(61,59,NULL,NULL,'view',205,206),(62,59,NULL,NULL,'add',207,208),(63,59,NULL,NULL,'edit',209,210),(64,59,NULL,NULL,'delete',211,212),(65,59,NULL,NULL,'build_acl',213,214),(66,1,NULL,NULL,'Tickets',216,229),(67,66,NULL,NULL,'index',217,218),(68,66,NULL,NULL,'view',219,220),(69,66,NULL,NULL,'add',221,222),(70,66,NULL,NULL,'edit',223,224),(71,66,NULL,NULL,'delete',225,226),(72,66,NULL,NULL,'build_acl',227,228),(73,2,NULL,NULL,'display',17,18),(74,2,NULL,NULL,'notfound',19,20),(75,10,NULL,NULL,'login',35,36),(76,10,NULL,NULL,'logout',37,38),(77,24,NULL,NULL,'member_landing',71,72),(78,10,NULL,NULL,'login_redirect',39,40),(79,31,NULL,NULL,'client_landing',127,128),(80,31,NULL,NULL,'new_ticket',129,130),(81,31,NULL,NULL,'add_ticket',131,132),(82,24,NULL,NULL,'reply_to_comment',73,74),(83,31,NULL,NULL,'add_comment',133,134),(84,24,NULL,NULL,'post_status_message',75,76),(85,10,NULL,NULL,'admin_landing',41,42),(86,31,NULL,NULL,'edit_my_project',135,136),(87,24,NULL,NULL,'post_comment',77,78),(88,31,NULL,NULL,'post_status_message',137,138),(89,31,NULL,NULL,'reply_to_comment',139,140),(90,1,NULL,NULL,'Images',230,243),(91,90,NULL,NULL,'index',231,232),(92,90,NULL,NULL,'view',233,234),(93,90,NULL,NULL,'add',235,236),(94,90,NULL,NULL,'edit',237,238),(95,90,NULL,NULL,'delete',239,240),(96,90,NULL,NULL,'build_acl',241,242),(97,31,NULL,NULL,'add_file_to_ticket',141,142),(98,24,NULL,NULL,'add_file_to_ticket',79,80),(99,24,NULL,NULL,'add_comment',81,82),(100,24,NULL,NULL,'mark_as_done',83,84),(101,24,NULL,NULL,'done_tickets',85,86),(102,24,NULL,NULL,'mark_as_not_done',87,88),(103,24,NULL,NULL,'my_tickets',89,90),(104,24,NULL,NULL,'assign_ticket',91,92),(105,24,NULL,NULL,'unassign_ticket',93,94),(106,24,NULL,NULL,'ticket_master',95,96),(107,31,NULL,NULL,'done_tickets',143,144),(108,31,NULL,NULL,'mark_as_done',145,146),(109,31,NULL,NULL,'mark_as_not_done',147,148),(110,31,NULL,NULL,'edit_ticket',149,150),(111,31,NULL,NULL,'show_ticket',151,152),(112,31,NULL,NULL,'doc_store',153,154),(113,31,NULL,NULL,'add_file_to_project',155,156),(114,24,NULL,NULL,'doc_store',97,98),(115,24,NULL,NULL,'add_file_to_project',99,100),(116,24,NULL,NULL,'track_time',101,102),(117,24,NULL,NULL,'punch_timeclock',103,104),(118,1,NULL,NULL,'TimeEntries',244,255),(119,118,NULL,NULL,'index',245,246),(120,118,NULL,NULL,'view',247,248),(121,118,NULL,NULL,'add',249,250),(122,118,NULL,NULL,'edit',251,252),(123,118,NULL,NULL,'delete',253,254),(124,1,NULL,NULL,'Rates',256,267),(125,124,NULL,NULL,'index',257,258),(126,124,NULL,NULL,'view',259,260),(127,124,NULL,NULL,'add',261,262),(128,124,NULL,NULL,'edit',263,264),(129,124,NULL,NULL,'delete',265,266),(130,1,NULL,NULL,'Invoices',268,289),(131,130,NULL,NULL,'index',269,270),(132,130,NULL,NULL,'view',271,272),(133,130,NULL,NULL,'add',273,274),(134,130,NULL,NULL,'edit',275,276),(135,130,NULL,NULL,'delete',277,278),(136,1,NULL,NULL,'LineItems',290,301),(137,136,NULL,NULL,'index',291,292),(138,136,NULL,NULL,'view',293,294),(139,136,NULL,NULL,'add',295,296),(140,136,NULL,NULL,'edit',297,298),(141,136,NULL,NULL,'delete',299,300),(142,130,NULL,NULL,'new_invoice',279,280),(143,130,NULL,NULL,'generate_invoice',281,282),(144,130,NULL,NULL,'show_invoice',283,284),(145,130,NULL,NULL,'download',285,286),(146,1,NULL,NULL,'FileImages',302,303),(147,130,NULL,NULL,'email_client_invoice',287,288),(148,24,NULL,NULL,'create_invoice',105,106),(149,24,NULL,NULL,'generate_invoice',107,108),(150,24,NULL,NULL,'download',109,110),(151,24,NULL,NULL,'email_client_invoice',111,112),(152,31,NULL,NULL,'my_invoices',157,158);
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `aros_acos` (
   `_delete` varchar(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -99,7 +99,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `aros_acos` WRITE;
 /*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
-INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1'),(15,2,83,'1','1','1','1'),(20,3,87,'1','1','1','1'),(19,3,88,'1','1','1','1'),(21,3,89,'1','1','1','1'),(22,3,97,'1','1','1','1'),(23,2,98,'1','1','1','1'),(24,2,99,'1','1','1','1'),(25,2,100,'1','1','1','1'),(26,2,101,'1','1','1','1'),(27,2,102,'1','1','1','1'),(28,2,106,'1','1','1','1'),(29,2,104,'1','1','1','1'),(30,2,105,'1','1','1','1'),(31,2,103,'1','1','1','1'),(33,3,107,'1','1','1','1'),(34,3,108,'1','1','1','1'),(35,3,109,'1','1','1','1'),(36,3,110,'1','1','1','1'),(37,3,111,'1','1','1','1'),(38,3,112,'1','1','1','1'),(39,3,113,'1','1','1','1'),(40,2,114,'1','1','1','1'),(41,2,115,'1','1','1','1'),(42,2,116,'1','1','1','1'),(43,2,117,'1','1','1','1'),(44,2,148,'1','1','1','1'),(45,2,149,'1','1','1','1'),(46,2,150,'1','1','1','1'),(47,2,151,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1'),(5,2,77,'1','1','1','1'),(8,3,79,'1','1','1','1'),(9,3,80,'1','1','1','1'),(10,3,81,'1','1','1','1'),(11,3,83,'1','1','1','1'),(12,2,82,'1','1','1','1'),(13,2,84,'1','1','1','1'),(14,3,86,'1','1','1','1'),(15,2,83,'1','1','1','1'),(20,3,87,'1','1','1','1'),(19,3,88,'1','1','1','1'),(21,3,89,'1','1','1','1'),(22,3,97,'1','1','1','1'),(23,2,98,'1','1','1','1'),(24,2,99,'1','1','1','1'),(25,2,100,'1','1','1','1'),(26,2,101,'1','1','1','1'),(27,2,102,'1','1','1','1'),(28,2,106,'1','1','1','1'),(29,2,104,'1','1','1','1'),(30,2,105,'1','1','1','1'),(31,2,103,'1','1','1','1'),(33,3,107,'1','1','1','1'),(34,3,108,'1','1','1','1'),(35,3,109,'1','1','1','1'),(36,3,110,'1','1','1','1'),(37,3,111,'1','1','1','1'),(38,3,112,'1','1','1','1'),(39,3,113,'1','1','1','1'),(40,2,114,'1','1','1','1'),(41,2,115,'1','1','1','1'),(42,2,116,'1','1','1','1'),(43,2,117,'1','1','1','1'),(44,2,148,'1','1','1','1'),(45,2,149,'1','1','1','1'),(46,2,150,'1','1','1','1'),(47,2,151,'1','1','1','1'),(48,3,152,'1','1','1','1'),(49,3,145,'1','1','1','1'),(50,3,144,'1','1','1','1');
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `comment_replies` (
   KEY `fk_comment_replies_1` (`user_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -212,7 +212,7 @@ CREATE TABLE `images` (
   KEY `u_id` (`user_id`),
   KEY `fk_Image_1` (`user_id`),
   CONSTRAINT `fk_Image_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -221,6 +221,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (1,'/mindynamics.com/0290614001294185053.jpg',9,'scene-desktop-wallpaper-1280x800-0382.jpg','2011-01-04 15:50:54','2011-01-04 15:50:54'),(2,'/mindynamics.com/0068361001294185557.jpg',9,'scene-desktop-wallpaper-1280x800-0382.jpg','2011-01-04 15:59:17','2011-01-04 15:59:17'),(3,'/mindynamics.com/0702109001294185682.jpg',9,'scene-desktop-wallpaper-1280x800-0382.jpg','2011-01-04 16:01:23','2011-01-04 16:01:23'),(4,'/mindynamics.com/0644468001294185821.jpg',9,'hdr-logo.jpg','2011-01-04 16:03:41','2011-01-04 16:03:41');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +241,7 @@ CREATE TABLE `images_projects` (
   KEY `fk_images_projects_2` (`project_id`),
   CONSTRAINT `fk_images_projects_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_images_projects_2` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -249,6 +250,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `images_projects` WRITE;
 /*!40000 ALTER TABLE `images_projects` DISABLE KEYS */;
+INSERT INTO `images_projects` VALUES (1,4,1),(2,4,2),(3,4,3),(4,4,4);
 /*!40000 ALTER TABLE `images_projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,7 +432,7 @@ CREATE TABLE `members_tickets` (
   KEY `fk_members_tickets_tickets1` (`ticket_id`),
   CONSTRAINT `fk_members_tickets_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_tickets_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -555,7 +557,7 @@ CREATE TABLE `status_messages` (
   KEY `fk_status_messages_2` (`user_id`),
   CONSTRAINT `fk_status_messages_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -587,7 +589,7 @@ CREATE TABLE `ticket_comments` (
   KEY `fk_ticket_comments_1` (`user_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -620,7 +622,7 @@ CREATE TABLE `tickets` (
   KEY `fk_tickets_2` (`user_id`),
   CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_tickets_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -697,7 +699,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','d42f672d33b7c2cb798eeb2b55af7869618a6fb7',1,'2010-12-20 05:32:37','2011-01-04 12:06:39','mindbot@mindynamics.com','14870 Los Gatos Bvld','','Los Gatos','CA','95032','Jonathan Silverman'),(8,'jsilver','057c4763f4c548cd5fe4f046d9241da0074cfb8b',2,'2010-12-24 18:33:20','2011-01-04 12:00:19','jsilver@mindynamics.com','14870 Los Gatos Bvld','','Los Gatos','CA','95032','Jonathan Silverman'),(9,'keyvan','7fe8b1b6d37fe1a39991ec8c04771d5a6bdc0f1c',3,'2010-12-24 18:33:29','2011-01-04 12:00:59','jsilver@mindynamics.com','7 Almond Tree Lane','','Irvine','CA','12345','Keyvan Fatehi');
+INSERT INTO `users` VALUES (1,'admin','d42f672d33b7c2cb798eeb2b55af7869618a6fb7',1,'2010-12-20 05:32:37','2011-01-04 12:06:39','mindbot@mindynamics.com','14870 Los Gatos Bvld','','Los Gatos','CA','95032','Jonathan Silverman'),(8,'jsilver','057c4763f4c548cd5fe4f046d9241da0074cfb8b',2,'2010-12-24 18:33:20','2011-01-04 12:00:19','jsilver@mindynamics.com','14870 Los Gatos Bvld','','Los Gatos','CA','95032','Jonathan Silverman'),(9,'keyvan','d42f672d33b7c2cb798eeb2b55af7869618a6fb7',3,'2010-12-24 18:33:29','2011-01-04 13:03:47','keyvan@mindynamics.com','7 Almond Tree Lane','','Irvine','CA','12345','Keyvan Fatehi');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -710,4 +712,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-04 20:58:51
+-- Dump completed on 2011-01-05  0:05:07
