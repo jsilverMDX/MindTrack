@@ -22,7 +22,7 @@
           <ul class="ticket-list">
           <? foreach($project['Ticket'] as $ticket): ?>
             <li ticketid="<? echo($ticket['id']); ?>" projectname="<? echo($project['name']); ?>" onclick="selectTicket(this)">
-              #<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?>
+              #<? echo($ticket['num']); ?>:  <? echo($ticket['name']); ?>
             </li>
           <? endforeach ?>
           </ul>
@@ -37,7 +37,8 @@
           <? foreach($project['Ticket'] as $ticket): ?>
             <div class="split-view-right-content pre-hide" projectname="<? echo($project['name']); ?>" id="ticket-<? echo($ticket['id']); ?>">
               <h1><? echo($project['name']); ?></h1>
-              <h2>#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h2>
+              <h2>#<? echo($ticket['num']); ?>:  <? echo($ticket['name']); ?></h2>
+              <p><?= $ticket['description'] ?></p>
             </div>
           <? endforeach ?>
       <? endforeach ?>

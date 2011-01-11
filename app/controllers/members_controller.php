@@ -175,9 +175,9 @@ class MembersController extends AppController {
 	}
 
 
-  function show_ticket($id = null) {
+  function show_ticket($num = null) {
     $session_user = $this->Session->read('Auth.User');
-    $options['conditions'] = array('Ticket.id' => $id);
+    $options['conditions'] = array('Ticket.num' => $num);
     $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));
     $ticket = $this->Ticket->find('first', $options);
     $this->set('ticket', $ticket);
