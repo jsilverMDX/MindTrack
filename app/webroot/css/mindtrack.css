@@ -214,6 +214,10 @@ ul {
       bottom:0;
       padding:0 0 0 20px;
     }
+    #middle-view .split-view-right-content #mark-done {
+      right: 10px;
+      top: 30px;
+    }
   /* End Middle-View::Split-View Rules */
   #bottom-view {
       height:32px;

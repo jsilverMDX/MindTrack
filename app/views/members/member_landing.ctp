@@ -36,9 +36,17 @@
       <? foreach($member['Project'] as $project): ?>    
           <? foreach($project['Ticket'] as $ticket): ?>
             <div class="split-view-right-content pre-hide" projectname="<? echo($project['name']); ?>" id="ticket-<? echo($ticket['id']); ?>">
+              <div class="view button-view" id="mark-done"> 
+                <div class="button-view-mid"> 
+                <div class="button-view-label">Mark as Done</div> 
+              </div> 
+              </div>  
               <h1><? echo($project['name']); ?></h1>
               <h2>#<? echo($ticket['num']); ?>:  <? echo($ticket['name']); ?></h2>
-              <p><?= $ticket['description'] ?></p>
+              <h3>Status: <?= $ticket['status']; ?></h3>
+              
+              <p><?= $ticket['description']; ?></p>
+              
             </div>
           <? endforeach ?>
       <? endforeach ?>
