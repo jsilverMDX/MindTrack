@@ -5,17 +5,18 @@
 
 
 
-<div class="view" id="middle-view">
+<div class="view pre-hide" id="middle-view">
     <div class="view" id="split-view-left">
-      <ul class="view collection-view" id="project-tree">
+      <ul class="view collection-view" id="project-list">
 
       <? foreach($member['Project'] as $project): ?>    
         <li class="col"> <? $sproutmdx->arrow('col'); ?> 
-
           <span class="root-item"><? echo($project['name']); ?></span>
-          <ul>
+          <ul class="ticket-list">
           <? foreach($project['Ticket'] as $ticket): ?>
-            <li>#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></li>
+            <li ticketid="<? echo($ticket['id']); ?>" onclick="selectTicket(this)">
+              #<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?>
+            </li>
           <? endforeach ?>
           </ul>
         </li>
@@ -27,7 +28,15 @@
     <div class="view split-view-vertical-divider" id="divider"></div>
     
     <div class="view" id="split-view-right">
-      Need to put the details of the currently selected item in here.
+      <? foreach($member['Project'] as $project): ?>    
+          <? foreach($project['Ticket'] as $ticket): ?>
+            <div class="split-view-right-content pre-hide" projectid="<? echo($project['id']); ?>" id="ticket-<? echo($ticket['id']); ?>">
+              <h1><? echo($project['name']); ?></h1>
+              <h2>#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h2>
+          
+            </div>
+          <? endforeach ?>
+      <? endforeach ?>
     </div>
 </div>
 
@@ -40,6 +49,14 @@
 
 
 <script>
+var selectTicket = function (ticket) {
+  $('.selected').removeClass('selected');
+  $('.split-view-right-content').addClass('pre-hide');
+  $(ticket).addClass('selected')
+  var ticketid = $(ticket).attr('ticketid'); 
+  $('#ticket-'+ticketid).removeClass('pre-hide');
+}
+
 var toggleExpansion = function (arrow) {
   parent = $(arrow).parent();
   arrow = $(arrow);
@@ -76,5 +93,6 @@ $(document).ready(function () {
     $('#middle-view #split-view-right'),
     $('#middle-view #divider') 
   );
+  $('#middle-view.pre-hide').removeClass('pre-hide');
 });
 </script>

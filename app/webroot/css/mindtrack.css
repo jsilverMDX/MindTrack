@@ -9,6 +9,10 @@ ul {
   list-style-type: none;
 }
 
+.pre-hide {
+  display:none;
+}
+
 /* --------------------------------- */
 
 /* Begin View-Type Rules */
@@ -47,9 +51,9 @@ ul {
     .arrow {
       position:absolute;
       left:0;
-      top:0;
+      top:2px;
       height:16px;
-      right:0;
+      width:16px;
     }
     .arrow.exp {
       background: url("/img/sprites/main.png") no-repeat scroll -15px -1597px transparent;
@@ -59,9 +63,17 @@ ul {
     }
     .collection-view li {
       position:relative;
+      padding:2px;
+      cursor:pointer;
     }
     .collection-view .root-item {
       font-weight:bold;
+    }
+    .collection-view .selected {
+      background-color:#2370D8;
+      color:white;
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
     }
   /* End Collection-View Subset Rules */
 /* End Widget-Type Rules */
@@ -99,23 +111,23 @@ ul {
       bottom:0;
     }
     /* Begin Middle-View::Split-View::Left Rules */
-      #middle-view #split-view-left #project-tree {
+      #middle-view #split-view-left #project-list {
         left:0;
         top:0;
         bottom:0;
         padding:5px;
       }
-      #middle-view #split-view-left #project-tree li.col{
+      #middle-view #split-view-left #project-list li.col{
         font-size:12px;
         padding-left:16px;
 
       }
-      #middle-view #split-view-left #project-tree li.exp{
+      #middle-view #split-view-left #project-list li.exp{
         font-size:12px;
         padding-left:16px;
 
       }
-      #middle-view #split-view-left #project-tree li.col li {
+      #middle-view #split-view-left #project-list li.col li {
         display:none;
       }
     /* End Middle-View::Split-View::Left Rules */
@@ -128,6 +140,14 @@ ul {
       top:0;
       right:0;
       left:25%;
+      bottom:0;
+      padding:0 0 0 10px;
+    }
+    #middle-view .split-view-right-content {
+      position:absolute;
+      top:0;
+      right:0;
+      left:0;
       bottom:0;
       padding:0 0 0 10px;
     }
