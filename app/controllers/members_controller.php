@@ -4,7 +4,7 @@ class MembersController extends AppController {
 	var $name = 'Members';
 	var $uses = array('Member', 'Rate', 'Client', 'Invoice', 'LineItem', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
-	var $helpers = array('Html', 'Form', 'Time', 'Textile');
+	var $helpers = array('Html', 'Form', 'Time', 'Textile', 'Sproutmdx');
 	
 	// member landing point
 	// shows all incomplete tickets for my projects

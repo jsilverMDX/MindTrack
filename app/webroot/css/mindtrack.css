@@ -4,6 +4,13 @@ body {
   overflow:hidden;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* --------------------------------- */
+
 /* Begin View-Type Rules */
   .view {
     position:absolute;
@@ -25,6 +32,8 @@ body {
   }
 /* End View Types */
 
+/* --------------------------------- */
+
 /* Begin Widget-Type Rules */
   .split-view-vertical-divider {
     background: url("/img/sprites/div.png") repeat-y scroll 0 top transparent;
@@ -34,7 +43,30 @@ body {
     z-index:1;
     cursor:ew-resize;
   }
+  /* Begin Collection-View Subset Rules */
+    .arrow {
+      position:absolute;
+      left:0;
+      top:0;
+      height:16px;
+      right:0;
+    }
+    .arrow.exp {
+      background: url("/img/sprites/main.png") no-repeat scroll -15px -1597px transparent;
+    }
+    .arrow.col {
+      background: url("/img/sprites/main.png") no-repeat scroll -15px -1611px transparent;
+    }
+    .collection-view li {
+      position:relative;
+    }
+    .collection-view .root-item {
+      font-weight:bold;
+    }
+  /* End Collection-View Subset Rules */
 /* End Widget-Type Rules */
+
+/* --------------------------------- */
 
 /* Begin Specific View Rules */
   #top-view {
@@ -58,7 +90,7 @@ body {
     right:0;
     bottom:32px;   
   }
-  /* Begin Middle-View Split-View Rules */
+  /* Begin Middle-View::Split-View Rules */
     #middle-view #split-view-left {
       background-color:white;
       top:0;
@@ -66,6 +98,27 @@ body {
       width:25%;
       bottom:0;
     }
+    /* Begin Middle-View::Split-View::Left Rules */
+      #middle-view #split-view-left #project-tree {
+        left:0;
+        top:0;
+        bottom:0;
+        padding:5px;
+      }
+      #middle-view #split-view-left #project-tree li.col{
+        font-size:12px;
+        padding-left:16px;
+
+      }
+      #middle-view #split-view-left #project-tree li.exp{
+        font-size:12px;
+        padding-left:16px;
+
+      }
+      #middle-view #split-view-left #project-tree li.col li {
+        display:none;
+      }
+    /* End Middle-View::Split-View::Left Rules */
     #middle-view #divider {
       left:25%;
       border-left:1px solid #ccc;
@@ -76,8 +129,9 @@ body {
       right:0;
       left:25%;
       bottom:0;
+      padding:0 0 0 10px;
     }
-  /* End Middle-View Split-View Rules */
+  /* End Middle-View::Split-View Rules */
   #bottom-view {
       height:32px;
       left:0;
@@ -86,9 +140,9 @@ body {
   }
 /* End Specific View Rules */
 
+/* --------------------------------- */
 
-
-
+/* Begin Non-SproutMDX Rules */
 
 
 
