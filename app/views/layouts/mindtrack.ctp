@@ -12,6 +12,8 @@
 <?php echo $scripts_for_layout ?>
 </head>
 <body>
+  <?php $logged_in = $session->read('Auth.User') ?>
+  <?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
 	<?php echo $content_for_layout; ?>
 </body>
 </html>

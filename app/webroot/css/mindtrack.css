@@ -63,7 +63,7 @@ ul {
     }
     .collection-view li {
       position:relative;
-      padding:2px;
+      padding:2px 6px;
       cursor:pointer;
     }
     .collection-view .root-item {
@@ -75,7 +75,57 @@ ul {
       -moz-border-radius:10px;
       -webkit-border-radius:10px;
     }
+    .collection-view ::-moz-selection {
+      background-color:transparent;
+      color:inherit;
+    }
+    .collection-view ::selection {
+      background-color:transparent;
+      color:inherit;
+    }
   /* End Collection-View Subset Rules */
+  .button-view * {
+    cursor:pointer;
+  }
+  /* Begin Button-View Subset Rules */
+    .button-view.active {
+      background: url("/img/sprites/main.png") no-repeat scroll left -913px transparent !important;
+    }
+    .button-view.active .button-view-mid {
+      background: url("/img/sprites/main.png") no-repeat scroll right -939px transparent !important;
+    }
+    .button-view.active .button-view-label {
+      background: url("/img/sprites/main.png") repeat-x scroll left -889px transparent !important;
+      color:white;
+    }
+    .button-view {
+     background: url("/img/sprites/main.png") no-repeat scroll right -814px transparent;
+     height:24px;
+    }
+    .button-view-mid {
+      background: url("/img/sprites/main.png") no-repeat scroll left -789px transparent;
+      height:24px;
+      max-height:24px;
+      min-width:80px;
+      text-align:center;
+    }
+    .button-view-label {
+      background: url("/img/sprites/main.png") repeat-x scroll -15px -764px transparent;
+      font-size:12px;
+      line-height:24px;
+      margin:0 11px;
+      width:80px;
+      height:100%;
+    }
+    .button-view ::-moz-selection {
+      background-color:transparent;
+      color:inherit;
+    }
+    .button-view ::selection {
+      background-color:transparent;
+      color:inherit;
+    }
+  /* End Button-View Subset Rules */
 /* End Widget-Type Rules */
 
 /* --------------------------------- */
@@ -88,13 +138,24 @@ ul {
       top:0;
   }
   /* Begin Top-View Rules */
-  #top-view #title {
-    font-size:15px;
-    left:0px;
-    bottom:0px;
-    top:0px;
-    padding:8px;
-  } 
+    #top-view #title {
+      font-size:15px;
+      left:0;
+      bottom:0px;
+      top:0;
+      padding:8px;
+    } 
+    #top-view #current-project {
+      font-size:18px;
+      left:47%;
+      top:0;
+      bottom:0;
+      padding:8px;
+    }
+    #top-view #logout {
+      right:6px;
+      top:6px;
+    }
   /* End Top-View Rules */  
   #middle-view {
     top:36px;
@@ -104,6 +165,7 @@ ul {
   }
   /* Begin Middle-View::Split-View Rules */
     #middle-view #split-view-left {
+      overflow:auto;
       background-color:white;
       top:0;
       left:0;
@@ -136,20 +198,21 @@ ul {
       border-left:1px solid #ccc;
     }
     #middle-view #split-view-right {
+      overflow:auto;
       background-color:#57647F;
       top:0;
       right:0;
       left:25%;
       bottom:0;
-      padding:0 0 0 10px;
     }
     #middle-view .split-view-right-content {
       position:absolute;
+      color:white;
       top:0;
       right:0;
       left:0;
       bottom:0;
-      padding:0 0 0 10px;
+      padding:0 0 0 20px;
     }
   /* End Middle-View::Split-View Rules */
   #bottom-view {
@@ -158,6 +221,17 @@ ul {
       right:0;
       bottom:0;
   }
+  /* Begin Bottom-View Rules */
+    #bottom-view #summary {
+      font-size:12px;
+      left:0px;
+      bottom:0px;
+      top:0px;
+      height:100%;
+      padding-left:3px;
+      line-height:16px;
+    }
+  /* End Bottom-View Rules */
 /* End Specific View Rules */
 
 /* --------------------------------- */

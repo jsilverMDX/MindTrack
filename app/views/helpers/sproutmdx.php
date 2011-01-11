@@ -5,5 +5,13 @@ class SproutmdxHelper extends AppHelper {
     echo "<div class=\"arrow " . $str . "\" onclick=\"toggleExpansion(this)\"></div>";
   }
   
+  function ticketCount($projects) {
+    $num = 0;
+    foreach($projects as $project):
+      $num+=count($project['Ticket']);
+    endforeach;
+    echo $num;
+  }
+  
 }
 ?>
