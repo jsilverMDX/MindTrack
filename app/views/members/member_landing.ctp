@@ -36,9 +36,9 @@
       <? foreach($member['Project'] as $project): ?>    
           <? foreach($project['Ticket'] as $ticket): ?>
             <div class="split-view-right-content pre-hide" projectname="<? echo($project['name']); ?>" id="ticket-<? echo($ticket['id']); ?>">
-              <div class="view button-view" id="mark-done"> 
+              <div class="view button-view mark-done-btn" done="true" ticketid="<?= $ticket['id']; ?>" onclick="changeTicketStatus(this);"> 
                 <div class="button-view-mid"> 
-                <div class="button-view-label">Mark as Done</div> 
+                <div class="button-view-label">Mark Done</div> 
               </div> 
               </div>  
               <h1><? echo($project['name']); ?></h1>
@@ -81,7 +81,27 @@ $(document).ready(function () {
   $('#logout').mouseleave(function () {
     $('#logout').removeClass('active');
   });
+  $('.mark-done-btn').mousedown(function () {
+    $('.mark-done-btn').addClass('active');
+  }).mouseup(function () {
+    $('.mark-done-btn').removeClass('active');
+  });
+  $('.mark-done-btn').mouseleave(function () {
+    $('.mark-done-btn').removeClass('active');
+  });
 });
+
+var changeTicketStatus = function (me) {
+  if(me.children[0].children[0].innerHTML == "Mark Done"){
+  options = {url: '/members/mark_as_done/'+me.getAttribute('ticketid'), dataType: 'script', success: function() { me.children[0].children[0].innerHTML = "Not Done"; }};
+  $.ajax(options);
+  
+  } else {
+  options = {url: '/members/mark_as_not_done/'+me.getAttribute('ticketid'), dataType: 'script', success: function() { me.children[0].children[0].innerHTML = "Mark Done"; }};
+  $.ajax(options);
+  }
+}
+
 
 var selectTicket = function (ticket) {
   $('.selected').removeClass('selected');

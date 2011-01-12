@@ -118,7 +118,14 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('completer', $session_user['username']);
     $this->_ticket_done_email($ticket);
-    $this->redirect('/mdx_members');
+    if ($this->RequestHandler->isAjax()) {
+	  Configure::write('debug', 0);
+		$this->autoRender = false;   
+    } else {
+      $this->redirect('/mdx_members');
+    }
+    
+    
 	}
 	
 	
@@ -130,7 +137,13 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('reopener', $session_user['username']);
     $this->_ticket_undone_email($ticket);
-    $this->redirect('/mdx_members');
+    if ($this->RequestHandler->isAjax()) {
+	  Configure::write('debug', 0);
+		$this->autoRender = false;   
+    } else {
+      $this->redirect('/mdx_members');
+    }
+    
 	}
 	
 	function add_file_to_ticket() {
