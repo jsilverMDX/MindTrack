@@ -4,7 +4,7 @@ class MembersController extends AppController {
 	var $name = 'Members';
 	var $uses = array('Member', 'Rate', 'Client', 'Invoice', 'LineItem', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
-	var $helpers = array('Html', 'Form', 'Time', 'Textile');
+	var $helpers = array('Html', 'Form', 'Time', 'Textile', 'Sproutmdx');
 	
 	// member landing point
 	// shows all incomplete tickets for my projects
@@ -118,7 +118,14 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('completer', $session_user['username']);
     $this->_ticket_done_email($ticket);
-    $this->redirect('/mdx_members');
+    if ($this->RequestHandler->isAjax()) {
+	  Configure::write('debug', 0);
+		$this->autoRender = false;   
+    } else {
+      $this->redirect('/mdx_members');
+    }
+    
+    
 	}
 	
 	
@@ -130,7 +137,13 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('reopener', $session_user['username']);
     $this->_ticket_undone_email($ticket);
-    $this->redirect('/mdx_members');
+    if ($this->RequestHandler->isAjax()) {
+	  Configure::write('debug', 0);
+		$this->autoRender = false;   
+    } else {
+      $this->redirect('/mdx_members');
+    }
+    
 	}
 	
 	function add_file_to_ticket() {
@@ -175,9 +188,9 @@ class MembersController extends AppController {
 	}
 
 
-  function show_ticket($id = null) {
+  function show_ticket($num = null) {
     $session_user = $this->Session->read('Auth.User');
-    $options['conditions'] = array('Ticket.id' => $id);
+    $options['conditions'] = array('Ticket.num' => $num);
     $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));
     $ticket = $this->Ticket->find('first', $options);
     $this->set('ticket', $ticket);

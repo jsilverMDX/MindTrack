@@ -2,7 +2,7 @@
 
 class AppController extends Controller { 
 
-  var $components = array('Acl', 'Session', 'Auth', 'Email', 'Upload.Upload');
+  var $components = array('Acl', 'Session', 'Auth', 'Email', 'Upload.Upload', 'RequestHandler');
 
   function beforeFilter() {
   //Configure AuthComponent

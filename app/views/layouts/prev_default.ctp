@@ -3,29 +3,28 @@
 <head>
 <title><?php echo $title_for_layout?></title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href='http://fonts.googleapis.com/css?family=Buda:light' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/mindynamics.css" type="text/css" media="screen" charset="utf-8" />
 <script type="text/javascript" src="/js/default.js"></script>
 <?php echo $scripts_for_layout ?>
+<!--[if IE 7]>
+<style type="text/css" media="screen">
+  #inner_right_pane #top form {position:relative;top:-15px;}
+  div#menu ul li a {padding: 0 26px;position:relative;top:7px;}
+</style>
+<![endif]-->
 </head>
 <body>
-
+</div>
 <div id="container">
-  <div id="top">
-    <img id="logo" src="/img/logo.gif"/>
-    <div id="topright">
-      Collaborative Web Development Agency
-      <div class="tech-icon" id="linux"></div>
-      <div class="tech-icon" id="rails"></div>
-      <div class="tech-icon" id="cakephp"></div>
-      <div class="tech-icon" id="wordpress"></div>
-      <div class="tech-icon" id="drupal"></div>   
-    </div>
-    <div id="root"></div>
-  </div>
-  
-  <div id="main">
-    <div id="topleft">
-      	<ul>
+	<div id="header" class='box_shadow'>
+		<div id="header_accent">
+		<div id="logo">
+		<a href="/"><img src="/img/logo.png" /></a>
+		<em id='slogan'>awesome programming services</em>
+		</div>
+		<div id="header_links">
+	    	<ul>
 	      		<?php $logged_in = $session->read('Auth.User') ?>
 	      		<?php $logged_in ? $uaction = 'logout' : $uaction = 'login' ?>
 	      		<? if($logged_in) { ?>
@@ -40,15 +39,26 @@
 	      		<? } ?>
 	      		<li class="login"><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
 	    	</ul>
-    </div>
-    <div id="topright">
-      We are a group of ethical hackers that will <strong>finally</strong> make your web application
-      <strong>bend to your will</strong>, no matter what state the other developers left it in or what
-      technology it relies on. We will <strong>care for your app as you deserve</strong> -- period.
-    </div>
-    <div id="nav">
-      <ul>
-         	<?php
+		</div>
+		</div>
+	</div>
+	
+	<script>
+	$(document).ready(function (){
+		$('#login').mouseover(function (){
+			$('#login').css('background-image', "url('/img/login_button_flip.png')");
+		});
+		$('#login').mouseout(function (){
+			$('#login').css('background-image', "url('/img/login_button.png')");
+		});
+	});
+	</script>
+	
+	<div id="finish" class='box_shadow'>
+		<div id="menu">
+			<div id="wrapper_menu">
+			<ul>
+					<?php
 					if(isset($nav_items)) {
 					  foreach ($nav_items as $page):
 					    $li_class = ($page['Page']['name'] == $page_name) ? 'selected' : $page['Page']['name'];
@@ -56,15 +66,26 @@
 	        	endforeach;
 					}
 	      	?>
-      </ul>
-    </div>
-    <div id="maincontent">
-      <?php echo $content_for_layout; ?>
-    </div>
-    <div style="clear:both"></div>
-  </div>
+				</ul>
+			</div>
+		</div>
+		<br>
+		
+		<div id="main_content">
+		<?php echo $content_for_layout; ?>
+		</div>
+		
+	</div>
+	
+	<div id="footer" class='box_shadow'>
+		<div id="footer_accent">
+			<div class="footer_text">
+		      <div class="footer_para">All content on this site and ideas and intellectual property
+		      contained herein are property of Mindynamics and may not be used elsewhere without
+		      express written permission of the authors. &copy; Mindynamics 2011</div>
+		    </div>
+		</div>
+	</div>
 </div>
-
-
 </body>
 </html>

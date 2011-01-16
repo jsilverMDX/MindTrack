@@ -50,7 +50,7 @@ class ClientsController extends AppController {
 
 
   
-  function show_ticket($id = null) {
+  function show_ticket($num = null) {
     $session_user = $this->Session->read('Auth.User');
     $options['conditions'] = array('Ticket.id' => $id);
     $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));
@@ -132,8 +132,12 @@ class ClientsController extends AppController {
   }
 
 	function add_ticket() {
+	  $this_data = $this->data;
+	  $last_ticket = $this->Ticket->find('first', array('order' => array('Ticket.id DESC')));
+	  $ticket_num = $last_ticket['Ticket']['num'] + 1;
+	  $this_data['Ticket']['num'] = $ticket_num;
   	$this->Ticket->create();
-  	$this->Ticket->save($this->data);
+  	$this->Ticket->save($this_data);
     $ticket = $this->Ticket->read();
     $this->_add_ticket_email($ticket);
 		$this->redirect('/mdx_clients');

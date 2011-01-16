@@ -41,7 +41,7 @@
     <? if($tstatus != "done") { ?>
     <li class="ticket">
     <div class="ticket-info">
-    <h4 class="ticket-header"><a href="/t<?= $ticket['id'] ?>">Ticket #<? echo($ticket['id']); ?>: <? echo($ticket['name']); ?></a></h4>
+    <h4 class="ticket-header"><a href="/t/<?= $ticket['num'] ?>">Ticket #<? echo($ticket['num']); ?>: <? echo($ticket['name']); ?></a></h4>
     <div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>    <div class="ticket-status">Status: <? echo($ticket['status']); ?> (<?= $tstatus ?>) <a href="/clients/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a></div>
     <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
     <div class="edit-ticket"><a href="/clients/edit_ticket/<? echo($ticket['id']); ?>">Edit Ticket</a></div>
