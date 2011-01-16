@@ -38,14 +38,15 @@ ul {
 }
 
 #top {
-
+  height:96px;
   position:relative;
 }
 
 
 #logo {
-
-  margin-left:25px;
+  position:absolute;
+  top:2px;
+  left:25px;
 }
 
 #root {
