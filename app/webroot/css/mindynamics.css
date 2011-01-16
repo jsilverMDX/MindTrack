@@ -56,6 +56,7 @@ ul {
   background: url("/img/sprites/home.png") no-repeat scroll 0 0 transparent;
   height:102px;
   width:82px;
+  z-index:-1;
 }
 
 
