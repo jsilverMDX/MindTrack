@@ -117,8 +117,10 @@ ul {
 #main #topleft {
   font-size:16px;
   position:absolute;
-  top:35px;
-  left:75px;
+  top:-4px;
+  left:30px;
+  text-align:center;
+  width:160px;
 }
 
 #nav {
