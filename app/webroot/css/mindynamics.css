@@ -130,11 +130,16 @@ ul {
   font-size:28px;
   padding-bottom:10px;
   float:left;
+
 }
 
 #nav li {
-
   margin:45px 25px;
+}
+
+#nav li a {
+  text-decoration:none;
+  color:#000;
 }
 
 #maincontent {
