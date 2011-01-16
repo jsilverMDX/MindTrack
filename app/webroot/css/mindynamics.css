@@ -119,10 +119,20 @@ ul {
 #main #topleft {
   font-size:16px;
   position:absolute;
-  top:-4px;
+  top:33px;
   left:30px;
   text-align:center;
   width:160px;
+  line-height:18px;
+}
+
+#gtalkbadge {
+  border: 1px dotted;
+  left: 7px;
+  padding-left: 12px;
+  padding-top: 3px;
+  position: absolute;
+  top: 6px;
 }
 
 #nav {
