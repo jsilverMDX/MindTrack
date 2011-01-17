@@ -15,41 +15,32 @@
 
 <div class="view pre-hide" id="middle-view">
     <div class="view" id="split-view-left">
+      <!-- left pane -->
       <ul class="view collection-view" id="project-list">
+      
+      
       <? foreach($member['Project'] as $project): ?>    
         <li class="col"> <? $sproutmdx->arrow('col'); ?> 
-          <span class="root-item"><? echo($project['name']); ?></span>
+          <span class="root-item" projectid="<?= $project['id'] ?>" onclick="selectProject(this)"><? echo($project['name']); ?></span>
           <ul class="ticket-list">
           <? foreach($project['Ticket'] as $ticket): ?>
-            <li ticketid="<? echo($ticket['id']); ?>" projectname="<? echo($project['name']); ?>" onclick="selectTicket(this)">
+            <li ticketid="<? echo($ticket['id']); ?>" onclick="selectTicket(this)">
               #<? echo($ticket['num']); ?>:  <? echo($ticket['name']); ?>
             </li>
           <? endforeach ?>
           </ul>
         </li>
       <? endforeach ?>
+      
+      
+      
       </ul>
     </div>
     <div class="view split-view-vertical-divider" id="divider"></div>
     <div class="view" id="split-view-right">
-    <? //debug($member['Project']); ?>
-      <? foreach($member['Project'] as $project): ?>    
-          <? foreach($project['Ticket'] as $ticket): ?>
-            <div class="split-view-right-content pre-hide" projectname="<? echo($project['name']); ?>" id="ticket-<? echo($ticket['id']); ?>">
-              <div class="view button-view mark-done-btn" done="true" ticketid="<?= $ticket['id']; ?>" onclick="changeTicketStatus(this);"> 
-                <div class="button-view-mid"> 
-                <div class="button-view-label">Mark Done</div> 
-              </div> 
-              </div>  
-              <h1><? echo($project['name']); ?></h1>
-              <h2>#<? echo($ticket['num']); ?>:  <? echo($ticket['name']); ?></h2>
-              <h3>Status: <?= $ticket['status']; ?></h3>
-              
-              <p><?= $ticket['description']; ?></p>
-              
-            </div>
-          <? endforeach ?>
-      <? endforeach ?>
+    
+    <!-- right pane -->
+      
     </div>
 </div>
 
@@ -102,14 +93,29 @@ var changeTicketStatus = function (me) {
   }
 }
 
+var selectProject = function(project) {
+  $('.selected').removeClass('selected'); // unselect
+  $('.split-view-right-content').addClass('pre-hide'); // hide all
+  $(project).addClass('selected');
+  var projectId = project.getAttribute('projectid');
+  // ajax and get project info element w/ desc, status message, files
+  //alert(projectId);
+  options = {url: '/members/project_info/'+projectId, dataType: 'html', success: function(data, textStatus, XMLHttpRequest) {$('#split-view-right').html(data);} };
+  $.ajax(options);
+}
+
+
+// refactor me with the new ajax style instead
+// just use singular
 
 var selectTicket = function (ticket) {
   $('.selected').removeClass('selected');
-  $('.split-view-right-content').addClass('pre-hide');
-  $(ticket).addClass('selected')
+  $(ticket).addClass('selected');
   var ticketid = $(ticket).attr('ticketid'); 
-  $('#ticket-'+ticketid).removeClass('pre-hide');
   $('#current-project').html( $(ticket).attr('projectname') );
+  
+  options = {url: '/members/show_ticket/'+ticketid, dataType: 'html', success: function(data, textStatus, XMLHttpRequest) {$('#split-view-right').html(data);} };
+  $.ajax(options);
 }
 
 var toggleExpansion = function (arrow) {
