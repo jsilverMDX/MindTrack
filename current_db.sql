@@ -1,8 +1,8 @@
--- MySQL dump 10.11
+-- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
 --
 -- Host: localhost    Database: mindynamics
 -- ------------------------------------------------------
--- Server version	5.0.75-0ubuntu10.5
+-- Server version	5.1.37-1ubuntu5.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,19 +20,19 @@
 --
 
 DROP TABLE IF EXISTS `acos`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `acos` (
-  `id` int(10) NOT NULL auto_increment,
-  `parent_id` int(10) default NULL,
-  `model` varchar(255) default NULL,
-  `foreign_key` int(10) default NULL,
-  `alias` varchar(255) default NULL,
-  `lft` int(10) default NULL,
-  `rght` int(10) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  `foreign_key` int(10) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `acos`
@@ -49,19 +49,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `aros` (
-  `id` int(10) NOT NULL auto_increment,
-  `parent_id` int(10) default NULL,
-  `model` varchar(255) default NULL,
-  `foreign_key` int(10) default NULL,
-  `alias` varchar(255) default NULL,
-  `lft` int(10) default NULL,
-  `rght` int(10) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  `foreign_key` int(10) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `aros`
@@ -78,20 +78,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `aros_acos`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `aros_acos` (
-  `id` int(10) NOT NULL auto_increment,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `aro_id` int(10) NOT NULL,
   `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL default '0',
-  `_read` varchar(2) NOT NULL default '0',
-  `_update` varchar(2) NOT NULL default '0',
-  `_delete` varchar(2) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `_create` varchar(2) NOT NULL DEFAULT '0',
+  `_read` varchar(2) NOT NULL DEFAULT '0',
+  `_update` varchar(2) NOT NULL DEFAULT '0',
+  `_delete` varchar(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `aros_acos`
@@ -108,24 +108,24 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `clients`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clients` (
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `phone` varchar(45) NOT NULL,
-  `skype` varchar(45) default NULL,
+  `skype` varchar(45) DEFAULT NULL,
   `company` varchar(45) NOT NULL,
   `link` varchar(45) NOT NULL,
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_clients_users1` (`user_id`),
   CONSTRAINT `fk_clients_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `clients`
@@ -142,22 +142,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `comment_replies`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comment_replies` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `reply` text NOT NULL,
   `ticket_comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_comment_replies_2` (`ticket_comment_id`),
   KEY `fk_comment_replies_1` (`user_id`),
   CONSTRAINT `fk_comment_replies_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_replies_2` FOREIGN KEY (`ticket_comment_id`) REFERENCES `ticket_comments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `comment_replies`
@@ -173,16 +173,16 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `groups`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groups` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `created` datetime default NULL,
-  `modified` datetime default NULL,
-  PRIMARY KEY  (`id`)
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `groups`
@@ -199,21 +199,21 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `images`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `s3_url` varchar(120) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `u_id` (`user_id`),
   KEY `fk_Image_1` (`user_id`),
   CONSTRAINT `fk_Image_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `images`
@@ -230,19 +230,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `images_projects`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `images_projects` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `project_id` int(11) NOT NULL,
   `image_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`,`project_id`,`image_id`),
+  PRIMARY KEY (`id`,`project_id`,`image_id`),
   KEY `fk_images_projects_1` (`image_id`),
   KEY `fk_images_projects_2` (`project_id`),
   CONSTRAINT `fk_images_projects_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_images_projects_2` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `images_projects`
@@ -259,19 +259,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `images_tickets`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `images_tickets` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ticket_id` int(11) NOT NULL,
   `image_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`,`ticket_id`,`image_id`),
+  PRIMARY KEY (`id`,`ticket_id`,`image_id`),
   KEY `fk_images_tickets_1` (`image_id`),
   KEY `fk_images_tickets_2` (`ticket_id`),
   CONSTRAINT `fk_images_tickets_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_images_tickets_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `images_tickets`
@@ -287,23 +287,23 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `invoices`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invoices` (
-  `id` int(11) NOT NULL auto_increment,
-  `client_id` int(11) default NULL,
-  `user_id` int(11) default NULL,
-  `paid` binary(1) default '0',
-  `amt_due` decimal(10,0) default NULL,
-  `amt_paid` decimal(10,0) default '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `paid` binary(1) DEFAULT '0',
+  `amt_due` decimal(10,0) DEFAULT NULL,
+  `amt_paid` decimal(10,0) DEFAULT '0',
   `notes` text,
-  `subtotal` decimal(10,0) default NULL,
-  `total` decimal(10,0) default NULL,
-  `balance` decimal(10,0) default '0',
-  `project_id` int(11) default NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `subtotal` decimal(10,0) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
+  `balance` decimal(10,0) DEFAULT '0',
+  `project_id` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_invoices_1` (`user_id`),
   KEY `fk_invoices_2` (`client_id`),
   KEY `fk_invoices_3` (`project_id`),
@@ -311,7 +311,7 @@ CREATE TABLE `invoices` (
   CONSTRAINT `fk_invoices_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_invoices_3` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `invoices`
@@ -328,22 +328,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `line_items`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `line_items` (
-  `id` int(11) NOT NULL auto_increment,
-  `invoice_id` int(11) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice_id` int(11) DEFAULT NULL,
   `notes` text,
-  `rate` decimal(10,0) default NULL,
-  `hours` decimal(10,0) default NULL,
-  `line_total` decimal(10,0) default NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `rate` decimal(10,0) DEFAULT NULL,
+  `hours` decimal(10,0) DEFAULT NULL,
+  `line_total` decimal(10,0) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_line_items_1` (`invoice_id`),
   CONSTRAINT `fk_line_items_1` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `line_items`
@@ -360,22 +360,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `members` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `karma_points` varchar(45) NOT NULL,
   `user_rank` varchar(45) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_members_users1` (`user_id`),
   CONSTRAINT `fk_members_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `members`
@@ -392,19 +392,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_projects`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `members_projects` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`,`member_id`,`project_id`),
+  PRIMARY KEY (`id`,`member_id`,`project_id`),
   KEY `fk_members_projects_members1` (`member_id`),
   KEY `fk_members_projects_projects1` (`project_id`),
   CONSTRAINT `fk_members_projects_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_projects_projects1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `members_projects`
@@ -412,7 +412,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `members_projects` WRITE;
 /*!40000 ALTER TABLE `members_projects` DISABLE KEYS */;
-INSERT INTO `members_projects` VALUES (9,3,4);
+INSERT INTO `members_projects` VALUES (9,3,4),(10,3,5);
 /*!40000 ALTER TABLE `members_projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,19 +421,19 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `members_tickets`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `members_tickets` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`,`member_id`,`ticket_id`),
+  PRIMARY KEY (`id`,`member_id`,`ticket_id`),
   KEY `fk_members_tickets_members1` (`member_id`),
   KEY `fk_members_tickets_tickets1` (`ticket_id`),
   CONSTRAINT `fk_members_tickets_members1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_members_tickets_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `members_tickets`
@@ -449,22 +449,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `pages`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pages` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `page` text NOT NULL,
   `user_id` int(11) NOT NULL,
-  `public` binary(1) NOT NULL default '0',
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `public` binary(1) NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_pages_1` (`user_id`),
   CONSTRAINT `fk_pages_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `pages`
@@ -472,7 +472,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` VALUES (1,'welcome','<h1>So what exactly is Mindynamics?</h1>\r\n<strong>by jsilver</strong>\r\n\r\n<p>This seems to be the most widely asked question of us right now. WTF is Mindynamics?!</p>\r\n\r\n<p>Well, plainly, it\'s our startup incubator. You let us play with your project for a bit and we put our blood, sweat and hard work into realizing it\'s full potential.</p>\r\n\r\n<p>Not only that, we are an open source collaboration group. We constantly seek ways in which we can give back to the community, the Internet community, the fabric from which we grew.</p>\r\n\r\n<p>Mindynamics is many things to us and other people. It grew from late night talks about what we thought OUR style was, our PASSION, our love for things hacking. It is a way for us to express ourselves to the world while providing an invaluable service.</p>\r\n\r\n<p>But really we believe that the client is doing a service to us, trusting us with their code and their time, and providing us with a means to make a living doing what we love. And that\'s why we started Mindynamics.</p>\r\n\r\n',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:07'),(2,'services','<style>\r\n.support-list {\r\n  list-style-type: regular;\r\n  padding-bottom: 20px;\r\n}\r\n</style>\r\n\r\n<h1>We support:</h1>\r\n\r\n<ul class=\"support-list\">\r\n<li>Linux</li>\r\n<li><a href=\"http://apache.org\">Apache</a></li>\r\n<li><a href=\"http://mysql.com\">MySQL</a></li>\r\n<li><a href=\"http://php.net\">PHP</a></li>\r\n<li><a href=\"http://ruby-lang.org\">Ruby</a> (all versions)</li>\r\n<li><a href=\"http://rubyonrails.org\">Ruby on Rails</a> (RoR, all versions)</li>\r\n<li><a href=\"http://cakephp.org\">CakePHP</a> (1.3)</li>\r\n<li><a href=\"http://phusionpassenger.com\">Phusion</a> Passenger, REE</li>\r\n<li><a href=\"http://w3.org\">HTML+CSS</a> (layouts, designs, templates, PSD2HTML)</li>\r\n<li><a href=\"http://nodejs.com\">NodeJS</a></li>\r\n<li><a href=\"http://jquery.com\">JQuery</a></li>\r\n<li><a href=\"http://prototypejs.org\">Prototype</a></li>\r\n<li><a href=\"http://stackoverflow.com/questions/459647/rails-what-is-rjs\">RJS</a></li>\r\n<li><a href=\"http://jashkenas.github.com/coffee-script/\">CoffeeScript</a></li>\r\n<li>JavaScript</li>\r\n</ul>\r\n\r\n<div class=\"method\">\r\nWe use all POSIX compliant systems to write all of our code, meaning Mac and Linux. We do MVC-based semi-agile local development. We use Git to merge our code. We have a very open philsophy about our business and we actively seek really great collaboration tools, which is what brought us to having some parts of our style. We are also currently working on ways of relearning that information back to the community that helped us develop these methods.\r\n</div>',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:07'),(3,'clients','<div style=\"font-size:18pt;\">\r\nNeed help with an app or project?\r\n<br /><br />\r\nGot deadlines?\r\n<br /><br />\r\nWe\'re here to help.\r\n<br /><br />\r\nInfact, it\'s our job!\r\n<br /><br />\r\nEmail jsilver if you think it\'s right.\r\n<br /><br />\r\n<a href=\'mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D\'>jsilv&#101;r&#64;m&#105;&#110;dyn&#97;mics&#46;c&#111;m</a>\r\n</div>',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:07'),(4,'jobs','<div style=\"font-family: monospace\">\r\nAre you really a coding prodigy?\r\n<br /><br />\r\nDid they turn you down in a lame interview? Did they even ask you non-coding related questions?\r\n<br /><br />\r\nBut secretly, nobody can beat you at chess?\r\n<br /><br />\r\nWe understand.\r\n<br /><br />\r\nHelp us provide the best web development services in the world?\r\n<br /><br />\r\n<a href=\'&#109;&#97;ilto&#58;j%&#54;F%69n%&#52;0min&#100;%79n&#97;mic&#115;&#46;&#99;o&#37;&#54;&#68;\'>j&#111;in&#64;mind&#121;namics&#46;com</a>\r\n</div>',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:08'),(6,'mindynamics','<h1>our story</h1>\r\n\r\n<p>Mindynamics was born shortly after the beginning of 2010 when keyvan and jsilver joined forces because they knew that they would make a great team. And we think that we have been very correct!</p>\r\n\r\n<p>After working together for some time, we found out that we actually did work very well together and we have grown our skills an amazing amount.</p>\r\n\r\n<p>And we have been able to grow the team a couple members as well, and to start sharing our knowledge with these new members, which has been an amazing experience, teaching.</p>\r\n\r\n<p>Mindynamics is our dreamchild prodigy based on how we roll: webcollaboration.</p>',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:08'),(7,'platform','<h1>MDX Platform</h1>\r\n<p>Mindynamics.com is a custom project management tool.</p>\r\n<p>It contains a built in ticket tracker written from scratch for tracking progress every step of the way.</p>\r\n<p>If you\'re a client, we\'ll give you a login to this system so that you can interact with us.</p>\r\n<p>Access to the system is not available to the general public at this time. Feel free to contact us if you\'d like to learn more. :)</p>',1,'1','2010-12-29 14:16:08','2010-12-29 14:16:08');
+INSERT INTO `pages` VALUES (1,'welcome','<p style=\"text-align:center; font-size:36px;line-height:40px;\">Welcome<br><br>\r\nWe add flavor packets to your app drink!</p>\r\n',1,'0','2010-12-29 14:16:08','2011-01-17 03:50:28'),(3,'clients','<div style=\"font-size:18pt;\">\r\nYou have a project.\r\n<br /><br />\r\nYou have a deadline.\r\n<br /><br />\r\nWe\'re a team of highly skilled code ninjas.\r\n<br /><br />\r\nLet us help you exceed your spec. and beat the deadline.\r\n<br /><br />\r\n<a href=\'mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D\'>jsilv&#101;r&#64;m&#105;&#110;dyn&#97;mics&#46;c&#111;m</a>\r\n</div>',1,'0','2010-12-29 14:16:08','2011-01-17 03:54:36'),(4,'jobs','<div style=\"font-family: monospace\">\r\nAre you really a coding prodigy?\r\n<br /><br />\r\nDid they turn you down in a lame interview? Did they even ask you non-coding related questions?\r\n<br /><br />\r\nBut secretly, nobody can beat you at chess?\r\n<br /><br />\r\nWe understand.\r\n<br /><br />\r\nHelp us provide the best web development services in the world?\r\n<br /><br />\r\n<a href=\'&#109;&#97;ilto&#58;j%&#54;F%69n%&#52;0min&#100;%79n&#97;mic&#115;&#46;&#99;o&#37;&#54;&#68;\'>j&#111;in&#64;mind&#121;namics&#46;com</a>\r\n</div>',1,'0','2010-12-29 14:16:08','2011-01-16 00:37:26'),(6,'mindynamics','<h1>our story</h1>\r\n\r\n<p>Mindynamics was born shortly after the beginning of 2010 when keyvan and jsilver joined forces because they knew that they would make a great team. And we think that we have been very correct!</p>\r\n\r\n<p>After working together for some time, we found out that we actually did work very well together and we have grown our skills an amazing amount.</p>\r\n\r\n<p>And we have been able to grow the team a couple members as well, and to start sharing our knowledge with these new members, which has been an amazing experience, teaching.</p>\r\n\r\n<p>Mindynamics is our dreamchild prodigy based on how we roll: webcollaboration.</p>',1,'0','2010-12-29 14:16:08','2011-01-16 00:37:31'),(7,'platform','<h1>MDX Platform</h1>\r\n<p>Mindynamics.com is a custom project management tool.</p>\r\n<p>It contains a built in ticket tracker written from scratch for tracking progress every step of the way.</p>\r\n<p>If you\'re a client, we\'ll give you a login to this system so that you can interact with us.</p>\r\n<p>Access to the system is not available to the general public at this time. Feel free to contact us if you\'d like to learn more. :)</p>',1,'0','2010-12-29 14:16:08','2011-01-16 00:37:37'),(8,'Incubation','Our team will take a genuine interest in what it is you\'re trying to accomplish with your application and help you to realize that potential.<br><br>\r\n\r\nIf you\'ve already got an app, but it just needs some fixing, we will read the code and complete the specs.<br><br>\r\n\r\nIf you just have an idea and need our help to fill in the gaps of what to do next, we are here to help.<br><br>\r\n\r\nWe\'ve gained an exorbitant amount of knowledge and acquired a vast skill-set in our careers, and know how to put it to good use in helping you do your project today.\r\n<br><br>\r\nWe\'ve helped clients go from a business idea into a robust web application deployed on VPS and the cloud--complete with billing systems and CMS. <br>Our code services have what it takes to make your project into product.<br>',1,'1','2011-01-16 00:49:33','2011-01-17 05:24:12'),(9,'Training','We Mindynamics value knowledge and information, and the spread of these two things.<br><br>\r\n\r\nOur members must acquire the skills to survive (by mastering) any obstacle--as a collaborative agency, we do this together. As a result, we feel we have have witnessed and learned the art of teaching and spreading knowledge and information.<br><br>\r\n\r\nThose that have experienced this style of development will know that it is not as important that you have some piece of information, but that you are able to acquire this information and use it effectively.<br><br>\r\n\r\nAnyone can learn to harness and mold the web the way we do. For more info about training: <a href=\'mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D\'>jsilv&#101;r&#64;m&#105;&#110;dyn&#97;mics&#46;c&#111;m</a>',1,'1','2011-01-16 01:00:10','2011-01-17 05:13:23'),(10,'Services','<style>\r\n.support-list {\r\n  list-style-type:square;\r\n}\r\n</style>\r\n\r\n<h1>We support:</h1>\r\n\r\n<ul class=\"support-list\">\r\n<li>Linux configuration, administration and auditing</li>\r\n<li>Databases</li>\r\n<li>PHP / CakePHP, Wordpress, Drupal</li>\r\n<li>Ruby / Ruby on Rails / RJS</li>\r\n<li>Deployment Services (LAMP, Passenger, REE, etc)</li>\r\n<li>General Web Code Services (HTML, CSS, Javascript, jQuery, Prototype)</li>\r\n<li>Experimental (GAE, NodeJS, Coffeescript, Javascript)</li>\r\n</ul>\r\n\r\nWe can handle such projects with 0 downtime as we are working with these technologies on a daily basis, however we may be interested in projects that use other technologies not listed here as well.<br><br>\r\n\r\nWe understand that your need is likely to be an amalgam of the above technologies. We do not list rates on our website, but you may get in contact with us via live chat or by emailing jsilver [at] mindynamics [dot] com\r\n',1,'1','2011-01-16 01:12:20','2011-01-17 05:03:49'),(11,'Portfolio','<ul>\r\n<li>http://www.sponsorpitch.com</li>\r\n<li>http://www.weddingfutures.com</li>\r\n<li>http://www.latinpulsemusic.com</li>\r\n<li>http://www.latinpulsemedia.com</li>\r\n<li>http://www.technical-college.org</li>\r\n<li>http://www.technical-institute.com</li>\r\n<li>http://www.technicalschoolscareers.com</li>\r\n</ul>',1,'1','2011-01-16 01:24:03','2011-01-17 05:22:16'),(12,'The Team','<style>\r\n.member-bio img {\r\n  width: 80px;\r\n  height:80px;\r\n  float:left;\r\n  border:1px solid black;\r\n}\r\n.member-bio {\r\n  width:45%;\r\n  float:left;\r\n  font-size: 16px;\r\n  margin:5px;\r\n  padding:5px;\r\n}\r\n.member-bio strong {\r\n  padding: 5px;\r\n}\r\n.member-bio .imgbox {\r\n  height:88px;\r\n}\r\n.member-bio .blurb {\r\n  font-size:12px;\r\n  line-height:12px;\r\n}\r\n.member-bio .inactive {\r\n  color:#ccc;\r\n}\r\n.member-bio .active {\r\n  color: #0FAB07;\r\n}\r\n</style>\r\n\r\n<strong>The Mindynamics</strong><br><br>\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/keyvan.jpg\"/>\r\n    <strong>Kayvon</strong><br>\r\n    <strong><em>(Nox)</em></strong><br>\r\n    <strong class=\"active\">Active</strong>\r\n  </div>\r\n  <em class=\"blurb\">Has an addiction to monitors. Refuses to work at anything less than 5760x1080 resolution. Has worked with and is capable at pretty much every tech written on the Services page. Likes to teach. Prefers to write a program than do something manually.</em>\r\n</div>\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/jon.jpg\"/>\r\n    <strong>Jon</strong><br>\r\n    <strong><em>(jsilver)</em></strong><br>\r\n    <strong class=\"active\">Active</strong>\r\n  </div>\r\n  <em class=\"blurb\">A zen master of every tech in Services. Jon\'s expertise is known throughout the Kingdom. He has coded since he was real young, always producing things that were useful (and still in use). Likes to create electronic music in his spare time which Kayvon pretends to listen to but actually doesn\'t.</em>\r\n</div>\r\n\r\n<div style=\"clear:both\"></div>\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/jacob.jpg\"/>\r\n    <strong>Jacob</strong><br>\r\n    <strong><em>(Jay Hamma)</em></strong><br>\r\n    <strong class=\"active\">Active</strong>\r\n  </div>\r\n  <em class=\"blurb\">A Mindynamics trainee turned hacker, Jacob is now an integral part of our team and harnesses a wide range of skills that is growing everyday. He is a student of Computer Science at some school in New York. Kayvon used to get paid to teach him HTML/CSS from an old client, now Jacob teaches Kayvon stuff. Jacob\'s favorite tech is CakePHP and he\'s written two full-scale CakePHP apps from scratch to date.</em>\r\n</div>\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/carl.jpg\"/>\r\n    <strong>Carl</strong><br>\r\n    <strong><em>(Capt.Proton)</em></strong><br>\r\n    <strong class=\"active\">Active</strong>\r\n  </div>\r\n  <em class=\"blurb\">Carl is our quiet, elite zen master rubyist that uses Git much better than all of us. Typically we watch in awe as he silently carves masterpiece Ruby on Rails code skyscrapers. He is often seen indoctrinating newbies with valuable PDFs of information to get them started in the ways of programming.</em>\r\n</div>\r\n\r\n<div style=\"clear:both\"></div>\r\n\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/malte.jpg\"/>\r\n    <strong>Malte</strong><br>\r\n    <strong><em>(N/A)</em></strong><br>\r\n    <strong class=\"active\">Active</strong>\r\n  </div>\r\n  <em class=\"blurb\">Malte is our German Rubyist friend. He\'s our other expert Rubyist that helps us with our Rails-related overflow, which brings us to 4 experienced Rails developers. Malte is also very good at front-end and Javascript, and I think also PHP, and is always interesting to talk to and brainstorm with over Skype.</em>\r\n</div>\r\n\r\n<div class=\"member-bio\">\r\n  <div class=\"imgbox\">\r\n    <img src=\"/img/members/tim.jpg\"/>\r\n    <strong>Tim</strong><br>\r\n    <strong><em>(N/A)</em></strong><br>\r\n    <strong class=\"inactive\">Inactive</strong>\r\n  </div>\r\n  <em class=\"blurb\">Tim is a graphic designer (web and print) that was very active with us in the very early days of Mindynamics. However due to personal reasons he no longer participates in web work. He is the first person Jon and Kayvon showed how to hack on source code and thus the first Mindynamics trainee!</em>\r\n</div>\r\n',1,'1','2011-01-16 01:26:04','2011-01-17 04:11:58');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,22 +481,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `projects`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `projects` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(140) NOT NULL,
   `git_remote` varchar(45) NOT NULL,
   `link` varchar(140) NOT NULL,
   `description` text NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_projects_1` (`user_id`),
   CONSTRAINT `fk_projects_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `projects`
@@ -504,7 +504,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (4,'Mindynamics','git@mindynamics.com:mindynamics.git','http://mindynamics.com','It\'s my stupid PHP app that I wrote Brosef',9,'2011-01-04 12:35:39','2011-01-04 12:35:39');
+INSERT INTO `projects` VALUES (4,'Mindynamics','git@mindynamics.com:mindynamics.git','http://mindynamics.com','It\'s my stupid PHP app that I wrote Brosef',9,'2011-01-04 12:35:39','2011-01-04 12:35:39'),(5,'SproutMDX','git@mindynamics.com:example.git','http://www.isthisreallyrequired.com','this is for the frontend work',9,'2011-01-10 21:47:39','2011-01-10 21:47:39');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -513,20 +513,20 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `rates`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rates` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) default NULL,
-  `amt_per_hour` float default NULL,
-  `project_id` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `amt_per_hour` float DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_rates_1` (`project_id`),
   KEY `fk_rates_2` (`user_id`),
   CONSTRAINT `fk_rates_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_rates_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `rates`
@@ -543,22 +543,22 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `status_messages`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_messages` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `message` varchar(255) NOT NULL,
   `project_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_status_messages_1` (`project_id`),
   KEY `fk_status_messages_2` (`user_id`),
   CONSTRAINT `fk_status_messages_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_messages_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `status_messages`
@@ -574,23 +574,23 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ticket_comments`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ticket_comments` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL,
-  `status` varchar(100) default NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `status` varchar(100) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_ticket_comments_2` (`ticket_id`),
   KEY `fk_ticket_comments_1` (`user_id`),
   CONSTRAINT `fk_ticket_comments_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_comments_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `ticket_comments`
@@ -606,24 +606,25 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `tickets`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tickets` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(140) NOT NULL,
   `description` text NOT NULL,
   `project_id` int(11) NOT NULL,
   `status` varchar(45) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `num` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
   KEY `fk_tickets_1` (`project_id`),
   KEY `fk_tickets_2` (`user_id`),
   CONSTRAINT `fk_tickets_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_tickets_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tickets`
@@ -631,6 +632,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (1,'Ticket number problem','Ticket numbers should start from 1. Give them their own ticket_number rather than using the Mysql table ID. \r\n\r\nOtherwise, eventually, you\'ll have a brand new project that starts at ticket #65463',4,'not done',9,'2011-01-10 16:57:44','2011-01-10 16:57:44',0),(2,'Expand/Collapse on left pane items','what it says yo',4,'done',9,'2011-01-10 21:48:45','2011-01-10 21:48:45',0),(3,'Ajax on all forms','work like a sproutcore webapp!',5,'not done',9,'2011-01-10 21:49:22','2011-01-10 21:49:22',0);
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -639,23 +641,23 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `time_entries`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `time_entries` (
-  `id` int(11) NOT NULL auto_increment,
-  `hours` float default NULL,
-  `billed` binary(1) default '0',
-  `created` timestamp NULL default NULL,
-  `updated` timestamp NULL default NULL,
-  `project_id` int(11) default NULL,
-  `user_id` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hours` float DEFAULT NULL,
+  `billed` binary(1) DEFAULT '0',
+  `created` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_time_entries_1` (`project_id`),
   KEY `fk_time_entries_2` (`user_id`),
   CONSTRAINT `fk_time_entries_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_time_entries_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `time_entries`
@@ -672,26 +674,26 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(40) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `created` datetime default NULL,
-  `modified` datetime default NULL,
-  `email` varchar(255) default NULL,
-  `address_line1` varchar(45) default NULL,
-  `address_line2` varchar(45) default NULL,
-  `city` varchar(45) default NULL,
-  `state` varchar(45) default NULL,
-  `zip` varchar(45) default NULL,
-  `full_name` varchar(45) default NULL,
-  PRIMARY KEY  (`id`),
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address_line1` varchar(45) DEFAULT NULL,
+  `address_line2` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  `zip` varchar(45) DEFAULT NULL,
+  `full_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `login_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -712,4 +714,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-05  0:05:07
+-- Dump completed on 2011-01-17 16:25:29

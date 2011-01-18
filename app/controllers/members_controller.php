@@ -18,6 +18,22 @@ class MembersController extends AppController {
 	  $this->set("member", $member);
 	}
 	
+	// project info partial
+	// ajax partial that shows project description
+	// javascript only
+	// in this case im evaling some jquery and replacing an HTML div
+	function project_info($id = null) {
+	  $this->layout = 'none';
+	  $session_user = $this->Session->read('Auth.User');
+	  $this->set("user_id", $session_user['id']);
+	  $options['conditions'] = array('Project.id =' => $id);
+	  $options['contain'] = array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User'))));
+	  $project = $this->Project->find('first', $options);
+	  //debug($project);
+	  $this->set('project', $project);
+	}
+	
+	
 	// show a javascript timeclock that posts time entries
 	// probably just gonna time % 60 (mod) to get the mult
 	// and store it with a "billed" boolean... we can 
@@ -120,7 +136,9 @@ class MembersController extends AppController {
     $this->_ticket_done_email($ticket);
     if ($this->RequestHandler->isAjax()) {
 	  Configure::write('debug', 0);
-		$this->autoRender = false;   
+		$this->autoRender = false;
+		// 200 OK nothing  i run success function
+		
     } else {
       $this->redirect('/mdx_members');
     }
@@ -187,15 +205,26 @@ class MembersController extends AppController {
 		$this->redirect('/mdx_members');
 	}
 
-
-  function show_ticket($num = null) {
+  // use this instead as a javascript method
+  
+  function show_ticket($id = null) {
+    
     $session_user = $this->Session->read('Auth.User');
-    $options['conditions'] = array('Ticket.num' => $num);
+    
+    $options['conditions'] = array('Ticket.id =' => $id);
     $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));
     $ticket = $this->Ticket->find('first', $options);
+    //debug($ticket);
     $this->set('ticket', $ticket);
     $this->set("user_id", $session_user['id']);
     //debug($ticket);
+    if ($this->RequestHandler->isAjax()) {
+      // ajax caller, no layout
+      // set a variable ajaxMe maybe
+      $this->layout = 'none';
+    }
+    
+      
   }
   
   
