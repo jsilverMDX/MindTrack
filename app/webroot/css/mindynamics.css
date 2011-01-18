@@ -35,6 +35,9 @@ ul {
   border-style:solid;
   border-width:3px 25px;
   min-height:400px;
+background-image: url('/img/grayfade.png');
+background-repeat: repeat-x;
+background-position: bottom center;
 }
 
 #top {
