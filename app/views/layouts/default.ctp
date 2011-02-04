@@ -59,25 +59,14 @@
 
 <div id="blurb">
 	
-	
-	
-	<div class="prelist">
-	What can we do? Well, for starters...
-</div>
 
-
-	
-	
-	
-	
 	
 	<?php echo $content_for_layout; ?>
 	
 </div>
-	<div id="contact"><a href="mailto:jsilver@mindynamics.com">mash here to contact us?</a></div>
-<div id="footer">
-&copy; 2011 mindynamics Inc.
-</div>	
+	
+<div id="contact"><a href="mailto:jsilver@mindynamics.com">mash here to contact us?</a></div>
+<div id="footer">&copy; 2011 mindynamics Inc.</div>	
 
 </body></html>	    	
 
