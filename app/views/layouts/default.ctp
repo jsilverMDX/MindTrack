@@ -65,7 +65,7 @@
 	
 </div>
 	
-<div id="contact"><a href="mailto:jsilver@mindynamics.com">mash here to contact us?</a></div>
+<div id="contact"><a href='mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D'>mash here to contact us?</a></div>
 <div id="footer">&copy; 2011 mindynamics Inc.</div>	
 
 </body></html>	    	

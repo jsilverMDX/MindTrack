@@ -14,4 +14,9 @@ First page needs to be services and the contents for that page should be as foll
 		</ul>
 	</div>
 	
+	Wrap your pages with this:
+	<div style="padding: 0px 100px;">
+	  content
+	</div>
 	
+	Yeah, it could be better, but whatever we change designs every few weeks anyway so I'm callin it done :P
