@@ -16,7 +16,7 @@ class PagesController extends AppController {
     $page = $this->Page->findByName($page_name);
     
     // set the title
-    $this->set('title_for_layout', "MDX | " . ucwords($page_name));
+    $this->set('title_for_layout', "mindynamics | " . ucwords($page_name));
     // set page_name
     $this->set('page_name', $page_name);
     
@@ -34,12 +34,12 @@ class PagesController extends AppController {
   
   // custom 404
   function notfound() {
-    $this->set('title_for_layout', "MDX | 404 Not Found");
+    $this->set('title_for_layout', "mindynamics | 404 Not Found");
   }
 
   function welcome() {
-    $welcome_content = $this->Page->field("page", array('name' => 'welcome'));
-    $this->set('title_for_layout', "MDX | Welcome");
+    $welcome_content = $this->Page->field("page", array('name' => 'services'));
+    $this->set('title_for_layout', "mindynamics | Welcome");
     $this->set('page_name', 'welcome');
     $this->set("welcome_content", $welcome_content);
   }

@@ -31,7 +31,7 @@ class UsersController extends AppController {
   function login() {
     $user = $this->Session->read('Auth.User');
 	  if(!$user){
-	    $this->set('title_for_layout', 'MDX | Login');
+	    $this->set('title_for_layout', 'mindynamics | Login');
 	  }
   }
   

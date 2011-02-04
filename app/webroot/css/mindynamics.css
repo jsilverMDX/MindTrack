@@ -1,186 +1,235 @@
-@font-face {
-	font-family: 'ColaborateRegular';
-	src: url('fonts/ColabReg-webfont.eot');
-	src: local('☺'), url('fonts/ColabReg-webfont.woff') format('woff'), url('fonts/ColabReg-webfont.ttf') format('truetype'), url('fonts/ColabReg-webfont.svg#webfontTlHJ4DQk') format('svg');
-	font-weight: normal;
-	font-style: normal;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dd,dl,dt,li,ol,ul,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-weight:normal;font-style:normal;text-align:left;font-family:inherit;}table{border-collapse:collapse;border-spacing:0;}ol,ul{list-style:none;}q:before,q:after,blockquote:before,blockquote:after{content:"";}
+
+
+
+html {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+body{
+	min-width: 900px;
+}
+
+div#header {
+padding-top: 50px;
+height: 230px;
+background: url('/img/light.png') no-repeat fixed 50% 0;
+}
+
+div#logo {
+	background: url('/img/logo-dark.png') no-repeat scroll 50% 0;
+	height: 180px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	width: 900px;
+	position: relative;
+	}
+
+div#login{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	text-transform: uppercase;
+	font-size: 75%;
+}
+
+a		{ outline: none; text-decoration: none;	}
+a:hover { outline: none;						}
+a:active{ outline: none;						}
+
+
+
+#login a {
+text-decoration: none;
+color: #000;
+border-bottom: #999 1px dashed;
+padding: 1px;
+}
+
+#login a:hover{
+	color: #666;
 }
 
 
-body {
-  background-color:#FFF;
-  font: 18px/22px "ColaborateRegular", "Lucida Grande","Lucida Sans",Verdana,Arial,sans-serif;
-  /*font: 18px/22px "MS Serif", "New York", serif;*/
-}
 
-ul {
-  padding: 0;
-  list-style-type: none;
-}
-
-#container{
-  width: 900px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-#top {
-
-}
-
-#main{
-
-  position:relative;
-  border-color:black;
-  border-style:solid;
-  border-width:3px 25px;
-  min-height:400px;
-}
-
-#top {
-  height:96px;
-  position:relative;
+div#tagline {
+	float: right;
+	color: #000;
+	text-shadow: #333 0px 0px 1px;
+	position: absolute;
+	bottom: 0;
+	right: 50px;
 }
 
 
-#logo {
-  position:absolute;
-  top:2px;
-  left:25px;
+div#menu{
+	background: url('/img/fade.png') repeat-x center top;
+	height: 32px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 120%;
 }
 
-#root {
-  
-  position:absolute;
-  bottom:-102px;
-  left:210px;
-  background: url("/img/sprites/home.png") no-repeat scroll 0 0 transparent;
-  height:102px;
-  width:82px;
-  z-index:-1;
+div#menu a {color: inherit; font-weight: bold;
+	letter-spacing: 0.2em;
+}
+
+div#menu a:hover{
+	color: #8f1900;
 }
 
 
-#top #topright {
-
-  font-size:17px;
-  position:absolute;
-  left:547px;
-  top:10px;
-  text-align:center;
+div#blurb{
+	background: url('/img/fade.png') repeat-x center top;
+	margin-top: 0px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;	
 }
 
-.tech-icon {
+#blurb div.prelist
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #000;
+	text-shadow: 0px 1px 2px #ccc;
+}
 
-  background: url("/img/sprites/tech-icons.png") no-repeat scroll 0 0 transparent;
-  height:57px;
-  width:48px;
+
+#contact
+{
+	background: url('/img/fade.png') repeat-x center top;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 32px;
+	padding-top: 10px;
+	width: 100%;
+	font-size: 30px;
+	text-align: center;
+	color: #333;
+	text-shadow: 0px 1px 2px #ccc;
+}
+
+#contact a
+{
+	font-weight: bold;
+	text-decoration: none;
+	font-style: italic;
+	color: inherit;
+}
+
+div#services {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#footer{
+	color: #fff;
+	font-size: 12px;
+	text-shadow: 0px 0px 1px #000;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+
+}
+
+img#contact_badge
+{
+	float: left;
+	position: relative;
+	top: 10%;
+	left: 5%;
+}
+
+
+ul#menuitems{
+	text-align: center;
+}
+
+ul#menuitems li
+{
+display: inline-table;
+color: #000;
+text-shadow: 0px 0px 1px #ccc;
+padding-left: 20px;
+padding-right: 20px;
+border-right: 1px dotted #666;
+}
+
+ul#menuitems li:last-child
+{
+border:none;
+}
+
+
+ul.serviceslist li
+{
+	font-size: 40px;
+
+	padding-top: 1px;
+
+	color: #ffea63;
+	text-shadow: #000 1px 1px 2px;
+	
+}
+
+ul.serviceslist li div
+{
+	background: url('/img/icons.png') no-repeat;
+	height: 64px;
+	width:64px;
   float:left;
-  margin:7px 10px 0;
+	margin:2px 25px 5px auto;
 }
 
-#linux {
-  background-position:0 0;
-  width:41px;
-  margin-left:22px;
+.serviceslist b {
+	color: #8f1900;
+
+}
+
+div#graph	{ background-position: 0px 0px;}
+div#bandaid	{ background-position: 0px -64px;}
+div#flag		{ background-position: 0px -128px;}
+div#help		{ background-position: 0px -192px;}
+div#barcode	{ background-position: 0px -256px;}
+
+hr.hrfade {
+	border: 0;
+	width: 600px;
+	height: 1px;
+	background: url('/img/hr_fade.png');
+	clear:both;
 }
 
 
-#rails {
-  background-position:-41px 0;
-  width:40px;
-}
 
-#cakephp {
-  background-position:-82px 0;
-}
 
-#wordpress {
-  background-position:-133px 0;
-}
-
-#drupal {
-  background-position:-182px 0;
-}
-
-#main #topright {
-  font-size:15px;
-  text-align:justify;
-  position:absolute;
-  top:15px;
-  right:0;
-  padding-right:15px;
-  padding-left:15px;
-  width:562px;
-  border-bottom:3px solid black;
-  padding-bottom:15px;
-}
-
-#main #topleft {
-  font-size:16px;
-  position:absolute;
-  top:33px;
-  left:30px;
-  text-align:center;
-  width:160px;
-  line-height:18px;
-}
+div#blurb	{ 	background-color: #ccc; }
+div#header	{	background-color: #fed351;	}
+div#menu	{	background-color: #b5b5b5;	}
+div#contact	{	background-color: #8b8b8b;		}
+div#footer	{	background-color: #666;		}
+body		{	background-color: #1e2326;	}
 
 #gtalkbadge {
-  border: 1px dotted;
   left: 7px;
   padding-left: 12px;
-  padding-top: 3px;
+  padding-top: 8px;
   position: absolute;
-  top: 6px;
+  top: 7px;
 }
-
-#nav {
-  width:255px;
-  margin-top:96px;
-  font-size:28px;
-  padding-bottom:10px;
-  float:left;
-
-}
-
-#nav li {
-  margin:45px 25px;
-}
-
-#nav li a {
-  text-decoration:none;
-  color:#000;
-}
-
-#maincontent {
-  width:544px;
-  float:left;
-  padding:124px 23px 23px;
-  line-height:1.5em;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

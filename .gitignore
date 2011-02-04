@@ -3,3 +3,4 @@
 /plugins
 /vendors
 app/vendors/html2ps/cache/**
+app/vendors/html2ps/out

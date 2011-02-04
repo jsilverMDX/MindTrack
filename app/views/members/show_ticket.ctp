@@ -1,8 +1,26 @@
+<style>
+.ticket {
+  list-style-type: none;
+}
+
+.ticket-header {
+  font-size: 14pt;
+
+}
+</style>
+
+
+<div class="split-view-right-content">
 <li class="ticket">
 <div class="ticket-info">
-<h4 class="ticket-header"><a href="/t<?= $ticket['Ticket']['id'] ?>">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></a></h4>
+<h4 class="ticket-header">Ticket #<? echo($ticket['Ticket']['id']); ?>: <? echo($ticket['Ticket']['name']); ?></h4>
 <div class="ticket-description">Description: <? echo($ticket['Ticket']['description']); ?></div>
-<div class="ticket-status">Status: <? echo($ticket['Ticket']['status']); ?> <a href="/clients/mark_as_done/<? echo($ticket['Ticket']['id']); ?>">Mark as Done</a></div>
+<div class="ticket-status">Status: <? echo($ticket['Ticket']['status']); ?></div>
+<div class="view button-view mark-done-btn" done="true" ticketid="<?= $ticket['Ticket']['id']; ?>" onclick="changeTicketStatus(this);"> 
+  <div class="button-view-mid"> 
+  <div class="button-view-label">Mark Done</div> 
+</div> 
+</div>
 </div>
 <div class="edit-ticket"><a href="/clients/edit_ticket/<? echo($ticket['Ticket']['id']); ?>">Edit Ticket</a></div>
 <ul class="images">
@@ -71,3 +89,4 @@
 </div>
 </ul>
 </li>
+</div>
