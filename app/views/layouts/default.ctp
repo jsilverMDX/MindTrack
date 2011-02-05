@@ -11,6 +11,26 @@
 <body>
   
   <div id="header">
+	<script>
+	$(document).ready(function(){
+		$("#logo2").mouseover(function(){
+			$("#logo2").animate({opacity: ".7", top: "-=50"}, 1000)
+			$("#logo2").css('height', '200px');
+			$("#tagline").animate({opacity: "0"}, 1000)
+			$("#tagline2").css('display','block');
+			$("#tagline2").css('opacity','0');
+			$("#tagline2").animate({opacity: "1"}, 1000)
+			return false;
+		});
+		$("#logo2").mouseout(function(){
+			$("#logo2").animate({opacity: "1", top: "+=50"}, 1000)
+			$("#logo2").css('height', '145px');
+			$("#tagline").animate({opacity: "1"}, 1000)
+			$("#tagline2").animate({opacity: "0"}, 1000)
+			return false;
+		});
+	});
+	</script>
   	<div id="login">
   	  <ul>
     		<?php $logged_in = $session->read('Auth.User') ?>
@@ -29,6 +49,10 @@
 	    </ul>
   	</div>
 	  <div id="logo" title="mindynamics">
+		<div id="tagline2" style='display: none;'>
+			Some real catchy awesomeness. Not sure what.
+		</div>
+		<div id="logo2"></div>
 		  <div id="tagline"><h2>a collaborative web development agency</h2></div>
 	  </div>
   </div>
