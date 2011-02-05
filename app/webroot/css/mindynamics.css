@@ -17,7 +17,7 @@ background: url('/img/light.png') no-repeat fixed 50% 0;
 }
 
 div#logo {
-	background: url('/img/logo-dark.png') no-repeat scroll 50% 0;
+	background: url('/img/slice_0_0.png') no-repeat scroll 0 0;
 	height: 180px;
 	margin-left: auto;
 	margin-right: auto;
@@ -25,6 +25,15 @@ div#logo {
 	width: 900px;
 	position: relative;
 	}
+div#logo2 {
+	background: url('/img/slice_0_1.png') no-repeat scroll 90% 0;
+	height: 145px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	width: 900px;
+	position: relative;
+}
 
 div#login{
 	position: absolute;
@@ -60,6 +69,16 @@ div#tagline {
 	position: absolute;
 	bottom: 0;
 	right: 50px;
+}
+
+div#tagline2{
+	color: #fafafa;
+	font-family: futura;
+	font-size: 30px;
+	position: absolute;
+	top: 110px;
+	right: 70px;
+	text-shadow: #000 -1px -1px 2px;
 }
 
 
