@@ -87,7 +87,8 @@ div#blurb{
 	padding-bottom: 30px;
 	width: 100%;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
+	min-height: 200px;
 }
 
 #blurb div.prelist
