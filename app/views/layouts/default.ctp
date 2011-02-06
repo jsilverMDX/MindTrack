@@ -14,7 +14,7 @@
 	<script>
 	$(document).ready(function(){
 		$("#logo2").mouseenter(function(){
-			$("#logo2").animate({opacity: ".7", top: "-=50"}, 1000)
+			$("#logo2").stop().animate({opacity: ".7", top: "-=50"}, 1000)
 			$("#logo2").css('height', '200px');
 			$("#tagline").animate({opacity: "0"}, 1000)
 			$("#tagline2").css('display','block');
@@ -22,7 +22,7 @@
 			$("#tagline2").animate({opacity: "1"}, 1000)
 		});
 		$("#logo2").mouseleave(function(){
-			$("#logo2").animate({opacity: "1", top: "+=50"}, 1000)
+			$("#logo2").stop().animate({opacity: "1", top: ""}, 1000)
 			$("#logo2").css('height', '145px');
 			$("#tagline").animate({opacity: "1"}, 1000)
 			$("#tagline2").animate({opacity: "0"}, 1000)
