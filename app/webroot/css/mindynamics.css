@@ -217,6 +217,15 @@ ul.serviceslist li div
 	margin:2px 25px 5px auto;
 }
 
+ul.serviceslist li div:hover
+{
+	background: url('/img/icons_invert.png') no-repeat;
+	height: 64px;
+	width:64px;
+  float:left;
+	margin:2px 25px 5px auto;
+}
+
 .serviceslist b {
 	color: #8f1900;
 
