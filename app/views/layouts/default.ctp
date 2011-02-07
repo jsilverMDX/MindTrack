@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="/css/mindynamics.css" type="text/css" media="screen" charset="utf-8" />
 <script type="text/javascript" src="/js/default.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="/js/hovereffect1.js" type="text/javascript" charset="utf-8"></script>
+
 <?php echo $scripts_for_layout ?>
 </head>
 <body>
@@ -13,49 +15,28 @@
   <div id="header">
 	<script>
 	$(document).ready(function(){
-		$("#logo2").mouseenter(function(){
-			$("#logo2").stop().animate({opacity: ".7", top: "-=50"}, 1000)
+		hovereffect1();
+		/*$("#logo2").mouseenter(function(){
+			$("#logo2").animate({opacity: ".7", top: "-=50"}, 1000);
 			$("#logo2").css('height', '200px');
-			$("#tagline").animate({opacity: "0"}, 1000)
+			$("#tagline").animate({opacity: "0"}, 1000);
 			$("#tagline2").css('display','block');
 			$("#tagline2").css('opacity','0');
-			$("#tagline2").animate({opacity: "1"}, 1000)
+			$("#tagline2").animate({opacity: "1"}, 1000);
 		});
 		$("#logo2").mouseleave(function(){
-			$("#logo2").stop().animate({opacity: "1", top: ""}, 1000)
+			$("#logo2").animate({opacity: "1", top: ""}, 1000);
 			$("#logo2").css('height', '145px');
-			$("#tagline").animate({opacity: "1"}, 1000)
-			$("#tagline2").animate({opacity: "0"}, 1000)
+			$("#tagline").animate({opacity: "1"}, 1000);
+			$("#tagline2").animate({opacity: "0"}, 1000);
+		});*/
+		$("#menuitems a").mouseenter(function(){
+			$(this).stop().animate({top: "+2"}, 50);
+			$(this).css('border-top', '3px solid white');
 		});
-		$("#services li:nth-child(1)").mouseenter(function (){
-			$("#services li:nth-child(1)").css('color','white');
-			$("#services li:nth-child(1) div").css("background", "url('/img/icons_invert.png')");
-			$("#services li:nth-child(1) div").css('background-position', '0px 0px');
-		});
-		$("#services li:nth-child(1)").mouseleave(function (){
-			$("#services li:nth-child(1)").css('color','yellow');
-			$("#services li:nth-child(1) div").css("background", "url('/img/icons.png')");
-			$("#services li:nth-child(1) div").css('background-position', '0px 0px');
-		});
-		$("#services li:nth-child(3)").mouseenter(function (){
-			$("#services li:nth-child(3)").css('color','white');
-			$("#services li:nth-child(3) div").css("background", "url('/img/icons_invert.png')");
-			$("#services li:nth-child(3) div").css('background-position', '0px -128px');
-		});
-		$("#services li:nth-child(5)").mouseenter(function (){
-			$("#services li:nth-child(5)").css('color','white');
-			$("#services li:nth-child(5) div").css("background", "url('/img/icons_invert.png')");
-			$("#services li:nth-child(5) div").css('background-position', '0px -64px');
-		});
-		$("#services li:nth-child(7)").mouseenter(function (){
-			$("#services li:nth-child(7)").css('color','white');
-			$("#services li:nth-child(7) div").css("background", "url('/img/icons_invert.png')");
-			$("#services li:nth-child(7) div").css('background-position', '0px -256px');
-		});
-		$("#services li:nth-child(9)").mouseenter(function (){
-			$("#services li:nth-child(9)").css('color','white');
-			$("#services li:nth-child(9) div").css("background", "url('/img/icons_invert.png')");
-			$("#services li:nth-child(9) div").css('background-position', '0px -192px');
+		$("#menuitems a").mouseleave(function(){
+			$(this).stop().animate({top: ""}, 50);
+			$(this).css('border-top', 'none');
 		});
 	});
 	</script>
