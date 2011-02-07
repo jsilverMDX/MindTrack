@@ -1,20 +1,30 @@
 <h1 class="dashboard">Main Dashboard</h1>
 
-<div class="member">
-<p>Welcome, MDX | <?php echo($member['Member']['name']); ?>!</p>
-<p>You are a <?php echo($member['Member']['user_rank']); ?> and have <?php echo($member['Member']['karma_points']); ?> points!</p>
+<div id="member_box">
+<p>Welcome, MDX | <?= ($member['Member']['name']); ?>!</p>
+<p>You are a <?= ($member['Member']['user_rank']); ?> and have <?= ($member['Member']['karma_points']); ?> points!</p>
 </div>
 
-<div id="work">
+<h3 class="my-projects">My Ticketmaster (<?= count($member['Project'])?> Projects)</h3>
+
 <ul class="projects">
-  <h3 class="my-projects">Show All Tickets for My Projects</h3>
-  <?
-    $projects = $member['Project'];
-    foreach($projects as $project):
-  ?>
-  <div class="project-name item_head"><? echo($project['name']); ?></div>
-  <li class="project item_body">
-  <div class="project-timestamps"><div class="project-created">created on: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div><div class="project-updated">updated at: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div></div>
+<?
+	$projects = $member['Project'];
+	foreach($projects as $project):
+?>
+  <div id="<?= $project['name']; ?>-name"><? echo($project['name']); ?></div>
+<? endforeach; ?>
+</ul>
+
+<ul class="project_info">
+
+<?
+	foreach($projects as $project):
+?>
+
+  <li id="<?= $project['name']; ?>" class="project">
+	<div class="title"><?= $project['name']; ?></div>
+  <div class="project-timestamps"><div class="project-created">Started: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div><div class="project-updated">Updated: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div></div>
   <div class="item_head">Project Messages</div>
   <ul class="statuses item_body">
     <h4 class="status-messages">Project Messages</h4>
@@ -134,13 +144,19 @@
       endforeach;
     ?>
   </ul>
+
+	<script type="text/javascript">
+	$("#<?= $project['name']; ?>-name").click(function()
+	{
+		$("#<?= $project['name']; ?>").slideToggle(100);
+	});
+	</script>
+
   </li>
   <?
     endforeach;
   ?>
 </ul>
-
-</div>
 
 <script type="text/javascript">
 $(document).ready(function()

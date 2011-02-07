@@ -190,12 +190,7 @@ class MembersController extends AppController {
 		$this->redirect('/mdx_members');
 	}
 
-	// ================================================================
-  // Quarkster says: I commented out this function just to make sure
-	// it wasn't doing anything, even though I didn't see it being used.
-	// Can be removed.
-
-	// use this instead as a javascript method
+  // use this instead as a javascript method
   /*
   function show_ticket($id = null) {
     

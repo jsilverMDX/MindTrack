@@ -1,0 +1,202 @@
+/* mindtrack */ 
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}:focus {outline: 0;}ins {text-decoration: none;}del {text-decoration: line-through;}table {border-collapse: collapse;border-spacing: 0;}
+
+body {
+  background: #666;
+  color: #00FF00;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+h1 {
+  font-size: 36pt;
+}
+
+#container {
+  width: 1040px;
+  margin: 0px auto;
+  text-align: left;
+}
+
+
+#logo img {
+display: inline;
+}
+
+#logo h3 {
+display: inline;
+font-size: 48pt;
+padding-left: 50px;
+}
+
+#header {
+  padding-top: 20px;
+}
+
+#header_links {
+  text-align: right;
+  position: relative;
+  top: -30px;
+  left: -30px;
+}
+
+#main_content {
+  border: 4px solid #83F52C;
+  background: black;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+/* Q Rework */
+#member_box {
+  background: white;
+  border: red dashed 3px;
+  color: black;
+  padding: 15px;
+  margin: 10px;
+}
+
+/* Q Rework */
+#member_box p {
+  padding-bottom: 5px;
+}
+
+#project .name {
+	font-weight: bold;
+}
+
+h3.my-projects {
+  font-size: 16pt;
+  color: white;
+}
+
+h4.my-tickets {
+  font-size: 28pt;
+  color: white;
+}
+
+li.project, li.ticket, li.comment, li.reply {
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 15px 10px 15px 10px;
+}
+
+h4.ticket-header {
+  font-size: 24pt;
+  color: #00FF00;
+  margin-bottom: 10px;
+}
+
+div.ticket-name, div.ticket-status {
+  font-size: 14pt;
+  color: red;
+  margin-bottom: 15px;
+}
+
+.status {
+  padding: 5px;
+  margin: 5px 0 5px 0;
+  font-size: 14pt;
+  text-align: center;
+}
+
+.status-messages {
+  font-weight: bold;
+  font-size: 18pt;
+  text-align: center;
+}
+
+.ticket-description {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
+  color: white;
+  margin-top: 15px;
+}
+
+.the-description {
+  font-size: 14pt;
+  color: white;
+  font-family: sans-serif;
+  
+  
+}
+
+.dashboard {
+  color: white;
+  font-size: 18pt;
+}
+
+.add-file-form, .create-comment-form, .comment-reply-form, .images {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  margin: 20px 0 5px 0;
+}
+
+.attach, .post-comment, .post-reply {
+  font-size: 10pt;
+  color: white;
+}
+
+.image-file {
+  color: green;
+  font-size: 16pt;
+}
+
+.ticket-done-status {
+  color: green;
+}
+
+.member-nav ul li {
+  display: inline;
+  font-size: 16pt;
+  padding: 5px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  margin-left: 15px;
+  border-radius: 3px;
+  background: black;
+  color: white;
+}
+
+.ticket-timestamps, .comment-timestamps, .reply-timestamps, .project-timestamps {
+  margin-top: 15px;
+}
+
+.ticket-created, .ticket-updated {
+
+}
+
+.item_head {
+  background:url('/img/redplus.png') no-repeat left center;
+  padding:5px 30px;
+  margin:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.status-message-form #StatusMessageMessage { /* this item has changed names to 'project message', previous css rules and html must be changed */
+  width:70%;
+}
+.status-message-form .submit { /* this item has changed names to 'project message', previous css rules and html must be changed */
+  display:inline;
+}
