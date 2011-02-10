@@ -4,7 +4,6 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 
 body {
   background: #666;
-  color: #00FF00;
   font-family: sans-serif;
   text-align: center;
 }
@@ -27,40 +26,17 @@ h1 {
   font-size: 36pt;
 }
 
-#container {
-  width: 1040px;
-  margin: 0px auto;
-  text-align: left;
+/* We'll leave the stuff up top until the page is done being redone */
+
+/* Here to my marker is proper css stuff, or at least better */
+
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-top: 10px;
 }
 
-
-#logo img {
-display: inline;
-}
-
-#logo h3 {
-display: inline;
-font-size: 48pt;
-padding-left: 50px;
-}
-
-#header {
-  padding-top: 20px;
-}
-
-#header_links {
-  text-align: right;
-  position: relative;
-  top: -30px;
-  left: -30px;
-}
-
-#main_content {
-  border: 4px solid #83F52C;
-  background: black;
-  padding: 50px;
-  border-radius: 30px;
-}
 
 /* Q Rework */
 #member_box {
@@ -76,9 +52,63 @@ padding-left: 50px;
   padding-bottom: 5px;
 }
 
-.project_info .title {
+/* My new stuff */
+#projects {
+	display: inline;
+	float: left;
+	background: #EEE;
+}
+
+#projects .title {
 	font-weight: bold;
 }
+
+#project_info {
+	margin-left: 150px;
+}
+
+#project_info .project {
+	border: 2px solid black;
+	padding: 0px;
+}
+
+.project .title {
+	font-weight: bold;
+	padding: 4px;
+	background: #DDD;
+	border-bottom: 1px solid black;
+}
+
+.project .details {
+	text-align: left;
+	padding: 2px;
+}
+
+.project .details .created, .project .details .updated {
+	font-size: .9em;
+	margin: 2px;
+	margin-left: 30px;
+}
+
+.project .messages {
+}
+
+.project .messages .message {
+}
+
+.project .messages .message .time {
+	font-style: italic;
+}
+
+.project .messages .message .user {
+	font-weight: bold;
+}
+
+.project .messages .message .content {
+}
+
+
+/* -------------------------------------------- */
 
 h3.my-projects {
   font-size: 16pt;
@@ -93,8 +123,6 @@ h4.my-tickets {
 li.project, li.ticket, li.comment, li.reply {
   border: 2px solid white;
   padding: 10px;
-  border-radius: 10px;
-  margin: 15px 10px 15px 10px;
 }
 
 h4.ticket-header {
@@ -109,22 +137,8 @@ div.ticket-name, div.ticket-status {
   margin-bottom: 15px;
 }
 
-.status {
-  padding: 5px;
-  margin: 5px 0 5px 0;
-  font-size: 14pt;
-  text-align: center;
-}
-
-.status-messages {
-  font-weight: bold;
-  font-size: 18pt;
-  text-align: center;
-}
-
 .ticket-description {
   border: 1px solid white;
-  border-radius: 5px;
   padding: 20px;
   color: white;
   margin-top: 15px;
@@ -145,7 +159,6 @@ div.ticket-name, div.ticket-status {
 
 .add-file-form, .create-comment-form, .comment-reply-form, .images {
   border: 1px solid white;
-  border-radius: 5px;
   padding: 5px;
   color: white;
   margin: 20px 0 5px 0;
@@ -173,7 +186,6 @@ div.ticket-name, div.ticket-status {
   border-left: 1px solid white;
   border-right: 1px solid white;
   margin-left: 15px;
-  border-radius: 3px;
   background: black;
   color: white;
 }
@@ -187,16 +199,13 @@ div.ticket-name, div.ticket-status {
 }
 
 .item_head {
-  background:url('/img/redplus.png') no-repeat left center;
-  padding:5px 30px;
-  margin:5px;
-  font-weight:bold;
   cursor:pointer;
 }
 
 .status-message-form #StatusMessageMessage { /* this item has changed names to 'project message', previous css rules and html must be changed */
   width:70%;
 }
+
 .status-message-form .submit { /* this item has changed names to 'project message', previous css rules and html must be changed */
   display:inline;
 }

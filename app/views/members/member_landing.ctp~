@@ -7,49 +7,67 @@
 
 <h3 class="my-projects">My Ticketmaster (<?= count($member['Project'])?> Projects)</h3>
 
-<ul class="projects">
-<?
-	$projects = $member['Project'];
-	foreach($projects as $project):
-?>
-  <div id="<?= $project['name']; ?>-name"><? echo($project['name']); ?></div>
-<? endforeach; ?>
-</ul>
+<div id="content">
 
-<ul class="project_info">
+	<? $projects = $member['Project']; ?>
 
-<?
-	foreach($projects as $project):
-?>
+		<div id="projects">
+			<?
+				foreach($projects as $project):
+			?>
+			<div id="<?= $project['name']; ?>-name" class="title"><? echo($project['name']); ?></div>
+
+			<script type="text/javascript">
+			$("#<?= $project['name']; ?>-name").click(function()
+			{
+				$("#blank_project").hide();
+				$(".project").hide();
+				$("#<?= $project['name']; ?>").toggle();
+			});
+			</script>
+			<? endforeach; ?>
+		</div>
+
+<ul id="project_info">
+	<li id="blank_project">Select a project to manage</li>
+
+	<?
+		foreach($projects as $project):
+	?>
 
   <li id="<?= $project['name']; ?>" class="project">
-	<div class="title"><?= $project['name']; ?></div>
-  <div class="project-timestamps"><div class="project-created">Started: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div><div class="project-updated">Updated: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div></div>
-  <div class="item_head">Project Messages</div>
-  <ul class="statuses item_body">
-    <h4 class="status-messages">Project Messages</h4>
-    <h4 class="status-header item_head">New Project Message</h4>
-    <div class="status-message-form item_body"> 
-      <?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
-        <?php
-          echo $this->Form->hidden('project_id', array('value' => $project['id']));
-          echo $this->Form->hidden('user_id', array('value' => $user_id));
-          echo $this->Form->text('message', array('label' => ""));
-        ?>
-      <?php echo $this->Form->end('Submit');?>
-    </div>
-    <?
-      $statuses = $project['StatusMessage'];
-      foreach($statuses as $status):
-    ?>
-    <li class="status">
-      <div class="status-message"><? echo($status['message']); ?> - <? echo($status['User']['username']); ?> - <?= $this->Time->timeAgoInWords($status['created']); ?></div>
-    </li>
-    <?
-      endforeach;
-    ?>
-  </ul>
-  <div class="item_head">My <? echo($project['name']); ?> Tickets</div>
+		<div class="title"><?= $project['name']; ?> - <?= $project['link'] ?></div>
+		<div class="details">
+			<div class="created">Started: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div>
+			<div class="updated">Updated: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div>
+			<div class="description"><?= $project['description'] ?></div>
+		</div>
+		<div class="title item_head">Messages</div>
+		<div class="messages item_body">
+			<h4 class="new-message-link item_head">New Project Message</h4>
+			<div class="new-message-form item_body"> 
+				<?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
+					<?php
+						echo $this->Form->hidden('project_id', array('value' => $project['id']));
+						echo $this->Form->hidden('user_id', array('value' => $user_id));
+						echo $this->Form->text('message', array('label' => ""));
+					?>
+				<?php echo $this->Form->end('Submit');?>
+			</div>
+			<?
+				$statuses = $project['StatusMessage'];
+				foreach($statuses as $status):
+			?>
+			<ul>
+			<li class="message">
+				<span class="time"><?= $this->Time->timeAgoInWords($status['created']); ?></span> <span class="user"><? echo($status['User']['username']); ?></span> said <span class="content"><? echo($status['message']); ?></span></div>
+			</li>
+			</ul>
+			<?
+				endforeach;
+			?>
+		</div>
+  <div class="title item_head">Tickets</div>
   <ul class="tickets item_body">
     <?
       $tickets = $project['Ticket'];
@@ -145,24 +163,23 @@
     ?>
   </ul>
 
-	<script type="text/javascript">
-	$("#<?= $project['name']; ?>-name").click(function()
-	{
-		$("#<?= $project['name']; ?>").slideToggle(100);
-	});
-	</script>
-
   </li>
   <?
     endforeach;
   ?>
 </ul>
 
+</div>
+
 <script type="text/javascript">
 $(document).ready(function()
 {
   //hide the all of the element with class item_body
   $(".item_body").hide();
+
+	//hide the projects
+	$(".project").hide();
+
   //toggle the componenet with class item_body
   $(".item_head").click(function()
   {
