@@ -53,8 +53,13 @@
 </div>
 
 <div id="blurb">
+<<<<<<< HEAD
 	<div class="contentwrap">
 		<?php echo $content_for_layout; ?>
+=======
+	<div style="padding:0px 5%;">
+	  <?php echo $content_for_layout; ?>	
+>>>>>>> gearing up for mobile, added a javascript min-height, changed layout.
   </div>
 </div>
 	
