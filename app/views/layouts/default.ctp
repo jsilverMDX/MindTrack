@@ -28,22 +28,13 @@
       	<li class="login"><a href="/<?php echo($uaction); ?>"><?php echo(ucwords($uaction)) ?></a></li>
 	    </ul>
   	</div>
-	  <div id="logo" title="mindynamics">
-		  <div id="tagline"><h2>a collaborative web development agency</h2></div>
+	  <div id="logo" title="mindynamics" onclick="window.location='/'">
+		  <div id="tagline"><h2>collaborative web & mobile application development agency</h2></div>
 	  </div>
   </div>
   
-  
-  
 <iframe id="gtalkbadge" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqqvh10gv8qpo4qqegnh1811j9flrtt8itvss84e96v5p2eqmu27q90bn3uvh6it4rv06tpou2vhcakh86omjfnigt33e090153267i52oovr88trgk0f1898lga969in5kl8fka4vnp858g2scb39rhuijq5vk7qg5t0l47c9ds3sl0doarqmp0hrlo&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
 
-
-
-
-
-	    	
-	    	
-	    	
 <div id="menu">
   <ul id="menuitems">
          	<?php
@@ -58,11 +49,19 @@
 </div>
 
 <div id="blurb">
-	<?php echo $content_for_layout; ?>	
+	<div style="padding:0px 5%;">
+	  <?php echo $content_for_layout; ?>	
+  </div>
 </div>
 	
 <div id="contact"><a href='mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D'>mash here to contact us?</a></div>
 <div id="footer">&copy; 2011 mindynamics Inc.</div>	
+
+<script>
+$(window).load(function () {
+  $('#blurb').css('min-height', $(window).height()-462);
+});
+</script>
 
 </body></html>	    	
 
