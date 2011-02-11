@@ -6,11 +6,18 @@
 <link rel="stylesheet" href="/css/mindynamics.css" type="text/css" media="screen" charset="utf-8" />
 <script type="text/javascript" src="/js/default.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="/js/hovereffect1.js" type="text/javascript" charset="utf-8"></script>
+
 <?php echo $scripts_for_layout ?>
 </head>
 <body>
   
   <div id="header">
+	<script>
+	$(document).ready(function(){
+		hovereffect1();
+	});
+	</script>
   	<div id="login">
   	  <ul>
     		<?php $logged_in = $session->read('Auth.User') ?>
@@ -29,6 +36,10 @@
 	    </ul>
   	</div>
 	  <div id="logo" title="mindynamics">
+		<div id="tagline2" style='display: none;'>
+			Some real catchy awesomeness. Not sure what.
+		</div>
+		<div id="logo2"></div>
 		  <div id="tagline"><h2>a collaborative web development agency</h2></div>
 	  </div>
   </div>
