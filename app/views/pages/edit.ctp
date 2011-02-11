@@ -3,9 +3,9 @@
 	<fieldset>
  		<legend><?php __('Edit Page'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
+		echo $this->Form->input('id', array('type' => 'text'));
 		echo $this->Form->input('name');
-		echo $this->Form->input('page');
+		echo $this->Form->input('page', array('cols' => '110', 'rows' => '40'));
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('public');
 	?>
