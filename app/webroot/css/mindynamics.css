@@ -95,7 +95,8 @@ div#menu a {color: inherit; font-weight: bold;
 }
 
 div#menu a:hover{
-	color: #8f1900;
+	/*color: #8f1900;*/
+	color: #454545;
 }
 
 
@@ -183,17 +184,19 @@ ul#menuitems{
 
 ul#menuitems li
 {
-display: inline-table;
-color: #000;
-text-shadow: 0px 0px 1px #ccc;
-padding-left: 20px;
-padding-right: 20px;
-border-right: 1px dotted #666;
+	display: inline-table;
+	color: #000;
+	text-shadow: 0px 0px 1px #ccc;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px dotted #666;
 }
-
+#menuitems a{
+	position: relative;
+}
 ul#menuitems li:last-child
 {
-border:none;
+	border:none;
 }
 
 
@@ -211,6 +214,15 @@ ul.serviceslist li
 ul.serviceslist li div
 {
 	background: url('/img/icons.png') no-repeat;
+	height: 64px;
+	width:64px;
+  float:left;
+	margin:2px 25px 5px auto;
+}
+
+ul.serviceslist li div:hover
+{
+	background: url('/img/icons_invert.png') no-repeat;
 	height: 64px;
 	width:64px;
   float:left;
