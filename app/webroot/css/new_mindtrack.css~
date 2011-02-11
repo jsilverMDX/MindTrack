@@ -90,6 +90,24 @@ h1 {
 	margin-left: 30px;
 }
 
+.project .messages {
+	padding: 4px;
+}
+
+.project .messages .message {
+}
+
+.project .messages .message .time {
+	font-style: italic;
+}
+
+.project .messages .message .user {
+	font-weight: bold;
+}
+
+.project .messages .message .content {
+}
+
 
 /* -------------------------------------------- */
 

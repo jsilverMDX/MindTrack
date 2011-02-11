@@ -74,14 +74,14 @@ h1 {
 
 .project .title {
 	font-weight: bold;
-	padding: 4px;
+	padding: 6px;
 	background: #DDD;
 	border-bottom: 1px solid black;
 }
 
 .project .details {
 	text-align: left;
-	padding: 2px;
+	padding: 4px;
 }
 
 .project .details .created, .project .details .updated {
@@ -91,6 +91,7 @@ h1 {
 }
 
 .project .messages {
+	padding: 4px;
 }
 
 .project .messages .message {
