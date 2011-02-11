@@ -24,6 +24,7 @@ div#logo {
 	padding-bottom: 20px;
 	width: 900px;
 	position: relative;
+	cursor:pointer;
 	}
 div#logo2 {
 	background: url('/img/slice_0_1.png') no-repeat scroll 90% 0;
@@ -95,8 +96,7 @@ div#menu a {color: inherit; font-weight: bold;
 }
 
 div#menu a:hover{
-	/*color: #8f1900;*/
-	color: #454545;
+	color: #8f1900;
 }
 
 
@@ -108,7 +108,6 @@ div#blurb{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 200px;
 }
 
 #blurb div.prelist
@@ -149,7 +148,7 @@ div#blurb{
 }
 
 div#services {
-	width: 50%;
+	width: 65%;
 	margin-left: auto;
 	margin-right: auto;
 }
