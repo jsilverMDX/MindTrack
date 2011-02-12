@@ -36,7 +36,7 @@
 	    </ul>
   	</div>
 	  <div id="logo" title="mindynamics" onclick="window.location='/'">
-		  <div id="tagline"><h2>collaborative web & mobile application development agency</h2></div>
+		  <div id="tagline"><h2>collaborative web & mobile application development</h2></div>
 	  </div>
   </div>
   
