@@ -63,6 +63,7 @@
 				case 'training': $("#pointer_box").css('background-position', '46%'); break;
 				case 'portfolio': $("#pointer_box").css('background-position', '57.2%'); break;
 				case 'squad': $("#pointer_box").css('background-position', '67.5%'); break;
+				default: $("#pointer_box").css('background', '#FED351'); break;
 			}
 		};
 		</script>
