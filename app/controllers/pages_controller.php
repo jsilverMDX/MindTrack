@@ -22,9 +22,8 @@ class PagesController extends AppController {
     
     // same as unless page.nil
     if(!(empty($page))) {
-      // set page content and render
-      $this->set('page', $page['Page']['page']);
-      
+      // set page content to its associated file and render
+      $this->set('page', file_get_contents('page_content/'.$page_name.'.html'));
     } else {
      // 404
      $this->cakeError('error404');
