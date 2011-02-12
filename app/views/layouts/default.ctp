@@ -45,12 +45,14 @@
 <div id="menu">
   <ul id="menuitems">
          	<?php
-					if(isset($nav_items)) {
-					  foreach ($nav_items as $page):
-					    $li_class = ($page['Page']['name'] == $page_name) ? 'selected' : $page['Page']['name'];
-	            echo '<li><a href="_' . $page['Page']['name'] . '">' . $page['Page']['name'] . '</a></li>';
-	        	endforeach;
-					}
+         	$current_page = substr ($this->here, 2);
+          
+          $navitems = array('incubation', 'training', 'portfolio', 'squad');
+          
+          foreach ($navitems as $str):
+            $li_class = ($str == $current_page) ? ' class="selected"' : '';
+            echo '<li' . $li_class . '><a href="_' . $str . '">' . $str . '</a></li>';
+          endforeach;
 	      	?>
   </ul>
 </div>
