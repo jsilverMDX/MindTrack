@@ -16,6 +16,7 @@
 	<script>
 	$(document).ready(function(){
 		hovereffect1();
+		choose();
 	});
 	</script>
   	<div id="login">
@@ -41,7 +42,7 @@
   </div>
   
 <iframe id="gtalkbadge" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqqvh10gv8qpo4qqegnh1811j9flrtt8itvss84e96v5p2eqmu27q90bn3uvh6it4rv06tpou2vhcakh86omjfnigt33e090153267i52oovr88trgk0f1898lga969in5kl8fka4vnp858g2scb39rhuijq5vk7qg5t0l47c9ds3sl0doarqmp0hrlo&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
-
+<div id="pointer_box"></div>
 <div id="menu">
   <ul id="menuitems">
          	<?php
@@ -54,12 +55,23 @@
             echo '<li' . $li_class . '><a href="_' . $str . '">' . $str . '</a></li>';
           endforeach;
 	      	?>
+		<script>
+		function choose(){
+			current = "<?php echo $current_page; ?>";
+			switch(current){
+				case 'incubation': $("#pointer_box").css('background-position', '34%'); break;
+				case 'training': $("#pointer_box").css('background-position', '46%'); break;
+				case 'portfolio': $("#pointer_box").css('background-position', '57.2%'); break;
+				case 'squad': $("#pointer_box").css('background-position', '67.5%'); break;
+			}
+		};
+		</script>
   </ul>
 </div>
 
 <div id="blurb">
 	<div style="padding:0px 5%;">
-	  <?php echo $content_for_layout; ?>	
+		<?php echo $content_for_layout; ?>
   </div>
 </div>
 	
