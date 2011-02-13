@@ -36,21 +36,24 @@
   </div>
   
 <iframe id="gtalkbadge" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqqvh10gv8qpo4qqegnh1811j9flrtt8itvss84e96v5p2eqmu27q90bn3uvh6it4rv06tpou2vhcakh86omjfnigt33e090153267i52oovr88trgk0f1898lga969in5kl8fka4vnp858g2scb39rhuijq5vk7qg5t0l47c9ds3sl0doarqmp0hrlo&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
-<div id="pointer_box"></div>
+
 <div id="menu">
   <ul id="menuitems">
-         	<?php
-              
-          foreach ($nav_items as $str):
-            $li_class = ($str == $current_page) ? ' class="selected"' : '';
-            echo '<li' . $li_class . '><a href="_' . $str . '">' . $str . '</a></li>';
-          endforeach;
-	      	?>
+   	<?php 
+   	// set, in order, which pages you want on the menu:
+    $nav_items = array('incubation', 'training', 'portfolio', 'squad');
+    if ($this->params['controller'] == 'pages') {
+      foreach ($nav_items as $name):
+        $li_class = ($name == $current_page) ? ' class="selected"' : '';
+        echo '<li' . $li_class . '><a href="_' . $name . '">' . $name . '</a></li>';
+      endforeach;
+    }
+  	?>
   </ul>
 </div>
 
 <div id="blurb">
-	<div style="padding:0px 5%;">
+	<div class="contentwrap">
 		<?php echo $content_for_layout; ?>
   </div>
 </div>
@@ -61,6 +64,11 @@
 <script>
 $(window).load(function () {
   $('#blurb').css('min-height', $(window).height()-262);
+  $('#header, #menu').mouseenter(function () {
+    $('#menu').show();
+  }).mouseleave(function () {
+    $('#menu').hide();
+  });
 });
 </script>
 
