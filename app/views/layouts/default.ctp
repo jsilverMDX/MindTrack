@@ -64,11 +64,11 @@
 <script>
 $(window).load(function () {
   $('#blurb').css('min-height', $(window).height()-262);
-  $('#header, #menu').mouseenter(function () {
-    $('#menu').show();
-  }).mouseleave(function () {
-    $('#menu').hide();
-  });
+  // $('#header, #menu').mouseenter(function () {
+  //   $('#menu').show();
+  // }).mouseleave(function () {
+  //   $('#menu').hide();
+  // });
 });
 </script>
 
