@@ -37,7 +37,9 @@ class PagesController extends AppController {
   }
 
   function welcome() {
-    $welcome_content = $this->Page->field("page", array('name' => 'splash'));
+    //$welcome_content = $this->Page->field("page", array('name' => 'splash'));
+    $welcome_content = file_get_contents('page_content/welcome.html');
+    
     $this->set('title_for_layout', "mindynamics | Welcome");
     $this->set('page_name', 'welcome');
     $this->set("welcome_content", $welcome_content);
