@@ -82,14 +82,14 @@ div#menu{
 	font-size: 120%;
 }
 
-div#menu a {color: inherit; font-weight: bold;
+div#menu a {
+  color: inherit; font-weight: bold;
 	letter-spacing: 0.2em;
 }
 
-div#menu a:hover{
+div#menu a:hover, ul#menuitems li.selected {
 	color: #8f1900;
 }
-
 
 div#blurb{
 	background: url('/img/fade.png') repeat-x center top;
@@ -99,11 +99,6 @@ div#blurb{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-}
-div#pointer_box{
-	background: #FED351 url('/img/pointer.png') no-repeat;
-	height: 20px;
-	width: 100%;
 }
 
 #blurb div.prelist
@@ -119,7 +114,6 @@ div#pointer_box{
 	color: #000;
 	text-shadow: 0px 1px 2px #ccc;
 }
-
 
 #contact
 {
@@ -242,9 +236,6 @@ hr.hrfade {
 	background: url('/img/hr_fade.png');
 	clear:both;
 }
-
-
-
 
 div#blurb	{ 	background-color: #ccc; }
 div#header	{	background-color: #fed351;	}

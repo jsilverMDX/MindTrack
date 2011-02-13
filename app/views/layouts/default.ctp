@@ -46,27 +46,12 @@
 <div id="menu">
   <ul id="menuitems">
          	<?php
-         	$current_page = substr ($this->here, 2);
-          
-          $navitems = array('incubation', 'training', 'portfolio', 'squad');
-          
-          foreach ($navitems as $str):
+              
+          foreach ($nav_items as $str):
             $li_class = ($str == $current_page) ? ' class="selected"' : '';
             echo '<li' . $li_class . '><a href="_' . $str . '">' . $str . '</a></li>';
           endforeach;
 	      	?>
-		<script>
-		function choose(){
-			current = "<?php echo $current_page; ?>";
-			switch(current){
-				case 'incubation': $("#pointer_box").css('background-position', '34%'); break;
-				case 'training': $("#pointer_box").css('background-position', '46%'); break;
-				case 'portfolio': $("#pointer_box").css('background-position', '57.2%'); break;
-				case 'squad': $("#pointer_box").css('background-position', '67.5%'); break;
-				default: $("#pointer_box").css('background', '#FED351'); break;
-			}
-		};
-		</script>
   </ul>
 </div>
 
