@@ -13,12 +13,6 @@
 <body>
   
   <div id="header">
-	<script>
-	$(document).ready(function(){
-		hovereffect1();
-		choose();
-	});
-	</script>
   	<div id="login">
   	  <ul>
     		<?php $logged_in = $session->read('Auth.User') ?>
