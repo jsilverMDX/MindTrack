@@ -6,29 +6,22 @@ class PagesController extends AppController {
   function beforeFilter() {
     parent::beforeFilter(); 
     $this->Auth->allowedActions = array('welcome', 'display', 'notfound');
-    $this->set('nav_items', $this->Page->find("all", array('conditions' => 'page is not null and public = 1')));
+    // set, in order, which pages you want on the menu:
+    $this->set('nav_items', array('incubation', 'training', 'portfolio', 'squad'));
+    $this->set('current_page', substr($this->here, 2)); // get page by URL
   }
   
   // show us a page
   function display() {
-    // get "da" page
-    $page_name = $this->params['page'];
-    $page = $this->Page->findByName($page_name);
-    
+    // get page name (found in beforeFilter)
+    $page_name = $this->viewVars['current_page'];
+    // get the page contents (like a partial)
+    $page = file_get_contents('page_content/'.$page_name.'.html');
     // set the title
     $this->set('title_for_layout', "mindynamics | " . ucwords($page_name));
-    // set page_name
-    $this->set('page_name', $page_name);
-    
-    // same as unless page.nil
-    if(!(empty($page))) {
-      // set page content to its associated file and render
-      $this->set('page', file_get_contents('page_content/'.$page_name.'.html'));
-    } else {
-     // 404
-     $this->cakeError('error404');
-    }
-    
+    if(!(empty($page))) { // same as unless page.nil
+      $this->set('page', $page);
+    } else { $this->cakeError('error404'); }
   }
   
   // custom 404
