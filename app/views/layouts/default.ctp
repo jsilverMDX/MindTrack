@@ -35,7 +35,7 @@
 	  </div>
   </div>
   
-<iframe id="gtalkbadge" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqqvh10gv8qpo4qqegnh1811j9flrtt8itvss84e96v5p2eqmu27q90bn3uvh6it4rv06tpou2vhcakh86omjfnigt33e090153267i52oovr88trgk0f1898lga969in5kl8fka4vnp858g2scb39rhuijq5vk7qg5t0l47c9ds3sl0doarqmp0hrlo&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
+<iframe id="gtalkbadge" style="z-index:2" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqulpe3m58tvc3f257ns90ofpcm9701n1cklb4hg0e23evn4nm19bedu901u206g1t7io8k60uektu0hnbgb8qd77o5bs98e5m2ut447dcb9mmvda841aevaj05udocubrvnkhoq6u9pfpe43b22k9mgga9s0b1bkc8g7aavf3le7u6ohei8s86h2e2s&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
 
 <div id="menu">
   <ul id="menuitems">

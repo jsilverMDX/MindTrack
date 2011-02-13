@@ -28,11 +28,12 @@ div#logo {
 	}
 
 div#login{
-	position: absolute;
+	position: fixed;
 	top: 10px;
 	right: 10px;
 	text-transform: uppercase;
 	font-size: 75%;
+	z-index:5;
 }
 
 a		{ outline: none; text-decoration: none;	}
@@ -71,24 +72,6 @@ div#tagline2{
 	top: 110px;
 	right: 70px;
 	text-shadow: #000 -1px -1px 2px;
-}
-
-
-div#menu{
-	background: url('/img/fade.png') repeat-x center top;
-	height: 32px;
-	text-align: center;
-	padding-top: 10px;
-	font-size: 120%;
-}
-
-div#menu a {
-  color: inherit; font-weight: bold;
-	letter-spacing: 0.2em;
-}
-
-div#menu a:hover, ul#menuitems li.selected {
-	color: #8f1900;
 }
 
 div#blurb{
@@ -171,6 +154,30 @@ img#contact_badge
 	left: 5%;
 }
 
+div#menu{
+  background: url("/img/topnav.png") no-repeat scroll center top transparent;
+  font-size: 120%;
+  height: 48px;
+  left: 0%;
+  padding-top: 10px;
+  position: fixed;
+  right: 0%;
+  text-align: center;
+  top: 0;
+}
+
+div#menu a {
+  color: inherit; font-weight: bold;
+	letter-spacing: 0.2em;
+}
+
+div#menu a:hover, ul#menuitems li.selected {
+	color: #F9907C;
+}
+
+div#menu a:hover {
+  text-shadow: 0px 0px 5px #6E6B58;
+}
 
 ul#menuitems{
 	text-align: center;
@@ -179,8 +186,8 @@ ul#menuitems{
 ul#menuitems li
 {
 	display: inline-table;
-	color: #000;
-	text-shadow: 0px 0px 1px #ccc;
+	color: #D1DFB2;
+  text-shadow: 0px 0px 2px #979378;
 	padding-left: 20px;
 	padding-right: 20px;
 	border-right: 1px dotted #666;
@@ -244,7 +251,6 @@ hr.hrfade {
 
 div#blurb	{ 	background-color: #ccc; }
 div#header	{	background-color: #fed351;	}
-div#menu	{	background-color: #b5b5b5;	}
 div#contact	{	background-color: #8b8b8b;		}
 div#footer	{	background-color: #666;		}
 body		{	background-color: #1e2326;	}
@@ -253,6 +259,7 @@ body		{	background-color: #1e2326;	}
   left: 7px;
   padding-left: 12px;
   padding-top: 8px;
-  position: absolute;
+  position: fixed;
   top: 7px;
+  z-index:5px;
 }
