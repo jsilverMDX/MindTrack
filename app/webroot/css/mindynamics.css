@@ -102,6 +102,10 @@ div#blurb{
 	min-height: 200px;
 }
 
+div.contentwrap {
+  padding:0px 5%;
+}
+
 #blurb div.prelist
 {
 	margin-left: auto;

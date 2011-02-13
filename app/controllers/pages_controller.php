@@ -6,8 +6,6 @@ class PagesController extends AppController {
   function beforeFilter() {
     parent::beforeFilter(); 
     $this->Auth->allowedActions = array('welcome', 'display', 'notfound');
-    // set, in order, which pages you want on the menu:
-    $this->set('nav_items', array('incubation', 'training', 'portfolio', 'squad'));
     $this->set('current_page', substr($this->here, 2)); // get page by URL
   }
   
