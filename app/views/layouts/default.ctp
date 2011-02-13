@@ -63,7 +63,16 @@
 
 <script>
 $(window).load(function () {
+<<<<<<< HEAD
   $('#blurb').css('min-height', $(window).height()-462);
+=======
+  $('#blurb').css('min-height', $(window).height()-262);
+  $('#header, #menu').mouseenter(function () {
+    $('#menu').show();
+  }).mouseleave(function () {
+    $('#menu').hide();
+  });
+>>>>>>> how's this for jquery lolz
 });
 </script>
 

@@ -88,12 +88,7 @@ div#blurb{
 div.contentwrap {
   padding:0px 5%;
 }
-div#pointer_box{
-	background: #FED351 url('/img/pointer.png') no-repeat;
-	height: 20px;
-	width: 100%;
-}
-}
+
 #blurb div.prelist
 {
 	margin-left: auto;
