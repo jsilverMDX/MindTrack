@@ -14,12 +14,10 @@ li {
 
 a {
   text-decoration: none;
-  color: white;
 }
 
 a:hover {
   text-decoration: underline;
-  color: white;
 }
 
 h1 {
@@ -74,14 +72,14 @@ h1 {
 
 .project .title {
 	font-weight: bold;
-	padding: 4px;
+	padding: 6px;
 	background: #DDD;
 	border-bottom: 1px solid black;
 }
 
 .project .details {
 	text-align: left;
-	padding: 2px;
+	padding: 4px;
 }
 
 .project .details .created, .project .details .updated {
@@ -91,9 +89,11 @@ h1 {
 }
 
 .project .messages {
+	padding: 4px;
 }
 
-.project .messages .message {
+.project .messages .submit {
+	display: inline;
 }
 
 .project .messages .message .time {
@@ -107,76 +107,38 @@ h1 {
 .project .messages .message .content {
 }
 
+.project .tickets {
+	border: 1px solid black;
+}
+
+.project .tickets .title {
+	background: #000;
+	color: #FFF;
+	padding-top: 10px;
+}
+
+.ticket .section {
+	background: #EEE;
+	border: 1px solid black;
+	padding: 4px;
+}
+
+.project .ticket .title {
+	text-decoration: underline;
+	background: #333;
+	color: #DDD;
+	font-size: .8em;
+}
+
+.ticket .section .title {
+	background: #333;
+}
+
+.ticket .section .image {
+	padding: 4px;
+}
 
 /* -------------------------------------------- */
-
-h3.my-projects {
-  font-size: 16pt;
-  color: white;
-}
-
-h4.my-tickets {
-  font-size: 28pt;
-  color: white;
-}
-
-li.project, li.ticket, li.comment, li.reply {
-  border: 2px solid white;
-  padding: 10px;
-}
-
-h4.ticket-header {
-  font-size: 24pt;
-  color: #00FF00;
-  margin-bottom: 10px;
-}
-
-div.ticket-name, div.ticket-status {
-  font-size: 14pt;
-  color: red;
-  margin-bottom: 15px;
-}
-
-.ticket-description {
-  border: 1px solid white;
-  padding: 20px;
-  color: white;
-  margin-top: 15px;
-}
-
-.the-description {
-  font-size: 14pt;
-  color: white;
-  font-family: sans-serif;
-  
-  
-}
-
-.dashboard {
-  color: white;
-  font-size: 18pt;
-}
-
-.add-file-form, .create-comment-form, .comment-reply-form, .images {
-  border: 1px solid white;
-  padding: 5px;
-  color: white;
-  margin: 20px 0 5px 0;
-}
-
-.attach, .post-comment, .post-reply {
-  font-size: 10pt;
-  color: white;
-}
-
-.image-file {
-  color: green;
-  font-size: 16pt;
-}
-
-.ticket-done-status {
-  color: green;
-}
 
 .member-nav ul li {
   display: inline;
@@ -188,14 +150,6 @@ div.ticket-name, div.ticket-status {
   margin-left: 15px;
   background: black;
   color: white;
-}
-
-.ticket-timestamps, .comment-timestamps, .reply-timestamps, .project-timestamps {
-  margin-top: 15px;
-}
-
-.ticket-created, .ticket-updated {
-
 }
 
 .item_head {
