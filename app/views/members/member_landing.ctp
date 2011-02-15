@@ -11,164 +11,175 @@
 
 	<? $projects = $member['Project']; ?>
 
-		<div id="projects">
-			<?
-				foreach($projects as $project):
-			?>
-			<div id="<?= $project['name']; ?>-name" class="title"><? echo($project['name']); ?></div>
+	<div id="projects">
+		<?
+			foreach($projects as $project):
+		?>
+		<div id="<?= $project['name']; ?>-name" class="title"><? echo($project['name']); ?></div>
 
-			<script type="text/javascript">
-			$("#<?= $project['name']; ?>-name").click(function()
-			{
-				$("#blank_project").hide();
-				$(".project").hide();
-				$("#<?= $project['name']; ?>").toggle();
-			});
-			</script>
-			<? endforeach; ?>
-		</div>
+		<script type="text/javascript">
+		$("#<?= $project['name']; ?>-name").click(function()
+		{
+			$("#blank_project").hide();
+			$(".project").hide();
+			$("#<?= $project['name']; ?>").toggle();
+		});
+		</script>
+		<? endforeach; ?>
+	</div>
 
-<ul id="project_info">
-	<li id="blank_project">Select a project to manage</li>
+	<ul id="project_info">
+		<li id="blank_project">Select a project to manage</li>
 
-	<?
-		foreach($projects as $project):
-	?>
+		<?
+			foreach($projects as $project):
+		?>
 
-  <li id="<?= $project['name']; ?>" class="project">
-		<div class="title"><?= $project['name']; ?> - <?= $project['link'] ?></div>
-		<div class="details">
-			<div class="created">Started: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div>
-			<div class="updated">Updated: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div>
-			<div class="description"><?= $project['description'] ?></div>
-		</div>
-		<div class="title item_head">Messages</div>
-		<div class="messages item_body">
-			<h4 class="new-message-link item_head">New Project Message</h4>
-			<div class="new-message-form item_body"> 
-				<?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
-					<?php
-						echo $this->Form->hidden('project_id', array('value' => $project['id']));
-						echo $this->Form->hidden('user_id', array('value' => $user_id));
-						echo $this->Form->text('message', array('label' => ""));
-					?>
-				<?php echo $this->Form->end('Submit');?>
+		<li id="<?= $project['name']; ?>" class="project">
+			<div class="title"><?= $project['name']; ?> - <?= $project['link'] ?></div>
+			<div class="details">
+				<div class="created">Started: <?= $this->Time->timeAgoInWords($project['created']); ?> (<?= $this->Time->niceShort($project['created']); ?>)</div>
+				<div class="updated">Updated: <?= $this->Time->timeAgoInWords($project['updated']); ?> (<?= $this->Time->niceShort($project['updated']); ?>)</div>
+				<div class="description"><?= $project['description'] ?></div>
 			</div>
-			<?
-				$statuses = $project['StatusMessage'];
-				foreach($statuses as $status):
-			?>
-			<ul>
-			<li class="message">
-				<span class="time"><?= $this->Time->timeAgoInWords($status['created']); ?></span> <span class="user"><? echo($status['User']['username']); ?></span> said <span class="content">"<? echo($status['message']); ?>"</span>
-			</li>
+
+			<div class="title item_head">Messages</div>
+			<div class="messages item_body">
+				<ul>
+					<?
+						$statuses = $project['StatusMessage'];
+						foreach($statuses as $status):
+					?>
+					<li class="message">
+						<span class="time"><?= $this->Time->timeAgoInWords($status['created']); ?></span> <span class="user"><? echo($status['User']['username']); ?></span> said <span class="content">"<? echo($status['message']); ?>"</span>
+					</li>
+					<?
+						endforeach;
+					?>
+				</ul>
+				<div class="message_form"> 
+					<?php echo $this->Form->create('StatusMessage', array('url' => '/members/post_status_message'));?>
+						<?php
+							echo $this->Form->hidden('project_id', array('value' => $project['id']));
+							echo $this->Form->hidden('user_id', array('value' => $user_id));
+							echo $this->Form->text('message', array('label' => ""));
+						?>
+					<?php echo $this->Form->end('Submit');?>
+				</div>
+			</div>
+
+			<div class="title item_head">Tickets</div>
+			<ul class="tickets item_body">
+				<?
+					$tickets = $project['Ticket'];
+					foreach($tickets as $ticket):
+				?>
+				<div class="title ticket_title">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></div>
+				<li class="ticket ticket_body">
+					<div class="status">
+						Status: <? echo($ticket['status']); ?>
+						<? if ($ticket['status'] != "done") { ?>
+						<a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
+						<? } ?>
+					</div>
+
+					<div class="details">
+						<div class="description"><?= $textile->process($ticket['description']); ?></div>
+						<div class="created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div>
+						<div class="updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div>
+					</div>
+					
+					<div class="title item_head">Attached Images</div>
+					<div class="section item_body">
+						<ul class="images">
+							<?
+								$images = $ticket['Image'];
+								foreach($images as $image):
+							?>
+							<li class="image"><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?> - uploaded at <?= $this->Time->timeAgoInWords($image['created']); ?> (<?= $this->Time->niceShort($image['created']); ?>)</li>
+							<?
+								endforeach;
+							?>
+						</ul>
+						<div class="form">
+							<div class="title item_head">Attach an Image</div>
+							<div class="item_body">
+								<?php echo $this->Form->create('Image', array('url' => '/members/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
+									<?php
+										echo $this->Form->hidden('s3_url');
+										echo $this->Form->hidden('Ticket.ticket_id', array('value' => $ticket['id']));
+										echo $this->Form->hidden('user_id', array('value' => $user_id));
+										echo $this->Form->file('name');
+									?>
+								<?php echo $this->Form->end(__('Submit', true));?>
+							</div>
+						</div>
+					</div>
+					
+					<div class="title item_head">Comments</div>
+					<div class="section item_body">
+						<ul class="comments">
+							<?
+								$ticket_comments = $ticket['TicketComment'];
+								foreach($ticket_comments as $comment):
+							?>
+							<li class="comment">
+								<div class="text"><?= $textile->process($comment['comment']); ?></div>
+								<div class="author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div>
+								<div class="created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div>
+								<div class="updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div>
+								<ul class="replies">
+									<?
+										$comment_replies = $comment['CommentReply'];
+										foreach($comment_replies as $reply):
+									?>
+									<li class="reply">
+										<div class="text"><?= $textile->process($reply['reply']); ?></div>
+										<div class="author">- <? echo($reply['User']['username']); ?></div>
+										<div class="created">posted at: <?= $this->Time->timeAgoInWords($reply['created']); ?> (<?= $this->Time->niceShort($reply['created']); ?>)</div>
+										<div class="updated">modified at: <?= $this->Time->timeAgoInWords($reply['updated']); ?> (<?= $this->Time->niceShort($reply['updated']); ?>)</div> 
+									</li>
+									<?
+										endforeach;
+									?>
+								</ul>
+								<div class="title item_head">Post a reply</div>
+								<div class="form item_body">
+									<?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
+										<?php
+											echo $this->Form->textarea('reply', array('label' => ""));
+											echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
+											echo $this->Form->hidden('user_id', array('value' => $user_id));
+										?>
+									<?php echo $this->Form->end('Submit');?>
+								</div>
+							</li>
+							<?
+								endforeach;
+							?>
+						</ul>
+						<div class="title item_head">Post a comment</div>
+						<div class="form item_body">
+							<?php echo $this->Form->create('TicketComment', array('url' => '/members/add_comment'));?>
+								<?php
+									echo $this->Form->input('comment');
+									echo $this->Form->hidden('user_id', array('value' => $user_id));
+									echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
+									echo $this->Form->input('status');
+								?>
+							<?php echo $this->Form->end(__('Submit', true));?>
+						</div>
+					</div>
+				</li>
+				<?
+					endforeach;
+				?>
 			</ul>
-			<?
-				endforeach;
-			?>
-		</div>
-  <div class="title item_head">Tickets</div>
-  <ul class="tickets item_body">
-    <?
-      $tickets = $project['Ticket'];
-      foreach($tickets as $ticket):
-    ?>
-    <?php $tstatus = (strtolower($ticket['status']) == "done") ? "done" : "not done" ?>
-    <? if($tstatus != "done") { ?>
-    <h4 class="ticket-header item_head">#<? echo($ticket['id']); ?>:  <? echo($ticket['name']); ?></h4>
-    <li class="ticket item_body">
-    <div class="ticket-status">
-    Status: <? echo($ticket['status']); ?> (<? echo($tstatus); ?>)
-    <a href="/members/mark_as_done/<? echo($ticket['id']); ?>">Mark as Done</a>
-    </div>
-    <div class="ticket-description"><div class="the-description"><?= $textile->process($ticket['description']); ?></div>
-    <div class="ticket-timestamps"><div class="ticket-created">created on: <?= $this->Time->timeAgoInWords($ticket['created']); ?> (<?= $this->Time->niceShort($ticket['created']); ?>)</div><div class="ticket-updated">updated at: <?= $this->Time->timeAgoInWords($ticket['updated']); ?> (<?= $this->Time->niceShort($ticket['updated']); ?>)</div></div>
-    <ul class="images">
-    <div class="file-list">Attached Files:</div>
-    <?
-      $images = $ticket['Image'];
-      foreach($images as $image):
-    ?>
-    <li class="image-file"><? echo($this->Html->link($image['name'], "http://s3.amazonaws.com".$image['s3_url'])); ?> - uploaded at <?= $this->Time->timeAgoInWords($image['created']); ?> (<?= $this->Time->niceShort($image['created']); ?>)</li>
-    <?
-      endforeach;
-    ?>
-    </ul>
-    </div>
-    <ul class="comments">
-    <?
-      $ticket_comments = $ticket['TicketComment'];
-      foreach($ticket_comments as $comment):
-    ?>
-    <li class="comment">
-    <div class="comment-text"><?= $textile->process($comment['comment']); ?></div>
-    <div class="comment-author"> - <? echo($comment['User']['username']); ?> (Status: <? echo($comment['status']); ?>)</div>
-    <div class="comment-timestamps"><div class="comment-created">posted at: <?= $this->Time->timeAgoInWords($comment['created']); ?> (<?= $this->Time->niceShort($comment['created']); ?>)</div><div class="comment-updated">modified at: <?= $this->Time->timeAgoInWords($comment['updated']); ?> (<?= $this->Time->niceShort($comment['updated']); ?>)</div></div> 
-    <ul class="replies">
-      <?
-        $comment_replies = $comment['CommentReply'];
-        foreach($comment_replies as $reply):
-      ?>
-      <li class="reply">
-      <div class="reply-text"><?= $textile->process($reply['reply']); ?></div>
-      <div class="reply-author">- <? echo($reply['User']['username']); ?></div>
-      <div class="reply-timestamps"><div class="reply-created">posted at: <?= $this->Time->timeAgoInWords($reply['created']); ?> (<?= $this->Time->niceShort($reply['created']); ?>)</div><div class="reply-updated">modified at: <?= $this->Time->timeAgoInWords($reply['updated']); ?> (<?= $this->Time->niceShort($reply['updated']); ?>)</div></div> 
-      </li>
-      <?
-        endforeach;
-      ?>
-      <div class="comment-reply-form">
-      <div class="post-reply">Post a reply</div>
-      <?php echo $this->Form->create('CommentReply', array('url' => '/members/reply_to_comment'));?>
-	      <?php
-		      echo $this->Form->textarea('reply', array('label' => ""));
-		      echo $this->Form->hidden('ticket_comment_id', array('value' => $comment['id']));
-		      echo $this->Form->hidden('user_id', array('value' => $user_id));
-	      ?>
-      <?php echo $this->Form->end('Submit');?>
-      </div>
-    </ul>
-    </li>
-    <?
-      endforeach;
-    ?>
-    <div class="create-comment-form">
-    <div class="post-comment">Post a comment</div>
-    <?php echo $this->Form->create('TicketComment', array('url' => '/members/add_comment'));?>
-	    <?php
-		    echo $this->Form->input('comment');
-		    echo $this->Form->hidden('user_id', array('value' => $user_id));
-		    echo $this->Form->hidden('ticket_id', array('value' => $ticket['id']));
-		    echo $this->Form->input('status');
-	    ?>
-    <?php echo $this->Form->end(__('Submit', true));?>
-    </div>
-    <div class="add-file-form">
-    <div class="attach">Attach a file</div>
-    <?php echo $this->Form->create('Image', array('url' => '/members/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
-	    <?php
-	      echo $this->Form->hidden('s3_url');
-	      echo $this->Form->hidden('Ticket.ticket_id', array('value' => $ticket['id']));
-		    echo $this->Form->hidden('user_id', array('value' => $user_id));
-		    echo $this->Form->file('name');
-	    ?>
-	    </fieldset>
-    <?php echo $this->Form->end(__('Submit', true));?>
-    </div>
-    </ul>
-    </li>
-    <?
-      }
-      endforeach;
-    ?>
-  </ul>
-
-  </li>
-  <?
-    endforeach;
-  ?>
-</ul>
-
+		</li>
+		<?
+			endforeach;
+		?>
+	</ul>
 </div>
 
 <script type="text/javascript">
@@ -180,6 +191,9 @@ $(document).ready(function()
 	//hide the projects
 	$(".project").hide();
 
+	//hide the tickets
+	$(".ticket_body").hide();
+
   //toggle the componenet with class item_body
   $(".item_head").click(function()
   {
@@ -188,6 +202,13 @@ $(document).ready(function()
     else
       $(this).css('background-image', 'url("/img/redplus.png")');
     $(this).next(".item_body").slideToggle(100);
+  });
+
+  //toggle the componenet with class item_body
+  $(".ticket_title").click(function()
+  {
+		$(".ticket_body").hide();
+    $(this).next(".ticket_body").toggle();
   });
 });
 </script>
