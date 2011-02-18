@@ -5,7 +5,7 @@ class MembersController extends AppController {
 	var $uses = array('Member', 'Rate', 'Client', 'Invoice', 'LineItem', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
 	var $helpers = array('Html', 'Form', 'Time', 'Textile', 'Sproutmdx');
-	
+
 	// member landing point
 	// shows all incomplete tickets for my projects
 	function member_landing() {
@@ -30,8 +30,11 @@ class MembersController extends AppController {
 	  $options['conditions'] = array('Project.id =' => $id);
 	  $options['contain'] = array('StatusMessage' => array('User', 'order' => 'StatusMessage.updated DESC'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'order' => 'TicketComment.updated DESC', 'CommentReply' => array('User'))));
 		$project = $this->Project->find('first', $options);
+		$this->Project->recursive = -1;
+		$projects = $this->Project->find('all', array('fields' => array('Project.id', 'Project.name')));
 	  //debug($project);
 	  $this->set('project', $project);
+		$this->set('projects', $projects);
 	}
 	
 	

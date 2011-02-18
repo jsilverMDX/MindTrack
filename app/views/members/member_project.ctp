@@ -7,7 +7,20 @@
 
 	<div class="menu_bar">
 		<h2>Home</h2>
-		<h2>Projects</h2>
+		<h2 class="menu_projects">Projects</h2>
+		<ul class="projects">
+		<?
+			$projs = $projects;
+			foreach($projs as $proj):
+		?>
+
+		<li>
+			<?= $this->Html->link($proj['Project']['name'], array('controller' => 'members', 'action' => 'member_project', $proj['Project']['id'])); ?>
+		</li>
+
+
+		<? endforeach; ?>
+		</ul>
 	</div>
 
 	<div class="project">
@@ -189,6 +202,15 @@ $(document).ready(function()
 		$(".messages").slideToggle(100);
 	<? } ?>
 
+	// Position the projects menu
+	var located = $(".menu_projects").offset();
+	$(".projects").offset({ left: located.left - 4, top: located.top + $(".menu_projects").outerHeight() + 5 });
+
+	//Toggle the project menu
+	$(".menu_projects").click(function()
+	{
+		$(".projects").slideToggle(100);
+	});
 
 	//Toggle the home section
 	$(".main_toggle").click(function()

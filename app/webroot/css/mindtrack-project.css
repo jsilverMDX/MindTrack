@@ -3,14 +3,23 @@ h1 {
 		}
 
 h2 {
-		font-size: 1.4em;
+		font-size: 1.3em;
+		text-transform: uppercase;
 		}
 
 body {
 			font-family: sans-serif;
 			margin: 0px;
-			background: #000;
+			background: white;
 			}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+					color: #FFF;
+}
 
 .item_head {
   cursor:pointer;
@@ -18,7 +27,6 @@ body {
 
 .mindtrack {
 						width: 1024px;
-						background: #53536C;
 						margin-left: auto;
 						margin-right: auto;
 						margin-top: 0px;
@@ -26,9 +34,9 @@ body {
 
 .title_bar {
 						width: 1016px;
-						background: #000080;
+						background: #FFB840;
 						padding: 4px;
-						color: #8080FF;
+						color: #A66900;
 						}
 .title_bar h1 {
 							display: inline;
@@ -42,9 +50,9 @@ body {
 
 .menu_bar {
 					width: 1016px;
-					background: #8080FF;
+					background: #4965D6;
 					padding: 4px;
-					border-bottom: 2px solid #000080;
+					border-bottom: 2px solid white;
 					}
 
 .menu_bar h2 {
@@ -52,9 +60,28 @@ body {
 							border-right: 1px solid #53536C;
 							padding-right: 4px;
 							}
+							
+.menu_bar .projects {
+										display: none;
+										position: absolute;
+										background: #8080FF;
+										z-index: 100;
+										margin: 0px;
+										padding: 0px;
+										font-size: 1.2em;
+}
+
+.menu_projects {
+								cursor: pointer;
+}
+
+.menu_bar .projects li {
+												list-style-type: none;
+												margin: 4px;
+}
 
 .project {
-					background: #53536C;
+					background: #FFB840;
 					width: 1024px;
 					}
 
@@ -63,10 +90,10 @@ body {
 								font-weight: bold;
 								width: 1016px;
 								padding: 4px;
-								color: #53536C;
-								background: #000080;
+								color: black;
+								background: #1533AD;
 								text-align: center;
-								border-bottom: 1px solid #000080;
+								border-bottom: 1px solid white;
 								}
 
 .project .menu {
@@ -85,7 +112,7 @@ body {
 .project .menu ul li {
 											padding-bottom: 4px;
 											margin-bottom: 4px;
-											border-bottom: 1px solid #000080;
+											border-bottom: 1px solid #FFCB73;
 											}
 
 .project .menu ul li ul {
@@ -94,7 +121,7 @@ body {
 
 .project .content {
 									margin-left: 202px;
-									border-left: 2px solid #000080;
+									border-left: 2px solid #FFCB73;
 									min-height: 300px;
 									}
 
@@ -113,9 +140,9 @@ body {
 }
 
 .project .content .section .title {
-																	color: #000080;
+																	color: black;
 																	font-size: 1.1em;
-																	background: #8080FF;
+																	background: #A66900;
 																	text-transform: uppercase;
 																	width: 812px;
 																	}
