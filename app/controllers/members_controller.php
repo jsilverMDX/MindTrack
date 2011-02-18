@@ -22,13 +22,14 @@ class MembersController extends AppController {
 	// ajax partial that shows project description
 	// javascript only
 	// in this case im evaling some jquery and replacing an HTML div
-	function project_info($id = null) {
-	  $this->layout = 'none';
+	function member_project($id = null, $section = null) {
+		$this->set("title_for_layout", "MDX MindTrack | Project");
 	  $session_user = $this->Session->read('Auth.User');
 	  $this->set("user_id", $session_user['id']);
+		$this->set("section", $section);
 	  $options['conditions'] = array('Project.id =' => $id);
-	  $options['contain'] = array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User'))));
-	  $project = $this->Project->find('first', $options);
+	  $options['contain'] = array('StatusMessage' => array('User', 'order' => 'StatusMessage.updated DESC'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'order' => 'TicketComment.updated DESC', 'CommentReply' => array('User'))));
+		$project = $this->Project->find('first', $options);
 	  //debug($project);
 	  $this->set('project', $project);
 	}
@@ -187,7 +188,7 @@ class MembersController extends AppController {
 		$this->StatusMessage->save($this->data);
 		$status_message = $this->StatusMessage->read();
 		$this->_status_message_email($status_message);
-		$this->redirect('/mdx_members');
+		$this->redirect(array('action' => 'member_project', $this->data['StatusMessage']['project_id'], "messages"));
 	}
 
 	// ================================================================

@@ -1,0 +1,200 @@
+h1 {
+		font-size: 1.7em;
+		}
+
+h2 {
+		font-size: 1.4em;
+		}
+
+body {
+			font-family: sans-serif;
+			margin: 0px;
+			background: #000;
+			}
+
+.item_head {
+  cursor:pointer;
+}
+
+.mindtrack {
+						width: 1024px;
+						background: #53536C;
+						margin-left: auto;
+						margin-right: auto;
+						margin-top: 0px;
+						}
+
+.title_bar {
+						width: 1016px;
+						background: #000080;
+						padding: 4px;
+						color: #8080FF;
+						}
+.title_bar h1 {
+							display: inline;
+							}
+
+.title_bar a {
+							float: right;
+							font-size: .8em;
+							text-transform: uppercase;
+							}
+
+.menu_bar {
+					width: 1016px;
+					background: #8080FF;
+					padding: 4px;
+					border-bottom: 2px solid #000080;
+					}
+
+.menu_bar h2 {
+							display: inline;
+							border-right: 1px solid #53536C;
+							padding-right: 4px;
+							}
+
+.project {
+					background: #53536C;
+					width: 1024px;
+					}
+
+.project .title {
+								font-size: 1.2em;
+								font-weight: bold;
+								width: 1016px;
+								padding: 4px;
+								color: #53536C;
+								background: #000080;
+								text-align: center;
+								border-bottom: 1px solid #000080;
+								}
+
+.project .menu {
+								width: 200px;
+								float: left;
+								text-transform: uppercase;
+								}
+
+.project .menu ul {
+									list-style-type: none;
+									margin: 0px;
+									padding-top: 4px;
+									padding-left: 4px;
+									}
+
+.project .menu ul li {
+											padding-bottom: 4px;
+											margin-bottom: 4px;
+											border-bottom: 1px solid #000080;
+											}
+
+.project .menu ul li ul {
+												margin-left: 10px;
+												}
+
+.project .content {
+									margin-left: 202px;
+									border-left: 2px solid #000080;
+									min-height: 300px;
+									}
+
+.section .form {
+												text-align: center;
+}
+
+.section .form input {
+											display: inline;
+}
+
+.form_link {
+						font-weight: bold;
+						margin-top: 4px;
+						text-align: center;
+}
+
+.project .content .section .title {
+																	color: #000080;
+																	font-size: 1.1em;
+																	background: #8080FF;
+																	text-transform: uppercase;
+																	width: 812px;
+																	}
+
+.project .content .section .description {
+																				font-family: monospace;
+																				font-weight: bold;
+																				font-size: 1.1em;
+																				color: #000080;
+																				padding: 24px;
+																				}
+
+.project .content .section .sub {
+																font-size: .9em;
+																text-decoration: underline;
+																}
+
+.discussion {
+						text-align: right;
+}
+
+.discussion .text {
+									text-align: left;
+}
+
+.discussion .author {
+										font-style: italic;
+}
+
+.project .content .ticket {
+													width: 814px;
+													}
+
+.project .content .ticket .status {
+																	font-weight: bold;
+																	text-align: center;
+																	}
+
+.project .content .ticket .attachments {
+																				padding-bottom: 16px;
+																				}
+
+.project .content .ticket .attachments .attachment {
+																										font-style: italic;
+																										font-size: .9em;
+																										padding: 0px 24px 0px;
+																										}
+
+.project .content .ticket .attachments .attachment a {
+																											font-style: normal;
+																											font-size: .8em;
+																											text-transform: uppercase;
+																											}
+
+.comments {
+					margin-left: auto;
+					margin-right: auto;
+					list-style-type: none;
+					width: 70%;
+					}
+
+.replies {
+					list-style-type: none;
+					}
+
+.comments .comment {
+										border-top: 2px solid #000080;
+										border-right: 2px solid #000080;
+										border-bottom: 2px solid #000080;
+										margin: 0px;
+										margin-bottom: 4px;
+										padding-right: 4px;
+										padding-bottom: 4px;
+										text-align: right;
+										}
+
+.replies .reply {
+								border-top: 1px solid #000080;
+								margin-top: 10px;
+								padding-right: 10px;
+								background: #DDD;
+								}

@@ -3,8 +3,7 @@
   // this is the routes file
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'welcome'));
-	
-	
+
 	// janky ticket route redirect
 	Router::connect('/t/:num', array('controller' => 'tickets', 'action' => 'ticket_redirect'));
 	
@@ -19,7 +18,7 @@
 	Router::connect('/mdx_admin', array('controller' => 'users', 'action' => 'admin_landing'));
 	
 	Router::connect('/mdx_members', array('controller' => 'members', 'action' => 'member_landing'));
-	
+
 	Router::connect('/mdx_clients', array('controller' => 'clients', 'action' => 'client_landing'));
 	
 	

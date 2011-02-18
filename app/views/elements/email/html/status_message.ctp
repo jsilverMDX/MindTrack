@@ -4,6 +4,4 @@
 
 <p>"<?= $message ?>"</p>
 
-<p>posted <?= $this->Time->timeAgoInWords($timestamps); ?></p>
-
 Thanks, Mindy the Mindbot!
