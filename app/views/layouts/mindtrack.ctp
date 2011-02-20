@@ -19,7 +19,7 @@
 
 		<div class="title_bar">
 			<h1>Mindtrack Dashboard</h1>
-			<a href="logout">Logout</a>
+			<a href="/<? echo $uaction ?>"><?php echo(ucwords($uaction)) ?></a>
 		</div>
 
 		<div class="menu_bar">
