@@ -63,7 +63,7 @@
 
 <script>
 $(window).load(function () {
-  $('#blurb').css('min-height', $(window).height()-462);
+  $('#blurb').css('min-height', $(window).height()-420);
 });
 </script>
 
