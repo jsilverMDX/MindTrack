@@ -82,7 +82,10 @@ div#blurb{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 200px;
+}
+
+div.contentwrap {
+  padding:0px 5%;
 }
 
 div.contentwrap {
