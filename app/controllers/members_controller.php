@@ -16,25 +16,33 @@ class MembersController extends AppController {
 	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     $member = $this->Member->find('first', $options);
 	  $this->set("member", $member);
+
+		// Code for the projects menu
+		$this->Project->recursive = -1;
+		$projects = $this->Project->find('all', array('fields' => array('Project.id', 'Project.name')));
+		$this->set('projects', $projects);
 	}
 	
 	// project info partial
 	// ajax partial that shows project description
 	// javascript only
 	// in this case im evaling some jquery and replacing an HTML div
-	function member_project($id = null, $section = null) {
+	function member_project($id = null, $section = "main", $t_id = null) {
 		$this->set("title_for_layout", "MDX MindTrack | Project");
 	  $session_user = $this->Session->read('Auth.User');
 	  $this->set("user_id", $session_user['id']);
 		$this->set("section", $section);
+		$this->set("t_id", $t_id);
 	  $options['conditions'] = array('Project.id =' => $id);
 	  $options['contain'] = array('StatusMessage' => array('User', 'order' => 'StatusMessage.updated DESC'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'order' => 'TicketComment.updated DESC', 'CommentReply' => array('User'))));
 		$project = $this->Project->find('first', $options);
+
+		// Code for the projects menu
 		$this->Project->recursive = -1;
 		$projects = $this->Project->find('all', array('fields' => array('Project.id', 'Project.name')));
-	  //debug($project);
-	  $this->set('project', $project);
 		$this->set('projects', $projects);
+
+	  $this->set('project', $project);
 	}
 	
 	
@@ -138,7 +146,9 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('completer', $session_user['username']);
     $this->_ticket_done_email($ticket);
-    $this->redirect('/mdx_members');
+		print_r($ticket);
+    $this->redirect(array('action' => 'member_project', $ticket['Ticket']['project_id'], "ticket", $ticket['Ticket']['id']));
+
 	}
 	
 	
@@ -165,7 +175,7 @@ class MembersController extends AppController {
 			$image = $this->Image->read();
 			$this->_add_file_email($image);
 		}
-		$this->redirect('/mdx_members');
+    $this->redirect(array('action' => 'member_project', $this->data['Image']['project_id'], "ticket", $this->data['Image']['Ticket']['ticket_id']));
 	}
 	
 	// post a Comment
@@ -174,7 +184,7 @@ class MembersController extends AppController {
 		$this->TicketComment->save($this->data);
 		$ticket_comment = $this->TicketComment->read();
     $this->_add_comment_email($ticket_comment);
-    $this->redirect('/mdx_members');
+    $this->redirect(array('action' => 'member_project', $this->data['TicketComment']['project_id'], "ticket", $this->data['TicketComment']['ticket_id']));
 	}
 
 	// posts a CommentReply
@@ -183,7 +193,7 @@ class MembersController extends AppController {
 		$this->CommentReply->save($this->data);
 		$comment_reply = $this->CommentReply->read();
 		$this->_reply_comment_email($comment_reply);
-		$this->redirect('/mdx_members');
+		$this->redirect(array('action' => 'member_project', $this->data['CommentReply']['project_id'], "ticket", $this->data['CommentReply']['ticket_id']));
 	}
 
 	function post_status_message() {

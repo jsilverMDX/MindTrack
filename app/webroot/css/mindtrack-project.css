@@ -15,10 +15,11 @@ body {
 
 a {
 	text-decoration: none;
+	color: #2C3D82;
 }
 
 a:visited {
-					color: #FFF;
+					color: #2C3D82;
 }
 
 .item_head {
@@ -36,7 +37,7 @@ a:visited {
 						width: 1016px;
 						background: #FFB840;
 						padding: 4px;
-						color: #A66900;
+						color: #071C71;
 						}
 .title_bar h1 {
 							display: inline;
@@ -50,25 +51,32 @@ a:visited {
 
 .menu_bar {
 					width: 1016px;
-					background: #4965D6;
+					background: #BF8A30;
 					padding: 4px;
-					border-bottom: 2px solid white;
+					border-bottom: 1px solid white;
 					}
 
 .menu_bar h2 {
 							display: inline;
-							border-right: 1px solid #53536C;
-							padding-right: 4px;
+							padding: 4px;
+							color: #2C3D82;
 							}
 							
 .menu_bar .projects {
 										display: none;
 										position: absolute;
-										background: #8080FF;
-										z-index: 100;
+										background: #BF8A30;
+										z-index: 300;
 										margin: 0px;
 										padding: 0px;
 										font-size: 1.2em;
+										border-style: none solid solid;
+										border-width: 1px;
+										border-color: white;
+}
+
+.menu_bar .projects li {
+												padding: 0px 6px 8px;
 }
 
 .menu_projects {
@@ -77,7 +85,6 @@ a:visited {
 
 .menu_bar .projects li {
 												list-style-type: none;
-												margin: 4px;
 }
 
 .project {
@@ -85,16 +92,16 @@ a:visited {
 					width: 1024px;
 					}
 
-.project .title {
-								font-size: 1.2em;
-								font-weight: bold;
-								width: 1016px;
-								padding: 4px;
-								color: black;
-								background: #1533AD;
-								text-align: center;
-								border-bottom: 1px solid white;
-								}
+.title {
+				font-size: 1.2em;
+				font-weight: bold;
+				width: 1016px;
+				padding: 4px;
+				color: #03436A;
+				background: #A66900;
+				text-align: center;
+				border-bottom: 1px solid white;
+				}
 
 .project .menu {
 								width: 200px;
@@ -113,6 +120,7 @@ a:visited {
 											padding-bottom: 4px;
 											margin-bottom: 4px;
 											border-bottom: 1px solid #FFCB73;
+											cursor:pointer;
 											}
 
 .project .menu ul li ul {
@@ -124,6 +132,11 @@ a:visited {
 									border-left: 2px solid #FFCB73;
 									min-height: 300px;
 									}
+									
+.home .content {
+								margin: 0px;
+								min-height: 300px;
+}
 
 .section .form {
 												text-align: center;
@@ -139,26 +152,29 @@ a:visited {
 						text-align: center;
 }
 
-.project .content .section .title {
-																	color: black;
-																	font-size: 1.1em;
-																	background: #A66900;
-																	text-transform: uppercase;
-																	width: 812px;
-																	}
+.section .title {
+								color: black;
+								font-size: 1.1em;
+								background: #A66900;
+								text-transform: uppercase;
+								width: 812px;
+								}
 
-.project .content .section .description {
-																				font-family: monospace;
-																				font-weight: bold;
-																				font-size: 1.1em;
-																				color: #000080;
-																				padding: 24px;
-																				}
+.section .description {
+											font-weight: bold;
+											font-size: 1.1em;
+											color: #03436A;
+											padding: 24px;
+											}
 
-.project .content .section .sub {
-																font-size: .9em;
-																text-decoration: underline;
-																}
+.section .sub {
+							font-size: .9em;
+							text-decoration: underline;
+							}
+							
+.home .section  .title {
+												width: 1016px;
+}
 
 .discussion {
 						text-align: right;
@@ -172,34 +188,35 @@ a:visited {
 										font-style: italic;
 }
 
-.project .content .ticket {
-													width: 814px;
-													}
+.ticket {
+				width: 814px;
+				display: none;
+	
+}
 
-.project .content .ticket .status {
-																	font-weight: bold;
-																	text-align: center;
-																	}
+.ticket .status {
+								font-weight: bold;
+								text-align: center;
+}
 
-.project .content .ticket .attachments {
-																				padding-bottom: 16px;
-																				}
+.ticket .attachments {
+											padding-bottom: 16px;
+}
 
-.project .content .ticket .attachments .attachment {
-																										font-style: italic;
-																										font-size: .9em;
-																										padding: 0px 24px 0px;
-																										}
+.ticket .attachments .attachment {
+																	font-style: italic;
+																	font-size: .9em;
+																	padding: 0px 24px 0px;
+}
 
-.project .content .ticket .attachments .attachment a {
-																											font-style: normal;
-																											font-size: .8em;
-																											text-transform: uppercase;
-																											}
+.ticket .attachments .attachment a {
+																		font-style: normal;
+																		font-size: .8em;
+																		text-transform: uppercase;
+}
 
 .comments {
-					margin-left: auto;
-					margin-right: auto;
+					margin: 0px auto 4px;
 					list-style-type: none;
 					width: 70%;
 					}
@@ -209,19 +226,16 @@ a:visited {
 					}
 
 .comments .comment {
-										border-top: 2px solid #000080;
-										border-right: 2px solid #000080;
-										border-bottom: 2px solid #000080;
-										margin: 0px;
-										margin-bottom: 4px;
-										padding-right: 4px;
-										padding-bottom: 4px;
+										border: 1px solid #A66900;
+										background: #BF8A30;
+										margin: 0px 0px 4px;
+										padding: 4px;
 										text-align: right;
 										}
 
 .replies .reply {
-								border-top: 1px solid #000080;
-								margin-top: 10px;
-								padding-right: 10px;
-								background: #DDD;
+								margin: 0px 0px 4px;
+								padding: 4px;
+								background: #A66900;
+								border: 1px solid #FFA100;
 								}
