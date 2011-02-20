@@ -1,0 +1,246 @@
+h1 {
+		font-size: 1.7em;
+		}
+
+h2 {
+		font-size: 1.3em;
+		text-transform: uppercase;
+		}
+
+body {
+			font-family: sans-serif;
+			margin: 0px;
+			background: white;
+			background:#FFB840;
+			}
+
+a {
+	text-decoration: none;
+	color: #2C3D82;
+}
+
+a:visited {
+					color: #2C3D82;
+}
+
+.item_head {
+  cursor:pointer;
+}
+
+.mindtrack {
+						width: 100%;
+						margin-left: auto;
+						margin-right: auto;
+						margin-top: 0px;
+						}
+
+.title_bar {
+						width: 100%;
+						background: #FFB840;
+						padding:4px 0px;
+						color: #071C71;
+						}
+.title_bar h1 {
+							display: inline;
+							padding-left:4px;
+							}
+
+.title_bar a {
+							float: right;
+							font-size: .8em;
+							text-transform: uppercase;
+							padding-right:15px;
+							}
+
+.menu_bar {
+					width: 100%;
+					background: #BF8A30;
+					padding: 4px 0px;
+					border-bottom: 1px solid white;
+					position: relative;
+					}
+
+.menu_bar h2 {
+							display: inline;
+							padding: 4px 8px;
+							color: #2C3D82;
+							}
+							
+.menu_bar .projects {
+										display: none;
+										position: absolute;
+										background: #BF8A30;
+										z-index: 300;
+										margin: 0px;
+										padding: 0px;
+										font-size: 1.2em;
+										border-style: none solid solid;
+										border-width: 1px;
+										border-color: white;
+}
+
+.menu_bar .projects li {
+												padding: 0px 6px 8px;
+}
+
+.menu_projects {
+								cursor: pointer;
+}
+
+.menu_bar .projects li {
+												list-style-type: none;
+}
+
+.project {
+					background: #FFB840;
+					width: 100%;
+					}
+
+.title {
+				font-size: 1.2em;
+				font-weight: bold;
+				width: 100%;
+				padding: 4px 0px;
+				color: #03436A;
+				background: #A66900;
+				text-align: center;
+				border-bottom: 1px solid white;
+				}
+
+.project .menu {
+								width: 200px;
+								float: left;
+								text-transform: uppercase;
+								}
+
+.project .menu ul {
+									list-style-type: none;
+									margin: 0px;
+									padding-top: 4px;
+									padding-left: 4px;
+									}
+
+.project .menu ul li {
+											padding-bottom: 4px;
+											margin-bottom: 4px;
+											border-bottom: 1px solid #FFCB73;
+											cursor:pointer;
+											}
+
+.project .menu ul li ul {
+												margin-left: 10px;
+												}
+
+.project .content {
+									margin-left: 202px;
+									border-left: 2px solid #FFCB73;
+									min-height: 300px;
+									padding-bottom:20px;
+									}
+									
+.home .content {
+								margin: 0px;
+								min-height: 300px;
+}
+
+.section .form {
+												text-align: center;
+}
+
+.section .form input {
+											display: inline;
+}
+
+.form_link {
+						font-weight: bold;
+						margin-top: 4px;
+						text-align: center;
+}
+
+.section .title {
+								color: black;
+								font-size: 1.1em;
+								background: #A66900;
+								text-transform: uppercase;
+								width: 100%;
+								}
+
+.section .description {
+											font-weight: bold;
+											font-size: 1.1em;
+											color: #03436A;
+											padding: 24px;
+											}
+
+.section .sub {
+							font-size: .9em;
+							text-decoration: underline;
+							}
+							
+.home .section  .title {
+												width: 100%;
+}
+
+.discussion {
+						text-align: right;
+}
+
+.discussion .text {
+									text-align: left;
+}
+
+.discussion .author {
+										font-style: italic;
+}
+
+.ticket {
+				width: 100%;
+				display: none;
+	
+}
+
+.ticket .status {
+								font-weight: bold;
+								text-align: center;
+}
+
+.ticket .attachments {
+											padding-bottom: 16px;
+}
+
+.ticket .attachments .attachment {
+																	font-style: italic;
+																	font-size: .9em;
+																	padding: 0px 24px 0px;
+}
+
+.ticket .attachments .attachment a {
+																		font-style: normal;
+																		font-size: .8em;
+																		text-transform: uppercase;
+}
+
+.comments {
+					margin: 0px auto 4px;
+					list-style-type: none;
+					width: 70%;
+					}
+
+.replies {
+					list-style-type: none;
+					}
+
+.comments .comment {
+										border: 1px solid #A66900;
+										background: #BF8A30;
+										margin: 0px 0px 4px;
+										padding: 4px;
+										text-align: right;
+										}
+
+.replies .reply {
+								margin: 0px 0px 4px;
+								padding: 4px;
+								background: #A66900;
+								border: 1px solid #FFA100;
+								}

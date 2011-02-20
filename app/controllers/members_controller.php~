@@ -5,7 +5,7 @@ class MembersController extends AppController {
 	var $uses = array('Member', 'Rate', 'Client', 'Invoice', 'LineItem', 'TimeEntry', 'User', 'Image', 'Project', 'StatusMessage', 'Ticket', 'TicketComment', 'CommentReply');
 	var $layout = 'mindtrack';
 	var $helpers = array('Html', 'Form', 'Time', 'Textile', 'Sproutmdx');
-
+	
 	// member landing point
 	// shows all incomplete tickets for my projects
 	function member_landing() {
@@ -16,32 +16,20 @@ class MembersController extends AppController {
 	  $options['contain'] = array('Project' => array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')))));
     $member = $this->Member->find('first', $options);
 	  $this->set("member", $member);
-
-		// Code for the projects menu
-		$this->Project->recursive = -1;
-		$projects = $this->Project->find('all', array('fields' => array('Project.id', 'Project.name')));
-		$this->set('projects', $projects);
 	}
 	
 	// project info partial
 	// ajax partial that shows project description
 	// javascript only
 	// in this case im evaling some jquery and replacing an HTML div
-	function member_project($id = null, $section = "main", $t_id = null) {
-		$this->set("title_for_layout", "MDX MindTrack | Project");
+	function project_info($id = null) {
+	  $this->layout = 'none';
 	  $session_user = $this->Session->read('Auth.User');
 	  $this->set("user_id", $session_user['id']);
-		$this->set("section", $section);
-		$this->set("t_id", $t_id);
 	  $options['conditions'] = array('Project.id =' => $id);
-	  $options['contain'] = array('StatusMessage' => array('User', 'order' => 'StatusMessage.updated DESC'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'order' => 'TicketComment.updated DESC', 'CommentReply' => array('User'))));
-		$project = $this->Project->find('first', $options);
-
-		// Code for the projects menu
-		$this->Project->recursive = -1;
-		$projects = $this->Project->find('all', array('fields' => array('Project.id', 'Project.name')));
-		$this->set('projects', $projects);
-
+	  $options['contain'] = array('StatusMessage' => array('User'), 'User' => array('Client'), 'Ticket' => array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User'))));
+	  $project = $this->Project->find('first', $options);
+	  //debug($project);
 	  $this->set('project', $project);
 	}
 	
@@ -146,9 +134,7 @@ class MembersController extends AppController {
     $session_user = $this->Session->read('Auth.User');
     $this->set('completer', $session_user['username']);
     $this->_ticket_done_email($ticket);
-		print_r($ticket);
-    $this->redirect(array('action' => 'member_project', $ticket['Ticket']['project_id'], "ticket", $ticket['Ticket']['id']));
-
+    $this->redirect('/mdx_members');
 	}
 	
 	
@@ -175,7 +161,7 @@ class MembersController extends AppController {
 			$image = $this->Image->read();
 			$this->_add_file_email($image);
 		}
-    $this->redirect(array('action' => 'member_project', $this->data['Image']['project_id'], "ticket", $this->data['Image']['Ticket']['ticket_id']));
+		$this->redirect('/mdx_members');
 	}
 	
 	// post a Comment
@@ -184,7 +170,7 @@ class MembersController extends AppController {
 		$this->TicketComment->save($this->data);
 		$ticket_comment = $this->TicketComment->read();
     $this->_add_comment_email($ticket_comment);
-    $this->redirect(array('action' => 'member_project', $this->data['TicketComment']['project_id'], "ticket", $this->data['TicketComment']['ticket_id']));
+    $this->redirect('/mdx_members');
 	}
 
 	// posts a CommentReply
@@ -193,7 +179,7 @@ class MembersController extends AppController {
 		$this->CommentReply->save($this->data);
 		$comment_reply = $this->CommentReply->read();
 		$this->_reply_comment_email($comment_reply);
-		$this->redirect(array('action' => 'member_project', $this->data['CommentReply']['project_id'], "ticket", $this->data['CommentReply']['ticket_id']));
+		$this->redirect('/mdx_members');
 	}
 
 	function post_status_message() {
@@ -201,15 +187,10 @@ class MembersController extends AppController {
 		$this->StatusMessage->save($this->data);
 		$status_message = $this->StatusMessage->read();
 		$this->_status_message_email($status_message);
-		$this->redirect(array('action' => 'member_project', $this->data['StatusMessage']['project_id'], "messages"));
+		$this->redirect('/mdx_members');
 	}
 
-	// ================================================================
-  // Quarkster says: I commented out this function just to make sure
-	// it wasn't doing anything, even though I didn't see it being used.
-	// Can be removed.
-
-	// use this instead as a javascript method
+  // use this instead as a javascript method
   /*
   function show_ticket($id = null) {
     
