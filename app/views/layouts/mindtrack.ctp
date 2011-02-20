@@ -49,8 +49,8 @@
 $(document).ready(function()
 {
 	// Position the projects menu
-	var located = $(".menu_projects").offset();
-	$(".projects").offset({ left: located.left, top: located.top + $(".menu_projects").outerHeight() + 1 });
+	var located = $(".menu_projects").position();
+	$(".projects").offset({ left: located.left, top: located.top + ($(".menu_projects").outerHeight() * 1.5) + 2 });
 
 	//Toggle the project menu
 	$(".menu_projects").click(function()
