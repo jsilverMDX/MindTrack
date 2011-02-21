@@ -50,7 +50,7 @@ class ClientsController extends AppController {
 
 
   
-  function show_ticket($num = null) {
+  function show_ticket($id = null) {
     $session_user = $this->Session->read('Auth.User');
     $options['conditions'] = array('Ticket.id' => $id);
     $options['contain'] = array('Image', 'TicketComment' => array('User', 'CommentReply' => array('User')));

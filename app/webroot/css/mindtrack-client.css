@@ -2,4 +2,72 @@
 
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}:focus {outline: 0;}ins {text-decoration: none;}del {text-decoration: line-through;}table {border-collapse: collapse;border-spacing: 0;}
 
+body {
+  font-family: 'Puritan';
+  background-color: #043A6B;
+}
+
+li {
+  list-style-type: none;
+}
+
+#container {
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18pt;
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+  color: #043A6B;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #679FD2;
+}
+
+#right_sidebar {
+  float: left;
+  width: 14%;
+  margin-top: 35px;
+  margin-right: 35px;
+  padding: 15px 15px 15px 15px;
+  border-left: 5px dotted #FFC573;
+  background: white;
+}
+
+#main_content {
+  float: left;
+  width: 66%;
+  margin-top: 35px;
+  margin-left: 35px;
+  padding: 15px 50px 15px 15px;
+  background: white;
+}
+
+.ticket-header {
+  padding-top: 15px;
+  font-size: 32pt;
+}
+
+.the-description {
+  padding: 30px;
+}
+
+.comment-text, .create-comment-form {
+  margin-top: 15px;
+  margin-left: 45px;
+}
+
+.reply-text, .comment-reply-form {
+  margin-top: 15px;
+  margin-left: 45px;
+}
+
+.new-ticket {
+  float: right;
+}
 
