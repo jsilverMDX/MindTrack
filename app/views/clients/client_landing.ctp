@@ -59,6 +59,8 @@
       <?
         endforeach;
       ?>
+      <div class="reply-form-holder">
+      <a onclick="$(this).parent().children('.comment-reply-form').show();$(this).hide();">Post Reply</a>
       <div class="comment-reply-form">
       <?php echo $this->Form->create('CommentReply', array('url' => '/clients/reply_to_comment'));?>
 	      <?php
@@ -68,11 +70,14 @@
 	      ?>
       <?php echo $this->Form->end('Reply');?>
       </div>
+      </div>
     </ul>
     </li>
     <?
       endforeach;
     ?>
+    <div class="comment-form-holder">
+    <a onclick="$(this).parent().children('.create-comment-form').show();$(this).hide();">Create Comment</a>
     <div class="create-comment-form">
     <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
 	    <?php
@@ -83,8 +88,10 @@
 	    ?>
     <?php echo $this->Form->end(__('Post', true));?>
     </div>
-    
-    <h3 class="image-files">Files</h3>
+    </div>
+    <div class="file-form-holder">
+    <a onclick="$(this).parent().children('.add-file-form').show();$(this).hide();">Upload File</a>
+
     <div class="add-file-form">
     <?php echo $this->Form->create('Image', array('url' => '/clients/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
 	    <?php
@@ -93,8 +100,8 @@
 		    echo $this->Form->hidden('user_id', array('value' => $user_id));
 		    echo $this->Form->file('name');
 	    ?>
-	    </fieldset>
     <?php echo $this->Form->end(__('Upload', true));?>
+    </div>
     </div>
     </ul>
     </li>
