@@ -2,11 +2,15 @@
 class TicketsController extends AppController {
 
 	var $name = 'Tickets';
-	var $uses = array('Ticket', 'User');
+	var $uses = array('Ticket', 'User', 'Project');
 	
 	function ticket_redirect() {
+	  // find project by slug
+	  $name = $this->params['name'];
+	  $project = $this->Project->findByName($name);
 	  $num = $this->params['num'];
-	  $ticket = $this->Ticket->findByNum($num);
+	  $options['conditions'] = array('Ticket.num' => $num, 'Ticket.project_id' => $project['Project']['id']);
+	  $ticket = $this->Ticket->find($num);
 	  $id = $ticket['Ticket']['id'];
     $user_session = $this->Session->read('Auth.User');
     $user = $this->User->findById($user_session['id']);
@@ -15,9 +19,9 @@ class TicketsController extends AppController {
     if($group_name == 'admin') {
       $this->redirect('/tickets/view/'.$id);
     } elseif($group_name == 'member') {
-      $this->redirect('/members/show_ticket/'.$num);
+      $this->redirect('/members/show_ticket/'.$id);
     } elseif($group_name == 'client') {
-      $this->redirect('/clients/show_ticket/'.$num);
+      $this->redirect('/clients/show_ticket/'.$id);
     }
 	}
 	

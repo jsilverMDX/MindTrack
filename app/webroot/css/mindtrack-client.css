@@ -3,136 +3,71 @@
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}:focus {outline: 0;}ins {text-decoration: none;}del {text-decoration: line-through;}table {border-collapse: collapse;border-spacing: 0;}
 
 body {
-  font-family: sans-serif;
-  font-size: 14pt;
-}
-
-a, a:active, a:visited { 
-  text-decoration: none;
-  color: blue;
-  font-weight: bold;
+  font-family: 'Puritan';
+  background-color: #043A6B;
 }
 
 li {
   list-style-type: none;
 }
 
-a:hover { 
-  text-decoration: underline;
-  color: blue;
-  font-weight: bold;
+#container {
+  margin: 0 auto;
 }
 
-#container {
-  width: 900px;
-  margin: 0px auto;
+h1 {
+  font-size: 18pt;
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+  color: #043A6B;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #679FD2;
+}
+
+#right_sidebar {
+  float: left;
+  width: 14%;
+  margin-top: 35px;
+  margin-right: 35px;
+  padding: 15px 15px 15px 15px;
+  border-left: 5px dotted #FFC573;
+  background: white;
 }
 
 #main_content {
-  padding: 25px;
-}
-
-#logo img {
-  display: inline;
-}
-
-#logo h3 {
-  display: inline;
-  font-size: 48pt;
-}
-
-#header_links {
-  text-align: right;
-}
-
-.client-welcome {
-  padding-bottom: 25px;
-}
-
-.my-projects {
-  font-size: 26pt;
-  padding-bottom: 25px;
-}
-
-.project, .ticket, .comment, .reply {
-  padding-left: 25px;
-}
-
-.comment-text {
-  padding-bottom: 10px;
-  border-bottom: 2px solid blue;
-}
-
-.reply-text {
-  padding-bottom: 3px;
-  border-bottom: 2px solid black;
-}
-
-.ticket-info {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 4px solid black;
+  float: left;
+  width: 66%;
+  margin-top: 35px;
+  margin-left: 35px;
+  padding: 15px 50px 15px 15px;
+  background: white;
 }
 
 .ticket-header {
-  font-weight: bold;
-  font-size: 20pt;
+  padding-top: 15px;
+  font-size: 32pt;
 }
 
-.ticket-description {
-  margin-top: 20px;
+.the-description {
+  padding: 30px;
 }
 
-.ticket-status {
-  margin-top: 20px;
-
-}
-
-.project-name {
-  font-size: 26pt;
-  font-family: serif;
-}
-
-.mindtrack {
-  padding-left: 50px;
-}
-
-.status {
-  padding: 5px;
-  margin: 5px 0 5px 0;
-  text-align: center;
-}
-
-.status-messages {
-  text-align: center;
-  font-size: 14pt;
-  font-weight: bold;
-}
-
-.comment, .ticket {
-  border: 3px solid black;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.create-comment-form, .comment-reply-form {
-  border: 2px dashed black;
-  padding: 10px;
+.comment-text, .create-comment-form {
   margin-top: 15px;
+  margin-left: 45px;
 }
 
-.completed-tickets {
-  font-size: 36pt;
-}
-
-.ticket-timestamps, .comment-timestamps, .reply-timestamps, .project-timestamps {
+.reply-text, .comment-reply-form {
   margin-top: 15px;
+  margin-left: 45px;
 }
 
-.reply {
-  margin-top: 15px;
+.new-ticket {
+  float: right;
 }
 
-.ticket-created, .ticket-updated {
-
-}

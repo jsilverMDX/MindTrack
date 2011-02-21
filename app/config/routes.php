@@ -4,8 +4,7 @@
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'welcome'));
 
-	// janky ticket route redirect
-	Router::connect('/t/:num', array('controller' => 'tickets', 'action' => 'ticket_redirect'));
+	Router::connect('/t/:name/:num', array('controller' => 'tickets', 'action' => 'ticket_redirect'));
 	
 	Router::connect('/_:page', array('controller' => 'pages', 'action' => 'display'));
 	
