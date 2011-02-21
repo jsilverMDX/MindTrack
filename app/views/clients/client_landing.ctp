@@ -59,8 +59,8 @@
       <?
         endforeach;
       ?>
-      <div class="reply-form-holder">
-      <a onclick="$(this).parent().children('.comment-reply-form').show();$(this).hide();">Post Reply</a>
+     <div class="reply-form-holder">
+      <a class="reply-form-button">Post Reply</a>      
       <div class="comment-reply-form">
       <?php echo $this->Form->create('CommentReply', array('url' => '/clients/reply_to_comment'));?>
 	      <?php
@@ -77,7 +77,7 @@
       endforeach;
     ?>
     <div class="comment-form-holder">
-    <a onclick="$(this).parent().children('.create-comment-form').show();$(this).hide();">Create Comment</a>
+    <a class="comment-form-button">Create Comment</a>
     <div class="create-comment-form">
     <?php echo $this->Form->create('TicketComment', array('url' => '/clients/add_comment'));?>
 	    <?php
@@ -90,7 +90,7 @@
     </div>
     </div>
     <div class="file-form-holder">
-    <a onclick="$(this).parent().children('.add-file-form').show();$(this).hide();">Upload File</a>
+    <a class="upload-file-button">Upload File</a>
 
     <div class="add-file-form">
     <?php echo $this->Form->create('Image', array('url' => '/clients/add_file_to_ticket', 'enctype' => 'multipart/form-data'));?>
@@ -118,4 +118,34 @@
 
 </div>
 
-
+<script>
+$('.upload-file-button').click(function() {
+  $('.create-comment-form').hide();
+  $('.add-file-form').hide();
+  $('.comment-reply-form').hide();
+  $(this).parent().children('.add-file-form').show();
+  $(this).hide();
+  $('.comment-form-button').show();
+  $('.reply-form-button').show();
+});
+$('.comment-form-button').click(function() {
+  $('.create-comment-form').hide();
+  $('.add-file-form').hide();
+  $('.comment-reply-form').hide();
+  $(this).parent().children('.create-comment-form').show();
+  $(this).hide();
+  $('.upload-file-button').show();
+  $('.reply-form-button').show();
+  
+});
+$('.reply-form-button').click(function() {
+  $('.create-comment-form').hide();
+  $('.add-file-form').hide();
+  $('.comment-reply-form').hide();
+  $(this).parent().children('.comment-reply-form').show();
+  $(this).hide();
+  $('.upload-file-button').show();
+  $('.comment-form-button').show();
+  
+});
+</script>
