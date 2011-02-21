@@ -53,8 +53,12 @@ a:hover {
   font-size: 32pt;
 }
 
+.ticket-description {
+  padding: 0px 25px 25px 25px;
+}
+
 .the-description {
-  padding: 30px;
+  padding: 15px;
 }
 
 .comment-text, .create-comment-form {
