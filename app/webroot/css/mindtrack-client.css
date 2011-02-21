@@ -61,17 +61,22 @@ a:hover {
   padding: 15px;
 }
 
-.comment-text, .create-comment-form {
+.comment-text, .comment-form-holder, .file-form-holder {
   margin-top: 15px;
   margin-left: 45px;
 }
 
-.reply-text, .comment-reply-form {
+.reply-text, .reply-form-holder {
   margin-top: 15px;
   margin-left: 45px;
 }
 
 .new-ticket {
   float: right;
+}
+
+/* pre hide */
+.comment-reply-form, .create-comment-form,.add-file-form  {
+  display: none;
 }
 
