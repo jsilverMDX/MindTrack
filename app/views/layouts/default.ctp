@@ -58,7 +58,7 @@
   </div>
 </div>
 	
-<div id="contact"><a href='mailto&#58;%6A&#115;&#105;lve&#114;&#64;&#109;i%6Edy%&#54;Eam&#105;&#37;&#54;3&#115;&#46;%6&#51;&#111;&#37;6D'>mash here to contact us?</a></div>
+<div id="contact"><a href='&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#101;&#097;&#109;&#064;&#109;&#105;&#110;&#100;&#121;&#110;&#097;&#109;&#105;&#099;&#115;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
 <div id="footer">&copy; 2011 mindynamics Inc.</div>	
 
 <script>
