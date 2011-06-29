@@ -41,7 +41,7 @@
   <ul id="menuitems">
    	<?php 
    	// set, in order, which pages you want on the menu:
-    $nav_items = array('incubation', 'training', 'portfolio', 'squad');
+    $nav_items = array('incubation', 'training', 'portfolio');
     if ($this->params['controller'] == 'pages') {
       foreach ($nav_items as $name):
         $li_class = ($name == $current_page) ? ' class="selected"' : '';
@@ -59,7 +59,7 @@
 </div>
 	
 <div id="contact"><a href='&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#101;&#097;&#109;&#064;&#109;&#105;&#110;&#100;&#121;&#110;&#097;&#109;&#105;&#099;&#115;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
-<div id="footer">&copy; 2011 mindynamics Inc.</div>	
+<div id="footer">&copy; 2011 mindynamics.com</div>	
 
 <script>
 $(window).load(function () {
