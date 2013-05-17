@@ -11,7 +11,7 @@
 <?php echo $scripts_for_layout ?>
 </head>
 <body>
-  
+
   <div id="header">
   	<div id="login">
   	  <ul>
@@ -34,12 +34,12 @@
 		  <div id="tagline"><h2>collaborative web & mobile application development</h2></div>
 	  </div>
   </div>
-  
+
 <iframe id="gtalkbadge" style="z-index:2" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqulpe3m58tvc3f257ns90ofpcm9701n1cklb4hg0e23evn4nm19bedu901u206g1t7io8k60uektu0hnbgb8qd77o5bs98e5m2ut447dcb9mmvda841aevaj05udocubrvnkhoq6u9pfpe43b22k9mgga9s0b1bkc8g7aavf3le7u6ohei8s86h2e2s&amp;w=159&amp;h=36" frameborder="0" allowtransparency="true" width="159" height="36"></iframe>
 
 <div id="menu">
   <ul id="menuitems">
-   	<?php 
+   	<?php
    	// set, in order, which pages you want on the menu:
     $nav_items = array('incubation', 'training', 'portfolio');
     if ($this->params['controller'] == 'pages') {
@@ -57,9 +57,9 @@
 		<?php echo $content_for_layout; ?>
   </div>
 </div>
-	
-<div id="contact"><a href='&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#101;&#097;&#109;&#064;&#109;&#105;&#110;&#100;&#121;&#110;&#097;&#109;&#105;&#099;&#115;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
-<div id="footer">&copy; 2011 mindynamics.com</div>	
+
+<div id="contact"><a href='&#106;&#115;&#105;&#108;&#118;&#101;&#114;&#109;&#097;&#110;&#050;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
+<div id="footer">&copy; 2011 mindynamics.com</div>
 
 <script>
 $(window).load(function () {
@@ -67,7 +67,7 @@ $(window).load(function () {
 });
 </script>
 
-</body></html>	    	
+</body></html>
 
 
 
