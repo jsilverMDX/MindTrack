@@ -58,8 +58,8 @@
   </div>
 </div>
 
-<div id="contact"><a href='mailto:&#106;&#115;&#105;&#108;&#118;&#101;&#114;&#109;&#097;&#110;&#050;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
-<div id="footer">&copy; 2011 mindynamics.com</div>
+<div id="contact"><a href='mailto:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#109;&#105;&#110;&#100;&#121;&#110;&#097;&#109;&#105;&#099;&#115;&#103;&#114;&#111;&#117;&#112;&#046;&#099;&#111;&#109;'>mash here to contact us?</a></div>
+<div id="footer">&copy; 2011 mindynamicsgroup.com</div>
 
 <script>
 $(window).load(function () {
